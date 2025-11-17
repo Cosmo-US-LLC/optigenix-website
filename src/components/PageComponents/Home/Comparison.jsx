@@ -11,86 +11,91 @@ const Comparison = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-[1280px] px-4 md:px-8 mx-auto">
-        <div className="grid grid-cols-1 gap-12 items-center lg:grid-cols-2">
-          {/* Left: Image */}
-          <div className="relative h-[600px] rounded-lg overflow-hidden bg-gradient-to-br from-[#0d8360] to-[#042b24]">
+    <section className="py-12 bg-white md:py-16 lg:py-[80px] px-4 md:px-8 lg:px-[32px]">
+      <div className="max-w-[1280px] mx-auto">
+        <div className="flex flex-col lg:flex-row gap-8 md:gap-10 lg:gap-[48px] items-center">
+          {/* Left: Product Image */}
+          <div className="w-full lg:w-[600px] h-[400px] md:h-[500px] lg:h-[600px] rounded-[24px] overflow-hidden shrink-0">
             <img
               src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=1200"
               alt="OptiGenix Product"
-              className="object-cover w-full h-full opacity-50"
+              className="object-cover w-full h-full"
             />
-            <div className="flex absolute inset-0 justify-center items-center">
-              <div className="p-8 rounded-2xl backdrop-blur-lg bg-white/10">
-                <Package className="w-32 h-32 text-white" />
-              </div>
-            </div>
           </div>
 
-          {/* Right: Comparison Table */}
-          <div className="space-y-6">
-            <h2 className="font-['Funnel_Display'] font-medium text-[48px] leading-[56px] text-[#010907]">
-              Why Choose OptiGenix?
+          {/* Right: Comparison Content */}
+          <div className="flex-1 w-full flex flex-col justify-between gap-8 md:gap-10 lg:gap-0 lg:h-[600px]">
+            {/* Title */}
+            <h2 className="font-funnel font-medium text-[32px] md:text-[40px] lg:text-[48px] leading-[56px] text-[#010907] capitalize">
+              Comparison
             </h2>
 
-            {/* Table Header */}
-            <div className="grid grid-cols-[2fr_1fr_1fr] gap-4 pb-4 border-b border-gray-200">
-              <div className="font-['Funnel_Display'] font-semibold text-[18px] text-[#010907]">
-                Benefits
-              </div>
-              <div className="text-center">
-                <div className="inline-flex items-center gap-2 bg-[#0d8360] text-white px-4 py-2 rounded-full">
-                  <Check className="w-5 h-5" />
-                  <span className="font-['Funnel_Display'] font-semibold text-[14px]">
-                    OptiGenix
-                  </span>
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="inline-flex gap-2 items-center px-4 py-2 text-gray-600 bg-gray-200 rounded-full">
-                  <Package className="w-5 h-5" />
-                  <span className="font-['Funnel_Display'] font-semibold text-[14px]">
-                    Traditional
-                  </span>
-                </div>
-              </div>
-            </div>
+            {/* Comparison Table */}
+            <div className="flex flex-col gap-4 md:gap-6 lg:gap-[24px] relative">
+              {/* Vertical dark pill behind OptiGenix column - desktop only */}
+              <div className="hidden lg:block absolute bg-[#042b24] w-[68px] h-[380px] rounded-[100px] left-[423px] top-[220px]" />
 
-            {/* Comparison Rows */}
-            <div className="space-y-3">
-              {comparisons.map((item, index) => (
-                <div
-                  key={index}
-                  className="grid grid-cols-[2fr_1fr_1fr] gap-4 items-center py-3 hover:bg-[#f7f7f7] rounded-lg transition-colors"
-                >
-                  <div className="font-['Inter'] font-medium text-[16px] text-[#010907]">
-                    {item.feature}
-                  </div>
-                  <div className="flex justify-center">
-                    {item.optigenix ? (
-                      <div className="w-8 h-8 bg-[#0d8360] rounded-full flex items-center justify-center">
-                        <Check className="w-5 h-5 text-white" />
-                      </div>
-                    ) : (
-                      <div className="flex justify-center items-center w-8 h-8 bg-gray-200 rounded-full">
-                        <X className="w-5 h-5 text-gray-400" />
-                      </div>
-                    )}
-                  </div>
-                  <div className="flex justify-center">
-                    {item.traditional ? (
-                      <div className="w-8 h-8 bg-[#0d8360] rounded-full flex items-center justify-center">
-                        <Check className="w-5 h-5 text-white" />
-                      </div>
-                    ) : (
-                      <div className="flex justify-center items-center w-8 h-8 bg-gray-200 rounded-full">
-                        <X className="w-5 h-5 text-gray-400" />
-                      </div>
-                    )}
-                  </div>
+              {/* Table Header */}
+              <div className="flex items-center justify-between pb-3 md:pb-4 lg:pb-[16px] border-b border-[rgba(1,9,7,0.5)]">
+                <p className="font-inter font-semibold text-[16px] md:text-[17px] lg:text-[18px] leading-[26px] text-[#010907]">
+                  Benefits
+                </p>
+                <div className="flex items-center justify-between w-[240px] md:w-[260px] lg:w-[288px]">
+                  <Package
+                    className="w-6 h-6 md:w-7 md:h-7 lg:w-[28px] lg:h-[32px] text-[#042b24]"
+                    strokeWidth={1.5}
+                  />
+                  <p className="font-inter font-medium italic text-[16px] md:text-[17px] lg:text-[18px] leading-[26px] text-[#2b7a6c] text-center w-[180px] md:w-[200px] lg:w-[209px]">
+                    Traditional
+                    <br />
+                    Supplements
+                  </p>
                 </div>
-              ))}
+              </div>
+
+              {/* Comparison Rows */}
+              <div className="flex flex-col gap-3 md:gap-4 lg:gap-[16px]">
+                {comparisons.map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-between pb-3 md:pb-4 lg:pb-[16px] border-b border-[rgba(1,9,7,0.5)] border-opacity-20"
+                  >
+                    <p className="font-inter text-[16px] md:text-[18px] lg:text-[20px] leading-[28px] text-[#010907]">
+                      {item.feature}
+                    </p>
+                    <div className="flex gap-8 md:gap-10 lg:gap-[48px] items-center">
+                      {/* OptiGenix column */}
+                      <div className="flex justify-center items-center w-[32px]">
+                        {item.optigenix ? (
+                          <Check
+                            className="w-5 h-5 md:w-6 md:h-6 lg:w-[24px] lg:h-[24px] text-white relative z-10"
+                            strokeWidth={3}
+                          />
+                        ) : (
+                          <X
+                            className="w-5 h-5 md:w-6 md:h-6 lg:w-[24px] lg:h-[24px] text-red-400"
+                            strokeWidth={2}
+                          />
+                        )}
+                      </div>
+                      {/* Traditional column */}
+                      <div className="flex justify-center items-center w-[180px] md:w-[200px] lg:w-[209px]">
+                        {item.traditional ? (
+                          <Check
+                            className="w-5 h-5 md:w-6 md:h-6 lg:w-[24px] lg:h-[24px] text-[#0d8360]"
+                            strokeWidth={3}
+                          />
+                        ) : (
+                          <X
+                            className="w-5 h-5 md:w-6 md:h-6 lg:w-[24px] lg:h-[24px] text-red-400"
+                            strokeWidth={2}
+                          />
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
