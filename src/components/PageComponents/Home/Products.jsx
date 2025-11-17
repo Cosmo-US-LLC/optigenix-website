@@ -1,5 +1,12 @@
 import React, { useRef } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, MoveLeft } from "lucide-react";
+import ourMostTrustedFormulasP1 from "../../../assets/images/our_most_trusted/our_most_trusted_c1.webp";
+import ourMostTrustedFormulasP2 from "../../../assets/images/our_most_trusted/our_most_trusted_c2.webp";
+import ourMostTrustedFormulasC3 from "../../../assets/images/our_most_trusted/our_most_trusted_c3.webp";
+import ourMostTrustedFormulasC4 from "../../../assets/images/our_most_trusted/our_most_trusted_c4.webp";
+import ourMostTrustedFormulasC5 from "../../../assets/images/our_most_trusted/our_most_trusted_c5.webp";
+import ourMostTrustedFormulasC6 from "../../../assets/images/our_most_trusted/our_most_trusted_c6.webp";
+import ourMostTrustedFormulasC7 from "../../../assets/images/our_most_trusted/our_most_trusted_c7.webp";
 
 const products = [
   {
@@ -7,52 +14,45 @@ const products = [
     description:
       "Built for faster recovery, muscle repair, and performance resilience",
     price: "$59.99",
-    image:
-      "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?q=80&w=600",
+    image: ourMostTrustedFormulasP1,
   },
   {
     name: "Sleep QuickPack™",
     description: "Built for deep sleep, calm recovery, and restorative rest",
     price: "$59.99",
-    image:
-      "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=600",
+    image: ourMostTrustedFormulasP2,
   },
   {
     name: "Strength QuickPack™",
     description: "Built for muscle growth, power, and resilient strength",
     price: "$59.99",
-    image:
-      "https://images.unsplash.com/photo-1579758629938-03607ccdbaba?q=80&w=600",
+    image: ourMostTrustedFormulasC3,
   },
   {
     name: "Endurance QuickPack™",
     description:
       "Built for cellular energy, stamina, and sustained performance",
     price: "$59.99",
-    image:
-      "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?q=80&w=600",
+    image: ourMostTrustedFormulasC4,
   },
   {
     name: "Focus QuickPack™",
     description: "Built for clarity, focus, and real-world stress",
     price: "$59.99",
-    image:
-      "https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=600",
+    image: ourMostTrustedFormulasC5,
   },
   {
     name: "Joint Health QuickPack™",
     description: "Built for mobility, flexibility, and joint comfort",
     price: "$59.99",
-    image:
-      "https://images.unsplash.com/photo-1556817411-58c45dd94e8c?q=80&w=600",
+    image: ourMostTrustedFormulasC6,
   },
   {
     name: "Immune Health QuickPack™",
     description:
       "Built for immune response, detox support, and antioxidant defense",
     price: "$59.99",
-    image:
-      "https://images.unsplash.com/photo-1550534791-2677533605ab?q=80&w=600",
+    image: ourMostTrustedFormulasC7,
   },
 ];
 
@@ -86,14 +86,14 @@ const Products = () => {
               className="border border-[#010907] hover:bg-[#010907] hover:text-white transition-colors p-3 rounded-full"
               aria-label="Scroll left"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <MoveLeft className="" />
             </button>
             <button
               onClick={() => scroll("right")}
               className="border border-[#010907] hover:bg-[#010907] hover:text-white transition-colors p-3 rounded-full"
               aria-label="Scroll right"
             >
-              <ChevronRight className="w-6 h-6" />
+              <MoveLeft className="rotate-180" />
             </button>
           </div>
         </div>
@@ -107,7 +107,7 @@ const Products = () => {
             {products.map((product, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-[350px] group cursor-pointer"
+                className="flex-shrink-0 w-[360px] group cursor-pointer"
               >
                 {/* Product Image */}
                 <div className="relative h-[360px] mb-4 rounded-lg overflow-hidden bg-white">

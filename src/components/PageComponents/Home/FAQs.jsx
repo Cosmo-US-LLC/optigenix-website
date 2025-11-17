@@ -1,87 +1,77 @@
-import React, { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import React from "react";
+import { Plus, Minus } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const faqs = [
   {
-    question: 'How does DNA and blood testing personalize my supplements?',
-    answer: 'Our DNA testing analyzes your genetic markers to understand how your body processes nutrients, responds to training, and recovers. Blood testing reveals your current biomarker levels like vitamins, minerals, and hormones. Together, they create a complete picture of your unique needs.',
+    question: "How does OptiGenix work?",
+    answer:
+      "OptiGenix combines advanced DNA and blood testing with personalized supplement formulations. We analyze your unique genetic markers and current biomarker levels to create a customized nutrition plan tailored specifically to your body's needs, goals, and lifestyle.",
   },
   {
-    question: 'How long does it take to see results?',
-    answer: 'Most customers begin noticing improvements in energy, recovery, and performance within 2-4 weeks of consistent use. However, optimal results typically occur after 60-90 days as your body adjusts to personalized supplementation.',
+    question: "Is OptiGenix only for athletes?",
+    answer:
+      "Not at all! While athletes love our personalized approach, OptiGenix is designed for anyone looking to optimize their health and wellness. Whether you're a busy professional, fitness enthusiast, or simply focused on healthy aging, our personalized supplements work for you.",
   },
   {
-    question: 'Is my data safe and private?',
-    answer: 'Absolutely. We use bank-level encryption to protect your data. Your genetic and health information is never sold or shared with third parties. You have full control over your data and can delete it at any time.',
-  },
-  {
-    question: 'Can I modify my supplement plan?',
-    answer: 'Yes! You can update your plan at any time based on new testing results, changing goals, or consultation with our expert dietitians. Your supplements evolve as your needs change.',
-  },
-  {
-    question: 'Are your supplements third-party tested?',
-    answer: 'Yes, all our supplements are tested by independent, ISO-accredited laboratories for purity, potency, and safety. We provide certificates of analysis for complete transparency.',
-  },
-  {
-    question: 'What if I don\'t like my supplements?',
-    answer: 'We offer a 30-day money-back guarantee. If you\'re not satisfied with your personalized supplements, contact us for a full refund - no questions asked.',
+    question: "Why choose OptiGenix?",
+    answer:
+      "Unlike generic supplements, OptiGenix is built on science-backed personalization. Our DNA and blood analysis ensures you get exactly what your body needs - no more, no less. Plus, our supplements are third-party tested, and backed by expert support to help you achieve your health goals.",
   },
 ];
 
 const FAQs = () => {
-  const [openIndex, setOpenIndex] = useState(null);
-
-  const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   return (
-    <section className="bg-white py-20 px-8">
-      <div className="max-w-[1080px] mx-auto">
+    <section className="bg-[#f7f7f7] py-[80px] px-8 lg:px-[180px]">
+      <div className="max-w-[1080px] mx-auto flex flex-col gap-[48px]">
         {/* Header */}
-        <h2 className="font-['Funnel_Display'] font-medium text-[48px] leading-[56px] text-[#010907] text-center mb-12">
+        <h2 className="font-funnel font-semibold text-[48px] leading-[56px] text-[#010907] text-center tracking-[-0.72px]">
           Frequently Asked Questions
         </h2>
 
-        {/* FAQ Items */}
-        <div className="space-y-4">
+        {/* FAQ Accordion */}
+        <Accordion
+          type="single"
+          collapsible
+          className="flex flex-col gap-[16px]"
+        >
           {faqs.map((faq, index) => (
-            <div
+            <AccordionItem
               key={index}
-              className="bg-[#f7f7f7] rounded-lg overflow-hidden transition-all"
+              value={`item-${index}`}
+              className="bg-white rounded-[16px] overflow-hidden border-none"
             >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full flex items-center justify-between p-6 text-left hover:bg-[#ececec] transition-colors"
-              >
-                <h3 className="font-['Funnel_Display'] font-medium text-[18px] leading-[24px] text-[#010907] pr-4">
+              <AccordionTrigger className="px-[24px] py-[32px] hover:bg-gray-50 hover:no-underline group">
+                <h3 className="font-funnel font-medium text-[32px] leading-[40px] text-[#010907] pr-4">
                   {faq.question}
                 </h3>
-                <ChevronDown
-                  className={`w-6 h-6 text-[#010907] flex-shrink-0 transition-transform duration-300 ${
-                    openIndex === index ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
-              
-              <div
-                className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? 'max-h-96' : 'max-h-0'
-                }`}
-              >
-                <div className="px-6 pb-6">
-                  <p className="font-['Inter'] font-normal text-[16px] leading-[24px] text-[#010907]">
-                    {faq.answer}
-                  </p>
+                <div className="bg-[rgba(0,0,0,0.06)] rounded-[24px] w-[48px] h-[48px] flex items-center justify-center shrink-0 ml-4 relative">
+                  <Plus
+                    className="w-[24px] h-[24px] text-[#010907] transition-all duration-200 group-data-[state=open]:rotate-90 group-data-[state=open]:opacity-0 group-data-[state=open]:scale-0"
+                    strokeWidth={2}
+                  />
+                  <Minus
+                    className="w-[24px] h-[24px] text-[#010907] transition-all duration-200 absolute opacity-0 scale-0 rotate-90 group-data-[state=open]:rotate-0 group-data-[state=open]:opacity-100 group-data-[state=open]:scale-100"
+                    strokeWidth={2}
+                  />
                 </div>
-              </div>
-            </div>
+              </AccordionTrigger>
+              <AccordionContent className="px-[24px] pb-[32px] pt-0">
+                <p className="font-inter text-[18px] leading-[28px] text-[#010907]">
+                  {faq.answer}
+                </p>
+              </AccordionContent>
+            </AccordionItem>
           ))}
-        </div>
+        </Accordion>
       </div>
     </section>
   );
 };
 
 export default FAQs;
-

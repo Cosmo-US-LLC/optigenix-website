@@ -1,10 +1,8 @@
 import React from "react";
-
-// Image URLs from Figma
-const imgRecovery = "https://www.figma.com/api/mcp/asset/85243d75-1e37-457d-b608-d0e9c09d4a56";
-const imgPhysicalPerformance = "https://www.figma.com/api/mcp/asset/18b6c2db-136c-4719-b9a7-d99b3937a331";
-const imgMentalPerformance = "https://www.figma.com/api/mcp/asset/0a7e7cd4-6833-46f8-bc85-ad97d14ba302";
-const imgArrowIcon = "https://www.figma.com/api/mcp/asset/3c27ca99-1da5-4ed6-86d6-d2f5fb758213";
+import { MoveLeft } from "lucide-react";
+import shopYourFocusC1 from "../../../assets/images/shop_your_focus/shop_your_focus_c1.webp";
+import shopYourFocusC2 from "../../../assets/images/shop_your_focus/shop_your_focus_c2.webp";
+import shopYourFocusC3 from "../../../assets/images/shop_your_focus/shop_your_focus_c3.webp";
 
 const categories = [
   {
@@ -12,28 +10,28 @@ const categories = [
     description:
       "Improve focus, mental clarity, and cognitive function with nootropic blends.",
     buttonText: "Shop recovery",
-    image: imgRecovery,
+    image: shopYourFocusC1,
   },
   {
     title: "Physical Performance",
     description:
       "Enhance strength and endurance with comprehensive performance formulas.",
     buttonText: "Shop physical performance",
-    image: imgPhysicalPerformance,
+    image: shopYourFocusC2,
   },
   {
     title: "Mental Performance",
     description:
       "Targeted supplements for joint health, immune support, and quality sleep.",
     buttonText: "shop mental health",
-    image: imgMentalPerformance,
+    image: shopYourFocusC3,
   },
 ];
 
 const Categories = () => {
   return (
-    <section className="bg-white py-[80px] px-[32px]">
-      <div className="max-w-[1280px] mx-auto">
+    <section className="bg-white py-[80px]">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-8">
         {/* Title with Description */}
         <div className="flex flex-col gap-[16px] items-center text-center mb-[48px]">
           {/* Heading */}
@@ -66,7 +64,7 @@ const Categories = () => {
               >
                 {/* Image with Label Overlay */}
                 <div className="relative w-full">
-                  <div className="h-[360px] w-full rounded-lg overflow-hidden">
+                  <div className="h-[310px] w-full rounded-lg overflow-hidden">
                     <img
                       src={category.image}
                       alt={category.title}
@@ -75,7 +73,7 @@ const Categories = () => {
                   </div>
                   {/* Category Label */}
                   <p
-                    className="absolute top-[12px] left-[9.67px] text-[16px] leading-[24px] text-[#010907] font-medium"
+                    className="absolute top-[8px] left-0 text-[16px] leading-[24px] text-[#010907] font-medium"
                     style={{ fontFamily: "Funnel Display, sans-serif" }}
                   >
                     {category.title}
@@ -102,11 +100,12 @@ const Categories = () => {
                     </span>
                     {/* Arrow Icon */}
                     <div className="w-[20px] h-[20px] flex items-center justify-center rotate-90">
-                      <img
+                      <MoveLeft className="text-[#010907] group-hover:text-[#ffffff] rotate-45" />
+                      {/* <img
                         src={imgArrowIcon}
                         alt=""
                         className="w-full h-full"
-                      />
+                      /> */}
                     </div>
                   </button>
                 </div>
@@ -132,4 +131,3 @@ const Categories = () => {
 };
 
 export default Categories;
-

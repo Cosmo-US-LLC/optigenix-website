@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { ShoppingCart, User, ChevronDown, Menu, X } from "lucide-react";
+import {
+  ShoppingCart,
+  User,
+  ShoppingBag,
+  ChevronDown,
+  Menu,
+  X,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/images/header/optigenix_logo.svg";
 
@@ -48,13 +55,7 @@ const Header = () => {
               </svg>
             </div>
             {/* Logo Text */}
-            <span
-              className="font-semibold text-[30px] text-black leading-normal"
-              style={{
-                fontFamily: "Gibson, sans-serif",
-                letterSpacing: "-0.6px",
-              }}
-            >
+            <span className="font-semibold leading-[-0.602px] text-[30px] font-['Funnel_Display'] text-[#000]">
               OptiGenix
             </span>
           </Link>
@@ -105,7 +106,7 @@ const Header = () => {
 
               {/* Shopping Cart Icon */}
               <button className="bg-[#ededed] hover:bg-[#e0e0e0] w-[48px] h-[48px] rounded-[24px] flex items-center justify-center transition-colors">
-                <ShoppingCart className="w-[24px] h-[24px] text-black" />
+                <ShoppingBag className="w-[24px] h-[24px] text-black" />
               </button>
 
               {/* User Icon */}

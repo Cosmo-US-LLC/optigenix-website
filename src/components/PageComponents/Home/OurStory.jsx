@@ -1,4 +1,5 @@
 import React from "react";
+import ourStoryImage from "../../../assets/images/our_story/our_story_img.webp";
 
 const OurStory = () => {
   return (
@@ -54,9 +55,9 @@ const OurStory = () => {
 
           {/* Right Image */}
           <div className="h-full">
-            <div className="relative h-[512px] rounded-lg overflow-hidden">
+            <div className="relative h-[600px] rounded-lg overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200"
+                src={ourStoryImage}
                 alt="Athletes training"
                 className="object-cover w-full h-full"
               />
