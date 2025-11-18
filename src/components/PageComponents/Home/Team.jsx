@@ -5,24 +5,26 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-
+import gabrielAbbes from "../../../assets/images/team/meet_team_img1.webp";
+import jaiWilliams from "../../../assets/images/team/meet_team_img2.webp";
+import lauraHixGlickman from "../../../assets/images/team/meet_team_img3.webp";
 const teamMembers = [
   {
     name: "Gabriel Abbes",
     role: "Chief Executive Officer",
-    image: "https://i.pravatar.cc/400?img=12",
+    image: gabrielAbbes,
     bio: "Lorem ipsum dolor sit amet consectetur. In amet pharetra blandit pellentesque at magna augue nibh ultrices. Eleifend diam morbi urna netus id. Vel nec nibh nam vulputate. Mi integer enim adipiscing in. Risus nunc sed in sed risus id. Scelerisque diam egestas sit tortor vel consequat.",
   },
   {
     name: "Jai Williams",
     role: "Chief Operating Officer",
-    image: "https://i.pravatar.cc/400?img=14",
+    image: jaiWilliams,
     bio: "Lorem ipsum dolor sit amet consectetur. In amet pharetra blandit pellentesque at magna augue nibh ultrices. Eleifend diam morbi urna netus id. Vel nec nibh nam vulputate. Mi integer enim adipiscing in. Risus nunc sed in sed risus id. Scelerisque diam egestas sit tortor vel consequat.",
   },
   {
     name: "Laura Hix Glickman, Ph.D.",
     role: "Chief Strategic and Scientific Advisor",
-    image: "https://i.pravatar.cc/400?img=16",
+    image: lauraHixGlickman,
     bio: "Lorem ipsum dolor sit amet consectetur. In amet pharetra blandit pellentesque at magna augue nibh ultrices. Eleifend diam morbi urna netus id. Vel nec nibh nam vulputate. Mi integer enim adipiscing in. Risus nunc sed in sed risus id. Scelerisque diam egestas sit tortor vel consequat.",
   },
 ];

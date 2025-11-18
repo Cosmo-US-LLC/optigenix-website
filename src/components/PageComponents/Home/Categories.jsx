@@ -64,7 +64,7 @@ const Categories = () => {
               >
                 {/* Image with Label Overlay */}
                 <div className="relative w-full">
-                  <div className="h-[310px] w-full rounded-lg overflow-hidden">
+                  <div className="h-[330px] w-full rounded-lg overflow-hidden">
                     <img
                       src={category.image}
                       alt={category.title}
@@ -73,7 +73,7 @@ const Categories = () => {
                   </div>
                   {/* Category Label */}
                   <p
-                    className="absolute top-[8px] left-0 text-[16px] leading-[24px] text-[#010907] font-medium"
+                    className="absolute top-[8px] left-0 text-[15px] leading-[24px] text-[#010907] font-medium"
                     style={{ fontFamily: "Funnel Display, sans-serif" }}
                   >
                     {category.title}

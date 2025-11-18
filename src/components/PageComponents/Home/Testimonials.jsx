@@ -1,100 +1,189 @@
 import React from "react";
 import { Star } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import testimonialBg from "../../../assets/images/testimonial/testimonial_bg.webp";
 
 const testimonials = [
   {
-    name: "Sarah M.",
-    role: "Marathon Runner",
-    image: "https://i.pravatar.cc/150?img=1",
+    title: "Grace's Personalized Stack",
+    text: "It's pretty awesome that it's all customizable to your body using science",
+    author: "Grace Cobb",
     rating: 5,
-    text: "OptiGenix changed my training game completely. After my DNA test, I realized I was deficient in key nutrients. My custom pack fixed that, and I PR'd my marathon by 8 minutes!",
   },
   {
-    name: "Mike T.",
-    role: "CrossFit Athlete",
-    image: "https://i.pravatar.cc/150?img=3",
+    title: "Grace's Personalized Stack",
+    text: "It's pretty awesome that it's all customizable to your body using science",
+    author: "Grace Cobb",
     rating: 5,
-    text: "Finally, supplements that actually work for MY body. No more guessing. My recovery time has cut in half, and I feel stronger than ever.",
   },
   {
-    name: "Jennifer L.",
-    role: "Triathlete",
-    image: "https://i.pravatar.cc/150?img=5",
+    title: "Grace's Personalized Stack",
+    text: "It's pretty awesome that it's all customizable to your body using science",
+    author: "Grace Cobb",
     rating: 5,
-    text: "The blood panel revealed I was low in iron and vitamin D. Within weeks of using my personalized pack, my energy levels skyrocketed. This is next-level.",
   },
   {
-    name: "David K.",
-    role: "Weightlifter",
-    image: "https://i.pravatar.cc/150?img=7",
+    title: "Grace's Personalized Stack",
+    text: "It's pretty awesome that it's all customizable to your body using science",
+    author: "Grace Cobb",
     rating: 5,
-    text: "I've tried every supplement brand out there. OptiGenix is the first that's actually backed by MY data. The difference is real.",
   },
   {
-    name: "Amanda R.",
-    role: "Yoga Instructor",
-    image: "https://i.pravatar.cc/150?img=9",
+    title: "Grace's Personalized Stack",
+    text: "It's pretty awesome that it's all customizable to your body using science",
+    author: "Grace Cobb",
     rating: 5,
-    text: "Love that OptiGenix focuses on what I actually need, not just trendy ingredients. My sleep improved dramatically, and I wake up feeling restored.",
   },
 ];
 
-const Testimonials = () => {
+// Reusable TestimonialCard Component
+const TestimonialCard = ({ rating, title, description, author, isActive }) => {
   return (
-    <section className="relative bg-gradient-to-br from-[#042b24] to-[#0d8360] py-20 overflow-hidden">
-      <div className="max-w-[1280px] px-4 md:px-8 mx-auto">
-        {/* Header */}
-        <div className="grid grid-cols-1 gap-8 mb-12 text-white lg:grid-cols-2">
-          <h2 className="font-['Funnel_Display'] font-medium text-[40px] leading-[48px]">
+    <div
+      className={`w-full h-full rounded-[20px] p-4 md:px-[16px] md:py-[24px] flex flex-col gap-6 md:gap-[32px] border transition-all duration-300 ${
+        isActive
+          ? "bg-white border-white/10"
+          : "border-white bg-black/20 backdrop-blur-[10px]"
+      }`}
+    >
+      {/* Rating */}
+      <div className="flex gap-0 items-center">
+        {[...Array(rating)].map((_, i) => (
+          <Star
+            key={i}
+            className={`w-5 h-5 ${
+              isActive
+                ? "text-[#0d8360] fill-[#0d8360]"
+                : "text-white fill-white"
+            }`}
+          />
+        ))}
+      </div>
+
+      {/* Content */}
+      <div className="flex flex-col gap-4 md:gap-[20px]">
+        {/* Title and Description */}
+        <div className="flex flex-col gap-3 md:gap-[16px]">
+          <h3
+            className={`font-funnel font-bold text-[18px] md:text-[20px] leading-[1.1] ${
+              isActive ? "text-[#042b24]" : "text-white"
+            }`}
+          >
+            {title}
+          </h3>
+          <p
+            className={`font-inter text-[18px] md:text-[20px] leading-[1.4] md:leading-[28px] tracking-[0.4px] ${
+              isActive ? "text-[#010907]" : "text-white"
+            }`}
+          >
+            "{description}"
+          </p>
+        </div>
+
+        {/* Divider and Author */}
+        <div className="flex flex-col gap-3 md:gap-[16px]">
+          <div
+            className={`w-full h-px ${
+              isActive ? "bg-[#010907]/20" : "bg-white/20"
+            }`}
+          />
+          <p
+            className={`font-inter font-bold text-[14px] md:text-[16px] leading-[1.1] tracking-[0.32px] text-center ${
+              isActive ? "text-[#010907]" : "text-white"
+            }`}
+          >
+            {author}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Testimonials = () => {
+  const [api, setApi] = React.useState(null);
+  const [current, setCurrent] = React.useState(0);
+
+  const plugin = React.useRef(
+    Autoplay({ delay: 4000, stopOnInteraction: true })
+  );
+
+  React.useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
+
+  return (
+    <section className="relative h-[600px] md:h-[700px] flex justify-center items-center overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0">
+        <img
+          src={testimonialBg}
+          alt="Background"
+          className="object-cover absolute inset-0 w-full h-full"
+        />
+        {/* <div className="absolute inset-0 bg-black/50" /> */}
+      </div>
+
+      {/* Content */}
+      <div className="flex relative z-10 flex-col h-full max-w-[1300px] mx-auto px-4 md:px-8">
+        {/* Header Section */}
+
+        <div className="flex flex-col gap-6 justify-between items-start px-4 pt-12 text-white md:flex-row md:gap-8">
+          <h2 className="flex-1 font-funnel font-semibold text-[32px] md:text-[40px] lg:text-[48px] leading-[1.2] md:leading-[48px] capitalize">
             Thousands of performance journeys (and counting).
           </h2>
-          <p className="font-['Inter'] font-normal text-[16px] leading-[26px] lg:text-right">
+          <p className="flex-1 font-inter text-[16px] md:text-[18px] leading-[1.4] md:leading-[26px]">
             See how real athletes and fitness enthusiasts are transforming their
             results with OptiGenix.
           </p>
         </div>
 
-        {/* Testimonials Scroll */}
-        <div className="relative">
-          <div className="flex overflow-x-auto gap-6 pb-4 scrollbar-hide">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 w-[358px] bg-white rounded-lg p-6 space-y-4"
-              >
-                {/* Rating */}
-                <div className="flex gap-1">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-5 h-5 text-yellow-400 fill-yellow-400"
-                    />
-                  ))}
-                </div>
-
-                {/* Quote */}
-                <p className="font-['Inter'] font-normal text-[14px] leading-[22px] text-[#010907]">
-                  "{testimonial.text}"
-                </p>
-
-                {/* Author */}
-                <div className="flex gap-3 items-center pt-4 border-t border-gray-200">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="object-cover w-12 h-12 rounded-full"
-                  />
-                  <div>
-                    <p className="font-['Funnel_Display'] font-semibold text-[16px] leading-[20px] text-[#010907]">
-                      {testimonial.name}
-                    </p>
-                    <p className="font-['Inter'] font-normal text-[12px] leading-[16px] text-gray-600">
-                      {testimonial.role}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
+        {/* Testimonials Carousel */}
+        <div className="flex flex-1 items-end pb-8 md:pb-0 md:items-center">
+          <div className="px-4 w-full md:px-8">
+            <Carousel
+              setApi={setApi}
+              plugins={[plugin.current]}
+              opts={{
+                align: "center",
+                loop: true,
+              }}
+              onMouseEnter={() => plugin.current.stop()}
+              onMouseLeave={() => plugin.current.play()}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-3 md:-ml-4 lg:-ml-6">
+                {testimonials.map((testimonial, index) => (
+                  <CarouselItem
+                    key={index}
+                    className=" basis-[280px] sm:basis-[320px] md:basis-[368px]"
+                  >
+                    <div className="h-[280px]">
+                      <TestimonialCard
+                        rating={testimonial.rating}
+                        title={testimonial.title}
+                        description={testimonial.text}
+                        author={testimonial.author}
+                        isActive={current === index}
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
           </div>
         </div>
       </div>

@@ -5,10 +5,10 @@ import optiGenixElite from "../../../assets/images/human_performance/human_perfo
 // Reusable Card Component
 const FeatureCard = ({ image, tagText, title, description, buttonLabel }) => {
   return (
-    <div className="relative flex-1 h-[500px] md:h-[600px] lg:h-[672px] rounded-[16px] overflow-hidden group">
+    <div className="relative flex-1 h-[500px] md:h-[560px] rounded-[16px] overflow-hidden group">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[#1c3a13] rounded-[16px]" />
+        {/* <div className="absolute inset-0 bg-[#1c3a13] rounded-[16px]" /> */}
         <img
           src={image}
           alt={title}
@@ -64,9 +64,9 @@ const WhatsNext = () => {
   ];
 
   return (
-    <section className="bg-white py-12 md:py-16 lg:py-[78px] px-4 md:px-6 lg:px-[32px]">
-      <div className="max-w-[1280px] mx-auto">
-        <div className="flex flex-col gap-8 md:gap-10 lg:gap-[48px] items-center">
+    <section className="bg-white">
+      <div className="max-w-[1280px] mx-auto px-4 py-10 md:py-16 md:px-8">
+        <div className="flex flex-col gap-8 items-center md:gap-10">
           {/* Title */}
           <h2 className="font-funnel font-semibold text-[32px] md:text-[40px] lg:text-[48px] leading-[1.2] lg:leading-[56px] text-[#042b24] text-center tracking-[-0.72px]">
             What's Next for Human Performance?

@@ -1,5 +1,6 @@
 import React from "react";
 import { FlaskConical } from "lucide-react";
+import backedByScienceBg from "../../../assets/images/backed_by/backed_by_science_bg.webp";
 
 const Quality = () => {
   const features = [
@@ -18,20 +19,20 @@ const Quality = () => {
   ];
 
   return (
-    <section className="py-[40px] px-[32px] bg-white">
+    <section className="py-[40px] bg-white">
       <div className="max-w-[1280px] px-4 md:px-8 mx-auto">
         <div className="flex flex-col lg:flex-row gap-[24px] items-start">
           {/* Left: Athlete Action Image */}
           <div className="flex-1 h-[518px] rounded-[24px] overflow-hidden relative">
             <img
-              src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1200"
+              src={backedByScienceBg}
               alt="Athlete in action"
               className="object-cover absolute inset-0 w-full h-full"
             />
           </div>
 
           {/* Right: Two Stacked Cards */}
-          <div className="w-full lg:w-[676px] flex flex-col gap-0">
+          <div className="w-full lg:w-[620px] flex flex-col gap-0">
             {/* Card 1: Title & Description */}
             <div className="bg-[#042b24] border border-dashed border-white rounded-[24px] p-[32px] h-[208px] flex flex-col justify-start">
               <div className="space-y-[16px] text-white">

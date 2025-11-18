@@ -30,36 +30,54 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section className="bg-white py-12 md:py-16 lg:py-[80px] px-4 md:px-8 lg:px-[32px]">
-      <div className="max-w-[1280px] mx-auto">
+    <section className="bg-white">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-8 py-12 md:py-16 lg:py-[80px]">
         <div className="flex flex-col lg:flex-row gap-8 md:gap-12 lg:gap-[48px] items-start">
           {/* Left: Title and Description */}
-          <div className="flex-1 flex flex-col gap-6 md:gap-8 lg:gap-[32px]">
-            <div className="flex flex-col gap-3 md:gap-4 lg:gap-[16px]">
-              <h2 className="font-funnel font-medium text-[32px] md:text-[40px] lg:text-[48px] leading-[1.2] lg:leading-[56px] text-[#010907]">
-                How It Works
-              </h2>
-              <p className="font-inter text-[14px] md:text-[15px] lg:text-[16px] leading-[1.5] lg:leading-[24px] text-[#010907]">
-                Your body already knows what it needs, we help you understand
-                it.
-              </p>
-            </div>
-            <button className="bg-[#0d8360] hover:bg-[#0c704d] active:bg-[#0a5c40] transition-all duration-200 text-white font-funnel font-semibold text-[14px] md:text-[15px] lg:text-[16px] leading-[20px] px-6 py-3 md:py-3.5 rounded-full w-fit">
-              Decode My DNA
-            </button>
+          <div className="flex-1 flex flex-col gap-6 md:gap-8 lg:gap-[32px] relative">
+            {/* <div className="flex absolute top-0 left-0 flex-col gap-6">
+              <div className="flex flex-col gap-3 md:gap-4 lg:gap-[16px]">
+                <h2 className="font-funnel font-medium text-[32px] md:text-[40px] lg:text-[48px] leading-[1.2] lg:leading-[56px] text-[#010907]">
+                  How It Works
+                </h2>
+                <p className="font-inter text-[14px] md:text-[15px] lg:text-[16px] leading-[1.5] lg:leading-[24px] text-[#010907]">
+                  Your body already knows what it needs, we help you understand
+                  it.
+                </p>
+              </div>
+              <button className="bg-[#0d8360] hover:bg-[#0c704d] active:bg-[#0a5c40] transition-all duration-200 text-white font-funnel font-semibold text-[14px] md:text-[15px] lg:text-[16px] leading-[20px] px-6 py-3 md:py-3.5 rounded-full w-fit">
+                Decode My DNA
+              </button>
+            </div> */}
           </div>
 
           {/* Right: Steps - Stacked Cards with Sticky Scroll */}
-          <div className="w-full lg:w-[664px] flex flex-col space-y-4 md:space-y-6 lg:space-y-[100px]">
+          <div className="w-full lg:w-[640px] flex flex-col space-y-4 md:space-y-20">
             {steps.map((step, index) => (
               <div
                 key={index}
                 style={{
                   backgroundColor: step.bgColor,
-                  top: `${80 + index * 50}px`,
+                  top: `${120 + index * 80}px`,
                 }}
                 className="rounded-[16px] px-6 py-8 md:px-8 md:py-10 lg:px-[24px] lg:py-[32px] h-auto lg:h-[400px] flex flex-col gap-6 md:gap-8 lg:gap-[24px] lg:sticky"
               >
+                {index === 0 && (
+                  <div className="flex absolute top-0 left-[-90%] flex-col gap-6">
+                    <div className="flex flex-col gap-3 md:gap-4 lg:gap-[16px]">
+                      <h2 className="font-funnel font-medium text-[32px] md:text-[40px] lg:text-[48px] leading-[1.2] lg:leading-[56px] text-[#010907]">
+                        How It Works
+                      </h2>
+                      <p className="font-inter text-[14px] md:text-[15px] lg:text-[16px] leading-[1.5] lg:leading-[24px] text-[#010907]">
+                        Your body already knows what it needs, we help you
+                        understand it.
+                      </p>
+                    </div>
+                    <button className="bg-[#0d8360] hover:bg-[#0c704d] active:bg-[#0a5c40] transition-all duration-200 text-white font-funnel font-semibold text-[14px] md:text-[15px] lg:text-[16px] leading-[20px] px-6 py-3 md:py-3.5 rounded-full w-fit">
+                      Decode My DNA
+                    </button>
+                  </div>
+                )}
                 <div className="flex flex-col flex-1 gap-6 justify-between md:gap-8 lg:gap-0">
                   {/* Top: Title and Number */}
                   <div className="flex justify-between items-center text-white">
