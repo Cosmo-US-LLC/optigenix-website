@@ -30,13 +30,13 @@ const categories = [
 
 const Categories = () => {
   return (
-    <section className="bg-white py-[80px]">
+    <section className="bg-white md:py-[80px] py-[40px]">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8">
         {/* Title with Description */}
-        <div className="flex flex-col gap-[16px] items-center text-center mb-[48px]">
+        <div className="flex flex-col gap-[16px] items-center text-center md:mb-[48px] mb-[24px]">
           {/* Heading */}
           <h2
-            className="text-[48px] leading-[56px] text-[#010907] font-medium"
+            className="md:text-[48px] text-[24px] leading-[32px] md:leading-[56px] text-[#010907] font-medium"
             style={{ fontFamily: "Funnel Display, sans-serif" }}
           >
             Shop your Focus
@@ -44,7 +44,7 @@ const Categories = () => {
 
           {/* Subtitle */}
           <p
-            className="text-[16px] leading-[24px] text-[#010907] font-normal max-w-full"
+            className="md:text-[16px] text-[16px] leading-[20px] md:leading-[24px] text-[#010907] font-normal max-w-full"
             style={{ fontFamily: "Inter, sans-serif" }}
           >
             Expertly formulated, personalized blends designed to support your{" "}
@@ -64,7 +64,7 @@ const Categories = () => {
               >
                 {/* Image with Label Overlay */}
                 <div className="relative w-full">
-                  <div className="h-[330px] w-full rounded-lg overflow-hidden">
+                  <div className="h-[274px] md:h-[330px] w-full rounded-lg overflow-hidden">
                     <img
                       src={category.image}
                       alt={category.title}
@@ -73,7 +73,7 @@ const Categories = () => {
                   </div>
                   {/* Category Label */}
                   <p
-                    className="absolute top-[8px] left-0 text-[15px] leading-[24px] text-[#010907] font-medium"
+                    className="absolute top-[8px] left-0 md:text-[15px] text-[13px] leading-[24px] text-[#010907] font-medium"
                     style={{ fontFamily: "Funnel Display, sans-serif" }}
                   >
                     {category.title}

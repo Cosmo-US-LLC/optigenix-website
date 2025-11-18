@@ -71,11 +71,11 @@ const Products = () => {
   };
 
   return (
-    <section className="bg-[#f7f7f7] py-20">
+    <section className="bg-[#f7f7f7] md:py-20 py-10">
       <div className="max-w-[1280px] px-4 md:px-8 mx-auto">
         {/* Header */}
-        <div className="flex justify-between items-center mb-12">
-          <h2 className="font-['Funnel_Display'] font-semibold text-[48px] leading-[48px] text-[#010907] capitalize max-w-[660px]">
+        <div className="flex justify-between items-center mb-6 md:mb-12">
+          <h2 className="font-['Funnel_Display'] font-semibold md:text-[48px] text-[24px] leading-[32px] md:leading-[48px] text-[#010907] capitalize max-w-[660px]">
             Our Most Trusted Formulas
           </h2>
 
@@ -107,7 +107,7 @@ const Products = () => {
             {products.map((product, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-[360px] group cursor-pointer"
+                className="flex-shrink-0 md:w-[360px] w-[340px] group cursor-pointer"
               >
                 {/* Product Image */}
                 <div className="relative h-[360px] mb-4 rounded-lg overflow-hidden bg-white">
@@ -136,7 +136,7 @@ const Products = () => {
         </div>
 
         {/* CTA Button */}
-        <div className="flex justify-center mt-12">
+        <div className="flex justify-center mt-2 md:mt-12">
           <button className="bg-[#0d8360] hover:bg-[#0a6b4f] transition-colors text-white font-['Funnel_Display'] font-semibold text-[16px] leading-[24px] px-6 py-3.5 rounded-full">
             Explore all products
           </button>

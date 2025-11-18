@@ -27,10 +27,10 @@ const faqs = [
 
 const FAQs = () => {
   return (
-    <section className="bg-[#f7f7f7] py-[80px] px-8 lg:px-[180px]">
+    <section className="bg-[#f7f7f7] py-[40px] md:py-[80px] px-8 lg:px-[180px]">
       <div className="max-w-[1080px] mx-auto flex flex-col gap-[48px]">
         {/* Header */}
-        <h2 className="font-funnel font-semibold text-[48px] leading-[56px] text-[#010907] text-center tracking-[-0.72px]">
+        <h2 className="font-funnel font-semibold text-[24px] md:text-[48px] leading-[32px] md:leading-[56px] text-[#010907] text-center tracking-[-0.72px]">
           Frequently Asked Questions
         </h2>
 
@@ -46,8 +46,8 @@ const FAQs = () => {
               value={`item-${index}`}
               className="bg-white rounded-[16px] overflow-hidden border-none"
             >
-              <AccordionTrigger className="px-[24px] py-[32px] hover:bg-gray-50 hover:no-underline group">
-                <h3 className="font-funnel font-medium text-[32px] leading-[40px] text-[#010907] pr-4">
+              <AccordionTrigger className="md:px-[24px] px-4 py-[24px] md:py-[32px] hover:bg-gray-50 hover:no-underline group">
+                <h3 className="font-funnel font-medium text-[20px] md:text-[32px] leading-[24px] md:leading-[40px] text-[#010907] pr-4">
                   {faq.question}
                 </h3>
                 <div className="bg-[rgba(0,0,0,0.06)] rounded-[24px] w-[48px] h-[48px] flex items-center justify-center shrink-0 ml-4 relative">

@@ -87,9 +87,9 @@ const Instagram = () => {
             {instagramPosts.map((post, index) => (
               <CarouselItem
                 key={index}
-                className="pl-2 md:pl-3 lg:pl-4 basis-[280px] sm:basis-[300px] lg:basis-[300px]"
+                className="pl-2 md:pl-3 lg:pl-4 basis-[290px] lg:basis-[300px]"
               >
-                <div className="w-full h-[480px] sm:h-[500px] lg:h-[533px] rounded-[16px] overflow-hidden relative group cursor-pointer">
+                <div className="w-full h-[460px] md:h-[533px] rounded-[16px] overflow-hidden relative group cursor-pointer">
                   {/* Background Image with Overlay */}
                   <div className="absolute inset-0">
                     <img
@@ -98,7 +98,7 @@ const Instagram = () => {
                       className="object-cover absolute inset-0 w-full h-full transition-transform duration-300"
                     />
                     {/* Subtle Overlay */}
-                    <div className="absolute inset-0 bg-black/10" />
+                    {/* <div className="absolute inset-0 bg-black/10" /> */}
                   </div>
 
                   {/* Hover Overlay with Instagram Icon */}

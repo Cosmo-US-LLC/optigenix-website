@@ -5,7 +5,7 @@ import optiGenixElite from "../../../assets/images/human_performance/human_perfo
 // Reusable Card Component
 const FeatureCard = ({ image, tagText, title, description, buttonLabel }) => {
   return (
-    <div className="relative flex-1 h-[500px] md:h-[560px] rounded-[16px] overflow-hidden group">
+    <div className="relative flex-1 h-[400px] md:h-[560px] rounded-[16px] overflow-hidden group">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         {/* <div className="absolute inset-0 bg-[#1c3a13] rounded-[16px]" /> */}

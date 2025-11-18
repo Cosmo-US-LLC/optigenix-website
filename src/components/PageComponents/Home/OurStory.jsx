@@ -3,12 +3,12 @@ import ourStoryImage from "../../../assets/images/our_story/our_story_img.webp";
 
 const OurStory = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-10 bg-white md:py-20">
       <div className="max-w-[1280px] px-4 md:px-8 mx-auto">
         <div className="grid grid-cols-1 gap-12 items-center lg:grid-cols-2">
           {/* Left Content */}
           <div className="space-y-4">
-            <h2 className="font-['Funnel_Display'] font-medium text-[48px] leading-[56px] text-[#010907] capitalize">
+            <h2 className="font-['Funnel_Display'] font-medium md:text-[48px] text-[32px] leading-[32px] md:leading-[56px] text-[#010907] capitalize">
               our story
             </h2>
 
@@ -55,7 +55,7 @@ const OurStory = () => {
 
           {/* Right Image */}
           <div className="h-full">
-            <div className="relative h-[600px] rounded-lg overflow-hidden">
+            <div className="relative md:h-[600px] h-[300px] rounded-lg overflow-hidden">
               <img
                 src={ourStoryImage}
                 alt="Athletes training"

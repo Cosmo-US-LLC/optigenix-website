@@ -23,7 +23,7 @@ const Footer = () => {
   };
 
   return (
-    <div className="max-w-[1280px] mx-auto px-4 md:px-6 ">
+    <div className="w-full md:max-w-[1280px] mx-auto px-4 md:px-6  py-6">
       <footer className="bg-[#042b24] rounded-[24px] p-8 md:px-12 md:pt-8 md:pb-0 relative overflow-hidden">
         {/* Main Content Container */}
         <div className="relative z-10 space-y-6 md:space-y-8 lg:space-y-[32px]">
@@ -205,7 +205,7 @@ const Footer = () => {
                   {/* Payment Icons */}
                   <div className="flex flex-wrap gap-2 justify-center items-center md:gap-3">
                     {/* Visa */}
-                    <div className="w-[40px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 rounded">
+                    <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 rounded">
                       <img
                         src={visaIcon}
                         alt="Visa"
@@ -214,7 +214,7 @@ const Footer = () => {
                     </div>
 
                     {/* Mastercard */}
-                    <div className="w-[40px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
+                    <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
                       <img
                         src={mastercardIcon}
                         alt="Mastercard"
@@ -222,7 +222,7 @@ const Footer = () => {
                       />
                     </div>
                     {/* PayPal */}
-                    <div className="w-[40px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
+                    <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
                       <img
                         src={paypalIcon}
                         alt="Paypal"
@@ -230,7 +230,7 @@ const Footer = () => {
                       />
                     </div>
                     {/* Klarna */}
-                    <div className="w-[40px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
+                    <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
                       <img
                         src={klarnaIcon}
                         alt="Klarna"
@@ -238,7 +238,7 @@ const Footer = () => {
                       />
                     </div>
                     {/* Apple Pay */}
-                    <div className="w-[40px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
+                    <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
                       <img
                         src={applePayIcon}
                         alt="Apple Pay"
@@ -246,7 +246,7 @@ const Footer = () => {
                       />
                     </div>
                     {/* Google Pay */}
-                    <div className="w-[40px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
+                    <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
                       <img
                         src={googlePayIcon}
                         alt="Google Pay"
@@ -337,7 +337,7 @@ const Footer = () => {
 
         {/* Large Background Watermark Text */}
         <p
-          className="font-semibold text-[100px] sm:text-[150px] md:text-[252px] leading-none text-transparent bg-clip-text bg-linear-to-b from-white/20 to-transparent whitespace-nowrap text-center relative z-0 mt-8 md:mt-8"
+          className="font-semibold text-[74px] md:text-[252px] leading-none text-transparent bg-clip-text bg-linear-to-b from-white/20 to-transparent whitespace-nowrap text-center relative z-0 mt-8 md:mt-8"
           style={{
             WebkitTextFillColor: "transparent",
             fontFamily: "Gibson, sans-serif",
