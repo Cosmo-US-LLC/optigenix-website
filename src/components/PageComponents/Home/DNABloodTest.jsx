@@ -1,11 +1,12 @@
 import React from "react";
-import dnaTestImage from "../../../assets/images/at_home_dna_test/dna_background.webp";
-import bloodTestImage from "../../../assets/images/performance_blood_test/blood_background.webp";
+import { Button } from "@/components/ui/button";
+import dnaTestVideo from "../../../assets/images/at_home_dna_test/Dna 20S.webm";
+import bloodTestVideo from "../../../assets/images/performance_blood_test/Examining-Blood-Specimen.webm";
 
 const DNABloodTest = () => {
   return (
     <section className="bg-[#dedede]/20 md:py-20 py-12">
-      <div className="max-w-[1280px] md:px-[100px] px-4 mx-auto">
+      <div className="max-w-[1280px] md:px-8 px-4 mx-auto">
         {/* Section Header */}
         <div className="text-center mb-[32px] md:mb-[30px] space-y-[15px] max-w-[800px] mx-auto">
           <h2 className="font-['Funnel_Display'] font-semibold text-[32px] md:text-[48px] leading-[40px] md:leading-[56px] tracking-[-0.72px] text-[#042b24]">
@@ -24,14 +25,18 @@ const DNABloodTest = () => {
         {/* Cards Container */}
         <div className="flex flex-col gap-[20px]">
           {/* DNA Test Card */}
-          <div className="relative h-[550px] rounded-[16px] overflow-hidden md:p-[30px] px-4 py-6 flex items-end">
-            {/* Background Image with Gradient Overlay */}
+          <div className="relative h-[530px] rounded-[16px] overflow-hidden md:p-[30px] px-4 py-6 flex items-end">
+            {/* Background Video with Gradient Overlay */}
             <div className="absolute inset-0 pointer-events-none">
-              <img
-                src={dnaTestImage}
-                alt="DNA Testing"
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
                 className="absolute w-full h-full object-cover rounded-[16px]"
-              />
+              >
+                <source src={dnaTestVideo} type="video/webm" />
+              </video>
               <div className="absolute inset-0 bg-linear-to-b from-transparent to-[rgba(0,0,0,0.2)] rounded-[16px]" />
             </div>
 
@@ -59,21 +64,25 @@ const DNABloodTest = () => {
               </div>
 
               {/* CTA Button */}
-              <button className="bg-[#0d8360] hover:bg-[#0a6b4f] transition-colors text-[#f8fffd] font-['Funnel_Display'] font-semibold text-[16px] leading-[20px] px-[24px] py-[14px] rounded-[100px] w-fit">
+              <Button variant="primary" size="md" className="w-fit">
                 Learn More
-              </button>
+              </Button>
             </div>
           </div>
 
           {/* Performance Blood Test Card */}
-          <div className="relative h-[550px] rounded-[16px] overflow-hidden md:p-[30px] px-4 py-6 flex items-end">
-            {/* Background Image with Gradient Overlay */}
+          <div className="relative h-[530px] rounded-[16px] overflow-hidden md:p-[30px] px-4 py-6 flex items-end">
+            {/* Background Video with Gradient Overlay */}
             <div className="absolute inset-0 pointer-events-none">
-              <img
-                src={bloodTestImage}
-                alt="Blood Testing"
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
                 className="absolute w-full h-full object-cover rounded-[16px]"
-              />
+              >
+                <source src={bloodTestVideo} type="video/webm" />
+              </video>
               <div className="absolute inset-0 bg-linear-to-b from-transparent to-[rgba(0,0,0,0.2)] rounded-[16px]" />
             </div>
 
@@ -115,9 +124,13 @@ const DNABloodTest = () => {
               </div>
 
               {/* CTA Button */}
-              <button className="bg-[#0d8360] hover:bg-[#0a6b4f] transition-colors text-[#f8fffd] font-['Funnel_Display'] font-semibold text-[16px] leading-[20px] px-[24px] md:py-[14px] py-[10px] rounded-[100px] w-fit">
+              <Button
+                variant="primary"
+                size="md"
+                className="w-fit md:py-[14px] py-[10px]"
+              >
                 Learn More
-              </button>
+              </Button>
             </div>
           </div>
         </div>
