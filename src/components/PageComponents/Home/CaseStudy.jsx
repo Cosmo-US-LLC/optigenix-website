@@ -44,7 +44,7 @@ const CaseStudy = () => {
                   alt="Athletes using OptiGenix"
                   className="absolute w-full h-full object-cover rounded-[24px]"
                 />
-                <div className="absolute inset-0 bg-black/70 rounded-[24px]" />
+                {/* <div className="absolute inset-0 bg-black/70 rounded-[24px]" /> */}
               </div>
 
               {/* Content Overlay */}
