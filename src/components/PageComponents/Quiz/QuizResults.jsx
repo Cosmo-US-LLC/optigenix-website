@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { CheckCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const QuizResults = ({ onRestart }) => {
   const navigate = useNavigate();
@@ -38,18 +39,22 @@ const QuizResults = ({ onRestart }) => {
 
           {/* Action Buttons */}
           <div className="flex flex-col gap-4 justify-center sm:flex-row">
-            <button
+            <Button
               onClick={() => navigate("/")}
-              className="bg-[#0d8360] hover:bg-[#0a6b4f] text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl text-lg"
+              variant="primary"
+              size="lg"
+              className="shadow-lg hover:shadow-xl"
             >
               Explore Products
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={onRestart}
-              className="border-2 border-[#0d8360] text-[#0d8360] px-8 py-4 rounded-full hover:bg-[rgba(13,131,96,0.05)] transition-all duration-300 font-semibold text-lg"
+              variant="outline"
+              size="lg"
+              className="border-2 border-[#0d8360] text-[#0d8360] hover:bg-[rgba(13,131,96,0.05)]"
             >
               Retake Quiz
-            </button>
+            </Button>
           </div>
         </div>
       </div>

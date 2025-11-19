@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "@/components/ui/button";
 
 const Hero = ({
   title = "The first personalized supplement company\nfor athletes",
@@ -58,12 +59,14 @@ const Hero = ({
           </div>
 
           {/* CTA Button */}
-          <button
+          <Button
             onClick={onCtaClick}
-            className="bg-[#0d8360] hover:bg-[#0a6b4f] active:bg-[#085a42] transition-all duration-200 text-white font-['Funnel_Display'] font-semibold text-[16px] leading-[24px] px-8 py-3.5 rounded-full mt-6 inline-flex items-center justify-center"
+            variant="primary"
+            size="lg"
+            className="mt-6"
           >
             {ctaText}
-          </button>
+          </Button>
         </div>
       </div>
     </section>

@@ -16,6 +16,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -121,9 +122,9 @@ const Header = () => {
             {/* CTA Group */}
             <div className="flex items-center gap-[12px]">
               {/* Shop Now Button */}
-              <button className="bg-[#0d8360] hover:bg-[#0a6b4f] text-white font-['Funnel_Display'] font-semibold text-[16px] leading-[24px] px-[19px] py-[12px] rounded-full transition-colors">
+              <Button variant="primary" size="md">
                 Shop Now
-              </button>
+              </Button>
 
               {/* Shopping Cart Icon */}
               <button className="bg-[#ededed] hover:bg-[#e0e0e0] w-[48px] h-[48px] rounded-[24px] flex items-center justify-center transition-colors">
@@ -235,9 +236,9 @@ const Header = () => {
                 <div className="pt-4 border-t border-gray-200">
                   {/* Action Buttons */}
                   <div className="flex flex-col gap-3">
-                    <button className="bg-[#0d8360] hover:bg-[#0a6b4f] text-white font-['Funnel_Display'] font-semibold text-[16px] px-6 py-3 rounded-full w-full transition-colors">
+                    <Button variant="primary" size="md" className="w-full">
                       Shop Now
-                    </button>
+                    </Button>
                     <div className="flex gap-3 justify-center">
                       <button className="bg-[#ededed] hover:bg-[#e0e0e0] w-[48px] h-[48px] rounded-[24px] flex items-center justify-center transition-colors">
                         <ShoppingBag className="w-[24px] h-[24px] text-black" />
