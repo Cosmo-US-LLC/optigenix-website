@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import {
   ShoppingCart,
   User,
@@ -18,12 +19,18 @@ import {
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isQuizPage = location.pathname === "/quiz";
 
   return (
-    <header className="sticky top-0 z-50 bg-white">
+    <header
+      className={`sticky top-0 z-50 bg-white ${
+        isQuizPage ? "rounded-bl-[24px] rounded-br-[24px]" : ""
+      }`}
+    >
       {/* Desktop Navigation */}
       <nav className="max-w-[1280px] mx-auto px-4 md:px-8 py-2 hidden md:block">
-        <div className="bg-white rounded-bl-[24px] rounded-br-[24px] py-[12px] flex items-center justify-between">
+        <div className="py-[12px] flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 h-[42px]">
             {/* Logo Icon */}
@@ -94,6 +101,14 @@ const Header = () => {
                 About Us
               </Link>
 
+              {/* Quiz */}
+              <Link
+                to="/quiz"
+                className="font-['Funnel_Display'] text-[16px] text-black capitalize leading-normal hover:text-[#0d8360] transition-colors"
+              >
+                Quiz
+              </Link>
+
               {/* Blog */}
               <Link
                 to="/blog"
@@ -125,7 +140,11 @@ const Header = () => {
       </nav>
 
       {/* Mobile Navigation */}
-      <nav className="px-4 py-3 bg-white md:hidden">
+      <nav
+        className={`px-4 py-3 bg-white md:hidden ${
+          isQuizPage ? "rounded-bl-[24px] rounded-br-[24px]" : ""
+        }`}
+      >
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 h-[42px]">
@@ -197,6 +216,13 @@ const Header = () => {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   About Us
+                </Link>
+                <Link
+                  to="/quiz"
+                  className="font-['Funnel_Display'] text-[18px] text-black capitalize hover:text-[#0d8360] transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Quiz
                 </Link>
                 <Link
                   to="/blog"

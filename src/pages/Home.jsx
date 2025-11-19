@@ -20,7 +20,7 @@ import backgroundImage from "../assets/images/hero/hero_background.webp";
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       <Hero
         backgroundVideo={backgroundVideo}
         backgroundImage={backgroundImage}
