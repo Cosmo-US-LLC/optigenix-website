@@ -1,4 +1,5 @@
 import React from "react";
+import Marquee from "react-fast-marquee";
 import techCrunch from "../../../assets/images/trusted_partners/techcrunch.svg";
 import launchBanner from "../../../assets/images/trusted_partners/launchbanner.svg";
 import foundersHub from "../../../assets/images/trusted_partners/foundershub.svg";
@@ -21,19 +22,49 @@ const partners = [
 ];
 
 const TrustedPartners = () => {
+  // Duplicate partners for seamless scrolling on mobile
+  const duplicatedPartners = [...partners, ...partners, ...partners];
+
   return (
-    <section className="py-12 bg-[#000000]">
-      <div className="max-w-[1280px] px-4 md:px-8 mx-auto">
-        <div className="flex flex-wrap gap-16 justify-center items-center lg:gap-28">
+    <section className="py-8 bg-[#042b24]">
+      <div className="px-4">
+        {/* Desktop: Static Grid */}
+        <div className="hidden md:flex gap-6 justify-center items-center lg:gap-12 max-w-[1280px] mx-auto">
           {partners.map((partner, index) => (
-            <div key={index} className="h-[57px] w-[220px]">
+            <div
+              key={index}
+              className="h-[52px] w-[222.386px] flex items-center justify-center"
+            >
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="object-contain w-full h-full"
+                className="object-contain max-w-full max-h-full"
               />
             </div>
           ))}
+        </div>
+
+        {/* Mobile: Marquee */}
+        <div className="md:hidden">
+          <Marquee
+            gradient={false}
+            speed={40}
+            pauseOnHover={true}
+            className="flex items-center"
+          >
+            {duplicatedPartners.map((partner, index) => (
+              <div
+                key={index}
+                className="h-[32px] w-[122.386px] flex items-center justify-center mx-3"
+              >
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="object-contain max-w-full max-h-full"
+                />
+              </div>
+            ))}
+          </Marquee>
         </div>
       </div>
     </section>

@@ -6,35 +6,35 @@ import optigenixIcon from "../../../assets/images/footer/footer_logo.webp";
 // Reusable TableRow Component
 const TableRow = ({ benefit, optigenixStatus, traditionalStatus }) => {
   return (
-    <div className="flex items-center justify-between pb-3 md:pb-4 lg:pb-[16px] border-b border-[rgba(1,9,7,0.5)] border-opacity-20">
-      <p className="font-inter text-[16px] md:text-[18px] lg:text-[20px] leading-[28px] text-[#010907]">
+    <div className="flex items-center justify-between pb-4 border-b border-[rgba(1,9,7,0.5)] border-opacity-20">
+      <p className="flex-1 font-['Inter'] font-normal text-[16px] lg:text-[20px] leading-[24px] lg:leading-[28px] text-[#010907]">
         {benefit}
       </p>
-      <div className="flex gap-8 md:gap-10 lg:gap-[48px] items-center">
+      <div className="flex items-center justify-between w-[160px] lg:w-[288px]">
         {/* OptiGenix column */}
-        <div className="flex justify-center items-center w-[32px]">
+        <div className="flex justify-center items-center">
           {optigenixStatus ? (
             <Check
-              className="w-5 h-5 md:w-6 md:h-6 lg:w-[24px] lg:h-[24px] text-white relative z-10"
+              className="w-6 h-6 lg:w-[24px] lg:h-[24px] text-white relative z-10"
               strokeWidth={3}
             />
           ) : (
             <X
-              className="w-5 h-5 md:w-6 md:h-6 lg:w-[24px] lg:h-[24px] text-red-400"
+              className="w-6 h-6 lg:w-[24px] lg:h-[24px] text-red-400"
               strokeWidth={2}
             />
           )}
         </div>
         {/* Traditional column */}
-        <div className="flex justify-center items-center w-[180px] md:w-[200px] lg:w-[209px]">
+        <div className="flex justify-center items-center w-[100px] lg:w-[209px]">
           {traditionalStatus ? (
             <Check
-              className="w-5 h-5 md:w-6 md:h-6 lg:w-[24px] lg:h-[24px] text-[#0d8360]"
+              className="w-6 h-6 lg:w-[24px] lg:h-[24px] text-[#0d8360]"
               strokeWidth={3}
             />
           ) : (
             <X
-              className="w-5 h-5 md:w-6 md:h-6 lg:w-[24px] lg:h-[24px] text-red-400"
+              className="w-6 h-6 lg:w-[24px] lg:h-[24px] text-red-400"
               strokeWidth={2}
             />
           )}
@@ -74,11 +74,11 @@ const Comparison = () => {
   ];
 
   return (
-    <section className="py-12 bg-white md:py-16 lg:py-[80px] px-4 md:px-8 lg:px-[32px]">
-      <div className="max-w-[1280px] mx-auto px-4 md:px-8">
-        <div className="flex flex-col lg:flex-row gap-8 md:gap-10 lg:gap-[48px] items-center">
-          {/* Left: Product Image */}
-          <div className="w-full lg:w-[600px] lg:h-[600px] rounded-[24px] overflow-hidden shrink-0">
+    <section className="py-12 bg-white lg:py-[80px] px-4 lg:px-[32px]">
+      <div className="max-w-[1280px] mx-auto lg:px-8">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-[48px] items-center">
+          {/* Product Image */}
+          <div className="w-full h-[300px] lg:w-[600px] lg:h-[600px] rounded-[24px] overflow-hidden shrink-0">
             <img
               src={comparisonImg}
               alt="OptiGenix Product"
@@ -86,30 +86,30 @@ const Comparison = () => {
             />
           </div>
 
-          {/* Right: Comparison Content */}
-          <div className="flex-1 w-full flex flex-col justify-between gap-8 md:gap-10 lg:gap-0 lg:h-[600px]">
+          {/* Comparison Content */}
+          <div className="flex-1 w-full flex flex-col gap-6 lg:gap-0 lg:h-[600px] lg:justify-between">
             {/* Title */}
-            <h2 className="font-funnel font-medium text-[32px] md:text-[40px] lg:text-[48px] leading-[56px] text-[#010907] capitalize">
+            <h2 className="font-['Funnel_Display'] font-medium text-[32px] lg:text-[48px] leading-[40px] lg:leading-[56px] text-[#010907] capitalize">
               Comparison
             </h2>
 
             {/* Comparison Table */}
-            <div className="flex flex-col gap-4 md:gap-6 lg:gap-[24px] relative">
-              {/* Vertical dark pill behind OptiGenix column - desktop only */}
-              <div className="hidden lg:block absolute bg-[#042b24] w-[68px] h-[380px] rounded-[100px] left-[260px] top-[0px]" />
+            <div className="flex flex-col gap-6 lg:gap-[24px] relative">
+              {/* Vertical dark pill behind OptiGenix column */}
+              <div className="absolute bg-[#042b24] w-[46px] h-[332px] lg:w-[68px] lg:h-[380px] rounded-[100px] left-[calc(50%+33px)] lg:left-[260px] top-[64px] lg:top-[0px] translate-x-[-50%] lg:translate-x-0" />
 
               {/* Table Header */}
-              <div className="flex items-center justify-between pb-3 md:pb-4 lg:pb-[16px] border-b border-[rgba(1,9,7,0.5)]">
-                <p className="font-inter font-semibold text-[16px] md:text-[17px] lg:text-[18px] leading-[26px] text-[#010907]">
+              <div className="flex items-center justify-between pb-4 border-b border-[rgba(1,9,7,0.5)]">
+                <p className="flex-1 font-['Inter'] font-semibold text-[14px] lg:text-[18px] leading-[22px] lg:leading-[26px] text-[#010907]">
                   Benefits
                 </p>
-                <div className="flex items-center justify-between w-[240px] md:w-[260px] lg:w-[288px]">
+                <div className="flex items-center justify-between w-[160px] lg:w-[288px]">
                   <img
                     src={optigenixIcon}
                     alt="OptiGenix"
-                    className="w-6 h-6 md:w-7 md:h-7 lg:w-[28px] lg:h-[32px] z-30 object-contain"
+                    className="w-[25px] h-[28px] lg:w-[28px] lg:h-[32px] z-30 object-contain"
                   />
-                  <p className="font-inter font-medium italic text-[16px] md:text-[17px] lg:text-[18px] leading-[26px] text-[#2b7a6c] text-center w-[180px] md:w-[200px] lg:w-[209px]">
+                  <p className="font-['Inter'] font-medium italic text-[14px] lg:text-[18px] leading-[22px] lg:leading-[26px] text-[#2b7a6c] text-center w-[100px] lg:w-[209px]">
                     Traditional
                     <br />
                     Supplements
@@ -118,7 +118,7 @@ const Comparison = () => {
               </div>
 
               {/* Comparison Rows */}
-              <div className="flex flex-col gap-3 md:gap-4 lg:gap-[16px]">
+              <div className="flex flex-col gap-3">
                 {comparisons.map((item, index) => (
                   <TableRow
                     key={index}

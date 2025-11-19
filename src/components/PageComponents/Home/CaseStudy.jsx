@@ -31,98 +31,127 @@ const CaseStudy = () => {
   ];
 
   return (
-    <section className="bg-[#f7f7f7] py-8 md:py-12 lg:py-[42px] px-4 md:px-8 lg:px-[60px]">
-      <div className="max-w-[1280px] mx-auto px-4 md:px-8">
-        <div className="flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-[32px] items-center">
+    <section className="bg-[#f7f7f7] py-12 md:py-12 lg:py-[42px] px-4 md:px-8 lg:px-[60px]">
+      <div className="max-w-[1280px] mx-auto md:px-8">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-[32px] items-center">
           {/* Left Side: Image with Overlay Content */}
           <div className="relative flex-1 w-full">
-            <div className="relative h-[500px] md:h-[670px] w-full lg:w-[604px] rounded-[24px] overflow-hidden">
+            <div className="relative h-[646px] md:h-[670px] w-full lg:w-[604px] rounded-[24px] overflow-hidden">
               {/* Background Image with Dark Overlay */}
-              <img
-                src={caseStudyBg}
-                alt="Athletes using OptiGenix"
-                className="object-cover absolute inset-0 w-full h-full"
-              />
-              {/* <div className="absolute inset-0 bg-black/70 rounded-[24px]" /> */}
+              <div className="absolute inset-0 pointer-events-none rounded-[24px]">
+                <img
+                  src={caseStudyBg}
+                  alt="Athletes using OptiGenix"
+                  className="absolute w-full h-full object-cover rounded-[24px]"
+                />
+                <div className="absolute inset-0 bg-black/70 rounded-[24px]" />
+              </div>
 
               {/* Content Overlay */}
-              <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-8 lg:p-[35px]">
+              <div className="absolute inset-0 flex flex-col justify-between p-5 md:p-8 lg:p-[35px]">
                 {/* Title and Description */}
-                <div className="flex flex-col gap-4 md:gap-6 lg:gap-[24px] text-white text-center max-w-[574px] mx-auto mt-16 md:mt-30">
-                  <h3 className="font-funnel font-medium text-[28px] md:text-[36px] lg:text-[42px] leading-[1.1] lg:leading-[45px]">
+                <div className="flex flex-col gap-[14px] lg:gap-[24px] text-white text-center max-w-[574px] mx-auto mt-36 lg:mt-16">
+                  <h3 className="font-['Funnel_Display'] font-medium text-[30px] md:text-[36px] lg:text-[42px] leading-[28px] lg:leading-[45px]">
                     How Athletes Use OptiGenix and Transformed Their Game
                   </h3>
-                  <p className="font-inter text-[14px] md:text-[15px] lg:text-[16px] leading-normal lg:leading-[24px]">
+                  <p className="font-['Inter'] font-normal text-[14px] md:text-[15px] lg:text-[16px] leading-[22px] lg:leading-[24px]">
                     30 collegiate endurance athletes participated in a 30-day
                     pilot study on personalized supplementation
                   </p>
                 </div>
 
                 {/* Stats Grid - 2x2 */}
-                <div className="grid grid-cols-2 gap-3 md:gap-4 lg:gap-[16px] max-w-[574px] mx-auto w-full">
-                  {mainStats.map((stat, index) => (
-                    <div
-                      key={index}
-                      className={`backdrop-blur-[7px] border border-white rounded-[16px] px-4 py-6 md:px-5 md:py-7 lg:px-[20px] lg:py-[32px] h-[100px] md:h-[109px] flex items-center justify-center ${
-                        stat.highlighted
-                          ? "bg-[rgba(82,201,180,0.43)]"
-                          : "bg-white/15"
-                      }`}
-                    >
-                      <div className="flex flex-col gap-4 items-center w-full text-center text-white">
-                        <p className="font-inter font-bold text-[32px] md:text-[36px] lg:text-[40px] leading-[29px]">
-                          {stat.value}
-                        </p>
-                        <p className="font-inter text-[14px] md:text-[15px] lg:text-[16px] leading-[29px]">
-                          {stat.label}
-                        </p>
+                <div className="flex flex-col gap-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    {/* First row */}
+                    {mainStats.slice(0, 2).map((stat, index) => (
+                      <div
+                        key={index}
+                        className={`backdrop-blur-[7px] border border-white rounded-[16px] px-2 py-5 lg:px-[20px] lg:py-[32px] flex items-center justify-center ${
+                          stat.highlighted
+                            ? "bg-[rgba(82,201,180,0.43)]"
+                            : "bg-white/15"
+                        }`}
+                      >
+                        <div className="flex flex-col gap-6 items-center w-full text-center text-white">
+                          <p className="font-['Inter'] font-bold text-[24px] lg:text-[40px] leading-[28px]">
+                            {stat.value}
+                          </p>
+                          <p className="font-['Inter'] font-normal text-[14px] lg:text-[16px] leading-[22px]">
+                            {stat.label}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    {/* Second row */}
+                    {mainStats.slice(2, 4).map((stat, index) => (
+                      <div
+                        key={index + 2}
+                        className={`backdrop-blur-[7px] border border-white rounded-[16px] px-2 py-6 lg:px-[20px] lg:py-[32px] flex items-center justify-center ${
+                          stat.highlighted
+                            ? "bg-[rgba(82,201,180,0.43)]"
+                            : "bg-white/15"
+                        }`}
+                      >
+                        <div className="flex flex-col gap-6 items-center w-full text-center text-white">
+                          <p className="font-['Inter'] font-bold text-[24px] lg:text-[40px] leading-[28px]">
+                            {stat.value}
+                          </p>
+                          <p className="font-['Inter'] font-normal text-[14px] lg:text-[16px] leading-[22px]">
+                            {stat.label}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Right Side: Results Content */}
-          <div className="flex-1 flex flex-col gap-4 md:gap-6 lg:gap-[24px] w-full">
+          <div className="flex-1 flex flex-col gap-6 lg:gap-[24px] w-full">
             {/* Header Section */}
-            <div className="flex flex-col gap-4 md:gap-5 lg:gap-[24px]">
+            <div className="flex flex-col gap-6 lg:gap-[24px]">
               {/* Badge */}
-              <div className="bg-[#2b7a6c] h-[40px] md:h-[45px] rounded-full flex items-center px-4 md:px-5 lg:px-[20px] w-fit">
-                <p className="font-funnel font-medium text-[18px] md:text-[20px] lg:text-[21px] leading-[45px] text-white">
+              <div className="bg-[#2b7a6c] rounded-full flex items-center px-2 py-2 lg:px-[20px] w-full lg:w-fit">
+                <p className="font-['Funnel_Display'] font-medium text-[16px] lg:text-[21px] leading-[24px] text-white">
                   OptiGenix × UC Berkeley Triathlon Team
                 </p>
               </div>
 
               {/* Title and Description */}
-              <div className="flex flex-col gap-2 md:gap-3 lg:gap-[12px]">
-                <h2 className="font-funnel font-medium text-[32px] md:text-[38px] lg:text-[42px] leading-[45px] text-[#010907]">
+              <div className="flex flex-col gap-3 lg:gap-[12px]">
+                <h2 className="font-['Funnel_Display'] font-medium text-[30px] lg:text-[42px] leading-[38px] lg:leading-[45px] text-[#010907]">
                   Results
                 </h2>
-                <p className="font-funnel font-medium text-[18px] md:text-[20px] lg:text-[21px] leading-[21px] text-[#010907]">
-                  Performance & Recovery
-                </p>
-                <p className="font-inter text-[14px] md:text-[15px] lg:text-[16px] leading-normal lg:leading-[24px] text-[#010907]">
-                  A 30-day pilot with collegiate endurance athletes showed that
-                  biomarker-based, personalized supplements improved
-                  performance, recovery, and nutrient status versus standard
-                  supplements.
-                </p>
+                <div className="flex flex-col gap-2">
+                  <p className="font-['Funnel_Display'] font-medium text-[16px] lg:text-[21px] leading-[24px] text-[#010907]">
+                    Performance & Recovery
+                  </p>
+                  <p className="font-['Inter'] font-normal text-[14px] lg:text-[16px] leading-[22px] lg:leading-[24px] text-[#010907]">
+                    A 30-day pilot with collegiate endurance athletes showed
+                    that biomarker-based, personalized supplements improved
+                    performance, recovery, and nutrient status versus standard
+                    supplements.
+                  </p>
+                </div>
               </div>
             </div>
 
-            {/* Result Cards - 3 columns */}
-            <div className="flex flex-col sm:flex-row gap-3 lg:gap-[12px]">
+            {/* Result Cards - Horizontal scroll on mobile, 3 columns on desktop */}
+            <div className="flex gap-3 lg:gap-[12px] overflow-x-auto lg:overflow-x-visible scrollbar-hide">
               {resultCards.map((card, index) => (
                 <div
                   key={index}
-                  className={`bg-white ${card.borderColor} border-l-[3px] rounded-[12px] p-3 md:p-4 lg:p-[20px] flex-1 min-h-[140px] md:min-h-[164px] flex flex-col gap-2 lg:gap-[8px]`}
+                  className={`bg-white ${card.borderColor} border-l-[3px] rounded-[12px] p-3 lg:p-[20px] shrink-0 w-[210px] lg:flex-1 h-[164px] flex flex-col gap-2`}
                 >
-                  <h4 className="font-funnel font-medium text-[16px] md:text-[17px] lg:text-[18px] leading-[20px] text-[#010907]">
+                  <h4 className="font-['Funnel_Display'] font-medium text-[18px] leading-[20px] text-[#010907]">
                     {card.title}
                   </h4>
-                  <p className="font-inter text-[14px] md:text-[15px] lg:text-[16px] leading-normal lg:leading-[24px] text-[rgba(1,9,7,0.7)]">
+                  <p className="font-['Inter'] font-normal text-[16px] leading-[24px] text-[rgba(1,9,7,0.7)]">
                     {card.description}
                   </p>
                 </div>
@@ -131,7 +160,7 @@ const CaseStudy = () => {
 
             {/* Highlight Box */}
             <div className="bg-[rgba(16,185,129,0.1)] border-emerald-500 border-l-[3px] rounded p-3 lg:p-[12px]">
-              <p className="font-funnel text-[14px] md:text-[15px] lg:text-[16px] leading-[20px] text-[#010907]">
+              <p className="font-['Funnel_Display'] text-[16px] leading-[20px] text-[#010907]">
                 <span className="font-semibold">
                   Top responder: Athlete OG0027 →
                 </span>{" "}
@@ -145,7 +174,7 @@ const CaseStudy = () => {
             <div className="w-full h-[1.5px] bg-[#d9d9d9]" />
 
             {/* Conclusion */}
-            <p className="font-funnel font-medium text-[16px] md:text-[17px] lg:text-[18px] leading-[1.4] lg:leading-[24px] text-[#010907]">
+            <p className="font-['Funnel_Display'] font-medium text-[16px] lg:text-[18px] leading-[24px] text-[#010907]">
               These findings demonstrate that personalized, biology-driven
               supplementation is practical, scalable, and more effective than
               standard protocols.

@@ -19,27 +19,51 @@ const Quality = () => {
   ];
 
   return (
-    <section className="py-[40px] bg-white">
+    <section className="py-12 lg:py-[40px] bg-white">
       <div className="max-w-[1280px] px-4 md:px-8 mx-auto">
-        <div className="flex flex-col lg:flex-row gap-[24px] items-start">
-          {/* Left: Athlete Action Image */}
-          <div className="flex-1 h-[518px] rounded-[24px] overflow-hidden relative">
-            <img
-              src={backedByScienceBg}
-              alt="Athlete in action"
-              className="object-cover absolute inset-0 w-full h-full"
-            />
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-[24px] items-start">
+          {/* Mobile: Content First, Desktop: Image First */}
+          <div className="flex flex-col order-1 gap-0 w-full lg:order-2 lg:hidden">
+            {/* Single Card: Title, Description & Features List */}
+            <div className="bg-[#042b24] border border-dashed border-white rounded-[24px] px-4 py-5 lg:p-[32px] flex flex-col gap-6">
+              {/* Title & Description */}
+              <div className="flex flex-col gap-4 text-white">
+                <h2 className="font-['Funnel_Display'] font-medium text-[32px] lg:text-[48px] leading-[40px] lg:leading-[56px]">
+                  Backed By Science
+                </h2>
+                <p className="font-['Inter'] font-normal text-[14px] lg:text-[16px] leading-[22px] lg:leading-[24px]">
+                  Our process starts with genetic and metabolic insights and
+                  ends with supplements verified for purity, safety, and
+                  efficacy in ISO-accredited, third-party labs.
+                </p>
+              </div>
+
+              {/* Features List - Vertical on mobile */}
+              <div className="flex flex-col gap-6">
+                {features.map((feature, index) => (
+                  <div key={index} className="flex gap-[10px] items-center">
+                    <FlaskConical
+                      className="w-6 h-6 text-white shrink-0"
+                      strokeWidth={1.5}
+                    />
+                    <p className="font-['Inter'] font-light text-[14px] leading-[22px] text-white">
+                      {feature.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
-          {/* Right: Two Stacked Cards */}
-          <div className="w-full lg:w-[620px] flex flex-col gap-0">
+          {/* Desktop: Two Stacked Cards */}
+          <div className="hidden lg:flex w-full lg:w-[620px] lg:order-2 flex-col gap-0">
             {/* Card 1: Title & Description */}
             <div className="bg-[#042b24] border border-dashed border-white rounded-[24px] p-[32px] h-[208px] flex flex-col justify-start">
               <div className="space-y-[16px] text-white">
-                <h2 className="font-funnel font-medium text-[48px] leading-[56px]">
+                <h2 className="font-['Funnel_Display'] font-medium text-[48px] leading-[56px]">
                   Backed By Science
                 </h2>
-                <p className="font-inter text-[16px] leading-[24px]">
+                <p className="font-['Inter'] font-normal text-[16px] leading-[24px]">
                   Our process starts with genetic and metabolic insights and
                   ends with supplements verified for purity, safety, and
                   efficacy in ISO-accredited, third-party labs.
@@ -57,7 +81,7 @@ const Quality = () => {
                       className="w-[32px] h-[32px] text-white"
                       strokeWidth={1.5}
                     />
-                    <p className="font-inter font-light text-[16px] leading-[24px] text-white">
+                    <p className="font-['Inter'] font-light text-[16px] leading-[24px] text-white">
                       {features[0].text}
                     </p>
                   </div>
@@ -66,7 +90,7 @@ const Quality = () => {
                       className="w-[32px] h-[32px] text-white"
                       strokeWidth={1.5}
                     />
-                    <p className="font-inter font-light text-[16px] leading-[24px] text-white">
+                    <p className="font-['Inter'] font-light text-[16px] leading-[24px] text-white">
                       {features[1].text}
                     </p>
                   </div>
@@ -79,7 +103,7 @@ const Quality = () => {
                       className="w-[32px] h-[32px] text-white"
                       strokeWidth={1.5}
                     />
-                    <p className="font-inter font-light text-[16px] leading-[24px] text-white">
+                    <p className="font-['Inter'] font-light text-[16px] leading-[24px] text-white">
                       {features[2].text}
                     </p>
                   </div>
@@ -88,13 +112,22 @@ const Quality = () => {
                       className="w-[32px] h-[32px] text-white"
                       strokeWidth={1.5}
                     />
-                    <p className="font-inter font-light text-[16px] leading-[24px] text-white">
+                    <p className="font-['Inter'] font-light text-[16px] leading-[24px] text-white">
                       {features[3].text}
                     </p>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Image - Shows below content on mobile, left on desktop */}
+          <div className="flex-1 order-2 lg:order-1 h-[400px] lg:h-[518px] w-full rounded-[24px] overflow-hidden relative">
+            <img
+              src={backedByScienceBg}
+              alt="Athlete in action"
+              className="object-cover absolute inset-0 w-full h-full rounded-[24px]"
+            />
           </div>
         </div>
       </div>

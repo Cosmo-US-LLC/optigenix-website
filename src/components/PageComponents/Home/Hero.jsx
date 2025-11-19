@@ -9,7 +9,7 @@ const Hero = ({
   onCtaClick = () => {},
 }) => {
   return (
-    <section className="relative w-full min-h-[90vh] h-[700px] overflow-hidden">
+    <section className="relative w-full min-h-[90vh] md:h-[700px] h-[500px] overflow-hidden">
       {/* Background Video or Image */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         {backgroundVideo ? (

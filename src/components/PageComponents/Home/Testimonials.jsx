@@ -45,7 +45,7 @@ const testimonials = [
 const TestimonialCard = ({ rating, title, description, author, isActive }) => {
   return (
     <div
-      className={`w-full h-full rounded-[20px] p-4 md:px-[16px] md:py-[24px] flex flex-col gap-6 md:gap-[32px] border transition-all duration-300 ${
+      className={`w-full h-full rounded-[20px] px-4 py-[16px] lg:px-[16px] lg:py-[24px] flex flex-col gap-6 lg:gap-[32px] border transition-all duration-300 ${
         isActive
           ? "bg-white border-white/10"
           : "border-white bg-black/20 backdrop-blur-[10px]"
@@ -66,18 +66,18 @@ const TestimonialCard = ({ rating, title, description, author, isActive }) => {
       </div>
 
       {/* Content */}
-      <div className="flex flex-col gap-4 md:gap-[20px]">
+      <div className="flex flex-col gap-4 lg:gap-[20px]">
         {/* Title and Description */}
-        <div className="flex flex-col gap-3 md:gap-[16px]">
+        <div className="flex flex-col gap-3 lg:gap-[16px]">
           <h3
-            className={`font-funnel font-bold text-[18px] md:text-[20px] leading-[1.1] ${
+            className={`font-['Funnel_Display'] font-bold text-[18px] lg:text-[20px] leading-[20px] lg:leading-[22px] ${
               isActive ? "text-[#042b24]" : "text-white"
             }`}
           >
             {title}
           </h3>
           <p
-            className={`font-inter text-[18px] md:text-[20px] leading-[1.4] md:leading-[28px] tracking-[0.4px] ${
+            className={`font-['Inter'] font-normal text-[16px] lg:text-[20px] leading-[24px] lg:leading-[28px] tracking-[0.4px] ${
               isActive ? "text-[#010907]" : "text-white"
             }`}
           >
@@ -86,14 +86,14 @@ const TestimonialCard = ({ rating, title, description, author, isActive }) => {
         </div>
 
         {/* Divider and Author */}
-        <div className="flex flex-col gap-3 md:gap-[16px]">
+        <div className="flex flex-col gap-3 lg:gap-[16px]">
           <div
             className={`w-full h-px ${
               isActive ? "bg-[#010907]/20" : "bg-white/20"
             }`}
           />
           <p
-            className={`font-inter font-bold text-[14px] md:text-[16px] leading-[1.1] tracking-[0.32px] text-center ${
+            className={`font-['Inter'] font-bold text-[14px] lg:text-[16px] leading-[16px] lg:leading-[18px] tracking-[0.32px] text-center ${
               isActive ? "text-[#010907]" : "text-white"
             }`}
           >
@@ -126,7 +126,7 @@ const Testimonials = () => {
   }, [api]);
 
   return (
-    <section className="relative h-[600px] md:h-[700px] flex justify-center items-center overflow-hidden">
+    <section className="relative h-[700px] flex justify-center items-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
@@ -134,26 +134,24 @@ const Testimonials = () => {
           alt="Background"
           className="object-cover absolute inset-0 w-full h-full"
         />
-        {/* <div className="absolute inset-0 bg-black/50" /> */}
       </div>
 
       {/* Content */}
       <div className="flex relative z-10 flex-col h-full max-w-[1300px] mx-auto px-4 md:px-8">
         {/* Header Section */}
-
-        <div className="flex flex-col gap-6 justify-between items-start px-4 pt-12 text-white md:flex-row md:gap-8">
-          <h2 className="flex-1 font-funnel font-semibold text-[32px] md:text-[40px] lg:text-[48px] leading-[1.2] md:leading-[48px] capitalize">
+        <div className="flex flex-col gap-4 justify-between items-start pt-[42px] lg:pt-12 text-white lg:flex-row lg:gap-8">
+          <h2 className="flex-1 font-['Funnel_Display'] font-semibold text-[32px] lg:text-[48px] leading-[40px] lg:leading-[48px] capitalize">
             Thousands of performance journeys (and counting).
           </h2>
-          <p className="flex-1 font-inter text-[16px] md:text-[18px] leading-[1.4] md:leading-[26px]">
+          <p className="flex-1 font-['Inter'] font-normal text-[14px] lg:text-[18px] leading-[22px] lg:leading-[26px]">
             See how real athletes and fitness enthusiasts are transforming their
             results with OptiGenix.
           </p>
         </div>
 
         {/* Testimonials Carousel */}
-        <div className="flex flex-1 items-end pb-8 md:pb-0 md:items-center">
-          <div className="px-4 w-full md:px-8">
+        <div className="flex flex-1 items-end pb-8 lg:pb-0 lg:items-center">
+          <div className="w-full">
             <Carousel
               setApi={setApi}
               plugins={[plugin.current]}
@@ -165,13 +163,13 @@ const Testimonials = () => {
               onMouseLeave={() => plugin.current.play()}
               className="w-full"
             >
-              <CarouselContent className="-ml-3 md:-ml-4 lg:-ml-6">
+              <CarouselContent className="-ml-3 lg:-ml-4">
                 {testimonials.map((testimonial, index) => (
                   <CarouselItem
                     key={index}
-                    className=" basis-[280px] sm:basis-[320px] md:basis-[368px]"
+                    className="pl-3 lg:pl-4 basis-[280px] sm:basis-[320px] lg:basis-[368px]"
                   >
-                    <div className="h-[280px]">
+                    <div className="h-[276px] lg:h-[280px]">
                       <TestimonialCard
                         rating={testimonial.rating}
                         title={testimonial.title}

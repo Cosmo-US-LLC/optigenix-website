@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { ChevronLeft, ChevronRight, MoveLeft } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight, MoveLeft, Plus } from "lucide-react";
 import ourMostTrustedFormulasP1 from "../../../assets/images/our_most_trusted/our_most_trusted_c1.webp";
 import ourMostTrustedFormulasP2 from "../../../assets/images/our_most_trusted/our_most_trusted_c2.webp";
 import ourMostTrustedFormulasC3 from "../../../assets/images/our_most_trusted/our_most_trusted_c3.webp";
@@ -7,6 +7,11 @@ import ourMostTrustedFormulasC4 from "../../../assets/images/our_most_trusted/ou
 import ourMostTrustedFormulasC5 from "../../../assets/images/our_most_trusted/our_most_trusted_c5.webp";
 import ourMostTrustedFormulasC6 from "../../../assets/images/our_most_trusted/our_most_trusted_c6.webp";
 import ourMostTrustedFormulasC7 from "../../../assets/images/our_most_trusted/our_most_trusted_c7.webp";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 
 const products = [
   {
@@ -57,39 +62,48 @@ const products = [
 ];
 
 const Products = () => {
-  const scrollContainerRef = useRef(null);
+  const [api, setApi] = useState();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
 
-  const scroll = (direction) => {
-    const container = scrollContainerRef.current;
-    if (container) {
-      const scrollAmount = 342; // card width + gap
-      container.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
+  useEffect(() => {
+    if (!api) {
+      return;
     }
-  };
+
+    const onSelect = () => {
+      setCount(api.scrollSnapList().length);
+      setCurrent(api.selectedScrollSnap() + 1);
+    };
+
+    onSelect();
+    api.on("select", onSelect);
+
+    return () => {
+      api.off("select", onSelect);
+    };
+  }, [api]);
 
   return (
-    <section className="bg-[#f7f7f7] md:py-20 py-10">
+    <section className="bg-[#f7f7f7] md:py-20 py-12">
       <div className="max-w-[1280px] px-4 md:px-8 mx-auto">
         {/* Header */}
-        <div className="flex justify-between items-center mb-6 md:mb-12">
-          <h2 className="font-['Funnel_Display'] font-semibold md:text-[48px] text-[24px] leading-[32px] md:leading-[48px] text-[#010907] capitalize max-w-[660px]">
+        <div className="flex justify-between items-center mb-8 md:mb-12">
+          <h2 className="font-['Funnel_Display'] font-semibold md:text-[48px] text-[32px] leading-[40px] md:leading-[48px] text-[#010907] capitalize max-w-[660px] text-center md:text-left w-full md:w-auto">
             Our Most Trusted Formulas
           </h2>
 
-          {/* Navigation Buttons */}
+          {/* Desktop Navigation Buttons */}
           <div className="hidden gap-6 items-center md:flex">
             <button
-              onClick={() => scroll("left")}
+              onClick={() => api?.scrollPrev()}
               className="border border-[#010907] hover:bg-[#010907] hover:text-white transition-colors p-3 rounded-full"
               aria-label="Scroll left"
             >
               <MoveLeft className="" />
             </button>
             <button
-              onClick={() => scroll("right")}
+              onClick={() => api?.scrollNext()}
               className="border border-[#010907] hover:bg-[#010907] hover:text-white transition-colors p-3 rounded-full"
               aria-label="Scroll right"
             >
@@ -99,45 +113,97 @@ const Products = () => {
         </div>
 
         {/* Products Carousel */}
-        <div className="relative">
-          <div
-            ref={scrollContainerRef}
-            className="flex overflow-x-auto gap-3 pb-4 scrollbar-hide scroll-smooth"
-          >
+        <Carousel
+          setApi={setApi}
+          opts={{
+            align: "start",
+            loop: false,
+          }}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-3 md:-ml-4">
             {products.map((product, index) => (
-              <div
+              <CarouselItem
                 key={index}
-                className="flex-shrink-0 md:w-[360px] w-[340px] group cursor-pointer"
+                className="pl-3 md:pl-4 basis-[140px] md:basis-[360px]"
               >
-                {/* Product Image */}
-                <div className="relative h-[360px] mb-4 rounded-lg overflow-hidden bg-white">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
+                <div className="cursor-pointer group">
+                  {/* Product Image */}
+                  <div className="relative h-[234px] md:h-[360px] mb-[14px] md:mb-4 rounded-[8px] md:rounded-lg overflow-hidden bg-white">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                    />
+                    {/* Plus Button */}
+                    <button
+                      className="absolute bottom-[8px] right-[8px] bg-[#0d8360] hover:bg-[#0a6b4f] rounded-[12px] w-[24px] h-[24px] flex items-center justify-center transition-colors"
+                      aria-label="Add to cart"
+                    >
+                      <Plus className="w-[12px] h-[12px] text-white" />
+                    </button>
+                  </div>
 
-                {/* Product Info */}
-                <div className="space-y-2">
-                  <h3 className="font-['Funnel_Display'] font-medium text-[16px] leading-[24px] text-[#010907]">
-                    {product.name}
-                  </h3>
-                  <p className="font-['Inter'] font-normal text-[12px] leading-[20px] text-[#010907]">
-                    {product.description}
-                  </p>
-                  <p className="font-['Funnel_Display'] font-bold text-[16px] leading-[24px] text-[#010907]">
-                    {product.price}
-                  </p>
+                  {/* Product Info */}
+                  <div className="space-y-[8px]">
+                    <h3 className="font-['Funnel_Display'] font-medium text-[14px] leading-[22px] text-[#010907]">
+                      {product.name}
+                    </h3>
+                    <div className="space-y-0">
+                      <p className="font-['Inter'] font-normal text-[12px] md:text-[14px] leading-[20px] text-[#010907]">
+                        {product.description}
+                      </p>
+                      <p className="font-['Funnel_Display'] font-bold text-[16px] leading-[24px] text-[#010907]">
+                        {product.price}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </CarouselItem>
             ))}
+          </CarouselContent>
+
+          {/* Mobile Navigation Controls */}
+          <div className="flex md:hidden items-center justify-center gap-[20px] mt-[32px]">
+            {/* Previous Button */}
+            <button
+              onClick={() => api?.scrollPrev()}
+              disabled={current === 1}
+              className="border border-[#010907] hover:bg-[#010907] hover:text-white disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-[#010907] transition-colors p-2 rounded-full w-[32px] h-[32px] flex items-center justify-center"
+              aria-label="Previous"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+
+            {/* Progress Dots */}
+            <div className="flex gap-[8px] items-center">
+              {Array.from({ length: Math.ceil(count / 2) }).map((_, index) => (
+                <div
+                  key={index}
+                  className={`h-[8px] rounded-full transition-all ${
+                    Math.floor((current - 1) / 2) === index
+                      ? "w-[32px] bg-[#0d8360]"
+                      : "w-[8px] bg-[#010907]/20"
+                  }`}
+                />
+              ))}
+            </div>
+
+            {/* Next Button */}
+            <button
+              onClick={() => api?.scrollNext()}
+              disabled={current === count}
+              className="border border-[#010907] hover:bg-[#010907] hover:text-white disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-[#010907] transition-colors p-2 rounded-full w-[32px] h-[32px] flex items-center justify-center"
+              aria-label="Next"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
           </div>
-        </div>
+        </Carousel>
 
         {/* CTA Button */}
-        <div className="flex justify-center mt-2 md:mt-12">
-          <button className="bg-[#0d8360] hover:bg-[#0a6b4f] transition-colors text-white font-['Funnel_Display'] font-semibold text-[16px] leading-[24px] px-6 py-3.5 rounded-full">
+        <div className="flex justify-center mt-[32px] md:mt-12">
+          <button className="bg-[#0d8360] hover:bg-[#0a6b4f] transition-colors text-white font-['Funnel_Display'] font-semibold text-[14px] md:text-[16px] leading-[22px] md:leading-[24px] px-6 py-[14px] md:py-3.5 rounded-full">
             Explore all products
           </button>
         </div>
