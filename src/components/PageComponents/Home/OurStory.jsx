@@ -35,9 +35,9 @@ const OurStory = () => {
               <p>
                 Today, our In-House Experts use your DNA and blood data to
                 create natural, high-quality supplement packs, tailored to your
-                body, your needs, and your timing.Every blend is science-backed,
-                quality-tested, and designed to support your body's natural
-                strength.
+                body, your needs, and your timing. Every blend is
+                science-backed, quality-tested, and designed to support your
+                body's natural strength.
               </p>
             </div>
 

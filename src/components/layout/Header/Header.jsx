@@ -69,7 +69,7 @@ const Header = () => {
               </svg>
             </div>
             {/* Logo Text */}
-            <span className="font-semibold leading-[-0.602px] text-[30px] font-funnel text-black">
+            <span className="font-bold leading-[-0.602px] text-[30px] font-funnel text-black">
               OptiGenix
             </span>
           </Link>

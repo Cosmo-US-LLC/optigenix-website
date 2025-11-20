@@ -82,10 +82,10 @@ const Quality = () => {
           </div>
 
           {/* Desktop: Two Stacked Cards */}
-          <div className="hidden lg:flex w-full lg:w-[620px] lg:order-2 flex-col gap-0">
+          <div className="hidden lg:flex w-full lg:w-[600px] lg:order-2 flex-col gap-0">
             {/* Card 1: Title & Description */}
             <div
-              className="bg-[#042b24] rounded-[24px] p-[32px] h-[208px] flex flex-col justify-start"
+              className="bg-[#042b24] rounded-[24px] p-[28px] h-[208px] flex flex-col justify-start"
               style={dashedBorderStyle}
             >
               <div className="space-y-[16px] text-white">
@@ -102,7 +102,7 @@ const Quality = () => {
 
             {/* Card 2: Features Grid */}
             <div
-              className="bg-[#042b24] rounded-[24px] p-[32px] h-[332px] flex flex-col justify-center"
+              className="bg-[#042b24] rounded-[24px] p-[28px] h-[332px] flex flex-col justify-center"
               style={dashedBorderStyle2}
             >
               <div className="flex flex-col gap-[40px]">
@@ -113,7 +113,7 @@ const Quality = () => {
                       className="w-[32px] h-[32px] text-white"
                       strokeWidth={1.5}
                     />
-                    <p className="font-['Inter'] font-light text-[16px] leading-[24px] text-white">
+                    <p className="font-['Inter'] font-light text-[15px] leading-[24px] text-white">
                       {features[0].text}
                     </p>
                   </div>
@@ -122,7 +122,7 @@ const Quality = () => {
                       className="w-[32px] h-[32px] text-white"
                       strokeWidth={1.5}
                     />
-                    <p className="font-['Inter'] font-light text-[16px] leading-[24px] text-white">
+                    <p className="font-['Inter'] font-light text-[15px] leading-[24px] text-white">
                       {features[1].text}
                     </p>
                   </div>
@@ -135,7 +135,7 @@ const Quality = () => {
                       className="w-[32px] h-[32px] text-white"
                       strokeWidth={1.5}
                     />
-                    <p className="font-['Inter'] font-light text-[16px] leading-[24px] text-white">
+                    <p className="font-['Inter'] font-light text-[15px] leading-[24px] text-white">
                       {features[2].text}
                     </p>
                   </div>
@@ -144,7 +144,7 @@ const Quality = () => {
                       className="w-[32px] h-[32px] text-white"
                       strokeWidth={1.5}
                     />
-                    <p className="font-['Inter'] font-light text-[16px] leading-[24px] text-white">
+                    <p className="font-['Inter'] font-light text-[15px] leading-[24px] text-white">
                       {features[3].text}
                     </p>
                   </div>
