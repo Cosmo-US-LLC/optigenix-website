@@ -31,7 +31,7 @@ const steps = [
 const HowItWorks = () => {
   return (
     <section className="bg-white">
-      <div className="max-w-[1280px] mx-auto px-4 md:px-8 py-12 md:py-16 lg:py-[80px]">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-8 py-12 pb-20 md:py-16 lg:py-[80px]">
         {/* Mobile Layout: Title, Button, then Stacked Cards */}
         <div className="flex flex-col gap-8 lg:hidden">
           {/* Title and Button */}
@@ -50,13 +50,19 @@ const HowItWorks = () => {
             </button>
           </div>
 
-          {/* Stacked Cards */}
-          <div className="flex flex-col gap-[14px]">
+          {/* Stacked Cards with Sticky Scroll */}
+          <div className="flex flex-col gap-0">
             {steps.map((step, index) => (
               <div
                 key={index}
-                style={{ backgroundColor: step.bgColor }}
-                className="rounded-[16px] px-4 py-5 flex flex-col gap-6"
+                style={{
+                  backgroundColor: step.bgColor,
+                  top: `${80 + index * 20}px`,
+                  zIndex: 10 + index,
+                }}
+                className={`rounded-[16px] px-4 py-5 flex flex-col gap-6 ${
+                  index < steps.length - 1 ? "sticky" : "relative"
+                } ${index > 0 ? "mt-[14px]" : ""}`}
               >
                 <div className="flex flex-col gap-20">
                   {/* Top: Title and Number */}
