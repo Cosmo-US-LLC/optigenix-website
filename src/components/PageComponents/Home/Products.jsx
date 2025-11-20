@@ -97,14 +97,14 @@ const Products = () => {
           <div className="hidden gap-6 items-center md:flex">
             <button
               onClick={() => api?.scrollPrev()}
-              className="border border-[#010907] hover:bg-[#010907] hover:text-white transition-colors p-3 rounded-full"
+              className="border border-[#010907] hover:bg-[#010907] hover:text-white transition-colors p-3 w-[48px] h-[48px] flex items-center justify-center rounded-full"
               aria-label="Scroll left"
             >
               <MoveLeft className="w-8 h-8" size={24} strokeWidth={1} />
             </button>
             <button
               onClick={() => api?.scrollNext()}
-              className="border border-[#010907] hover:bg-[#010907] hover:text-white transition-colors p-3 rounded-full"
+              className="border border-[#010907] hover:bg-[#010907] hover:text-white transition-colors p-3 w-[48px] h-[48px] flex items-center justify-center rounded-full"
               aria-label="Scroll right"
             >
               <MoveLeft
