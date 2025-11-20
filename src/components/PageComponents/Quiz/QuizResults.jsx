@@ -18,10 +18,10 @@ const QuizResults = ({ onRestart }) => {
           </div>
 
           {/* Success Message */}
-          <h1 className="text-3xl md:text-4xl font-bold text-[#252525] mb-4 font-['DM_Sans']">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#252525] mb-4 font-funnel">
             Quiz Completed Successfully!
           </h1>
-          <p className="text-lg md:text-xl text-[#666] mb-10">
+          <p className="text-lg md:text-xl text-[#666] mb-10 font-funnel">
             Thank you for completing the quiz. Your answers have been recorded.
           </p>
 
@@ -29,10 +29,10 @@ const QuizResults = ({ onRestart }) => {
           <div className="my-8 border-t border-gray-200"></div>
 
           {/* Next Steps */}
-          <h3 className="text-2xl font-bold text-[#252525] mb-4 font-['DM_Sans']">
+          <h3 className="text-2xl font-bold text-[#252525] mb-4 font-funnel">
             What's Next?
           </h3>
-          <p className="text-[#666] mb-8 text-lg">
+          <p className="text-[#666] mb-8 text-lg font-funnel">
             Explore our products or take the quiz again to update your
             preferences.
           </p>
@@ -43,7 +43,7 @@ const QuizResults = ({ onRestart }) => {
               onClick={() => navigate("/")}
               variant="primary"
               size="lg"
-              className="shadow-lg hover:shadow-xl"
+              className="shadow-lg hover:shadow-xl font-funnel"
             >
               Explore Products
             </Button>
@@ -51,7 +51,7 @@ const QuizResults = ({ onRestart }) => {
               onClick={onRestart}
               variant="outline"
               size="lg"
-              className="border-2 border-[#0d8360] text-[#0d8360] hover:bg-[rgba(13,131,96,0.05)]"
+              className="border-2 border-[#0d8360] font-funnel text-[#0d8360] hover:bg-[rgba(13,131,96,0.05)] rounded-[33px]"
             >
               Retake Quiz
             </Button>

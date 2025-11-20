@@ -43,7 +43,7 @@ const Step1PersonalInfo = ({ onNext, onBack, previousData }) => {
           <div className="flex-1 flex flex-col gap-[17px]">
             {/* Age Range */}
             <div className="flex flex-col gap-4 py-1">
-              <p className="text-[18px] font-semibold text-[#252525] font-['Funnel_Display']">
+              <p className="text-[18px] font-semibold text-[#252525] font-funnel">
                 What is your age range?
               </p>
               <div className="flex gap-[15px] flex-wrap">
@@ -51,7 +51,7 @@ const Step1PersonalInfo = ({ onNext, onBack, previousData }) => {
                   <button
                     key={age}
                     onClick={() => setFormData({ ...formData, ageRange: age })}
-                    className={`px-4 py-[10px] rounded-full border transition-all ${
+                    className={`px-4 py-[10px] font-funnel rounded-full border transition-all ${
                       formData.ageRange === age
                         ? "bg-[rgba(13,131,96,0.1)] border-[#0d8360] text-[#0d8360] font-medium"
                         : "border-[rgba(37,37,37,0.1)] text-[rgba(37,37,37,0.9)]"
@@ -65,7 +65,7 @@ const Step1PersonalInfo = ({ onNext, onBack, previousData }) => {
 
             {/* Gender */}
             <div className="flex flex-col gap-4 py-1">
-              <p className="text-[18px] font-semibold text-[#252525] font-['Funnel_Display']">
+              <p className="text-[18px] font-semibold text-[#252525] font-funnel">
                 What is your gender?
               </p>
               <div className="flex gap-[15px] flex-wrap">
@@ -73,7 +73,7 @@ const Step1PersonalInfo = ({ onNext, onBack, previousData }) => {
                   <button
                     key={gender}
                     onClick={() => setFormData({ ...formData, gender })}
-                    className={`px-4 py-[10px] rounded-full border transition-all ${
+                    className={`px-4 py-[10px] rounded-full font-funnel border transition-all ${
                       formData.gender === gender
                         ? "bg-[rgba(13,131,96,0.1)] border-[#0d8360] text-[#0d8360] font-medium"
                         : "border-[rgba(37,37,37,0.1)] text-[rgba(37,37,37,0.9)]"
@@ -87,7 +87,7 @@ const Step1PersonalInfo = ({ onNext, onBack, previousData }) => {
 
             {/* Height */}
             <div className="flex flex-col gap-4 py-1">
-              <p className="text-[18px] font-semibold text-[#252525] font-['Funnel_Display']">
+              <p className="text-[18px] font-semibold text-[#252525] font-funnel">
                 What is your height (cm)?
               </p>
               <input
@@ -97,13 +97,13 @@ const Step1PersonalInfo = ({ onNext, onBack, previousData }) => {
                 onChange={(e) =>
                   setFormData({ ...formData, height: e.target.value })
                 }
-                className="border border-[rgba(37,37,37,0.1)] rounded-full px-4 py-[10px] w-full max-w-[486px] text-[16px] placeholder:text-[rgba(37,37,37,0.3)] focus:border-[#0d8360] focus:outline-none"
+                className="border border-[rgba(37,37,37,0.1)] font-funnel rounded-full px-4 py-[10px] w-full max-w-[486px] text-[16px] placeholder:text-[rgba(37,37,37,0.3)] focus:border-[#0d8360] focus:outline-none"
               />
             </div>
 
             {/* Weight */}
             <div className="flex flex-col gap-4 py-1">
-              <p className="text-[18px] font-semibold text-[#252525] font-['Funnel_Display']">
+              <p className="text-[18px] font-semibold text-[#252525] font-funnel">
                 What is your weight (kg)?
               </p>
               <input
@@ -113,7 +113,7 @@ const Step1PersonalInfo = ({ onNext, onBack, previousData }) => {
                 onChange={(e) =>
                   setFormData({ ...formData, weight: e.target.value })
                 }
-                className="border border-[rgba(37,37,37,0.1)] rounded-full px-4 py-[10px] w-full max-w-[486px] text-[16px] placeholder:text-[rgba(37,37,37,0.3)] focus:border-[#0d8360] focus:outline-none"
+                className="border border-[rgba(37,37,37,0.1)] rounded-full px-4 py-[10px]  w-full max-w-[486px] text-[16px] placeholder:text-[rgba(37,37,37,0.3)] focus:border-[#0d8360] focus:outline-none"
               />
             </div>
           </div>

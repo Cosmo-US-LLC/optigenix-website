@@ -12,16 +12,28 @@ import {
   FlaskConical,
 } from "lucide-react";
 
+import science from "../../../assets/images/usp_banner/science.svg";
+import dna from "../../../assets/images/usp_banner/dna_logo.svg";
+import pharma from "../../../assets/images/usp_banner/pharma_logo.svg";
+import allNaturalIcon from "../../../assets/images/usp_banner/natural_logo.svg";
+import thirdPartyTestedIcon from "../../../assets/images/usp_banner/thrid-party_logo.svg";
+import usa from "../../../assets/images/usp_banner/usa_logo.svg";
+import performance from "../../../assets/images/usp_banner/performance_logo.svg";
+import atheletes from "../../../assets/images/usp_banner/atheletes_logo.svg";
+import tubeTest from "../../../assets/images/usp_banner/tube_logo.svg";
+import inHouse from "../../../assets/images/usp_banner/in_house_logo.svg";
+
 const uspItems = [
-  { icon: Microscope, text: "Science Backed" },
-  { icon: Dna, text: "DNA Personalized" },
-  { icon: ShieldCheck, text: "Pharmaceutical Grade" },
-  { icon: Leaf, text: "All Natural" },
-  { icon: TestTube, text: "Third-Party Tested" },
-  { icon: Flag, text: "Made in the USA" },
-  { icon: Gauge, text: "Performance Guaranteed" },
-  { icon: PersonStanding, text: "Used & Founded by athletes" },
-  { icon: FlaskConical, text: "Dual-Data Precision" },
+  { icon: science, text: "Science Backed" },
+  { icon: dna, text: "DNA Personalized" },
+  { icon: pharma, text: "Pharmaceutical Grade" },
+  { icon: allNaturalIcon, text: "All Natural" },
+  { icon: thirdPartyTestedIcon, text: "Third-Party Tested" },
+  { icon: usa, text: "Made in the USA" },
+  { icon: performance, text: "Performance Guaranteed" },
+  { icon: atheletes, text: "Used & Founded by athletes" },
+  { icon: tubeTest, text: "Dual-Data Precision" },
+  { icon: inHouse, text: "In-House PhD researchers & registered dietitians" },
 ];
 
 const USPBanner = () => {
@@ -36,7 +48,11 @@ const USPBanner = () => {
       >
         {uspItems.map((item, index) => (
           <div key={index} className="flex gap-3 items-center mx-6">
-            <item.icon className="w-8 h-8 text-[#010907] flex-shrink-0" />
+            <img
+              src={item.icon}
+              alt={item.text}
+              className="flex-shrink-0 w-8 h-8"
+            />
             <span
               className="font-semibold text-[16px] leading-[24px] text-[#010907] whitespace-nowrap"
               style={{ fontFamily: "Inter, sans-serif" }}

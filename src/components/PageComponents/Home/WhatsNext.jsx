@@ -18,7 +18,7 @@ const FeatureCard = ({ image, tagText, title, description, buttonLabel }) => {
       </div>
 
       {/* Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 md:gap-5 lg:gap-[21px] px-6 md:px-8 lg:px-12">
+      <div className="absolute bottom-10 left-0 right-0 mx-auto flex flex-col items-center justify-center gap-4 md:gap-5 lg:gap-[21px] px-6 md:px-8 lg:px-12">
         {/* Coming Soon Badge */}
         <div className="bg-black/40 border border-[#fcfcf7] px-4 md:px-5 lg:px-[16px] py-2 md:py-2.5 lg:py-[8px] rounded-full">
           <p className="font-funnel text-[14px] md:text-[15px] lg:text-[15.6px] text-white text-center">

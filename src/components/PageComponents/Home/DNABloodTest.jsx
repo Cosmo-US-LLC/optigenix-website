@@ -5,7 +5,7 @@ import bloodTestVideo from "../../../assets/images/performance_blood_test/Examin
 
 const DNABloodTest = () => {
   return (
-    <section className="bg-[#dedede]/20 md:py-20 py-12">
+    <section className="bg-[#dedede]/20 md:py-20 py-12 md:pb-32">
       <div className="max-w-[1280px] md:px-8 px-4 mx-auto">
         {/* Section Header */}
         <div className="text-center mb-[32px] md:mb-[30px] space-y-[15px] max-w-[800px] mx-auto">
@@ -22,10 +22,10 @@ const DNABloodTest = () => {
           </p>
         </div>
 
-        {/* Cards Container */}
-        <div className="flex flex-col gap-[20px]">
-          {/* DNA Test Card */}
-          <div className="relative h-[530px] rounded-[16px] overflow-hidden md:p-[30px] px-4 py-6 flex items-end">
+        {/* Cards Container - Sticky Scroll Effect */}
+        <div className="flex flex-col gap-0">
+          {/* DNA Test Card - Sticky */}
+          <div className="sticky top-[80px] md:top-[100px] h-[530px] md:h-[530px] rounded-[16px] overflow-hidden md:p-[30px] px-4 py-6 flex items-end">
             {/* Background Video with Gradient Overlay */}
             <div className="absolute inset-0 pointer-events-none">
               <video
@@ -41,14 +41,14 @@ const DNABloodTest = () => {
             </div>
 
             {/* Content Card - Glassmorphic Overlay */}
-            <div className="relative backdrop-blur-lg bg-[rgba(255,255,255,0.1)] border border-white rounded-[20px] px-4 md:px-[24px] py-5 md:py-[24px] w-full md:w-[550px] flex flex-col gap-3">
+            <div className="relative backdrop-blur-lg bg-[rgba(255,255,255,0.1)] border border-white rounded-[20px] px-4 md:px-[24px] py-5 md:py-[24px] w-full md:w-[550px] md:h-[440px] h-[300px] flex justify-between flex-col gap-3">
               <div className="space-y-[16px]">
                 {/* Title and Description */}
                 <div className="space-y-[18px] text-white">
-                  <h3 className="font-['Funnel_Display'] font-medium text-[20px] md:text-[24px] leading-[22px] md:leading-[20px]">
+                  <h3 className="font-funnel font-medium text-[20px] md:text-[24px] leading-[22px] md:leading-[20px]">
                     DNA Test: Unlock Your Genetic Potential
                   </h3>
-                  <p className="font-['Inter'] font-normal text-[16px] leading-[20px]">
+                  <p className="font-inter font-normal text-[16px] leading-[20px]">
                     Easy and effective test to personalize your nutrition,
                     training, and supplements for optimal results.
                   </p>
@@ -56,7 +56,7 @@ const DNABloodTest = () => {
 
                 {/* Benefits List */}
                 <div className="space-y-[16px]">
-                  <ul className="space-y-[16px] font-['Inter'] font-normal text-[14px] leading-[22px] text-white list-disc pl-[21px]">
+                  <ul className="space-y-[16px] font-inter font-normal text-[14px] leading-[22px] text-white list-disc pl-[21px]">
                     <li>Includes a free 1:1 dietitian consultation</li>
                     <li>HSA/FSA accepted</li>
                   </ul>
@@ -70,8 +70,8 @@ const DNABloodTest = () => {
             </div>
           </div>
 
-          {/* Performance Blood Test Card */}
-          <div className="relative h-[530px] rounded-[16px] overflow-hidden md:p-[30px] px-4 py-6 flex items-end">
+          {/* Performance Blood Test Card - Scrolls Over */}
+          <div className="relative z-10 mt-[20px] h-[530px] md:h-[530px] rounded-[16px] overflow-hidden md:p-[30px] px-4 py-6 flex items-end">
             {/* Background Video with Gradient Overlay */}
             <div className="absolute inset-0 pointer-events-none">
               <video
@@ -87,21 +87,21 @@ const DNABloodTest = () => {
             </div>
 
             {/* Content Card - Glassmorphic Overlay */}
-            <div className="relative backdrop-blur-lg bg-[rgba(0,0,0,0.3)] border border-white rounded-[20px] px-4 md:px-[24px] py-5 md:py-[20px] w-full md:w-[550px] flex flex-col gap-3">
+            <div className="relative backdrop-blur-lg bg-[rgba(0,0,0,0.3)] border border-white rounded-[20px] px-4 md:px-[24px] py-5 md:py-[20px] w-full md:w-[550px] md:h-[440px] h-[480px] flex justify-between flex-col gap-3">
               <div className="space-y-[16px]">
                 {/* Title and Description */}
                 <div className="space-y-[14px] text-white">
-                  <h3 className="font-['Funnel_Display'] font-medium text-[20px] md:text-[24px] leading-[22px] md:leading-[20px]">
+                  <h3 className="font-funnel font-medium text-[20px] md:text-[24px] leading-[22px] md:leading-[20px]">
                     Performance Blood Test
                   </h3>
-                  <p className="font-['Inter'] font-normal text-[14px] md:text-[16px] leading-[20px]">
+                  <p className="font-inter font-normal text-[14px] md:text-[16px] leading-[20px]">
                     Easy and effective blood test to uncover imbalances and
                     maximize energy, recovery, and results.
                   </p>
                 </div>
 
                 {/* Benefits List */}
-                <div className="font-['Inter'] font-normal text-[14px] leading-[22px] text-white">
+                <div className="font-inter font-normal text-[14px] leading-[22px] text-white">
                   <ul className="space-y-[16px] md:space-y-0 list-disc pl-[21px]">
                     <li>
                       Measures 105+ biomarkers tied to energy, recovery, and

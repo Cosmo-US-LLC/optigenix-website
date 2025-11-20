@@ -32,9 +32,9 @@ const StepQuestion = ({
           />
 
           {/* Question */}
-          <div className="flex-1 flex flex-col">
+          <div className="flex flex-col flex-1">
             <div className="mb-6">
-              <h2 className="text-[20px] font-semibold text-[#252525] font-['DM_Sans']">
+              <h2 className="text-[20px] font-semibold text-[#252525] font-funnel">
                 {stepNumber}. {question}
               </h2>
             </div>
@@ -45,7 +45,7 @@ const StepQuestion = ({
                 <button
                   key={index}
                   onClick={() => setSelectedOption(index)}
-                  className={`w-full max-w-[431px] px-4 py-[10px] rounded-full border text-left transition-all ${
+                  className={`w-full max-w-[431px] font-funnel px-4 py-[10px] rounded-full border text-left transition-all ${
                     selectedOption === index
                       ? "bg-[rgba(13,131,96,0.1)] border-[#0d8360] text-[#0d8360] font-medium"
                       : "border-[rgba(37,37,37,0.1)] text-[rgba(37,37,37,0.9)] hover:border-[rgba(13,131,96,0.3)]"
@@ -71,4 +71,3 @@ const StepQuestion = ({
 };
 
 export default StepQuestion;
-

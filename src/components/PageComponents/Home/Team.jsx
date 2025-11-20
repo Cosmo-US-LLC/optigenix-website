@@ -1,5 +1,5 @@
 import React from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { MoveLeft, MoveRight } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -82,14 +82,22 @@ const Team = () => {
               className="border border-[#010907] border-solid hover:bg-[#010907] hover:text-white transition-colors p-[12px] rounded-full w-[48px] h-[48px] flex items-center justify-center"
               aria-label="Previous slide"
             >
-              <ChevronLeft className="w-[24px] h-[24px]" />
+              <MoveLeft
+                className="w-[24px] h-[24px]"
+                size={24}
+                strokeWidth={1}
+              />
             </button>
             <button
               onClick={scrollNext}
               className="border border-[#010907] border-solid hover:bg-[#010907] hover:text-white transition-colors p-[12px] rounded-full w-[48px] h-[48px] flex items-center justify-center"
               aria-label="Next slide"
             >
-              <ChevronRight className="w-[24px] h-[24px]" />
+              <MoveRight
+                className="w-[24px] h-[24px]"
+                size={24}
+                strokeWidth={1}
+              />
             </button>
           </div>
         </div>
@@ -168,10 +176,10 @@ const Team = () => {
           {/* Previous Button */}
           <button
             onClick={scrollPrev}
-            className="border border-[#010907] hover:bg-[#010907] hover:text-white transition-colors p-2 rounded-full w-[32px] h-[32px] flex items-center justify-center"
+            className="border border-[#010907] hover:bg-[#010907] hover:text-white transition-colors p-2 rounded-full w-[44px] h-[44px] flex items-center justify-center"
             aria-label="Previous"
           >
-            <ChevronLeft className="w-4 h-4" />
+            <MoveLeft className="w-12 h-12" size={24} strokeWidth={1} />
           </button>
 
           {/* Progress Dots */}
@@ -191,10 +199,10 @@ const Team = () => {
           {/* Next Button */}
           <button
             onClick={scrollNext}
-            className="border border-[#010907] hover:bg-[#010907] hover:text-white transition-colors p-2 rounded-full w-[32px] h-[32px] flex items-center justify-center"
+            className="border border-[#010907] hover:bg-[#010907] hover:text-white transition-colors p-2 rounded-full w-[44px] h-[44px] flex items-center justify-center"
             aria-label="Next"
           >
-            <ChevronRight className="w-4 h-4" />
+            <MoveRight className="w-12 h-12" size={24} strokeWidth={1} />
           </button>
         </div>
       </div>

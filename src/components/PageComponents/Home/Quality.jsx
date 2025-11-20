@@ -3,6 +3,29 @@ import { FlaskConical } from "lucide-react";
 import backedByScienceBg from "../../../assets/images/backed_by/backed_by_science_bg.webp";
 
 const Quality = () => {
+  // Custom dashed border style with longer dashes
+  const dashedBorderStyle = {
+    backgroundImage: `
+      repeating-linear-gradient(0deg, white 0, white 15px, transparent 15px, transparent 30px),
+      repeating-linear-gradient(90deg, white 0, white 15px, transparent 15px, transparent 30px),
+      repeating-linear-gradient(180deg, white 0, white 15px, transparent 15px, transparent 30px),
+      repeating-linear-gradient(270deg, white 0, white 15px, transparent 15px, transparent 30px)
+    `,
+    backgroundSize: "2px 100%, 100% 2px, 2px 100%, 100% 2px",
+    backgroundPosition: "0 0, 0 0, 100% 0, 0 100%",
+    backgroundRepeat: "no-repeat",
+  };
+  const dashedBorderStyle2 = {
+    backgroundImage: `
+      repeating-linear-gradient(0deg, white 0, white 15px, transparent 15px, transparent 30px),
+      repeating-linear-gradient(90deg, white 0, white 15px, transparent 15px, transparent 30px),
+      repeating-linear-gradient(180deg, white 0, white 15px, transparent 15px, transparent 30px),
+      repeating-linear-gradient(270deg, white 0, white 15px, transparent 15px, transparent 30px)
+    `,
+    backgroundSize: "2px 100%, 0% 2px, 2px 100%, 100% 2px",
+    backgroundPosition: "0 0, 0 0, 100% 0, 0 100%",
+    backgroundRepeat: "no-repeat",
+  };
   const features = [
     {
       text: "Formulated and reviewed by in-house experts",
@@ -25,7 +48,10 @@ const Quality = () => {
           {/* Mobile: Content First, Desktop: Image First */}
           <div className="flex flex-col order-1 gap-0 w-full lg:order-2 lg:hidden">
             {/* Single Card: Title, Description & Features List */}
-            <div className="bg-[#042b24] border border-dashed border-white rounded-[24px] px-4 py-5 lg:p-[32px] flex flex-col gap-6">
+            <div
+              className="bg-[#042b24] rounded-[24px] px-4 py-5 lg:p-[32px] flex flex-col gap-6"
+              style={dashedBorderStyle}
+            >
               {/* Title & Description */}
               <div className="flex flex-col gap-4 text-white">
                 <h2 className="font-['Funnel_Display'] font-medium text-[32px] lg:text-[48px] leading-[40px] lg:leading-[56px]">
@@ -58,7 +84,10 @@ const Quality = () => {
           {/* Desktop: Two Stacked Cards */}
           <div className="hidden lg:flex w-full lg:w-[620px] lg:order-2 flex-col gap-0">
             {/* Card 1: Title & Description */}
-            <div className="bg-[#042b24] border border-dashed border-white rounded-[24px] p-[32px] h-[208px] flex flex-col justify-start">
+            <div
+              className="bg-[#042b24] rounded-[24px] p-[32px] h-[208px] flex flex-col justify-start"
+              style={dashedBorderStyle}
+            >
               <div className="space-y-[16px] text-white">
                 <h2 className="font-['Funnel_Display'] font-medium text-[48px] leading-[56px]">
                   Backed By Science
@@ -72,8 +101,11 @@ const Quality = () => {
             </div>
 
             {/* Card 2: Features Grid */}
-            <div className="bg-[#042b24] border border-dashed border-white rounded-[24px] p-[32px] h-[312px]">
-              <div className="flex flex-col gap-[20px]">
+            <div
+              className="bg-[#042b24] rounded-[24px] p-[32px] h-[332px] flex flex-col justify-center"
+              style={dashedBorderStyle2}
+            >
+              <div className="flex flex-col gap-[40px]">
                 {/* Row 1 */}
                 <div className="flex gap-[20px] h-[90px]">
                   <div className="flex-1 flex flex-col gap-[10px]">
@@ -122,7 +154,7 @@ const Quality = () => {
           </div>
 
           {/* Image - Shows below content on mobile, left on desktop */}
-          <div className="flex-1 order-2 lg:order-1 h-[400px] lg:h-[518px] w-full rounded-[24px] overflow-hidden relative">
+          <div className="flex-1 order-2 lg:order-1 h-[400px] lg:h-[538px] w-full rounded-[24px] overflow-hidden relative">
             <img
               src={backedByScienceBg}
               alt="Athlete in action"

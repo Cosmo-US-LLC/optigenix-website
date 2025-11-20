@@ -30,8 +30,8 @@ const Header = () => {
       }`}
     >
       {/* Desktop Navigation */}
-      <nav className="max-w-[1280px] mx-auto px-4 md:px-8 py-2 hidden md:block">
-        <div className="py-[12px] flex items-center justify-between">
+      <nav className="max-w-[1280px] mx-auto px-4 md:px-8 py-[14px] hidden md:block">
+        <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 h-[42px]">
             {/* Logo Icon */}
@@ -69,7 +69,7 @@ const Header = () => {
               </svg>
             </div>
             {/* Logo Text */}
-            <span className="font-semibold leading-[-0.602px] text-[30px] font-['Funnel_Display'] text-black">
+            <span className="font-semibold leading-[-0.602px] text-[30px] font-funnel text-black">
               OptiGenix
             </span>
           </Link>

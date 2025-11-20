@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, MoveLeft, Plus } from "lucide-react";
-import ourMostTrustedFormulasP1 from "../../../assets/images/our_most_trusted/our_most_trusted_c1.webp";
-import ourMostTrustedFormulasP2 from "../../../assets/images/our_most_trusted/our_most_trusted_c2.webp";
-import ourMostTrustedFormulasC3 from "../../../assets/images/our_most_trusted/our_most_trusted_c3.webp";
-import ourMostTrustedFormulasC4 from "../../../assets/images/our_most_trusted/our_most_trusted_c4.webp";
-import ourMostTrustedFormulasC5 from "../../../assets/images/our_most_trusted/our_most_trusted_c5.webp";
-import ourMostTrustedFormulasC6 from "../../../assets/images/our_most_trusted/our_most_trusted_c6.webp";
-import ourMostTrustedFormulasC7 from "../../../assets/images/our_most_trusted/our_most_trusted_c7.webp";
+import { MoveLeft, MoveRight, Plus } from "lucide-react";
+import ourMostTrustedFormulasP1 from "../../../assets/images/our_most_trusted/our_most_trusted_c8.webp";
+import ourMostTrustedFormulasP2 from "../../../assets/images/our_most_trusted/our_most_trusted_c9.webp";
+import ourMostTrustedFormulasC3 from "../../../assets/images/our_most_trusted/our_most_trusted_c10.webp";
+import ourMostTrustedFormulasC4 from "../../../assets/images/our_most_trusted/our_most_trusted_c11.webp";
+import ourMostTrustedFormulasC5 from "../../../assets/images/our_most_trusted/our_most_trusted_c12.webp";
+import ourMostTrustedFormulasC6 from "../../../assets/images/our_most_trusted/our_most_trusted_c13.webp";
+import ourMostTrustedFormulasC7 from "../../../assets/images/our_most_trusted/our_most_trusted_c14.webp";
 import {
   Carousel,
   CarouselContent,
@@ -100,14 +100,18 @@ const Products = () => {
               className="border border-[#010907] hover:bg-[#010907] hover:text-white transition-colors p-3 rounded-full"
               aria-label="Scroll left"
             >
-              <MoveLeft className="" />
+              <MoveLeft className="w-8 h-8" size={24} strokeWidth={1} />
             </button>
             <button
               onClick={() => api?.scrollNext()}
               className="border border-[#010907] hover:bg-[#010907] hover:text-white transition-colors p-3 rounded-full"
               aria-label="Scroll right"
             >
-              <MoveLeft className="rotate-180" />
+              <MoveLeft
+                className="w-8 h-8 rotate-180"
+                size={24}
+                strokeWidth={1}
+              />
             </button>
           </div>
         </div>
@@ -136,12 +140,12 @@ const Products = () => {
                       className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
                     />
                     {/* Plus Button */}
-                    <button
-                      className="absolute bottom-[8px] right-[8px] bg-[#0d8360] hover:bg-[#0a6b4f] rounded-[12px] w-[24px] h-[24px] flex items-center justify-center transition-colors"
+                    {/* <button
+                      className="absolute bottom-[8px] right-[8px] bg-[#0d8360] hover:bg-[#0a6b4f] rounded-full w-[24px] md:w-[44px] h-[24px] md:h-[44px] flex items-center justify-center transition-colors"
                       aria-label="Add to cart"
                     >
                       <Plus className="w-[12px] h-[12px] text-white" />
-                    </button>
+                    </button> */}
                   </div>
 
                   {/* Product Info */}
@@ -169,10 +173,10 @@ const Products = () => {
             <button
               onClick={() => api?.scrollPrev()}
               disabled={current === 1}
-              className="border border-[#010907] hover:bg-[#010907] hover:text-white disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-[#010907] transition-colors p-2 rounded-full w-[32px] h-[32px] flex items-center justify-center"
+              className="border border-[#010907] hover:bg-[#010907] hover:text-white disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-[#010907] transition-colors p-2 rounded-full w-[44px] h-[44px] flex items-center justify-center"
               aria-label="Previous"
             >
-              <ChevronLeft className="w-4 h-4" />
+              <MoveLeft className="w-8 h-8" size={24} strokeWidth={1} />
             </button>
 
             {/* Progress Dots */}
@@ -193,10 +197,10 @@ const Products = () => {
             <button
               onClick={() => api?.scrollNext()}
               disabled={current === count}
-              className="border border-[#010907] hover:bg-[#010907] hover:text-white disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-[#010907] transition-colors p-2 rounded-full w-[32px] h-[32px] flex items-center justify-center"
+              className="border border-[#010907] hover:bg-[#010907] hover:text-white disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-[#010907] transition-colors p-2 rounded-full w-[44px] h-[44px] flex items-center justify-center"
               aria-label="Next"
             >
-              <ChevronRight className="w-4 h-4" />
+              <MoveRight className="w-8 h-8" size={24} strokeWidth={1} />
             </button>
           </div>
         </Carousel>
