@@ -9,7 +9,7 @@ const DNABloodTest = () => {
       <div className="max-w-[1280px] md:px-8 px-4 mx-auto">
         {/* Section Header */}
         <div className="text-center mb-[32px] md:mb-[30px] space-y-[15px] max-w-[800px] mx-auto">
-          <h2 className="font-['Funnel_Display'] font-semibold text-[32px] md:text-[48px] leading-[40px] md:leading-[56px] tracking-[-0.72px] text-[#042b24]">
+          <h2 className="font-funnel font-semibold text-[32px] md:text-[48px] leading-[40px] md:leading-[56px] tracking-[-0.72px] text-[#042b24]">
             Looking for a More Personalized Supplement Approach?
           </h2>
           <p className="font-['Inter'] font-normal text-[14px] md:text-[18px] leading-[22px] md:leading-[26px] text-[#010907]">

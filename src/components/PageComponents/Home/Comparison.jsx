@@ -7,7 +7,7 @@ import optigenixIcon from "../../../assets/images/footer/footer_logo.webp";
 const TableRow = ({ benefit, optigenixStatus, traditionalStatus }) => {
   return (
     <div className="flex items-center justify-between pb-4 border-b border-[rgba(1,9,7,0.5)] border-opacity-20">
-      <p className="flex-1 font-['Inter'] font-normal text-[16px] lg:text-[20px] leading-[24px] lg:leading-[28px] text-[#010907]">
+      <p className="flex-1 font-inter font-normal text-[14px] lg:text-[20px] leading-[24px] lg:leading-[28px] text-[#010907]">
         {benefit}
       </p>
       <div className="flex items-center justify-between w-[160px] lg:w-[288px]">
@@ -89,18 +89,18 @@ const Comparison = () => {
           {/* Comparison Content */}
           <div className="flex-1 w-full flex flex-col gap-6 lg:gap-0 lg:h-[600px] lg:justify-between">
             {/* Title */}
-            <h2 className="font-['Funnel_Display'] font-medium text-[32px] lg:text-[48px] leading-[40px] lg:leading-[56px] text-[#010907] capitalize">
+            <h2 className="font-funnel font-medium text-[32px] lg:text-[48px] leading-[40px] lg:leading-[56px] text-[#010907] capitalize">
               Comparison
             </h2>
 
             {/* Comparison Table */}
             <div className="flex flex-col gap-6 lg:gap-[24px] relative">
               {/* Vertical dark pill behind OptiGenix column */}
-              <div className="absolute bg-[#042b24] w-[46px] h-[332px] lg:w-[68px] lg:h-[380px] rounded-[100px] left-[calc(50%+33px)] lg:left-[260px] top-[64px] lg:top-[0px] translate-x-[-50%] lg:translate-x-0" />
+              <div className="absolute bg-[#042b24] w-[46px] h-[332px] lg:w-[68px] lg:h-[380px] rounded-[100px] left-[calc(47.5%+33px)] lg:left-[260px] md:top-[64px] top-[0px] lg:top-[0px] translate-x-[-50%] lg:translate-x-0" />
 
               {/* Table Header */}
               <div className="flex items-center justify-between pb-4 border-b border-[rgba(1,9,7,0.5)]">
-                <p className="flex-1 font-['Inter'] font-semibold text-[14px] lg:text-[18px] leading-[22px] lg:leading-[26px] text-[#010907]">
+                <p className="flex-1 font-inter font-semibold text-[14px] lg:text-[18px] leading-[22px] lg:leading-[26px] text-[#010907]">
                   Benefits
                 </p>
                 <div className="flex items-center justify-between w-[160px] lg:w-[288px]">
@@ -109,7 +109,7 @@ const Comparison = () => {
                     alt="OptiGenix"
                     className="w-[25px] h-[28px] lg:w-[28px] lg:h-[32px] z-30 object-contain"
                   />
-                  <p className="font-['Inter'] font-medium italic text-[14px] lg:text-[18px] leading-[22px] lg:leading-[26px] text-[#2b7a6c] text-center w-[100px] lg:w-[209px]">
+                  <p className="font-inter font-medium italic text-[14px] lg:text-[18px] leading-[22px] lg:leading-[26px] text-[#2b7a6c] text-center w-[100px] lg:w-[209px]">
                     Traditional
                     <br />
                     Supplements

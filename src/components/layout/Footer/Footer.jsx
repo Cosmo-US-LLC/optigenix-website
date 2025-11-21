@@ -24,12 +24,12 @@ const Footer = () => {
 
   return (
     <div className="w-full md:max-w-[1280px] mx-auto px-4 md:px-6  py-6">
-      <footer className="bg-[#042b24] rounded-[24px] p-8 md:px-12 md:pt-8 md:pb-0 relative overflow-hidden">
+      <footer className="bg-[#042b24] rounded-[24px] md:p-8 p-4 md:px-12 md:pt-8 md:pb-0 relative overflow-hidden">
         {/* Main Content Container */}
         <div className="relative z-10 space-y-6 md:space-y-8 lg:space-y-[32px]">
           {/* Top Section: Logo and Social Icons */}
           <div className="flex flex-col gap-4 md:gap-6 lg:gap-[24px]">
-            <div className="flex flex-col gap-4 justify-between items-start md:flex-row md:items-center">
+            <div className="flex gap-4 justify-between items-start md:flex-row md:items-center">
               {/* Logo */}
               <Link to="/" className="flex gap-2 items-center md:gap-3">
                 <img
@@ -74,7 +74,7 @@ const Footer = () => {
             {/* Left Side: 3 Columns + Bottom Section */}
             <div className="flex-1 flex flex-col gap-8 md:gap-10 lg:gap-[48px]">
               {/* 3 Columns */}
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 md:gap-8">
+              <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:gap-8">
                 {/* Column 1: Quick Links */}
                 <div className="space-y-3 md:space-y-4 lg:space-y-[16px]">
                   <h3 className="font-funnel text-[16px] md:text-[18px] leading-[20.99px] text-white font-bold">
@@ -192,7 +192,7 @@ const Footer = () => {
               </div>
 
               {/* Bottom Section: Copyright & Payment Icons */}
-              <div className="space-y-4 md:space-y-6">
+              <div className="space-y-4 max-md:hidden md:space-y-6">
                 {/* Divider Line */}
                 <div className="w-full h-[1px] bg-white/20" />
 
@@ -272,7 +272,7 @@ const Footer = () => {
                 {/* Form Fields */}
                 <div className="space-y-3 lg:space-y-[12px]">
                   {/* First Name & Last Name Grid */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-[12px]">
+                  <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 lg:gap-[12px]">
                     <div className="space-y-2 lg:space-y-[8px]">
                       <label className="font-inter text-[12px] md:text-[14px] leading-[24px] text-white block">
                         First Name
@@ -331,6 +331,66 @@ const Footer = () => {
                   Subscribe Now
                 </button>
               </form>
+            </div>
+            <div className="space-y-4 md:hidden md:space-y-6">
+              {/* Divider Line */}
+              <div className="w-full h-[1px] bg-white/20" />
+
+              <div className="flex flex-col gap-4 justify-between items-center sm:flex-row">
+                {/* Copyright */}
+                <p className="font-inter text-[12px] md:text-[14px] leading-[22px] text-white text-center sm:text-left">
+                  © 2025 OptiGenix. All rights reserved.
+                </p>
+
+                {/* Payment Icons */}
+                <div className="flex flex-wrap gap-2 justify-center items-center md:gap-3">
+                  {/* Visa */}
+                  <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 rounded">
+                    <img src={visaIcon} alt="Visa" className="w-full h-full" />
+                  </div>
+
+                  {/* Mastercard */}
+                  <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
+                    <img
+                      src={mastercardIcon}
+                      alt="Mastercard"
+                      className="w-full h-full"
+                    />
+                  </div>
+                  {/* PayPal */}
+                  <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
+                    <img
+                      src={paypalIcon}
+                      alt="Paypal"
+                      className="w-full h-full"
+                    />
+                  </div>
+                  {/* Klarna */}
+                  <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
+                    <img
+                      src={klarnaIcon}
+                      alt="Klarna"
+                      className="w-full h-full"
+                    />
+                  </div>
+                  {/* Apple Pay */}
+                  <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
+                    <img
+                      src={applePayIcon}
+                      alt="Apple Pay"
+                      className="w-full h-full"
+                    />
+                  </div>
+                  {/* Google Pay */}
+                  <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
+                    <img
+                      src={googlePayIcon}
+                      alt="Google Pay"
+                      className="w-full h-full"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

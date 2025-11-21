@@ -4,13 +4,13 @@ const QuizHeader = ({ title, currentStep, totalSteps }) => {
   const progressPercentage = ((currentStep - 1) / totalSteps) * 100;
 
   return (
-    <div className="flex flex-col gap-4 mb-8 w-full">
+    <div className="flex flex-col gap-4 mb-4 w-full md:mb-8">
       {/* Title and Step Indicator */}
       <div className="flex justify-between items-end">
-        <h1 className="text-[28px] font-semibold text-[#252525] font-funnel">
+        <h1 className="md:text-[28px] text-[16px] font-semibold text-[#252525] font-funnel">
           {title}
         </h1>
-        <p className="text-[18px] font-semibold text-[#0d8360] font-funnel tracking-[-0.36px]">
+        <p className="md:text-[24px] text-[16px] font-semibold text-[#0d8360] font-funnel tracking-[-0.36px]">
           Step {currentStep} to {totalSteps}
         </p>
       </div>

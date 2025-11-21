@@ -8,7 +8,7 @@ const OurStory = () => {
         <div className="grid grid-cols-1 gap-12 items-center lg:grid-cols-2">
           {/* Left Content */}
           <div className="space-y-4">
-            <h2 className="font-['Funnel_Display'] font-medium md:text-[48px] text-[32px] leading-[32px] md:leading-[56px] text-[#010907] capitalize">
+            <h2 className="font-funnel font-medium md:text-[48px] text-[32px] leading-[32px] md:leading-[56px] text-[#010907] capitalize">
               our story
             </h2>
 

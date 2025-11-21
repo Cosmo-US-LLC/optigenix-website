@@ -45,10 +45,10 @@ const testimonials = [
 const TestimonialCard = ({ rating, title, description, author, isActive }) => {
   return (
     <div
-      className={`w-full h-full rounded-[20px] px-4 py-[16px] lg:px-[16px] lg:py-[24px] flex flex-col gap-6 lg:gap-[32px] border transition-all duration-300 ${
+      className={`w-full h-full rounded-[20px] px-4 py-[16px] lg:px-[16px] lg:py-[24px] flex flex-col gap-6 lg:gap-[32px] border transition-all duration-500 ${
         isActive
-          ? "bg-white border-white/10"
-          : "border-white bg-black/20 backdrop-blur-[10px]"
+          ? "bg-white opacity-100 scale-100 border-white/10"
+          : "border-white opacity-70 scale-90 bg-black/20 backdrop-blur-[10px]"
       }`}
     >
       {/* Rating */}
@@ -126,7 +126,7 @@ const Testimonials = () => {
   }, [api]);
 
   return (
-    <section className="relative h-[700px] flex justify-center items-center overflow-hidden">
+    <section className="relative md:h-[700px] h-[600px] flex justify-center items-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
@@ -137,10 +137,10 @@ const Testimonials = () => {
       </div>
 
       {/* Content */}
-      <div className="flex relative z-10 flex-col h-full max-w-[1300px] mx-auto px-4 md:px-8">
+      <div className="flex relative z-10 flex-col h-full md:max-w-[1300px] w-full mx-auto px-4 md:px-8">
         {/* Header Section */}
         <div className="flex flex-col gap-4 justify-between items-start pt-[42px] lg:pt-12 text-white lg:flex-row lg:gap-8">
-          <h2 className="flex-1 font-['Funnel_Display'] font-semibold text-[32px] lg:text-[48px] leading-[40px] lg:leading-[48px] capitalize">
+          <h2 className="flex-1 font-funnel font-semibold text-center md:text-left text-[30px] md:text-[48px] leading-[30px] md:leading-[40px] capitalize">
             Thousands of performance journeys (and counting).
           </h2>
           <p className="flex-1 font-['Inter'] font-normal text-[14px] lg:text-[18px] leading-[22px] lg:leading-[26px]">
@@ -151,23 +151,25 @@ const Testimonials = () => {
 
         {/* Testimonials Carousel */}
         <div className="flex flex-1 items-end pb-8 lg:pb-0 lg:items-center">
-          <div className="w-full">
+          <div className="overflow-hidden w-full max-w-full">
             <Carousel
               setApi={setApi}
               plugins={[plugin.current]}
               opts={{
                 align: "center",
                 loop: true,
+                slidesToScroll: 1,
+                containScroll: "trimSnaps",
               }}
               onMouseEnter={() => plugin.current.stop()}
               onMouseLeave={() => plugin.current.play()}
               className="w-full"
             >
-              <CarouselContent className="-ml-3 lg:-ml-4">
+              <CarouselContent className="-ml-3 md:-ml-3 lg:-ml-4">
                 {testimonials.map((testimonial, index) => (
                   <CarouselItem
                     key={index}
-                    className="pl-3 lg:pl-4 basis-[280px] sm:basis-[320px] lg:basis-[368px]"
+                    className="pl-3 md:pl-3 lg:pl-4 basis-[78%] sm:basis-[320px] lg:basis-[368px]"
                   >
                     <div className="h-[276px] lg:h-[280px]">
                       <TestimonialCard
