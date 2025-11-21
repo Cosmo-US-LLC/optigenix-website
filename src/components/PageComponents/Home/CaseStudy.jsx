@@ -51,7 +51,7 @@ const CaseStudy = () => {
               <div className="absolute inset-0 flex flex-col justify-between p-5 md:p-8 lg:p-[35px]">
                 {/* Title and Description */}
                 <div className="flex flex-col gap-[14px] lg:gap-[24px] text-white text-center max-w-[574px] mx-auto mt-36 lg:mt-16">
-                  <h2 className="font-funnel font-medium text-[32px] md:text-[36px] lg:text-[42px] leading-[28px] lg:leading-[45px]">
+                  <h2 className="font-['Funnel_Display'] font-medium text-[32px] md:text-[36px] lg:text-[42px] leading-[28px] lg:leading-[45px]">
                     How Athletes Use OptiGenix and Transformed Their Game
                   </h2>
                   <p className="font-['Inter'] font-normal text-[14px] md:text-[15px] lg:text-[16px] leading-[22px] lg:leading-[24px]">

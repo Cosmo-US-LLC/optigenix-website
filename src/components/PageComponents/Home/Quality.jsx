@@ -86,7 +86,7 @@ const Quality = () => {
               style={dashedBorderStyle}
             >
               <div className="space-y-[16px] text-white">
-                <h2 className="font-funnel font-medium md:text-[48px] text-[30px] md:leading-[56px] leading-[40px]">
+                <h2 className="font-['Funnel_Display'] font-medium md:text-[48px] text-[30px] md:leading-[56px] leading-[40px]">
                   Backed By Science
                 </h2>
                 <p className="font-inter font-normal md:text-[16px] text-[14px] md:leading-[24px] leading-[22px]">

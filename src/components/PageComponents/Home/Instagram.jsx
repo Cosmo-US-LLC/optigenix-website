@@ -68,7 +68,7 @@ const Instagram = () => {
     <section className="bg-white">
       <div className="max-w-[1280px] mx-auto md:px-8 md:py-16 px-4 py-12">
         {/* Header */}
-        <h2 className="font-funnel font-semibold text-[32px] md:text-[40px] lg:text-[48px] leading-[1.2] lg:leading-[56px] text-[#010907] mb-8 md:mb-10 lg:mb-[48px]">
+        <h2 className="font-['Funnel_Display'] font-semibold text-[32px] md:text-[40px] lg:text-[48px] leading-[1.2] lg:leading-[56px] text-[#010907] mb-8 md:mb-10 lg:mb-[48px]">
           As Seen On #Optigenix
         </h2>
 

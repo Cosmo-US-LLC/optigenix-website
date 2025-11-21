@@ -68,7 +68,7 @@ const WhatsNext = () => {
       <div className="max-w-[1280px] mx-auto px-4 py-10 md:py-16 md:px-8">
         <div className="flex flex-col gap-8 items-center md:gap-10">
           {/* Title */}
-          <h2 className="font-funnel font-semibold text-[32px] md:text-[40px] lg:text-[48px] leading-[1.2] lg:leading-[56px] text-[#042b24] text-center tracking-[-0.72px]">
+          <h2 className="font-['Funnel_Display'] font-semibold text-[32px] md:text-[40px] lg:text-[48px] leading-[1.2] lg:leading-[56px] text-[#042b24] text-center tracking-[-0.72px]">
             What's Next for Human Performance?
           </h2>
 

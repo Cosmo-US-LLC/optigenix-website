@@ -35,7 +35,7 @@ const Categories = () => {
         {/* Title with Description */}
         <div className="flex flex-col gap-[16px] items-center text-center md:mb-[48px] mb-[24px]">
           {/* Heading */}
-          <h2 className="md:text-[48px] text-[32px] font-funnel leading-[32px] md:leading-[56px] text-[#010907] font-medium">
+          <h2 className="md:text-[48px] text-[32px] font-['Funnel_Display'] leading-[32px] md:leading-[56px] text-[#010907] font-medium">
             Shop your Focus
           </h2>
 

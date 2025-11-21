@@ -66,7 +66,7 @@ const Team = () => {
         {/* Header */}
         <div className="flex flex-col gap-8 mb-8 lg:flex-row lg:justify-between lg:items-start lg:mb-[48px]">
           <div className="flex flex-col gap-4 lg:gap-[24px] lg:max-w-[660px]">
-            <h2 className="font-funnel font-semibold text-[32px] leading-[40px] lg:text-[48px] lg:leading-[48px] text-[#010907] capitalize">
+            <h2 className="font-['Funnel_Display'] font-semibold text-[32px] leading-[40px] lg:text-[48px] lg:leading-[48px] text-[#010907] capitalize">
               Meet the team
             </h2>
             <p className="font-['Inter'] font-normal text-[14px] leading-[22px] lg:text-[18px] lg:leading-[26px] text-[#010907]">

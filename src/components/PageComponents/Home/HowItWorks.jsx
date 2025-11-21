@@ -37,7 +37,7 @@ const HowItWorks = () => {
           {/* Title and Button */}
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-4">
-              <h2 className="font-funnel font-medium text-[32px] leading-[40px] text-[#010907]">
+              <h2 className="font-['Funnel_Display'] font-medium text-[32px] leading-[40px] text-[#010907]">
                 How It Works
               </h2>
               <p className="font-['Inter'] font-normal text-[14px] leading-[22px] text-[#010907]">
