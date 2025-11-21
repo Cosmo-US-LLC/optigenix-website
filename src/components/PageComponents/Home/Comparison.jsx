@@ -96,7 +96,7 @@ const Comparison = () => {
             {/* Comparison Table */}
             <div className="flex flex-col gap-6 lg:gap-[24px] relative">
               {/* Vertical dark pill behind OptiGenix column */}
-              <div className="absolute bg-[#042b24] w-[46px] h-[332px] lg:w-[68px] lg:h-[380px] rounded-[100px] left-[calc(47.5%+33px)] lg:left-[260px] md:top-[64px] top-[0px] lg:top-[0px] translate-x-[-50%] lg:translate-x-0" />
+              <div className="absolute bg-[#042b24] w-[46px] h-[332px] lg:w-[68px] lg:h-[380px] rounded-[100px] left-[57%] lg:left-[260px] md:top-[-10px] translate-x-[-50%] lg:translate-x-0" />
 
               {/* Table Header */}
               <div className="flex items-center justify-between pb-4 border-b border-[rgba(1,9,7,0.5)]">

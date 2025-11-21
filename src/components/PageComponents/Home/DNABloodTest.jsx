@@ -45,7 +45,7 @@ const DNABloodTest = () => {
               <div className="space-y-[16px]">
                 {/* Title and Description */}
                 <div className="space-y-[18px] text-white">
-                  <h3 className="font-funnel font-medium text-[20px] md:text-[24px] leading-[22px] md:leading-[20px]">
+                  <h3 className="font-['Funnel_Display'] font-medium text-[20px] md:text-[24px] leading-[22px] md:leading-[20px]">
                     DNA Test: Unlock Your Genetic Potential
                   </h3>
                   <p className="font-inter font-normal text-[16px] leading-[20px]">
@@ -91,7 +91,7 @@ const DNABloodTest = () => {
               <div className="space-y-[16px]">
                 {/* Title and Description */}
                 <div className="space-y-[14px] text-white">
-                  <h3 className="font-funnel font-medium text-[20px] md:text-[24px] leading-[22px] md:leading-[20px]">
+                  <h3 className="font-['Funnel_Display'] font-medium text-[20px] md:text-[24px] leading-[22px] md:leading-[20px]">
                     Performance Blood Test
                   </h3>
                   <p className="font-inter font-normal text-[14px] md:text-[16px] leading-[20px]">

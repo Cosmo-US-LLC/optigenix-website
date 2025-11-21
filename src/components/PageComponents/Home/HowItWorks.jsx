@@ -61,7 +61,7 @@ const HowItWorks = () => {
                   zIndex: 10 + index,
                 }}
                 className={`rounded-[16px] px-4 py-5 flex flex-col gap-6 ${
-                  index < steps.length - 1 ? "sticky" : "relative"
+                  index < steps.length - 1 ? "sticky" : ""
                 } ${index > 0 ? "mt-[14px]" : ""}`}
               >
                 <div className="flex flex-col gap-20">

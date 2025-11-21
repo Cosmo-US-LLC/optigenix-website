@@ -77,7 +77,7 @@ const Footer = () => {
               <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:gap-8">
                 {/* Column 1: Quick Links */}
                 <div className="space-y-3 md:space-y-4 lg:space-y-[16px]">
-                  <h3 className="font-funnel text-[16px] md:text-[18px] leading-[20.99px] text-white font-bold">
+                  <h3 className="font-['Funnel_Display'] text-[16px] md:text-[18px] leading-[20.99px] text-white font-bold">
                     Quick Links
                   </h3>
                   <ul className="space-y-2 lg:space-y-[8px]">
@@ -118,7 +118,7 @@ const Footer = () => {
 
                 {/* Column 2: About Company */}
                 <div className="space-y-3 md:space-y-4 lg:space-y-[16px]">
-                  <h3 className="font-funnel text-[16px] md:text-[18px] leading-[20.99px] text-white font-bold">
+                  <h3 className="font-['Funnel_Display'] text-[16px] md:text-[18px] leading-[20.99px] text-white font-bold">
                     About Company
                   </h3>
                   <ul className="space-y-2 lg:space-y-[8px]">
@@ -159,7 +159,7 @@ const Footer = () => {
 
                 {/* Column 3: Support */}
                 <div className="space-y-3 md:space-y-4 lg:space-y-[16px]">
-                  <h3 className="font-funnel text-[16px] md:text-[18px] leading-[20.99px] text-white font-bold">
+                  <h3 className="font-['Funnel_Display'] text-[16px] md:text-[18px] leading-[20.99px] text-white font-bold">
                     Support
                   </h3>
                   <ul className="space-y-2 lg:space-y-[8px]">
@@ -260,7 +260,7 @@ const Footer = () => {
 
             {/* Right Side: Newsletter Signup */}
             <div className="w-full lg:w-[386px] space-y-4 md:space-y-6 lg:space-y-[24px]">
-              <h3 className="font-funnel text-[16px] md:text-[18px] leading-[20.99px] text-white font-bold">
+              <h3 className="font-['Funnel_Display'] text-[16px] md:text-[18px] leading-[20.99px] text-white font-bold">
                 Subscribe to our newsletter and stay up to date
               </h3>
 
@@ -326,7 +326,7 @@ const Footer = () => {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="font-funnel w-full bg-[#0d8360] hover:bg-[#0c704d] active:bg-[#0a5c40] transition-all duration-200 text-white text-[14px] md:text-[16px] leading-[24px] px-[19px] py-[10px] rounded-full font-semibold"
+                  className="font-['Funnel_Display'] w-full bg-[#0d8360] hover:bg-[#0c704d] active:bg-[#0a5c40] transition-all duration-200 text-white text-[14px] md:text-[16px] leading-[24px] px-[19px] py-[10px] rounded-full font-semibold"
                 >
                   Subscribe Now
                 </button>
