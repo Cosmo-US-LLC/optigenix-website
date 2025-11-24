@@ -1,5 +1,6 @@
 import React from "react";
 import { MoveLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 import shopYourFocusC1 from "../../../assets/images/shop_your_focus/shop_your_focus_c1.webp";
 import shopYourFocusC2 from "../../../assets/images/shop_your_focus/shop_your_focus_c2.webp";
 import shopYourFocusC3 from "../../../assets/images/shop_your_focus/shop_your_focus_c3.webp";
@@ -112,7 +113,8 @@ const Categories = () => {
 
           {/* Bottom CTA Button */}
           <div className="flex flex-col gap-[10px] items-center justify-center w-full">
-            <button className="bg-[#0d8360] hover:bg-[#0c704d] transition-all duration-200 rounded-[100px] px-[24px] py-[14px] flex gap-[10px] items-center justify-center">
+            <Link to="/quiz">
+             <button className="bg-[#0d8360] hover:bg-[#0c704d] transition-all duration-200 rounded-[100px] px-[24px] py-[14px] flex gap-[10px] items-center justify-center">
               <span
                 className="text-[16px] leading-[24px] text-white font-semibold whitespace-nowrap"
                 style={{ fontFamily: "Funnel Display, sans-serif" }}
@@ -120,6 +122,8 @@ const Categories = () => {
                 Unsure which one fits you? Take the quiz.
               </span>
             </button>
+            </Link>
+           
           </div>
         </div>
       </div>

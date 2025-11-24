@@ -8,24 +8,46 @@ import {
 import gabrielAbbes from "../../../assets/images/team/meet_team_img1.webp";
 import jaiWilliams from "../../../assets/images/team/meet_team_img2.webp";
 import lauraHixGlickman from "../../../assets/images/team/meet_team_img3.webp";
+import alec_headshot from "../../../assets/images/team/alec_headshot.webp";
+import cecelia_headshot from "../../../assets/images/team/cecelia_headshot.webp";
+import kai_headshot from "../../../assets/images/team/kai_headshot.webp";
+
 const teamMembers = [
   {
     name: "Gabriel Abbes",
     role: "Chief Executive Officer",
     image: gabrielAbbes,
-    bio: "Lorem ipsum dolor sit amet consectetur. In amet pharetra blandit pellentesque at magna augue nibh ultrices. Eleifend diam morbi urna netus id. Vel nec nibh nam vulputate. Mi integer enim adipiscing in. Risus nunc sed in sed risus id. Scelerisque diam egestas sit tortor vel consequat.",
+    bio: "As a former Division 1 NCAA distance runner at Cal, Gabriel brings his athletic experience and entrepreneurial vision to lead OptiGenix in revolutionizing personalized supplements and performance solutions for athletes.",
   },
   {
     name: "Jai Williams",
     role: "Chief Operating Officer",
     image: jaiWilliams,
-    bio: "Lorem ipsum dolor sit amet consectetur. In amet pharetra blandit pellentesque at magna augue nibh ultrices. Eleifend diam morbi urna netus id. Vel nec nibh nam vulputate. Mi integer enim adipiscing in. Risus nunc sed in sed risus id. Scelerisque diam egestas sit tortor vel consequat.",
+    bio: "A former Division 1 NCAA high jumper at Cal and two-time podium finisher in the Pac-12 Conference of Champions, Jai brings his athletic expertise and operational excellence to drive OptiGenix's mission forward.",
   },
   {
     name: "Laura Hix Glickman, Ph.D.",
     role: "Chief Strategic and Scientific Advisor",
     image: lauraHixGlickman,
-    bio: "Lorem ipsum dolor sit amet consectetur. In amet pharetra blandit pellentesque at magna augue nibh ultrices. Eleifend diam morbi urna netus id. Vel nec nibh nam vulputate. Mi integer enim adipiscing in. Risus nunc sed in sed risus id. Scelerisque diam egestas sit tortor vel consequat.",
+    bio: "Dr. Glickman brings extensive expertise in scientific strategy and research methodology as a five-time biotech founder and a top five-ranked female Series A entrepreneur in the U.S. Laura ensures that OptiGenix approaches personalized supplementation with grounded research, fueled by her passion for discovery.",
+  },
+   {
+    name: "Alec Bizieff, Ph.D.",
+    role: "Scientific Advisor and Research Specialist",
+    image: alec_headshot,
+    bio: "Dr. Bizieff brings his expertise in metabolic biology to advance OptiGenix's research initiatives while also leading the development of comprehensive educational content on biomarkers, supplements, and performance optimization. Through his contributions, he plays a pivotal role in fulfilling OptiGenix's mission to empower athletes with knowledge and tools needed to personalize their athletic journey and performance.",
+  },
+   {
+    name: "Cecelia Zielke, Ph.D. Candidate",
+    role: "Scientific Advisor",
+    image: cecelia_headshot,
+    bio: "As a Ph.D. Candidate and D1 athlete, Cecelia brings cutting-edge research perspectives to OptiGenix, contributing to our understanding of personalized supplementation and athletic performance optimization. In addition, she plays a key role in reviewing pilot studies to evaluate and enhance the effectiveness of our personalized supplementation process.",
+  },
+   {
+    name: "Kai Samiere, BS MS",
+    role: "Registered Dietician - Sports Nutrition",
+    image: kai_headshot,
+    bio: "Kai Samiere brings a strong foundation in sports nutrition and evidence-based dietetics as a Registered Dietitian with hands-on experience guiding athletes and active individuals. At OptiGenix, he supports the goal that every personalized supplement plan is both scientifically grounded and tailored to real-world performance needs. His passion for precision and measurable outcomes supports our mission to help athletes train smarter, recover faster, and perform at their peak.",
   },
 ];
 
@@ -115,9 +137,9 @@ const Team = () => {
             {teamMembers.map((member, index) => (
               <CarouselItem
                 key={index}
-                className="pl-3 lg:pl-4 basis-[304px] lg:basis-auto"
+                className="pl-3 lg:pl-4 basis-[304px]  lg:basis-auto"
               >
-                <div className="bg-white border border-[rgba(1,9,7,0.1)] rounded-[16px] flex flex-col lg:flex-row gap-2 lg:gap-[32px] items-start lg:items-center p-2 lg:pl-[16px] lg:pr-[32px] lg:py-[16px] w-full lg:w-[800px]">
+                <div className="bg-white border min-h-[460px] border-[rgba(1,9,7,0.1)] rounded-[16px] flex flex-col lg:flex-row gap-2 lg:gap-[32px] items-start lg:items-center p-2 lg:pl-[16px] lg:pr-[32px] lg:py-[16px] w-full lg:w-[800px]">
                   {/* Image */}
                   <div className="w-full h-[280px] lg:w-[300px] lg:h-full rounded-[8px] overflow-hidden shrink-0">
                     <img

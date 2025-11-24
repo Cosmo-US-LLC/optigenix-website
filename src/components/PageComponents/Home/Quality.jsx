@@ -99,13 +99,13 @@ const Quality = () => {
 
             {/* Card 2: Features Grid */}
             <div
-              className="bg-[#042b24] rounded-[24px] p-[28px] md:h-[332px] h-[520px] flex flex-col justify-center"
+              className="bg-[#042b24] py-[20px] md:py-[40px] rounded-[24px] px-[28px] md:h-[332px] max-md:min-h-[320px] flex flex-col justify-center"
               style={dashedBorderStyle2}
             >
-              <div className="flex flex-col gap-[40px]">
+              <div className="flex flex-col gap-[0px] md:gap-[40px]">
                 {/* Row 1 */}
-                <div className="flex flex-col md:flex-row gap-[20px] md:h-[90px] h-[200px]">
-                  <div className="flex-1 flex flex-col gap-[10px]">
+                <div className="flex flex-col md:flex-row gap-[0px] md:gap-[20px] md:h-[90px] h-[180px]">
+                  <div className="flex-1 flex flex-col justify-center gap-[10px]">
                     <FlaskConical
                       className="md:w-[32px] w-[24px] md:h-[32px] h-[24px] text-white"
                       strokeWidth={1.5}
@@ -114,7 +114,7 @@ const Quality = () => {
                       {features[0].text}
                     </p>
                   </div>
-                  <div className="flex-1 flex flex-col gap-[10px]">
+                  <div className="flex-1 flex flex-col justify-center gap-[10px]">
                     <FlaskConical
                       className="md:w-[32px] w-[24px] md:h-[32px] h-[24px] text-white"
                       strokeWidth={1.5}
@@ -127,10 +127,10 @@ const Quality = () => {
 
                 {/* Row 2 */}
                 <div
-                  className="flex flex-col md:flex-row gap-[20px] md:h-are you ready to work
-                [90px] h-[200px]"
+                  className="flex flex-col md:flex-row gap-[0px] md:gap-[20px] md:h-are you ready to work
+                [90px] h-[180px]"
                 >
-                  <div className="flex-1 flex flex-col gap-[10px]">
+                  <div className="flex-1 flex flex-col justify-center gap-[10px]">
                     <FlaskConical
                       className="md:w-[32px] w-[24px] md:h-[32px] h-[24px] text-white"
                       strokeWidth={1.5}
@@ -139,7 +139,7 @@ const Quality = () => {
                       {features[2].text}
                     </p>
                   </div>
-                  <div className="flex-1 flex flex-col gap-[10px]">
+                  <div className="flex-1 flex flex-col justify-center gap-[10px]">
                     <FlaskConical
                       className="md:w-[32px] w-[24px] md:h-[32px] h-[24px] text-white"
                       strokeWidth={1.5}

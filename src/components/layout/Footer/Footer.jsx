@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Twitter, Linkedin } from "lucide-react";
+import { Instagram, Linkedin } from "lucide-react";
 import logoIcon from "../../../assets/images/footer/footer_logo.webp";
 import visaIcon from "../../../assets/images/footer/footer_visa.webp";
 import mastercardIcon from "../../../assets/images/footer/footer_mastercard.webp";
@@ -50,18 +50,23 @@ const Footer = () => {
 
               {/* Social Icons */}
               <div className="flex gap-2 md:gap-3 lg:gap-[12px] items-center">
-                <button
+               
+                <a href="https://www.instagram.com/optigenix/" target="_blank" rel="noopener noreferrer">
+                 <button
                   className="w-[40px] h-[40px] md:w-[48px] md:h-[48px] border border-white rounded-full flex items-center justify-center text-white hover:bg-white hover:text-[#042b24] transition-all duration-200"
                   aria-label="Twitter"
                 >
-                  <Twitter className="w-4 h-4 md:w-[16px] md:h-[16px]" />
+                  <Instagram className="w-4 h-4 md:w-[16px] md:h-[16px]" />
                 </button>
+                </a>
+                <a href="https://www.linkedin.com/company/optigenix" target="_blank" rel="noopener noreferrer">
                 <button
                   className="w-[40px] h-[40px] md:w-[48px] md:h-[48px] border border-white rounded-full flex items-center justify-center text-white hover:bg-white hover:text-[#042b24] transition-all duration-200"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="w-4 h-4 md:w-[16px] md:h-[16px]" />
                 </button>
+                </a>
               </div>
             </div>
 
