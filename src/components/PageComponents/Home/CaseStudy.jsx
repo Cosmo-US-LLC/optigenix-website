@@ -116,7 +116,7 @@ const CaseStudy = () => {
             {/* Header Section */}
             <div className="flex flex-col gap-6 lg:gap-[24px]">
               {/* Badge */}
-              <div className="bg-[#2b7a6c] rounded-full flex items-center px-2 py-2 lg:px-[20px] w-full lg:w-fit">
+              <div className="bg-[#2b7a6c] rounded-full flex items-center px-4 py-2 lg:px-[20px] w-full lg:w-fit">
                 <p className="font-['Funnel_Display'] font-medium text-[16px] lg:text-[21px] leading-[24px] text-white">
                   OptiGenix × UC Berkeley Triathlon Team
                 </p>
@@ -124,7 +124,7 @@ const CaseStudy = () => {
 
               {/* Title and Description */}
               <div className="flex flex-col gap-3 lg:gap-[12px]">
-                <h2 className="font-['Funnel_Display'] font-medium text-[30px] lg:text-[42px] leading-[38px] lg:leading-[45px] text-[#010907]">
+                <h2 className="font-['Funnel_Display'] font-medium text-[30px] lg:text-[48px] leading-[48px] lg:leading-[45px] text-[#010907]">
                   Results
                 </h2>
                 <div className="flex flex-col gap-2">

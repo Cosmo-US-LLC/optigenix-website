@@ -143,7 +143,7 @@ const Testimonials = () => {
           <h2 className="flex-1 font-['Funnel_Display'] font-semibold text-center md:text-left text-[30px] md:text-[48px] leading-[30px] md:leading-[40px] capitalize">
             Thousands of performance journeys (and counting).
           </h2>
-          <p className="flex-1 font-['Inter'] font-normal text-[14px] lg:text-[18px] leading-[22px] lg:leading-[26px]">
+          <p className="flex-1 font-['Inter'] font-normal text-[14px] lg:text-[18px] leading-[22px] lg:leading-[26px] max-md:text-center">
             See how real athletes and fitness enthusiasts are transforming their
             results with OptiGenix.
           </p>

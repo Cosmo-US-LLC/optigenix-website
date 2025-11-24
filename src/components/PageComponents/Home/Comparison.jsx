@@ -10,9 +10,9 @@ const TableRow = ({ benefit, optigenixStatus, traditionalStatus }) => {
       <p className="flex-1 font-inter font-normal text-[14px] lg:text-[20px] leading-[24px] lg:leading-[28px] text-[#010907]">
         {benefit}
       </p>
-      <div className="flex items-center justify-between w-[160px] lg:w-[288px]">
+      <div className="flex items-center justify-between w-[46%] lg:w-[288px]">
         {/* OptiGenix column */}
-        <div className="flex justify-center items-center">
+        <div className="flex md:justify-center justify-start max-md:pl-[2px]  items-center max-md:w-[100px] ">
           {optigenixStatus ? (
             <Check
               className="w-6 h-6 lg:w-[24px] lg:h-[24px] text-white relative z-10"
@@ -26,7 +26,7 @@ const TableRow = ({ benefit, optigenixStatus, traditionalStatus }) => {
           )}
         </div>
         {/* Traditional column */}
-        <div className="flex justify-center items-center w-[100px] lg:w-[209px]">
+        <div className="flex md:justify-center justify-center items-center w-[110px] lg:w-[209px]">
           {traditionalStatus ? (
             <Check
               className="w-6 h-6 lg:w-[24px] lg:h-[24px] text-[#0d8360]"
@@ -89,21 +89,21 @@ const Comparison = () => {
           {/* Comparison Content */}
           <div className="flex-1 w-full flex flex-col gap-6 lg:gap-0 lg:h-[600px] lg:justify-between">
             {/* Title */}
-            <h2 className="font-['Funnel_Display'] font-medium text-[32px] lg:text-[48px] leading-[40px] lg:leading-[56px] text-[#010907] capitalize">
+            <h2 className="font-['Funnel_Display'] font-medium text-[32px] md:text-[48px] leading-[40px] lg:leading-[56px] text-[#010907] capitalize">
               Comparison
             </h2>
 
             {/* Comparison Table */}
             <div className="flex flex-col gap-6 lg:gap-[24px] relative">
               {/* Vertical dark pill behind OptiGenix column */}
-              <div className="absolute bg-[#042b24] w-[46px] h-[332px] lg:w-[68px] lg:h-[380px] rounded-[100px] left-[57%] lg:left-[260px] md:top-[-10px] translate-x-[-50%] lg:translate-x-0" />
+              <div className="absolute bg-[#042b24] w-[50px] h-[342px] lg:w-[68px] lg:h-[380px] rounded-[100px] md:left-[57%] left-[58%] lg:left-[260px] md:top-[-10px] translate-x-[-50%] lg:translate-x-0" />
 
               {/* Table Header */}
               <div className="flex items-center justify-between pb-4 border-b border-[rgba(1,9,7,0.5)]">
                 <p className="flex-1 font-inter font-semibold text-[14px] lg:text-[18px] leading-[22px] lg:leading-[26px] text-[#010907]">
                   Benefits
                 </p>
-                <div className="flex items-center justify-between w-[160px] lg:w-[288px]">
+                <div className="flex items-center max-md:pl-[3px] justify-between w-[46%] lg:w-[288px]">
                   <img
                     src={optigenixIcon}
                     alt="OptiGenix"

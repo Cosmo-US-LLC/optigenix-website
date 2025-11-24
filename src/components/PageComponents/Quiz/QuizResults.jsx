@@ -7,7 +7,7 @@ const QuizResults = ({ onRestart }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-[#f1f1f1] flex items-center justify-center py-12 md:px-4 px-3">
+    <div className="bg-[#f1f1f1] flex items-center justify-center py-6 md:px-4 px-3">
       <div className="w-full max-w-2xl">
         <div className="p-6 text-center bg-white rounded-2xl shadow-xl md:p-12">
           {/* Success Icon */}

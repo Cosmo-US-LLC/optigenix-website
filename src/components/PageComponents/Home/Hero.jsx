@@ -48,7 +48,7 @@ const Hero = ({
           {/* Title with Description */}
           <div className="space-y-4">
             {/* Main Heading */}
-            <h1 className="font-['Funnel_Display'] font-medium text-[40px] md:text-4xl lg:text-[50px] leading-[40px] md:leading-tight lg:leading-[58px] text-white whitespace-pre-wrap">
+            <h1 className="font-['Funnel_Display'] font-medium text-[40px] md:text-[48px] lg:text-[48px] leading-[40px] md:leading-tight lg:leading-[58px] text-white whitespace-pre-wrap">
               {title}
             </h1>
 
