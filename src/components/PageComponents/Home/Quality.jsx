@@ -86,7 +86,7 @@ const Quality = () => {
               style={dashedBorderStyle}
             >
               <div className="space-y-[16px] text-white">
-                <h2 className="font-['Funnel_Display'] font-medium md:text-[48px] text-[30px] md:leading-[56px] leading-[40px]">
+                <h2 className="font-['Funnel_Display'] font-medium md:text-[48px] text-[32px] md:leading-[56px] leading-[40px]">
                   Backed By Science
                 </h2>
                 <p className="font-inter font-normal md:text-[16px] text-[14px] md:leading-[24px] leading-[22px]">
@@ -128,7 +128,7 @@ const Quality = () => {
                 {/* Row 2 */}
                 <div
                   className="flex flex-col md:flex-row gap-[0px] md:gap-[20px] md:h-are you ready to work
-                [90px] h-[180px]"
+                md:h-[90px] h-[180px]"
                 >
                   <div className="flex-1 flex flex-col justify-center gap-[10px]">
                     <FlaskConical
