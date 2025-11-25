@@ -22,7 +22,7 @@ const Hero = ({
             webkit-playsinline="true"
             className="object-cover w-full h-full"
           >
-            <source src={backgroundVideo} type="video/webm" />
+            <source src={backgroundVideo} type="video/mp4" />
           </video>
         ) : (
           <img

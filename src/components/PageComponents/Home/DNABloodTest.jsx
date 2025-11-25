@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import dnaTestVideo from "../../../assets/images/at_home_dna_test/Dna 20S.webm";
-import bloodTestVideo from "../../../assets/images/performance_blood_test/Examining-Blood-Specimen.webm";
+import dnaTestVideo from "../../../assets/images/at_home_dna_test/Dna 20S.mp4";
+import bloodTestVideo from "../../../assets/images/performance_blood_test/Examining-Blood-Specimen.mp4";
 
 const DNABloodTest = () => {
   return (
@@ -35,7 +35,7 @@ const DNABloodTest = () => {
                 playsInline
                 className="absolute w-full h-full object-cover rounded-[16px]"
               >
-                <source src={dnaTestVideo} type="video/webm" />
+                <source src={dnaTestVideo} type="video/mp4" />
               </video>
               <div className="absolute inset-0 bg-linear-to-b from-transparent to-[rgba(0,0,0,0.2)] rounded-[16px]" />
             </div>
@@ -81,7 +81,7 @@ const DNABloodTest = () => {
                 playsInline
                 className="absolute w-full h-full object-cover rounded-[16px]"
               >
-                <source src={bloodTestVideo} type="video/webm" />
+                <source src={bloodTestVideo} type="video/mp4" />
               </video>
               <div className="absolute inset-0 bg-linear-to-b from-transparent to-[rgba(0,0,0,0.2)] rounded-[16px]" />
             </div>
