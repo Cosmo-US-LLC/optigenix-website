@@ -102,9 +102,9 @@ const Quality = () => {
               className="bg-[#042b24] py-[20px] md:py-[40px] rounded-[24px] px-[28px] md:h-[332px] max-md:min-h-[320px] flex flex-col justify-center"
               style={dashedBorderStyle2}
             >
-              <div className="flex flex-col gap-[0px] md:gap-[40px]">
+              <div className="flex flex-col gap-[15px] md:gap-[40px]">
                 {/* Row 1 */}
-                <div className="flex flex-col md:flex-row gap-[0px] md:gap-[20px] md:h-[90px] h-[120px]">
+                <div className="flex flex-col md:flex-row gap-[15px] md:gap-[20px] md:h-[90px] h-[auto]">
                   <div className="flex-1 flex md:flex-col md:justify-center gap-[10px]">
                      <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -197,8 +197,8 @@ const Quality = () => {
 
                 {/* Row 2 */}
                 <div
-                  className="flex flex-col md:flex-row gap-[0px] md:gap-[20px] md:h-are you ready to work
-                md:h-[90px] h-[120px]"
+                  className="flex flex-col md:flex-row gap-[15px] md:gap-[20px] md:h-are you ready to work
+                md:h-[90px] h-[auto]"
                 >
                   <div className="flex-1 flex md:flex-col md:justify-center gap-[10px]">
                   <div>
