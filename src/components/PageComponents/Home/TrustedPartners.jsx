@@ -1,9 +1,9 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
-import techCrunch from "../../../assets/images/trusted_partners/techcrunch.svg";
-import launchBanner from "../../../assets/images/trusted_partners/launchbanner.svg";
-import foundersHub from "../../../assets/images/trusted_partners/foundershub.svg";
-import Sutarja from "../../../assets/images/trusted_partners/sutarjalogo.svg";
+import techCrunch from "../../../assets/images/trusted_partners/brand (4).webp";
+import launchBanner from "../../../assets/images/trusted_partners/brand (3).webp";
+import foundersHub from "../../../assets/images/trusted_partners/brand (2).webp";
+import Sutarja from "../../../assets/images/trusted_partners/brand (1).webp";
 
 const partners = [
   {
@@ -38,7 +38,7 @@ const TrustedPartners = () => {
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="object-contain max-w-full max-h-full"
+                className="object-cover"
               />
             </div>
           ))}

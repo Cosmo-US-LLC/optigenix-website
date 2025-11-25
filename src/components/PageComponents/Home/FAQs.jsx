@@ -30,7 +30,7 @@ const FAQs = () => {
     <section className="bg-[#f7f7f7] py-[40px] md:py-[80px] px-8 lg:px-[180px]">
       <div className="max-w-[1080px] mx-auto flex flex-col gap-[48px]">
         {/* Header */}
-        <h2 className="font-['Funnel_Display'] font-semibold text-[24px] md:text-[48px] leading-[32px] md:leading-[56px] text-[#010907] text-center tracking-[-0.72px]">
+        <h2 className="font-['Funnel_Display'] font-semibold md:text-[48px] text-[32px] leading-[32px] md:leading-[56px] text-[#010907] text-center tracking-[-0.72px]">
           Frequently Asked Questions
         </h2>
 

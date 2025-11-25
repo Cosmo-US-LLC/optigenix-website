@@ -19,9 +19,10 @@ const Hero = ({
             muted
             loop
             playsInline
+            webkit-playsinline="true"
             className="object-cover w-full h-full"
           >
-            <source src={backgroundVideo} type="video/mp4" />
+            <source src={backgroundVideo} type="video/webm" />
           </video>
         ) : (
           <img
