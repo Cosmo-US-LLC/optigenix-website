@@ -15,7 +15,7 @@ import Testimonials from "../components/PageComponents/Home/Testimonials";
 import FAQs from "../components/PageComponents/Home/FAQs";
 import Instagram from "../components/PageComponents/Home/Instagram";
 import WhatsNext from "../components/PageComponents/Home/WhatsNext";
-import backgroundVideo from "../assets/images/hero/Hero V3-compressed.webm";
+import backgroundVideo from "../assets/images/hero/Hero V3-compressed.mp4";
 import backgroundImage from "../assets/images/hero/hero_background.webp";
 
 const Home = () => {

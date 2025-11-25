@@ -124,7 +124,7 @@ const CaseStudy = () => {
 
               {/* Title and Description */}
               <div className="flex flex-col gap-3 lg:gap-[12px]">
-                <h2 className="font-['Funnel_Display'] font-medium text-[30px] lg:text-[48px] leading-[48px] lg:leading-[45px] text-[#010907]">
+                <h2 className="font-['Funnel_Display'] font-medium text-[32px] lg:text-[48px] leading-[48px] lg:leading-[45px] text-[#010907]">
                   Results
                 </h2>
                 <div className="flex flex-col gap-2">
