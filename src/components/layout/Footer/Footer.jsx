@@ -50,22 +50,29 @@ const Footer = () => {
 
               {/* Social Icons */}
               <div className="flex gap-2 md:gap-3 lg:gap-[12px] items-center">
-               
-                <a href="https://www.instagram.com/optigenix/" target="_blank" rel="noopener noreferrer">
-                 <button
-                  className="w-[40px] h-[40px] md:w-[48px] md:h-[48px] border border-white rounded-full flex items-center justify-center text-white hover:bg-white hover:text-[#042b24] transition-all duration-200"
-                  aria-label="Twitter"
+                <a
+                  href="https://www.instagram.com/optigenix/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <Instagram className="w-4 h-4 md:w-[16px] md:h-[16px]" />
-                </button>
+                  <button
+                    className="w-[40px] h-[40px] md:w-[48px] md:h-[48px] border border-white rounded-full flex items-center justify-center text-white hover:bg-white hover:text-[#042b24] transition-all duration-200"
+                    aria-label="Twitter"
+                  >
+                    <Instagram className="w-4 h-4 md:w-[16px] md:h-[16px]" />
+                  </button>
                 </a>
-                <a href="https://www.linkedin.com/company/optigenix" target="_blank" rel="noopener noreferrer">
-                <button
-                  className="w-[40px] h-[40px] md:w-[48px] md:h-[48px] border border-white rounded-full flex items-center justify-center text-white hover:bg-white hover:text-[#042b24] transition-all duration-200"
-                  aria-label="LinkedIn"
+                <a
+                  href="https://www.linkedin.com/company/optigenix"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <Linkedin className="w-4 h-4 md:w-[16px] md:h-[16px]" />
-                </button>
+                  <button
+                    className="w-[40px] h-[40px] md:w-[48px] md:h-[48px] border border-white rounded-full flex items-center justify-center text-white hover:bg-white hover:text-[#042b24] transition-all duration-200"
+                    aria-label="LinkedIn"
+                  >
+                    <Linkedin className="w-4 h-4 md:w-[16px] md:h-[16px]" />
+                  </button>
                 </a>
               </div>
             </div>
@@ -178,7 +185,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <Link
-                        to="/terms"
+                        to="/terms-of-service"
                         className="font-inter text-[14px] md:text-[16px] leading-[22px] text-white hover:text-white/80 transition-colors"
                       >
                         Terms and Conditions
@@ -186,7 +193,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <Link
-                        to="/privacy"
+                        to="/privacy-policy"
                         className="font-inter text-[14px] md:text-[16px] leading-[22px] text-white hover:text-white/80 transition-colors"
                       >
                         Privacy Policy
