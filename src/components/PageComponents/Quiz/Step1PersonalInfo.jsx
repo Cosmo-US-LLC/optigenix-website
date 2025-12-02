@@ -24,7 +24,7 @@ function CustomRadio({ name, value, checked, onChange, label }) {
           className="absolute left-1/2 top-1/2 w-2.5 h-2.5 rounded-full bg-white opacity-0 peer-checked:opacity-100 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-150"
         />
       </span>
-      <span className="text-[16px] text-[#252525] font-funnel">{label}</span>
+      <span className="text-[16px] text-[#252525] font-['Inter']">{label}</span>
     </label>
   );
 }
@@ -45,7 +45,7 @@ function CustomDropdown({ options, value, onChange, placeholder }) {
     <div ref={ref} className="relative w-full ">
       <button
         type="button"
-        className={`border-[1px] border-[rgba(37,37,37,0.1)] rounded-full px-4 pr-10 py-3 w-full md:text-[16px] text-[14px] font-funnel bg-white text-left focus:border-[#0d8360] focus:outline-none flex items-center justify-between ${open ? 'ring-1 ring-[#0d8360]' : ''}`}
+        className={`border-[1px] border-[rgba(37,37,37,0.1)] rounded-full px-4 pr-10 py-3 w-full md:text-[16px] text-[14px] font-['Funnel_Display'] bg-white text-left focus:border-[#0d8360] focus:outline-none flex items-center justify-between ${open ? 'ring-1 ring-[#0d8360]' : ''}`}
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="listbox"
         aria-expanded={open}
@@ -68,7 +68,7 @@ function CustomDropdown({ options, value, onChange, placeholder }) {
               key={option}
               role="option"
               aria-selected={value === option}
-              className={`px-4 py-2 cursor-pointer font-funnel text-[15px] ${value === option ? 'bg-[#0d8360] text-white' : 'hover:bg-[#0d8360] hover:text-white text-[#252525]'}`}
+              className={`px-4 py-2 cursor-pointer font-['Funnel_Display'] text-[15px] ${value === option ? 'bg-[#0d8360] text-white' : 'hover:bg-[#0d8360] hover:text-white text-[#252525]'}`}
               onClick={() => {
                 onChange(option);
                 setOpen(false);
@@ -193,7 +193,7 @@ const Step1PersonalInfo = ({ onNext, onBack, previousData }) => {
     <div className="min-h-screen bg-[#f1f1f1] py-8">
       <div className="max-w-[929px] mx-auto px-4">
         <div className="bg-white rounded-2xl px-4 pt-6 pb-4 md:p-9 min-h-[544px] flex flex-col">
-          <h3 className="text-[#252525] text-[32px] font-[600] mb-8 font-[DM Sans] text-center">Optigenix Supplement Quiz</h3>
+          <h3 className="text-[#252525] text-[32px] font-[600] mb-8 dm-sans text-center">Optigenix Supplement Quiz</h3>
           {/* <QuizHeader
             title="Tell us about yourself"
             currentStep={1}
@@ -203,7 +203,7 @@ const Step1PersonalInfo = ({ onNext, onBack, previousData }) => {
           <div className="flex-1 flex flex-col gap-[17px]">
 
             <div className="flex flex-col gap-2 py-1">
-              <label className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-funnel mb-1">
+              <label className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-['Funnel_Display'] mb-1">
                 What is your age range?
               </label>
               <CustomDropdown
@@ -215,7 +215,7 @@ const Step1PersonalInfo = ({ onNext, onBack, previousData }) => {
             </div>
 
             <div className="flex flex-col gap-2 py-1">
-              <label className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-funnel mb-1">
+              <label className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-['Funnel_Display'] mb-1">
                 What is your gender?
               </label>
               <CustomDropdown
@@ -227,7 +227,7 @@ const Step1PersonalInfo = ({ onNext, onBack, previousData }) => {
             </div>
 
             <div className="flex flex-col gap-2 py-1">
-              <label className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-funnel mb-1">
+              <label className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-['Funnel_Display'] mb-1">
                 What is your height (cm)?
               </label>
               <input
@@ -244,13 +244,13 @@ const Step1PersonalInfo = ({ onNext, onBack, previousData }) => {
                   else if (Number(val) > 400) msg = "Height cannot be more than 400 cm.";
                   setErrors((prev) => ({ ...prev, height: msg }));
                 }}
-                className="border border-solid border-[#D1D5DB] rounded-full px-4 py-3 w-full md:text-[16px] text-[14px] font-funnel placeholder:text-[rgba(37,37,37,0.3)] focus:border-[#0d8360] focus:outline-none bg-white appearance-none"
+                className="border border-solid border-[#D1D5DB] rounded-full px-4 py-3 w-full md:text-[16px] text-[14px] font-['Funnel_Display'] placeholder:text-[rgba(37,37,37,0.3)] focus:border-[#0d8360] focus:outline-none bg-white appearance-none"
               />
               {errors.height && <span className="text-red-500 text-xs mt-1">{errors.height}</span>}
             </div>
 
             <div className="flex flex-col gap-2 py-1">
-              <label className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-funnel mb-1">
+              <label className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-['Funnel_Display'] mb-1">
                 What is your weight (kg)?
               </label>
               <input
@@ -265,14 +265,14 @@ const Step1PersonalInfo = ({ onNext, onBack, previousData }) => {
                   if (val === "" || Number(val) < 0) msg = "Weight cannot be negative.";
                   setErrors((prev) => ({ ...prev, weight: msg }));
                 }}
-                className="border border-solid border-[#D1D5DB] rounded-full px-4 py-3 w-full md:text-[16px] text-[14px] font-funnel placeholder:text-[rgba(37,37,37,0.3)] focus:border-[#0d8360] focus:outline-none bg-white appearance-none"
+                className="border border-solid border-[#D1D5DB] rounded-full px-4 py-3 w-full md:text-[16px] text-[14px] font-['Funnel_Display'] placeholder:text-[rgba(37,37,37,0.3)] focus:border-[#0d8360] focus:outline-none bg-white appearance-none"
               />
               {errors.weight && <span className="text-red-500 text-xs mt-1">{errors.weight}</span>}
             </div>
 
             
             <div className="flex flex-col gap-4 py-1">
-              <p className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-funnel">
+              <p className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-['Funnel_Display']">
                 What is your primary goal right now?
               </p>
               <div className="flex flex-col gap-[12px]">
@@ -291,7 +291,7 @@ const Step1PersonalInfo = ({ onNext, onBack, previousData }) => {
 
            
             <div className="flex flex-col gap-4 py-1">
-              <p className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-funnel">
+              <p className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-['Funnel_Display']">
                 How active are you on a typical week?
               </p>
               <div className="flex flex-col gap-[12px]">
@@ -310,7 +310,7 @@ const Step1PersonalInfo = ({ onNext, onBack, previousData }) => {
 
            
             <div className="flex flex-col gap-4 py-1">
-              <p className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-funnel">
+              <p className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-['Funnel_Display']">
                 How do you typically feel after workouts or long days?
               </p>
               <div className="flex flex-col gap-[12px]">
@@ -329,7 +329,7 @@ const Step1PersonalInfo = ({ onNext, onBack, previousData }) => {
 
           
             <div className="flex flex-col gap-4 py-1">
-              <p className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-funnel">
+              <p className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-['Funnel_Display']">
                 How would you describe your sleep and stress levels?
               </p>
               <div className="flex flex-col gap-[12px]">
@@ -347,7 +347,7 @@ const Step1PersonalInfo = ({ onNext, onBack, previousData }) => {
             </div>
 
             <div className="flex flex-col gap-4 py-1">
-              <p className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-funnel">
+              <p className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-['Funnel_Display']">
                 How often do you experience joint pain or stiffness?
               </p>
               <div className="flex flex-col gap-[12px]">
@@ -365,7 +365,7 @@ const Step1PersonalInfo = ({ onNext, onBack, previousData }) => {
             </div>
 
             <div className="flex flex-col gap-4 py-1">
-              <p className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-funnel">
+              <p className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-['Funnel_Display']">
                 How often do you feel low energy or “run down”?
               </p>
               <div className="flex flex-col gap-[12px]">
