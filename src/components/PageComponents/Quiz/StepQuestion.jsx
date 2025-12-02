@@ -25,11 +25,11 @@ const StepQuestion = ({
     <div className="min-h-screen bg-[#f1f1f1] py-8">
       <div className="max-w-[929px] mx-auto px-3 md:px-4">
         <div className="bg-white rounded-2xl px-3 pt-6 pb-4 md:p-9 min-h-[544px] flex flex-col">
-          <QuizHeader
+          {/* <QuizHeader
             title="Personalized Supplement Quiz"
             currentStep={stepNumber}
             totalSteps={totalSteps}
-          />
+          /> */}
 
           {/* Question */}
           <div className="flex flex-col flex-1">
@@ -58,12 +58,12 @@ const StepQuestion = ({
           </div>
 
           {/* Navigation */}
-          <QuizNavigation
+          {/* <QuizNavigation
             onBack={onBack}
             onNext={handleNext}
             showBack={true}
             disabled={selectedOption === null}
-          />
+          /> */}
         </div>
       </div>
     </div>
