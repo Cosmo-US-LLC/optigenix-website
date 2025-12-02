@@ -1,10 +1,38 @@
 import React, { useState, useRef } from "react";
-// CustomDropdown component for custom select UI
+
+function CustomRadio({ name, value, checked, onChange, label }) {
+  return (
+    <label className="flex items-center gap-2 cursor-pointer select-none">
+      <span className="relative flex items-center justify-center w-5 h-5">
+        <input
+          type="radio"
+          name={name}
+          value={value}
+          checked={checked}
+          onChange={onChange}
+          className="peer absolute w-full h-full opacity-0 cursor-pointer m-0"
+        />
+        <span
+          className={
+            `block w-5 h-5 rounded-full border border-solid border-[#D1D5DB] bg-white transition-colors duration-150 ` +
+            `peer-checked:border-[#0d8360] peer-checked:bg-[#0d8360]`
+          }
+        >
+          <span className="absolute left-1/2 top-1/2 w-2.5 h-2.5 rounded-full bg-white opacity-0 peer-checked:opacity-100 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-150" />
+        </span>
+        <span
+          className="absolute left-1/2 top-1/2 w-2.5 h-2.5 rounded-full bg-white opacity-0 peer-checked:opacity-100 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-150"
+        />
+      </span>
+      <span className="text-[16px] text-[#252525] font-funnel">{label}</span>
+    </label>
+  );
+}
+
 function CustomDropdown({ options, value, onChange, placeholder }) {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 
-  // Close dropdown on outside click
   React.useEffect(() => {
     function handleClick(e) {
       if (ref.current && !ref.current.contains(e.target)) setOpen(false);
@@ -72,12 +100,30 @@ const Step1PersonalInfo = ({ onNext, onBack, previousData }) => {
       lowEnergy: "",
     }
   );
+  const [errors, setErrors] = useState({ height: "", weight: "" });
 
   const ageRanges = ["18-24", "25-34", "35-44", "45-54", "55+"];
   const genders = ["Male", "Female", "Other", "Prefer not to say"];
 
   const handleNext = () => {
+    let valid = true;
+    let newErrors = { height: "", weight: "" };
+    const heightNum = Number(formData.height);
+    const weightNum = Number(formData.weight);
+    if (formData.height === "" || heightNum < 0) {
+      newErrors.height = "Height cannot be negative.";
+      valid = false;
+    } else if (heightNum > 400) {
+      newErrors.height = "Height cannot be more than 400 cm.";
+      valid = false;
+    }
+    if (formData.weight === "" || weightNum < 0) {
+      newErrors.weight = "Weight cannot be negative.";
+      valid = false;
+    }
+    setErrors(newErrors);
     if (
+      valid &&
       formData.ageRange &&
       formData.gender &&
       formData.height &&
@@ -103,7 +149,9 @@ const Step1PersonalInfo = ({ onNext, onBack, previousData }) => {
     formData.postWorkoutFeeling &&
     formData.sleepStress &&
     formData.jointPain &&
-    formData.lowEnergy;
+    formData.lowEnergy &&
+    !errors.height &&
+    !errors.weight;
 
   const primaryGoals = [
     "Recover faster and reduce soreness",
@@ -152,10 +200,8 @@ const Step1PersonalInfo = ({ onNext, onBack, previousData }) => {
             totalSteps={7}
           /> */}
 
-          {/* Form Content */}
           <div className="flex-1 flex flex-col gap-[17px]">
 
-            {/* Age Range (Custom Dropdown) */}
             <div className="flex flex-col gap-2 py-1">
               <label className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-funnel mb-1">
                 What is your age range?
@@ -168,7 +214,6 @@ const Step1PersonalInfo = ({ onNext, onBack, previousData }) => {
               />
             </div>
 
-            {/* Gender (Custom Dropdown) */}
             <div className="flex flex-col gap-2 py-1">
               <label className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-funnel mb-1">
                 What is your gender?
@@ -181,168 +226,163 @@ const Step1PersonalInfo = ({ onNext, onBack, previousData }) => {
               />
             </div>
 
-            {/* Height */}
             <div className="flex flex-col gap-2 py-1">
               <label className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-funnel mb-1">
                 What is your height (cm)?
               </label>
               <input
                 type="number"
+                min="0"
+                max="400"
                 placeholder="e.g., 175"
                 value={formData.height}
-                onChange={e => setFormData({ ...formData, height: e.target.value })}
-                className="border border-[rgba(37,37,37,0.1)] rounded-full px-4 py-3 w-full md:text-[16px] text-[14px] font-funnel placeholder:text-[rgba(37,37,37,0.3)] focus:border-[#0d8360] focus:outline-none bg-white appearance-none"
+                onChange={e => {
+                  const val = e.target.value;
+                  setFormData({ ...formData, height: val });
+                  let msg = "";
+                  if (val === "" || Number(val) < 0) msg = "Height cannot be negative.";
+                  else if (Number(val) > 400) msg = "Height cannot be more than 400 cm.";
+                  setErrors((prev) => ({ ...prev, height: msg }));
+                }}
+                className="border border-solid border-[#D1D5DB] rounded-full px-4 py-3 w-full md:text-[16px] text-[14px] font-funnel placeholder:text-[rgba(37,37,37,0.3)] focus:border-[#0d8360] focus:outline-none bg-white appearance-none"
               />
+              {errors.height && <span className="text-red-500 text-xs mt-1">{errors.height}</span>}
             </div>
 
-            {/* Weight */}
             <div className="flex flex-col gap-2 py-1">
               <label className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-funnel mb-1">
                 What is your weight (kg)?
               </label>
               <input
                 type="number"
+                min="0"
                 placeholder="e.g., 85"
                 value={formData.weight}
-                onChange={e => setFormData({ ...formData, weight: e.target.value })}
-                className="border border-[rgba(37,37,37,0.1)] rounded-full px-4 py-3 w-full md:text-[16px] text-[14px] font-funnel placeholder:text-[rgba(37,37,37,0.3)] focus:border-[#0d8360] focus:outline-none bg-white appearance-none"
+                onChange={e => {
+                  const val = e.target.value;
+                  setFormData({ ...formData, weight: val });
+                  let msg = "";
+                  if (val === "" || Number(val) < 0) msg = "Weight cannot be negative.";
+                  setErrors((prev) => ({ ...prev, weight: msg }));
+                }}
+                className="border border-solid border-[#D1D5DB] rounded-full px-4 py-3 w-full md:text-[16px] text-[14px] font-funnel placeholder:text-[rgba(37,37,37,0.3)] focus:border-[#0d8360] focus:outline-none bg-white appearance-none"
               />
+              {errors.weight && <span className="text-red-500 text-xs mt-1">{errors.weight}</span>}
             </div>
 
-            {/* Primary Goal */}
+            
             <div className="flex flex-col gap-4 py-1">
               <p className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-funnel">
                 What is your primary goal right now?
               </p>
               <div className="flex flex-col gap-[12px]">
                 {primaryGoals.map((goal) => (
-                  <label key={goal} className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      name="primaryGoal"
-                      value={goal}
-                      checked={formData.primaryGoal === goal}
-                      onChange={() => setFormData({ ...formData, primaryGoal: goal })}
-                      className="accent-[#0d8360] w-4 h-4"
-                    />
-                    <span className="text-[16px] text-[#252525] font-funnel">{goal}</span>
-                  </label>
+                  <CustomRadio
+                    key={goal}
+                    name="primaryGoal"
+                    value={goal}
+                    checked={formData.primaryGoal === goal}
+                    onChange={() => setFormData({ ...formData, primaryGoal: goal })}
+                    label={goal}
+                  />
                 ))}
               </div>
             </div>
 
-            {/* Activity Level */}
+           
             <div className="flex flex-col gap-4 py-1">
               <p className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-funnel">
                 How active are you on a typical week?
               </p>
               <div className="flex flex-col gap-[12px]">
                 {activityLevels.map((level) => (
-                  <label key={level} className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      name="activityLevel"
-                      value={level}
-                      checked={formData.activityLevel === level}
-                      onChange={() => setFormData({ ...formData, activityLevel: level })}
-                      className="accent-[#0d8360] w-4 h-4"
-                    />
-                    <span className="text-[16px] text-[#252525] font-funnel">{level}</span>
-                  </label>
+                  <CustomRadio
+                    key={level}
+                    name="activityLevel"
+                    value={level}
+                    checked={formData.activityLevel === level}
+                    onChange={() => setFormData({ ...formData, activityLevel: level })}
+                    label={level}
+                  />
                 ))}
               </div>
             </div>
 
-            {/* Post Workout Feeling */}
+           
             <div className="flex flex-col gap-4 py-1">
               <p className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-funnel">
                 How do you typically feel after workouts or long days?
               </p>
               <div className="flex flex-col gap-[12px]">
                 {postWorkoutFeelings.map((feeling) => (
-                  <label key={feeling} className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      name="postWorkoutFeeling"
-                      value={feeling}
-                      checked={formData.postWorkoutFeeling === feeling}
-                      onChange={() => setFormData({ ...formData, postWorkoutFeeling: feeling })}
-                      className="accent-[#0d8360] w-4 h-4"
-                    />
-                    <span className="text-[16px] text-[#252525] font-funnel">{feeling}</span>
-                  </label>
+                  <CustomRadio
+                    key={feeling}
+                    name="postWorkoutFeeling"
+                    value={feeling}
+                    checked={formData.postWorkoutFeeling === feeling}
+                    onChange={() => setFormData({ ...formData, postWorkoutFeeling: feeling })}
+                    label={feeling}
+                  />
                 ))}
               </div>
             </div>
 
-            {/* Sleep and Stress */}
+          
             <div className="flex flex-col gap-4 py-1">
               <p className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-funnel">
                 How would you describe your sleep and stress levels?
               </p>
               <div className="flex flex-col gap-[12px]">
                 {sleepStressLevels.map((level) => (
-                  <label key={level} className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      name="sleepStress"
-                      value={level}
-                      checked={formData.sleepStress === level}
-                      onChange={() => setFormData({ ...formData, sleepStress: level })}
-                      className="accent-[#0d8360] w-4 h-4"
-                    />
-                    <span className="text-[16px] text-[#252525] font-funnel">{level}</span>
-                  </label>
+                  <CustomRadio
+                    key={level}
+                    name="sleepStress"
+                    value={level}
+                    checked={formData.sleepStress === level}
+                    onChange={() => setFormData({ ...formData, sleepStress: level })}
+                    label={level}
+                  />
                 ))}
               </div>
             </div>
 
-            {/* Joint Pain */}
             <div className="flex flex-col gap-4 py-1">
               <p className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-funnel">
                 How often do you experience joint pain or stiffness?
               </p>
               <div className="flex flex-col gap-[12px]">
                 {jointPainLevels.map((level) => (
-                  <label key={level} className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      name="jointPain"
-                      value={level}
-                      checked={formData.jointPain === level}
-                      onChange={() => setFormData({ ...formData, jointPain: level })}
-                      className="accent-[#0d8360] w-4 h-4"
-                    />
-                    <span className="text-[16px] text-[#252525] font-funnel">{level}</span>
-                  </label>
+                  <CustomRadio
+                    key={level}
+                    name="jointPain"
+                    value={level}
+                    checked={formData.jointPain === level}
+                    onChange={() => setFormData({ ...formData, jointPain: level })}
+                    label={level}
+                  />
                 ))}
               </div>
             </div>
 
-            {/* Low Energy */}
             <div className="flex flex-col gap-4 py-1">
               <p className="md:text-[18px] text-[16px] font-semibold text-[#252525] font-funnel">
                 How often do you feel low energy or “run down”?
               </p>
               <div className="flex flex-col gap-[12px]">
                 {lowEnergyLevels.map((level) => (
-                  <label key={level} className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="radio"
-                      name="lowEnergy"
-                      value={level}
-                      checked={formData.lowEnergy === level}
-                      onChange={() => setFormData({ ...formData, lowEnergy: level })}
-                      className="accent-[#0d8360] w-4 h-4"
-                    />
-                    <span className="text-[16px] text-[#252525] font-funnel">{level}</span>
-                  </label>
+                  <CustomRadio
+                    key={level}
+                    name="lowEnergy"
+                    value={level}
+                    checked={formData.lowEnergy === level}
+                    onChange={() => setFormData({ ...formData, lowEnergy: level })}
+                    label={level}
+                  />
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Navigation */}
           <QuizNavigation
             // onBack={onBack}
             onNext={handleNext}
