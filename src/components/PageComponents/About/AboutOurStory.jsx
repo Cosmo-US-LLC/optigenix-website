@@ -57,7 +57,7 @@ const AboutOurStory = () => {
 
           {/* Right Image */}
           <div className="flex w-full lg:w-auto">
-            <div className="relative w-full h-[400px] lg:h-[550px] lg:w-[554px] bg-amber-300 rounded-[25px] overflow-hidden">
+            <div className="relative w-full h-[400px] lg:h-[550px] lg:w-[554px] rounded-[25px] overflow-hidden">
               <img
                 src={ourStoryImage}
                 alt="OptiGenix founders"
