@@ -83,7 +83,7 @@ const PersonalizedTests = () => {
             </div>
 
             {/* Right Graphics */}
-            <div className="bg-[#dce3e4] rounded-[24px] w-full md:w-[600px] h-[400px] md:h-[600px] relative overflow-hidden shrink-0">
+            <div className="bg-[#dce3e4] rounded-[24px] w-full md:w-[550px] h-[400px] md:h-[500px] relative overflow-hidden shrink-0">
               {/* DNA Image */}
               <div className="flex absolute inset-0 justify-center items-center">
                 <img
@@ -126,7 +126,7 @@ const PersonalizedTests = () => {
           {/* Performance Blood Test Card - Scrolls Over */}
           <div className="relative z-10 mt-[400px] md:mt-[600px] bg-[#fbfbfb] rounded-[32px] p-[16px] md:p-[32px] flex flex-col-reverse md:flex-row gap-[32px] md:gap-[48px] items-center justify-between">
             {/* Left Graphics */}
-            <div className="bg-[#dce3e4] rounded-[24px] w-full md:w-[600px] h-[400px] md:h-[600px] relative overflow-hidden shrink-0">
+            <div className="bg-[#dce3e4] rounded-[24px] w-full md:w-[550px] h-[400px] md:h-[500px] relative overflow-hidden shrink-0">
               {/* Blood Test Tube Image */}
               <div className="flex absolute inset-0 justify-center items-center">
                 <img
