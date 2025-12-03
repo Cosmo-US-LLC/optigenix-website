@@ -85,6 +85,12 @@ const Header = () => {
           <div className="flex items-center gap-[32px]">
             {/* Navigation Links */}
             <div className="flex items-center gap-[32px]">
+              <Link
+                to="/about"
+                className="font-['Funnel_Display'] text-[16px] text-black capitalize leading-normal hover:text-[#0d8360] transition-colors"
+              >
+                About
+              </Link>
               {/* Products with Dropdown */}
               <div className="flex items-center gap-[5px] cursor-pointer group">
                 <span className="font-['Funnel_Display'] text-[16px] text-black capitalize leading-normal group-hover:text-[#0d8360] transition-colors">
@@ -254,6 +260,12 @@ const Header = () => {
                 </Link>
               </SheetHeader>
               <div className="flex flex-col gap-6 mt-8">
+                <Link
+                  to="/about"
+                  className="font-['Funnel_Display'] text-[16px] text-black capitalize leading-normal hover:text-[#0d8360] transition-colors"
+                >
+                  About
+                </Link>
                 {/* Navigation Links */}
                 <div
                   className="font-['Funnel_Display'] text-[18px] text-black capitalize hover:text-[#0d8360] transition-colors cursor-pointer"

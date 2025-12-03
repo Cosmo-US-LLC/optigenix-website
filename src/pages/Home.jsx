@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Hero from "../components/PageComponents/Home/Hero";
 import USPBanner from "../components/PageComponents/Home/USPBanner";
 import Categories from "../components/PageComponents/Home/Categories";
@@ -20,12 +21,19 @@ import backgroundVideo from "../assets/images/hero/Hero V3-compressed.mp4";
 import backgroundImage from "../assets/images/hero/hero_background.webp";
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const handleHeroClick = () => {
+    navigate("/all-category");
+  };
+
   return (
     <div className="min-h-screen">
       <Hero
         backgroundVideo={backgroundVideo}
         backgroundImage={backgroundImage}
         ctaText="Start Your Performance Journey"
+        onCtaClick={handleHeroClick}
       />
       <USPBanner />
       <Categories />
