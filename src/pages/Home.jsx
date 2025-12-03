@@ -4,7 +4,8 @@ import USPBanner from "../components/PageComponents/Home/USPBanner";
 import Categories from "../components/PageComponents/Home/Categories";
 import Products from "../components/PageComponents/Home/Products";
 import OurStory from "../components/PageComponents/Home/OurStory";
-import DNABloodTest from "../components/PageComponents/Home/DNABloodTest";
+// import DNABloodTest from "../components/PageComponents/Home/DNABloodTest";
+import PersonalizedTests from "../components/PageComponents/Home/PersonalizedTests";
 import TrustedPartners from "../components/PageComponents/Home/TrustedPartners";
 import HowItWorks from "../components/PageComponents/Home/HowItWorks";
 import CaseStudy from "../components/PageComponents/Home/CaseStudy";
@@ -24,12 +25,14 @@ const Home = () => {
       <Hero
         backgroundVideo={backgroundVideo}
         backgroundImage={backgroundImage}
+        ctaText="Start Your Performance Journey"
       />
       <USPBanner />
       <Categories />
       <Products />
       <OurStory />
-      <DNABloodTest />
+      {/* <DNABloodTest /> */}
+      <PersonalizedTests />
       <TrustedPartners />
       <HowItWorks />
       <CaseStudy />

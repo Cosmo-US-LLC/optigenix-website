@@ -206,11 +206,11 @@ const Products = () => {
         </Carousel>
 
         {/* CTA Button */}
-        <div className="flex justify-center mt-[32px] md:mt-12">
+        {/* <div className="flex justify-center mt-[32px] md:mt-12">
           <button className="bg-[#0d8360] hover:bg-[#0a6b4f] transition-colors text-white font-['Funnel_Display'] font-semibold text-[14px] md:text-[16px] leading-[22px] md:leading-[24px] px-6 py-[14px] md:py-3.5 rounded-full">
             Explore all products
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

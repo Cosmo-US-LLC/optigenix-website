@@ -114,16 +114,15 @@ const Categories = () => {
           {/* Bottom CTA Button */}
           <div className="flex flex-col gap-[10px] items-center justify-center w-full">
             <Link to="/quiz">
-             <button className="bg-[#0d8360] hover:bg-[#0c704d] transition-all duration-200 rounded-[100px] px-[24px] py-[14px] flex gap-[10px] items-center justify-center">
-              <span
-                className="text-[16px] leading-[24px] text-white font-semibold whitespace-nowrap"
-                style={{ fontFamily: "Funnel Display, sans-serif" }}
-              >
-                Unsure which one fits you? Take the quiz.
-              </span>
-            </button>
+              <button className="bg-[#0d8360] hover:bg-[#0c704d] cursor-pointer transition-all duration-200 rounded-[100px] px-[24px] py-[14px] flex gap-[10px] items-center justify-center">
+                <span
+                  className="text-[16px] leading-[24px] text-white font-semibold whitespace-nowrap"
+                  style={{ fontFamily: "Funnel Display, sans-serif" }}
+                >
+                  Unsure which one fits you? Take the quiz.
+                </span>
+              </button>
             </Link>
-           
           </div>
         </div>
       </div>

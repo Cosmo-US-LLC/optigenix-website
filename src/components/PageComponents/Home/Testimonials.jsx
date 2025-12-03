@@ -139,11 +139,11 @@ const Testimonials = () => {
       {/* Content */}
       <div className="flex relative z-10 flex-col h-full md:max-w-[1300px] w-full mx-auto px-4 md:px-8">
         {/* Header Section */}
-        <div className="flex flex-col gap-4 justify-between items-start pt-[42px] lg:pt-12 text-white lg:flex-row lg:gap-8">
-          <h2 className="flex-1 font-['Funnel_Display'] font-semibold text-center md:text-left text-[32px] md:text-[48px] leading-[30px] md:leading-[40px] capitalize">
+        <div className="flex flex-col gap-4 justify-between items-start pt-[42px] lg:pt-12 text-white lg:flex-col lg:gap-8">
+          <h2 className="flex-1 font-['Funnel_Display'] max-w-[700px] font-semibold text-center md:text-left text-[32px] md:text-[48px] leading-[30px] md:leading-[48px] capitalize">
             Thousands of performance journeys (and counting).
           </h2>
-          <p className="flex-1 font-['Inter'] font-normal text-[14px] lg:text-[18px] leading-[22px] lg:leading-[26px] max-md:text-center">
+          <p className="flex-1 font-['Inter'] font-normal max-w-[600px] text-[14px] lg:text-[18px] leading-[22px] lg:leading-[26px] max-md:text-center">
             See how real athletes and fitness enthusiasts are transforming their
             results with OptiGenix.
           </p>
