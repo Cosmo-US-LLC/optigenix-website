@@ -262,6 +262,7 @@ const Header = () => {
               <div className="flex flex-col gap-6 mt-8">
                 <Link
                   to="/about"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="font-['Funnel_Display'] text-[16px] text-black capitalize leading-normal hover:text-[#0d8360] transition-colors"
                 >
                   About

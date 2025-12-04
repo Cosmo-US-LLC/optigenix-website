@@ -18,7 +18,7 @@ const teamMembers = [
     name: "Jai Williams",
     title: "COO",
     description:
-      "Jai, a former Division 1 NCAA high jumper at Cal and two-time podium finisher in the Pac-12 Conference of Champions, brings his expertise in athletics and operations to help guide OptiGenix's mission forward",
+      "Jai, a former Division 1 NCAA high jumper at Cal and two-time podium finisher in the Pac-12 Conference of Champions, brings his expertise in athletics and operations to help guide OptiGenix's mission forward.",
     image: teamMember2Image,
   },
   {
@@ -58,10 +58,8 @@ const AboutMeetTeam = () => {
         <div className="flex flex-col gap-[48px]">
           {/* Header */}
           <div className="flex flex-col gap-[16px] text-[#010907] text-center">
-            <h2 className="capitalize font-['Funnel_Display'] font-semibold text-[32px] md:text-[48px] leading-[40px] md:leading-[48px]">
-              Meet the team
-            </h2>
-            <p className="font-['Inter'] font-normal text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] max-w-[732px] mx-auto">
+            <h2 className="">Meet the team</h2>
+            <p className="description max-w-[732px] md:!text-[18px] !text-[16px]  mx-auto">
               Our team is a mix of athletes and scientists working together to
               make personalized health and performance a reality. Here are some
               of the people behind our work:
@@ -89,15 +87,15 @@ const AboutMeetTeam = () => {
                   {/* Content */}
                   <div className="flex flex-col gap-[32px] px-[6px] py-[8px]">
                     {/* Description */}
-                    <p className="font-['Inter'] font-normal text-[16px] leading-[24px] text-[#010907]">
+                    <p className="description !text-[#010907]">
                       {member.description}
                     </p>
 
                     {/* Name and Title */}
                     <div className="flex flex-col gap-[6px]">
-                      <h3 className="capitalize font-['Funnel_Display'] font-bold text-[22px] leading-[22px] text-[#042b24]">
+                      <p className="capitalize font-['Funnel_Display'] font-bold text-[22px] leading-[22px] text-[#042b24]">
                         {member.name}
-                      </h3>
+                      </p>
                       <p className="font-['Inter'] font-normal text-[14px] leading-[16px] text-[#010907]">
                         {member.title}
                       </p>
@@ -126,15 +124,15 @@ const AboutMeetTeam = () => {
                   {/* Content */}
                   <div className="flex flex-col gap-[32px] px-[6px] py-[8px]">
                     {/* Description */}
-                    <p className="font-['Inter'] font-normal text-[16px] leading-[24px] text-[#010907]">
+                    <p className="description !text-[#010907]">
                       {member.description}
                     </p>
 
                     {/* Name and Title */}
                     <div className="flex flex-col gap-[6px]">
-                      <h3 className="capitalize font-['Funnel_Display'] font-bold text-[22px] leading-[22px] text-[#042b24]">
+                      <p className="capitalize font-['Funnel_Display'] font-bold text-[22px] leading-[22px] text-[#042b24]">
                         {member.name}
-                      </h3>
+                      </p>
                       <p className="font-['Inter'] font-normal text-[14px] leading-[16px] text-[#010907]">
                         {member.title}
                       </p>

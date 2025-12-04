@@ -27,17 +27,17 @@ const FeatureCard = ({ image, tagText, title, description, buttonLabel }) => {
         </div>
 
         {/* Title */}
-        <h3 className="font-funnel text-[28px] md:text-[34px] lg:text-[39.2px] leading-[1.1] lg:leading-[44px] text-[#fcfcf7] text-center tracking-[-0.4px]">
+        <h3 className="btn-primary !text-[#fcfcf7] !text-[28px] md:!text-[34px] !font-[400] lg:!text-[39.2px] leading-[1.1] lg:leading-[44px] text-[#fcfcf7] text-center tracking-[-0.4px]">
           {title}
         </h3>
 
         {/* Description */}
-        <p className="font-inter text-[14px] md:text-[15px] lg:text-[15.4px] leading-[1.4] lg:leading-[20.8px] text-[#fcfcf7] text-center tracking-[-0.16px] max-w-[300px] md:max-w-[350px]">
+        <p className=" description !text-[#fcfcf7] text-center tracking-[-0.16px] max-w-[300px] md:max-w-[350px]">
           {description}
         </p>
 
         {/* Button */}
-        <button className="bg-[#fcfcf7] hover:bg-white transition-colors text-[#1c3a13] font-funnel text-[14px] md:text-[15px] lg:text-[15.6px] px-6 md:px-7 lg:px-8 py-3 md:py-3.5 lg:py-4 rounded-full tracking-[-0.04px] mt-2 md:mt-3 lg:mt-4">
+        <button className="bg-[#fcfcf7] btn-primary hover:bg-white transition-colors text-[#1c3a13]   px-6 md:px-7 lg:px-8 py-3 md:py-3.5 lg:py-4 rounded-full tracking-[-0.04px] mt-2 md:mt-3 lg:mt-4">
           {buttonLabel}
         </button>
       </div>
@@ -68,7 +68,7 @@ const WhatsNext = () => {
       <div className="max-w-[1280px] mx-auto px-4 py-10 md:py-16 md:px-8">
         <div className="flex flex-col gap-8 items-center md:gap-10">
           {/* Title */}
-          <h2 className="font-['Funnel_Display'] font-semibold md:text-[48px] text-[32px] lg:text-[48px] leading-[1.2] lg:leading-[56px] text-[#042b24] text-center tracking-[-0.72px]">
+          <h2 className="text-[#042b24] text-center ">
             What's Next for Human Performance?
           </h2>
 

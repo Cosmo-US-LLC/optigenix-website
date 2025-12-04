@@ -14,11 +14,11 @@ const PersonalizedTests = () => {
     <section className="bg-white py-[80px] ">
       <div className="max-w-[1440px] mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-[48px] max-w-[800px] mx-auto md:px-0 px-4">
-          <h2 className="text-[#042b24] mb-[15px]">
+        <div className="text-center mb-[48px] w-full md:max-w-[800px] mx-auto ">
+          <h2 className="text-[#042b24] mb-[15px] px-4 !text-[30px] md:!text-[48px] !leading-[30px] md:!leading-[56px]">
             Looking for a More Personalized Supplement Approach?
           </h2>
-          <p className="description text-[#010907] mb-[15px]">
+          <p className="description text-[#010907] mb-[15px] px-4">
             Discover exactly what your body needs with our DNA and Performance
             Blood analysis. These comprehensive tests are designed to create
             your fully personalized supplement plan.
@@ -31,7 +31,7 @@ const PersonalizedTests = () => {
         {/* Cards Container - Sticky Scroll Effect */}
         <div className="flex flex-col gap-0 max-w-[1280px] mx-auto px-4 md:px-8">
           {/* DNA Test Card - Sticky */}
-          <div className="sticky top-[-240px] md:top-[100px] bg-[#fbfbfb] rounded-[32px] p-[16px] md:p-[32px] flex flex-col md:flex-row gap-[32px] md:gap-[48px] items-center justify-center">
+          <div className="sticky top-[-6px] md:top-[100px] bg-[#fbfbfb] rounded-[32px] p-[16px] md:p-[32px] flex flex-col md:flex-row gap-[32px] md:gap-[48px] items-center justify-center">
             {/* Left Content */}
             <div className="flex flex-col gap-[16px] w-full md:w-[624px]">
               <div className="flex flex-col gap-[24px]">

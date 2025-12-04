@@ -20,6 +20,15 @@ h2 {
   text-transform: capitalize;
 }
 
+h3 {
+  color: #010907;
+  font-family: "Funnel Display", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 40px;
+}
+
 h6 {
   color: #010907;
   font-family: "Funnel Display", sans-serif;
@@ -84,6 +93,10 @@ h6 {
   h2 {
     font-size: 32px;
     line-height: 40px;
+  }
+  h3 {
+    font-size: 24px;
+    line-height: 32px;
   }
   h6 {
     font-size: 14px;

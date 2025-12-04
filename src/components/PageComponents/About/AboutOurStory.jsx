@@ -11,11 +11,9 @@ const AboutOurStory = () => {
             <div className="flex flex-col gap-[30px]">
               {/* Header and Text */}
               <div className="flex flex-col gap-[16px] text-[#010907]">
-                <h2 className="capitalize font-['Funnel_Display'] font-medium text-[32px] md:text-[48px] leading-[40px] md:leading-[56px]">
-                  Our Story
-                </h2>
+                <h2 className="">Our Story</h2>
 
-                <div className="font-['Inter'] font-normal text-[16px] leading-[24px] space-y-[16px]">
+                <div className=" description space-y-[16px]">
                   <p>
                     At OptiGenix, we believe your body deserves solutions as
                     unique as you are. We started this journey as athletes

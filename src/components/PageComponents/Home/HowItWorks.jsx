@@ -37,15 +37,13 @@ const HowItWorks = () => {
           {/* Title and Button */}
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-4">
-              <h2 className="font-['Funnel_Display'] font-medium md:text-[48px] text-[32px] leading-[40px] text-[#010907]">
-                How It Works
-              </h2>
-              <p className="font-['Inter'] font-normal text-[14px] leading-[22px] text-[#010907]">
+              <h2 className="text-[#010907]">How It Works</h2>
+              <p className="description text-[#010907]">
                 Your body already knows what it needs, we help you understand
                 it.
               </p>
             </div>
-            <button className="bg-[#0d8360] hover:bg-[#0c704d] active:bg-[#0a5c40] transition-all duration-200 text-white font-['Funnel_Display'] font-semibold text-[16px] leading-[20px] px-6 py-[14px] rounded-full w-fit">
+            <button className="bg-[#0d8360] hover:bg-[#0c704d] active:bg-[#0a5c40] transition-all duration-200 !text-[#fff] btn-primary px-6 py-[14px] rounded-full w-fit">
               Decode My DNA
             </button>
           </div>
@@ -67,9 +65,7 @@ const HowItWorks = () => {
                 <div className="flex flex-col gap-20">
                   {/* Top: Title and Number */}
                   <div className="flex justify-between items-center text-white">
-                    <h3 className="font-['Funnel_Display'] font-bold text-[20px] leading-[28px]">
-                      {step.title}
-                    </h3>
+                    <h3 className=" !text-[#ffffff]">{step.title}</h3>
                     <span className="font-['Inter'] font-normal text-[16px] leading-[24px]">
                       {step.number}
                     </span>
@@ -77,13 +73,13 @@ const HowItWorks = () => {
 
                   {/* Bottom: Description and Icon */}
                   <div className="flex gap-5 items-center">
-                    <p className="flex-1 font-['Inter'] font-normal text-[14px] leading-[21px] text-[#f8fffd]">
+                    <p className="description !text-[#f8fffd]">
                       {step.description}
                     </p>
                     <div className="shrink-0 w-[48px] h-[48px] flex items-center justify-center">
                       <step.icon
                         className="w-full h-full text-white"
-                        strokeWidth={1.5}
+                        strokeWidth={0.6}
                       />
                     </div>
                   </div>
@@ -113,15 +109,13 @@ const HowItWorks = () => {
                 {index === 0 && (
                   <div className="flex absolute top-0 left-[-90%] flex-col gap-6">
                     <div className="flex flex-col gap-[16px]">
-                      <h2 className="font-['Funnel_Display'] font-medium text-[48px] leading-[56px] text-[#010907]">
-                        How It Works
-                      </h2>
-                      <p className="font-['Inter'] font-normal text-[16px] leading-[24px] text-[#010907]">
+                      <h2 className="   text-[#010907]">How It Works</h2>
+                      <p className="description text-[#010907]">
                         Your body already knows what it needs, we help you
                         understand it.
                       </p>
                     </div>
-                    <button className="bg-[#0d8360] hover:bg-[#0c704d] active:bg-[#0a5c40] transition-all duration-200 text-white font-['Funnel_Display'] font-semibold text-[16px] leading-[20px] px-6 py-3.5 rounded-full w-fit">
+                    <button className="bg-[#0d8360] hover:bg-[#0c704d] active:bg-[#0a5c40] transition-all duration-200 text-white btn-primary px-6 py-3.5 rounded-full w-fit">
                       Decode My DNA
                     </button>
                   </div>
@@ -130,9 +124,7 @@ const HowItWorks = () => {
                 <div className="flex flex-col flex-1 justify-between">
                   {/* Top: Title and Number */}
                   <div className="flex justify-between items-center text-white">
-                    <h3 className="font-['Funnel_Display'] font-bold text-[24px] leading-[32px]">
-                      {step.title}
-                    </h3>
+                    <h3 className="!text-[#ffffff]">{step.title}</h3>
                     <span className="font-['Inter'] font-normal text-[16px] leading-[24px]">
                       {step.number}
                     </span>
@@ -140,13 +132,13 @@ const HowItWorks = () => {
 
                   {/* Bottom: Description and Icon */}
                   <div className="flex gap-4 justify-between items-end">
-                    <p className="font-['Inter'] font-normal text-[16px] leading-[22px] text-[#f8fffd] max-w-[400px]">
+                    <p className="description !text-[#f8fffd] max-w-[400px]">
                       {step.description}
                     </p>
                     <div className="shrink-0 w-[80px] h-[80px] flex items-center justify-center">
                       <step.icon
                         className="w-full h-full text-white"
-                        strokeWidth={1.5}
+                        strokeWidth={0.6}
                       />
                     </div>
                   </div>

@@ -31,19 +31,19 @@ const teamMembers = [
     image: lauraHixGlickman,
     bio: "Dr. Glickman brings extensive expertise in scientific strategy and research methodology as a five-time biotech founder and a top five-ranked female Series A entrepreneur in the U.S. Laura ensures that OptiGenix approaches personalized supplementation with grounded research, fueled by her passion for discovery.",
   },
-   {
+  {
     name: "Alec Bizieff, Ph.D.",
     role: "Scientific Advisor and Research Specialist",
     image: alec_headshot,
     bio: "Dr. Bizieff brings his expertise in metabolic biology to advance OptiGenix's research initiatives while also leading the development of comprehensive educational content on biomarkers, supplements, and performance optimization. Through his contributions, he plays a pivotal role in fulfilling OptiGenix's mission to empower athletes with knowledge and tools needed to personalize their athletic journey and performance.",
   },
-   {
+  {
     name: "Cecelia Zielke, Ph.D. Candidate",
     role: "Scientific Advisor",
     image: cecelia_headshot,
     bio: "As a Ph.D. Candidate and D1 athlete, Cecelia brings cutting-edge research perspectives to OptiGenix, contributing to our understanding of personalized supplementation and athletic performance optimization. In addition, she plays a key role in reviewing pilot studies to evaluate and enhance the effectiveness of our personalized supplementation process.",
   },
-   {
+  {
     name: "Kai Samiere, BS MS",
     role: "Registered Dietician - Sports Nutrition",
     image: kai_headshot,
@@ -88,10 +88,8 @@ const Team = () => {
         {/* Header */}
         <div className="flex flex-col gap-8 mb-8 lg:flex-row lg:justify-between lg:items-start lg:mb-[48px]">
           <div className="flex flex-col gap-4 lg:gap-[24px] lg:max-w-[660px]">
-            <h2 className="font-['Funnel_Display'] font-semibold md:text-[48px] text-[32px] leading-[40px] lg:leading-[48px] text-[#010907] capitalize">
-              Meet the team
-            </h2>
-            <p className="font-['Inter'] font-normal text-[14px] leading-[22px] lg:text-[18px] lg:leading-[26px] text-[#010907]">
+            <h2 className="text-[#010907] capitalize">Meet the team</h2>
+            <p className=" description text-[#010907]">
               Founded and formulated by a world-class team of doctors and
               performance experts.
             </p>
@@ -141,7 +139,7 @@ const Team = () => {
               >
                 <div className="bg-white border min-h-[460px] border-[rgba(1,9,7,0.1)] rounded-[16px] flex flex-col lg:flex-row gap-2 lg:gap-[32px] items-start lg:items-center p-2 lg:pl-[16px] lg:pr-[32px] lg:py-[16px] w-full lg:w-[800px]">
                   {/* Image */}
-                  <div className="w-full h-[280px] lg:w-[300px] lg:h-full rounded-[8px] overflow-hidden shrink-0">
+                  <div className="w-full h-[260px] lg:w-[300px] md:h-[400px] rounded-[8px] overflow-hidden shrink-0">
                     <img
                       src={member.image}
                       alt={member.name}
@@ -152,17 +150,17 @@ const Team = () => {
                   {/* Content */}
                   <div className="flex-1 flex flex-col gap-5 lg:gap-[32px] px-2 py-4 lg:py-[16px]">
                     {/* Name and Role */}
-                    <div className="flex flex-col gap-1">
+                    <div className="flex flex-col gap-1 h-[60px] ">
                       <h3 className="font-['Funnel_Display'] font-bold text-[20px] leading-[28px] lg:text-[24px] lg:leading-[32px] text-[#042b24] capitalize">
                         {member.name}
                       </h3>
-                      <p className="font-['Inter'] font-normal text-[14px] leading-[22px] text-[#010907]">
+                      <p className="description !text-[14px] md:!text-[14px] text-[#010907]">
                         {member.role}
                       </p>
                     </div>
 
                     {/* Bio */}
-                    <p className="font-['Inter'] font-normal text-[14px] leading-[22px] lg:text-[16px] lg:leading-[24px] text-[#010907]">
+                    <p className="description text-[#010907] h-[280px] md:h-[220px] ">
                       {member.bio}
                     </p>
 

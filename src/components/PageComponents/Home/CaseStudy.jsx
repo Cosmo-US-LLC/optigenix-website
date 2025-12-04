@@ -50,8 +50,8 @@ const CaseStudy = () => {
               {/* Content Overlay */}
               <div className="flex absolute inset-0 flex-col justify-between p-4 md:p-6">
                 {/* Title and Description */}
-                <div className="flex flex-col gap-[14px] lg:gap-[24px] text-center text-white max-w-[674px] md:mt-36 mt-26 ">
-                  <h2 className="!text-[#ffffff] md:!text-[40px] !text-[30px] ">
+                <div className="flex flex-col gap-[14px] lg:gap-[24px] text-center text-white max-w-[674px] md:mt-36 mt-44 ">
+                  <h2 className="!text-[#ffffff] md:!text-[40px] !text-[25px] md:!leading-[44px] !leading-[29px] ">
                     How Athletes Use OptiGenix and Transformed Their Game
                   </h2>
                   <p className="description !text-white">

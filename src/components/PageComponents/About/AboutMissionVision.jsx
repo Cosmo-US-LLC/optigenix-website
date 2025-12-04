@@ -38,9 +38,9 @@ const AboutMissionVision = () => {
         <div className="flex flex-col gap-[48px]">
           {/* Main Heading */}
           <div className="max-w-[800px]">
-            <h2 className="capitalize font-['Funnel_Display'] font-semibold text-[32px] md:text-[48px] leading-[40px] md:leading-[48px] text-white">
+            <h2 className="!text-white">
               How Physical Performance works and help you to booster your
-              perfoformance
+              performance
             </h2>
           </div>
 
@@ -48,7 +48,7 @@ const AboutMissionVision = () => {
           <div className="flex flex-col gap-[24px]">
             {sections.map((section, index) => (
               <div key={index} className="bg-[#010907] w-full">
-                <div className="flex flex-col lg:flex-row gap-[48px] items-center w-full">
+                <div className="flex flex-col lg:flex-row gap-[0px] md:gap-[48px] items-center w-full">
                   {/* Left - Image */}
                   <div className="w-full lg:w-[600px] py-[16px] md:py-[48px]">
                     <div className="relative h-[300px] md:h-[377px] w-full rounded-[8px] overflow-hidden">
@@ -59,10 +59,8 @@ const AboutMissionVision = () => {
                   {/* Right - Content */}
                   <div className="flex-1">
                     <div className="flex flex-col gap-[16px] text-white">
-                      <h3 className="capitalize font-['Funnel_Display'] font-medium text-[32px] md:text-[48px] leading-[40px] md:leading-[56px]">
-                        {section.title}
-                      </h3>
-                      <div className="font-['Inter'] font-normal text-[16px] leading-[24px] space-y-[16px]">
+                      <h2 className="!text-[#ffffff]">{section.title}</h2>
+                      <div className="description !text-[#ffffff] space-y-[16px]">
                         {section.description.map((paragraph, pIndex) => (
                           <p key={pIndex}>{paragraph}</p>
                         ))}

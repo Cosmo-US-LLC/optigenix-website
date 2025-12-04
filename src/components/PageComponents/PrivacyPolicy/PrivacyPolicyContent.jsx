@@ -37,17 +37,17 @@ const PrivacyPolicyContent = () => {
   };
 
   return (
-    <section className="bg-white py-12 md:py-[40px]">
+    <section className="bg-white py-6 md:py-[40px]">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-[48px]">
           {/* Left Side - Title & Table of Contents */}
           <div className="lg:w-[500px] shrink-0 lg:sticky md:top-29 lg:self-start">
-            <h1 className="font-['Funnel_Display'] font-semibold text-[40px] lg:text-[48px] leading-[48px] lg:leading-[56px] text-[#010907] tracking-[-0.72px] mb-4 md:mb-4">
+            <h1 className="!text-[#010907] text-center md:text-left mb-0 md:mb-4">
               Privacy Policy
             </h1>
 
             {/* Table of Contents */}
-            <div className="lg:max-h-[calc(100vh-200px)] lg:overflow-y-auto lg:pr-4">
+            <div className="hidden md:block lg:max-h-[calc(100vh-200px)] lg:overflow-y-auto lg:pr-4 ">
               <nav className="flex flex-col pl-1">
                 {tableOfContents.map((item) => (
                   <button

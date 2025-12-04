@@ -89,9 +89,7 @@ const Comparison = () => {
           {/* Comparison Content */}
           <div className="flex-1 w-full flex flex-col gap-6 lg:gap-0 lg:h-[600px] lg:justify-between">
             {/* Title */}
-            <h2 className="font-['Funnel_Display'] font-medium text-[32px] md:text-[48px] leading-[40px] lg:leading-[56px] text-[#010907] capitalize">
-              Comparison
-            </h2>
+            <h2 className=" text-[#010907] capitalize">Comparison</h2>
 
             {/* Comparison Table */}
             <div className="flex flex-col gap-6 lg:gap-[24px] relative">

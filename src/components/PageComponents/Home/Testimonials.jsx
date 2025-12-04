@@ -10,33 +10,51 @@ import testimonialBg from "../../../assets/images/testimonial/testimonial_bg.web
 
 const testimonials = [
   {
-    title: "Grace's Personalized Stack",
-    text: "It's pretty awesome that it's all customizable to your body using science",
-    author: "Grace Cobb",
+    title: "Adrian Weinberg",
+    text: "This is my first time trying OptiGenix. my friend recommended it after seeing her results. The gene-based supplements gave me more energy than I’ve had in years.",
+    author: "Water Polo",
     rating: 5,
   },
   {
-    title: "Grace's Personalized Stack",
-    text: "It's pretty awesome that it's all customizable to your body using science",
-    author: "Grace Cobb",
+    title: "Christopher Middleton-Pearson",
+    text: "Focus at work was impossible for me. The supplements matched to my gene test have completely improved my mental clarity.",
+    author: "Distance runner",
     rating: 5,
   },
   {
-    title: "Grace's Personalized Stack",
-    text: "It's pretty awesome that it's all customizable to your body using science",
-    author: "Grace Cobb",
+    title: "Sanil Sharma",
+    text: "I always struggled with stress and mood swings. After following my personalized plan, I finally feel calmer and more balanced.",
+    author: "Fencer",
     rating: 5,
   },
   {
-    title: "Grace's Personalized Stack",
-    text: "It's pretty awesome that it's all customizable to your body using science",
-    author: "Grace Cobb",
+    title: "Jenny Wilson",
+    text: "I didn’t realize my vitamin deficiencies were holding me back in recovery. Now, after a few weeks on my tailored supplements, I feel noticeably stronger",
+    author: "Fencer",
     rating: 5,
   },
   {
-    title: "Grace's Personalized Stack",
-    text: "It's pretty awesome that it's all customizable to your body using science",
-    author: "Grace Cobb",
+    title: "Jane Cooper",
+    text: "Before flu season, I wanted to give my immunity a boost. The quiz recommended exactly what I needed, and I’ve been feeling stronger and more resilient.",
+    author: "Water Polo",
+    rating: 5,
+  },
+  {
+    title: "Wade Warren",
+    text: "I took the quiz on a boy friend’s suggestion, curious if it could help. The plan targeted my inflammation, and now I feel lighter and healthier every day",
+    author: "Fencer",
+    rating: 5,
+  },
+  {
+    title: "Brooklyn Simmons",
+    text: "Sleep and recovery were always my weak spots. After trying these supplements, I wake up refreshed and ready to tackle the day. it’s made a huge difference.",
+    author: "Distance runner",
+    rating: 5,
+  },
+  {
+    title: "Esther Howard",
+    text: "I wanted to break through my workout plateaus. These performance-focused supplements helped me hit new personal bests I didn’t think were possible",
+    author: "Fencer",
     rating: 5,
   },
 ];
@@ -68,7 +86,7 @@ const TestimonialCard = ({ rating, title, description, author, isActive }) => {
       {/* Content */}
       <div className="flex flex-col gap-4 lg:gap-[20px]">
         {/* Title and Description */}
-        <div className="flex flex-col gap-3 lg:gap-[16px]">
+        <div className="flex flex-col gap-3 lg:gap-[16px] h-[160px]">
           <h3
             className={`font-['Funnel_Display'] font-bold text-[18px] lg:text-[20px] leading-[20px] lg:leading-[22px] ${
               isActive ? "text-[#042b24]" : "text-white"
@@ -77,8 +95,8 @@ const TestimonialCard = ({ rating, title, description, author, isActive }) => {
             {title}
           </h3>
           <p
-            className={`font-['Inter'] font-normal text-[16px] lg:text-[20px] leading-[24px] lg:leading-[28px] tracking-[0.4px] ${
-              isActive ? "text-[#010907]" : "text-white"
+            className={` description tracking-[0.4px] ${
+              isActive ? "!text-[#000]" : "!text-white"
             }`}
           >
             "{description}"
@@ -86,7 +104,7 @@ const TestimonialCard = ({ rating, title, description, author, isActive }) => {
         </div>
 
         {/* Divider and Author */}
-        <div className="flex flex-col gap-3 lg:gap-[16px]">
+        <div className="flex flex-col justify-center items-center h-[40px]   gap-3 lg:gap-[16px]">
           <div
             className={`w-full h-px ${
               isActive ? "bg-[#010907]/20" : "bg-white/20"
@@ -140,10 +158,10 @@ const Testimonials = () => {
       <div className="flex relative z-10 flex-col h-full md:max-w-[1300px] w-full mx-auto px-4 md:px-8">
         {/* Header Section */}
         <div className="flex flex-col gap-4 justify-between items-start pt-[42px] lg:pt-12 text-white lg:flex-col lg:gap-8">
-          <h2 className="flex-1 font-['Funnel_Display'] max-w-[700px] font-semibold text-center md:text-left text-[32px] md:text-[48px] leading-[30px] md:leading-[48px] capitalize">
+          <h2 className="flex-1 max-w-[700px] !text-[#fff] !text-[30px] md:!text-[48px] !leading-[30px] md:!leading-[56px]  text-center md:text-left   capitalize">
             Thousands of performance journeys (and counting).
           </h2>
-          <p className="flex-1 font-['Inter'] font-normal max-w-[600px] text-[14px] lg:text-[18px] leading-[22px] lg:leading-[26px] max-md:text-center">
+          <p className="flex-1     max-w-[600px]    max-md:text-center description !text-[#fff]">
             See how real athletes and fitness enthusiasts are transforming their
             results with OptiGenix.
           </p>
@@ -171,7 +189,7 @@ const Testimonials = () => {
                     key={index}
                     className="pl-3 md:pl-3 lg:pl-4 basis-[78%] sm:basis-[320px] lg:basis-[368px]"
                   >
-                    <div className="h-[276px] lg:h-[280px]">
+                    <div className="h-[286px] md:h-[310px]">
                       <TestimonialCard
                         rating={testimonial.rating}
                         title={testimonial.title}
