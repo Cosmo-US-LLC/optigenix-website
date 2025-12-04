@@ -37,8 +37,8 @@ const CategoryHero = () => {
               </div>
 
               {/* Content */}
-              <div className="relative z-10 flex flex-col gap-[16px]">
-                <h2 className="capitalize font-['Funnel_Display'] font-bold text-[32px] leading-[40px] text-white">
+              <div className="relative z-10 flex flex-col max-md:justify-end gap-[16px] max-md:min-h-[250px]">
+                <h2 className="capitalize font-['Funnel_Display'] font-bold md:!text-[32px] !leading-[40px] !text-white">
                   Shop by Focus
                 </h2>
                 <Button
@@ -52,19 +52,19 @@ const CategoryHero = () => {
             </div>
 
             {/* Right Column */}
-            <div className="flex-1 lg:min-w-0 flex flex-col gap-[24px]">
+            <div className="flex-1 lg:min-w-0 flex flex-col gap-[16px]">
               {/* Top Right Card - See Personalized Solutions */}
-              <div className="rounded-[16px] overflow-hidden relative h-[200px] flex flex-col justify-end p-[16px]">
+              <div className="rounded-[16px] overflow-hidden relative min-h-[234px] flex flex-col justify-center p-[16px]">
                 {/* Background with multiple layers */}
                 <div className="absolute inset-0 pointer-events-none">
-                  <div className="overflow-hidden absolute inset-0">
-                    <img src={personalizedSolutionsImage2} alt="" />
+                  <div className="overflow-hidden  absolute inset-0">
+                    <img src={personalizedSolutionsImage2} className="min-h-[234px] object-cover" alt="" />
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="relative z-10 flex flex-col gap-[16px]">
-                  <h2 className="font-['Funnel_Display'] font-bold text-[32px] leading-[31px] text-white max-w-[276px]">
+                <div className="relative z-10 flex flex-col gap-[16px] ">
+                  <h2 className="font-['Funnel_Display'] font-bold md:!text-[32px] !leading-[31px] !text-white max-w-[276px]">
                     See Personalized Solutions
                   </h2>
                   <Button
@@ -78,9 +78,9 @@ const CategoryHero = () => {
               </div>
 
               {/* Bottom Right Card - Not sure where to start */}
-              <div className="bg-[#2b7a6c] rounded-[16px] p-[24px] h-[200px] flex flex-row items-center gap-[16px]">
-                <div className="flex-1 flex flex-col gap-[16px]">
-                  <h2 className="font-['Funnel_Display'] font-bold text-[32px] leading-[31px] text-white max-w-[286px]">
+              <div className="bg-[#2b7a6c] rounded-[16px] p-[24px] md:h-[175px] flex flex-col md:flex-row md:items-center items-start gap-[16px]">
+                <div className="flex-1 flex flex-col gap-[6px]">
+                  <h2 className="font-['Funnel_Display'] font-bold !text-[32px] !leading-[31px] !text-white max-w-[286px]">
                     Not sure where to start?
                   </h2>
                   <p className="font-['Inter'] font-normal text-[16px] leading-[22px] text-[#f8fffd] max-w-[344px]">
