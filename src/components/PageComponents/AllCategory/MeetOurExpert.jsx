@@ -24,7 +24,7 @@ const MeetOurExpert = () => {
           </div>
 
           {/* Right Content */}
-          <div className="flex-1 flex flex-col justify-between min-h-[400px] lg:min-h-[508px]">
+          <div className="flex-1 flex flex-col justify-between min-h-[300px] lg:min-h-[508px]">
             {/* Top Content */}
             <div className="flex flex-col gap-[20px]">
               <div className="flex flex-col gap-[16px] text-[#010907]">

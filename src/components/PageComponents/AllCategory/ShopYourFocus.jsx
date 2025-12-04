@@ -30,7 +30,7 @@ const categories = [
 
 const ShopYourFocus = () => {
   return (
-    <section className="bg-white py-[80px]">
+    <section className="bg-white md:py-[80px]">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8">
         <div className="flex flex-col gap-[30px] items-center">
           {/* Header */}
@@ -49,7 +49,7 @@ const ShopYourFocus = () => {
             {categories.map((category, index) => (
               <div
                 key={index}
-                className="flex-1 rounded-[24px] overflow-hidden relative h-[479px] flex flex-col justify-end p-[16px]"
+                className="flex-1 rounded-[24px] overflow-hidden relative max-md:min-h-[400px] md:h-[479px] flex flex-col justify-end p-[16px]"
               >
                 {/* Background Image with Gradient */}
                 <div className="absolute inset-0 pointer-events-none">
