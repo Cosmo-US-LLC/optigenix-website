@@ -14,11 +14,11 @@ const partners = [
     name: "Launch Banner",
     logo: launchBanner,
   },
+  { name: "Sutarja", logo: Sutarja },
   {
     name: "Founders Hub",
     logo: foundersHub,
   },
-  { name: "Sutarja", logo: Sutarja },
 ];
 
 const TrustedPartners = () => {

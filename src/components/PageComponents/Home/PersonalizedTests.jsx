@@ -14,11 +14,11 @@ const PersonalizedTests = () => {
     <section className="bg-white py-[80px] ">
       <div className="max-w-[1440px] mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-[48px] max-w-[800px] mx-auto">
-          <h2 className="font-['Funnel_Display'] font-semibold text-[32px] md:text-[48px] leading-[40px] md:leading-[56px] tracking-[-0.72px] text-[#042b24] mb-[15px]">
+        <div className="text-center mb-[48px] max-w-[800px] mx-auto md:px-0 px-4">
+          <h2 className="text-[#042b24] mb-[15px]">
             Looking for a More Personalized Supplement Approach?
           </h2>
-          <p className="font-['Inter'] font-normal text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-[#010907] mb-[15px]">
+          <p className="description text-[#010907] mb-[15px]">
             Discover exactly what your body needs with our DNA and Performance
             Blood analysis. These comprehensive tests are designed to create
             your fully personalized supplement plan.
@@ -31,7 +31,7 @@ const PersonalizedTests = () => {
         {/* Cards Container - Sticky Scroll Effect */}
         <div className="flex flex-col gap-0 max-w-[1280px] mx-auto px-4 md:px-8">
           {/* DNA Test Card - Sticky */}
-          <div className="sticky top-[-380px] md:top-[100px] bg-[#fbfbfb] rounded-[32px] p-[16px] md:p-[32px] flex flex-col md:flex-row gap-[32px] md:gap-[48px] items-center justify-center">
+          <div className="sticky top-[-240px] md:top-[100px] bg-[#fbfbfb] rounded-[32px] p-[16px] md:p-[32px] flex flex-col md:flex-row gap-[32px] md:gap-[48px] items-center justify-center">
             {/* Left Content */}
             <div className="flex flex-col gap-[16px] w-full md:w-[624px]">
               <div className="flex flex-col gap-[24px]">
@@ -41,7 +41,7 @@ const PersonalizedTests = () => {
                       At-Home DNA Test
                     </h3>
                   </div>
-                  <p className="font-['Inter'] font-normal text-[14px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">
+                  <p className="text-black description">
                     Discover your body's unique genetic profile for performance,
                     recovery, and nutrition. Our at-home DNA test uses a simple
                     cheek swab to reveal how your body responds to training,
@@ -98,8 +98,8 @@ const PersonalizedTests = () => {
                 {[
                   { icon: icon1, text: "HSA / FSA\nAccepted" },
                   { icon: icon2, text: "Comprehensive\nTesting" },
-                  { icon: icon3, text: "Cutting-Edge\nScience" },
-                  { icon: icon4, text: "Easy and\nConvenient" },
+                  { icon: icon4, text: "Cutting-Edge\nScience" },
+                  { icon: icon3, text: "Easy and\nConvenient" },
                 ].map((badge, index) => (
                   <div
                     key={index}
@@ -168,7 +168,7 @@ const PersonalizedTests = () => {
                 <div className="absolute right-[6px] md:right-[30px] top-[180px] md:top-[200px] backdrop-blur-[7px] bg-[#042b24] border border-[rgba(255,255,255,0.1)] rounded-[16px] px-[8px] py-[16px] md:py-[20px] w-[90px] md:w-[123.5px]">
                   <div className="flex flex-col gap-[12px] md:gap-[16px] items-center">
                     <div className="w-[24px] h-[24px] md:w-[32px] md:h-[32px]">
-                      <img src={icon3} alt="" className="w-full h-full" />
+                      <img src={icon4} alt="" className="w-full h-full" />
                     </div>
                     <p className="font-['Inter'] font-normal text-[11px] md:text-[14px] leading-[16px] md:leading-[20px] text-white text-center whitespace-pre-line">
                       Cutting-Edge Science
@@ -180,7 +180,7 @@ const PersonalizedTests = () => {
                 <div className="absolute right-[6px] md:right-[30px] bottom-[12px] md:bottom-[26px] backdrop-blur-[7px] bg-[#042b24] border border-[rgba(255,255,255,0.1)] rounded-[16px] px-[8px] py-[16px] md:py-[20px] w-[90px] md:w-[123.5px]">
                   <div className="flex flex-col gap-[12px] md:gap-[16px] items-center">
                     <div className="w-[24px] h-[24px] md:w-[32px] md:h-[32px]">
-                      <img src={icon4} alt="" className="w-full h-full" />
+                      <img src={icon3} alt="" className="w-full h-full" />
                     </div>
                     <p className="font-['Inter'] font-normal text-[11px] md:text-[14px] leading-[16px] md:leading-[20px] text-white text-center whitespace-pre-line">
                       Easy and{"\n"}Convenient

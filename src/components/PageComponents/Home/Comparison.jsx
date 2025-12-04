@@ -15,7 +15,7 @@ const TableRow = ({ benefit, optigenixStatus, traditionalStatus }) => {
         <div className="flex md:justify-center justify-start max-md:pl-[2px]  items-center max-md:w-[100px] ">
           {optigenixStatus ? (
             <Check
-              className="w-6 h-6 lg:w-[24px] lg:h-[24px] text-white relative z-10"
+              className="w-6 h-6 lg:w-[24px] lg:h-[24px] text-[#5CDDC6] relative z-10"
               strokeWidth={3}
             />
           ) : (

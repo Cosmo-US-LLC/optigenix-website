@@ -36,13 +36,11 @@ const Categories = () => {
         {/* Title with Description */}
         <div className="flex flex-col gap-[16px] items-center text-center md:mb-[48px] mb-[24px]">
           {/* Heading */}
-          <h2 className="md:text-[48px] text-[32px] font-['Funnel_Display'] leading-[32px] md:leading-[56px] text-[#010907] font-medium">
-            Shop your Focus
-          </h2>
+          <h2 className="">Shop your Focus</h2>
 
           {/* Subtitle */}
           <p
-            className="md:text-[16px] text-[16px] leading-[20px] md:leading-[24px] text-[#010907] font-normal max-w-full"
+            className="max-w-full description"
             style={{ fontFamily: "Inter, sans-serif" }}
           >
             Expertly formulated, personalized blends designed to support your{" "}
@@ -70,40 +68,26 @@ const Categories = () => {
                     />
                   </div>
                   {/* Category Label */}
-                  <p
-                    className="absolute top-[8px] left-0 md:text-[15px] text-[13px] leading-[24px] text-[#010907] font-medium"
-                    style={{ fontFamily: "Funnel Display, sans-serif" }}
-                  >
+                  <h6 className="absolute top-[4px] md:top-[8px] left-[-1px] md:!text-[15px] !text-[13px] text-[#010907]">
                     {category.title}
-                  </p>
+                  </h6>
                 </div>
 
                 {/* Description and Button Container */}
                 <div className="bg-[#f7f7f7] rounded-[8px] p-[20px] flex flex-col gap-[12px] items-center w-full">
                   {/* Description */}
-                  <p
-                    className="text-[16px] leading-[24px] text-[#010907] text-center font-normal w-full"
-                    style={{ fontFamily: "Funnel Display, sans-serif" }}
-                  >
+                  <p className="w-full text-center description">
                     {category.description}
                   </p>
 
                   {/* Button */}
                   <button className="border-[1.5px] border-[#010907] border-solid rounded-[100px] px-[24px] py-[14px] flex gap-[10px] items-center justify-center hover:bg-[#010907] hover:text-white transition-all duration-200 group">
-                    <span
-                      className="text-[16px] leading-[20px] text-[#010907] capitalize font-semibold group-hover:text-white"
-                      style={{ fontFamily: "Funnel Display, sans-serif" }}
-                    >
+                    <span className="text-[#010907] group-hover:text-white btn-primary">
                       {category.buttonText}
                     </span>
                     {/* Arrow Icon */}
                     <div className="w-[20px] h-[20px] flex items-center justify-center rotate-90">
                       <MoveLeft className="text-[#010907] group-hover:text-[#ffffff] rotate-45" />
-                      {/* <img
-                        src={imgArrowIcon}
-                        alt=""
-                        className="w-full h-full"
-                      /> */}
                     </div>
                   </button>
                 </div>
@@ -115,10 +99,7 @@ const Categories = () => {
           <div className="flex flex-col gap-[10px] items-center justify-center w-full">
             <Link to="/quiz">
               <button className="bg-[#0d8360] hover:bg-[#0c704d] cursor-pointer transition-all duration-200 rounded-[100px] px-[24px] py-[14px] flex gap-[10px] items-center justify-center">
-                <span
-                  className="text-[16px] leading-[24px] text-white font-semibold whitespace-nowrap"
-                  style={{ fontFamily: "Funnel Display, sans-serif" }}
-                >
+                <span className="text-white whitespace-nowrap  btn-primary">
                   Unsure which one fits you? Take the quiz.
                 </span>
               </button>

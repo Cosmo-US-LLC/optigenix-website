@@ -51,14 +51,9 @@ const USPBanner = () => {
             <img
               src={item.icon}
               alt={item.text}
-              className="flex-shrink-0 w-8 h-8"
+              className="flex-shrink-0 w-7 h-7"
             />
-            <span
-              className="font-semibold text-[16px] leading-[24px] text-[#010907] whitespace-nowrap"
-              style={{ fontFamily: "Inter, sans-serif" }}
-            >
-              {item.text}
-            </span>
+            <span className="description !font-[600]">{item.text}</span>
           </div>
         ))}
       </Marquee>

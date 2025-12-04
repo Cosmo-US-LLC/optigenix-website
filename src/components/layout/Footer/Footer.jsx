@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Instagram, Linkedin } from "lucide-react";
+import linkedinIcon from "../../../assets/images/footer/Linkedin.svg";
+import twitterIcon from "../../../assets/images/footer/devicon_twitter.svg";
 import logoIcon from "../../../assets/images/footer/footer_logo.webp";
 import visaIcon from "../../../assets/images/footer/footer_visa.webp";
 import mastercardIcon from "../../../assets/images/footer/footer_mastercard.webp";
@@ -50,28 +51,48 @@ const Footer = () => {
 
               {/* Social Icons */}
               <div className="flex gap-2 md:gap-3 lg:gap-[12px] items-center">
-                <a
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  <button
+                    className="w-[40px] h-[40px] md:w-[48px] md:h-[48px] border border-white rounded-full flex items-center justify-center text-white cursor-pointer hover:bg-[#5CDDC6] hover:text-[#042b24] transition-all duration-200"
+                    aria-label="Twitter"
+                  >
+                    <img
+                      src={twitterIcon}
+                      alt="Twitter"
+                      className="w-4 h-4 md:w-[16px] md:h-[16px]"
+                    />
+                  </button>
+                </a>
+                {/* <a
                   href="https://www.instagram.com/optigenix/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <button
-                    className="w-[40px] h-[40px] md:w-[48px] md:h-[48px] border border-white rounded-full flex items-center justify-center text-white hover:bg-white hover:text-[#042b24] transition-all duration-200"
+                    className="w-[40px] h-[40px] md:w-[48px] md:h-[48px] border border-white rounded-full flex items-center justify-center text-white cursor-pointer hover:bg-[#5CDDC6] hover:text-[#042b24] transition-all duration-200"
                     aria-label="Twitter"
                   >
-                    <Instagram className="w-4 h-4 md:w-[16px] md:h-[16px]" />
+                    <img
+                      src={twitterIcon}
+                      alt="Twitter"
+                      className="w-4 h-4 md:w-[16px] md:h-[16px]"
+                    />
                   </button>
-                </a>
+                </a> */}
                 <a
                   href="https://www.linkedin.com/company/optigenix"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <button
-                    className="w-[40px] h-[40px] md:w-[48px] md:h-[48px] border border-white rounded-full flex items-center justify-center text-white hover:bg-white hover:text-[#042b24] transition-all duration-200"
+                    className="w-[40px] h-[40px] md:w-[48px] md:h-[48px] border border-white rounded-full flex items-center justify-center text-white cursor-pointer hover:bg-[#5CDDC6] hover:text-[#042b24] transition-all duration-200"
                     aria-label="LinkedIn"
                   >
-                    <Linkedin className="w-4 h-4 md:w-[16px] md:h-[16px]" />
+                    <img
+                      src={linkedinIcon}
+                      alt="LinkedIn"
+                      className="w-4 h-4 md:w-[16px] md:h-[16px]"
+                    />
                   </button>
                 </a>
               </div>
@@ -89,39 +110,25 @@ const Footer = () => {
               <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:gap-8">
                 {/* Column 1: Quick Links */}
                 <div className="space-y-3 md:space-y-4 lg:space-y-[16px]">
-                  <h3 className="font-['Funnel_Display'] text-[16px] md:text-[18px] leading-[20.99px] text-white font-bold">
-                    Quick Links
-                  </h3>
+                  <h3 className="quick-heading">Quick Links</h3>
                   <ul className="space-y-2 lg:space-y-[8px]">
                     <li>
-                      <Link
-                        to="/"
-                        className="font-inter text-[14px] md:text-[16px] leading-[22px] text-white hover:text-white/80 transition-colors"
-                      >
+                      <Link to="/" className="quick-links">
                         Home
                       </Link>
                     </li>
                     <li>
-                      <Link
-                        to="/categories"
-                        className="font-inter text-[14px] md:text-[16px] leading-[22px] text-white hover:text-white/80 transition-colors"
-                      >
+                      <Link to="/all-category" className="quick-links">
                         Categories
                       </Link>
                     </li>
                     <li>
-                      <Link
-                        to="/products"
-                        className="font-inter text-[14px] md:text-[16px] leading-[22px] text-white hover:text-white/80 transition-colors"
-                      >
+                      <Link to="#" className="quick-links">
                         Products
                       </Link>
                     </li>
                     <li>
-                      <Link
-                        to="/blog"
-                        className="font-inter text-[14px] md:text-[16px] leading-[22px] text-white hover:text-white/80 transition-colors"
-                      >
+                      <Link to="#" className="quick-links">
                         Blogs
                       </Link>
                     </li>
@@ -130,39 +137,25 @@ const Footer = () => {
 
                 {/* Column 2: About Company */}
                 <div className="space-y-3 md:space-y-4 lg:space-y-[16px]">
-                  <h3 className="font-['Funnel_Display'] text-[16px] md:text-[18px] leading-[20.99px] text-white font-bold">
-                    About Company
-                  </h3>
+                  <h3 className="quick-heading">About Company</h3>
                   <ul className="space-y-2 lg:space-y-[8px]">
                     <li>
-                      <Link
-                        to="/story"
-                        className="font-inter text-[14px] md:text-[16px] leading-[22px] text-white hover:text-white/80 transition-colors"
-                      >
+                      <Link to="#" className="quick-links">
                         Our Story
                       </Link>
                     </li>
                     <li>
-                      <Link
-                        to="/shop"
-                        className="font-inter text-[14px] md:text-[16px] leading-[22px] text-white hover:text-white/80 transition-colors"
-                      >
+                      <Link to="#" className="quick-links">
                         Shop
                       </Link>
                     </li>
                     <li>
-                      <Link
-                        to="/about"
-                        className="font-inter text-[14px] md:text-[16px] leading-[22px] text-white hover:text-white/80 transition-colors"
-                      >
+                      <Link to="/about" className="quick-links">
                         About
                       </Link>
                     </li>
                     <li>
-                      <Link
-                        to="/team"
-                        className="font-inter text-[14px] md:text-[16px] leading-[22px] text-white hover:text-white/80 transition-colors"
-                      >
+                      <Link to="#" className="quick-links">
                         Team
                       </Link>
                     </li>
@@ -171,31 +164,20 @@ const Footer = () => {
 
                 {/* Column 3: Support */}
                 <div className="space-y-3 md:space-y-4 lg:space-y-[16px]">
-                  <h3 className="font-['Funnel_Display'] text-[16px] md:text-[18px] leading-[20.99px] text-white font-bold">
-                    Support
-                  </h3>
+                  <h3 className="quick-heading">Support</h3>
                   <ul className="space-y-2 lg:space-y-[8px]">
                     <li>
-                      <Link
-                        to="/faq"
-                        className="font-inter text-[14px] md:text-[16px] leading-[22px] text-white hover:text-white/80 transition-colors"
-                      >
+                      <Link to="#" className="quick-links">
                         FAQ's
                       </Link>
                     </li>
                     <li>
-                      <Link
-                        to="/terms-of-service"
-                        className="font-inter text-[14px] md:text-[16px] leading-[22px] text-white hover:text-white/80 transition-colors"
-                      >
+                      <Link to="/terms-of-service" className="quick-links">
                         Terms and Conditions
                       </Link>
                     </li>
                     <li>
-                      <Link
-                        to="/privacy-policy"
-                        className="font-inter text-[14px] md:text-[16px] leading-[22px] text-white hover:text-white/80 transition-colors"
-                      >
+                      <Link to="/privacy-policy" className="quick-links">
                         Privacy Policy
                       </Link>
                     </li>
@@ -210,7 +192,7 @@ const Footer = () => {
 
                 <div className="flex flex-col gap-4 justify-between items-center sm:flex-row">
                   {/* Copyright */}
-                  <p className="font-inter text-[12px] md:text-[14px] leading-[22px] text-white text-center sm:text-left">
+                  <p className="time-zone">
                     © 2025 OptiGenix. All rights reserved.
                   </p>
 
@@ -272,7 +254,7 @@ const Footer = () => {
 
             {/* Right Side: Newsletter Signup */}
             <div className="w-full lg:w-[386px] space-y-4 md:space-y-6 lg:space-y-[24px]">
-              <h3 className="font-['Funnel_Display'] text-[16px] md:text-[18px] leading-[20.99px] text-white font-bold">
+              <h3 className="quick-heading">
                 Subscribe to our newsletter and stay up to date
               </h3>
 
@@ -284,7 +266,7 @@ const Footer = () => {
                 {/* Form Fields */}
                 <div className="space-y-3 lg:space-y-[12px]">
                   {/* First Name & Last Name Grid */}
-                  <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 lg:gap-[12px]">
+                  {/* <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 lg:gap-[12px]">
                     <div className="space-y-2 lg:space-y-[8px]">
                       <label className="font-inter text-[12px] md:text-[14px] leading-[24px] text-white block">
                         First Name
@@ -316,7 +298,7 @@ const Footer = () => {
                         className="font-inter w-full bg-[rgba(248,255,253,0.1)] backdrop-blur-xl border-[0.5px] border-[rgba(255,255,255,0.1)] rounded-[4px] px-3 py-2 text-[12px] md:text-[14px] leading-[22px] text-white placeholder:text-white/50 focus:outline-none focus:border-white/30 transition-colors"
                       />
                     </div>
-                  </div>
+                  </div> */}
 
                   {/* Email Field */}
                   <div className="space-y-2 lg:space-y-[8px]">

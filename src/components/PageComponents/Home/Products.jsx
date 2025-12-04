@@ -89,7 +89,7 @@ const Products = () => {
       <div className="max-w-[1280px] px-4 md:px-8 mx-auto">
         {/* Header */}
         <div className="flex justify-between items-center mb-8 md:mb-12">
-          <h2 className="font-['Funnel_Display'] font-semibold md:text-[48px] text-[32px] leading-[40px] md:leading-[48px] text-[#010907] capitalize max-w-[660px] text-center md:text-left w-full md:w-auto">
+          <h2 className="text-[#010907] capitalize max-w-[660px] text-center md:text-left w-full md:w-auto">
             Our Most Trusted Formulas
           </h2>
 
@@ -150,16 +150,16 @@ const Products = () => {
 
                   {/* Product Info */}
                   <div className="space-y-[8px]">
-                    <h3 className="font-['Funnel_Display'] font-medium text-[14px] leading-[22px] text-[#010907]">
+                    <h6 className=" text-[#010907] h-[40px] md:h-[26px]">
                       {product.name}
-                    </h3>
-                    <div className="space-y-0">
-                      <p className="font-['Inter'] font-normal text-[12px] md:text-[14px] leading-[20px] text-[#010907]">
+                    </h6>
+                    <div className="">
+                      <p className="description !text-[14px] max-w-[280px] md:h-[80px] h-[120px] text-[#010907]">
                         {product.description}
                       </p>
-                      <p className="font-['Funnel_Display'] font-bold text-[16px] leading-[24px] text-[#010907]">
+                      <h6 className=" text-[#010907] !font-[700]">
                         {product.price}
-                      </p>
+                      </h6>
                     </div>
                   </div>
                 </div>

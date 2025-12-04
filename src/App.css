@@ -1,2 +1,104 @@
 /* App-specific styles */
 /* Global styles are in index.css */
+
+h1 {
+  color: #ffffff;
+  font-family: "Funnel Display", sans-serif;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 58px;
+}
+
+h2 {
+  color: #010907;
+  font-family: "Funnel Display", sans-serif;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 48px;
+  text-transform: capitalize;
+}
+
+h6 {
+  color: #010907;
+  font-family: "Funnel Display", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.quick-links {
+  font-family: "Inter";
+  font-size: 16px !important;
+  line-height: 22px;
+  font-weight: 400;
+  font-style: normal;
+  color: #ffffff;
+}
+
+.quick-links:hover {
+  color: #5cddc6;
+}
+
+.quick-heading {
+  font-family: "Funnel Display", sans-serif;
+  font-size: 18px;
+  line-height: 20.99px;
+  color: white;
+  font-weight: 700;
+}
+
+.time-zone {
+  font-family: "Inter";
+  font-size: 14px;
+  line-height: 22px;
+  color: white;
+  font-weight: 400;
+}
+
+.description {
+  color: #000000;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.btn-primary {
+  font-family: "Funnel Display", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  text-transform: capitalize;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 40px;
+    line-height: 45px;
+  }
+  h2 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  h6 {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .description {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .quick-links {
+    font-size: 14px;
+    font-weight: 300;
+  }
+  .quick-heading {
+    font-size: 16px;
+    font-weight: 500;
+  }
+}

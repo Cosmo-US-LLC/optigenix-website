@@ -45,18 +45,11 @@ const Hero = ({
       {/* Content Container */}
       <div className="relative h-full max-w-[1280px] mx-auto px-4 md:px-8 flex items-center">
         {/* Left-Aligned Content Block */}
-        <div className="w-full max-w-[520px] md:max-w-[600px] space-y-6">
-          {/* Title with Description */}
+        <div className="w-full max-w-[520px] md:max-w-[640px] space-y-6">
           <div className="space-y-4">
-            {/* Main Heading */}
-            <h1 className="font-['Funnel_Display'] font-medium text-[40px] md:text-[48px] lg:text-[48px] leading-[40px] md:leading-tight lg:leading-[58px] text-white whitespace-pre-wrap">
-              {title}
-            </h1>
+            <h1 className="text-white">{title}</h1>
 
-            {/* Supporting Paragraph */}
-            <p className="font-['Inter'] font-normal text-base md:text-lg leading-[24px] text-[#D6D6D6] mt-4">
-              {subtitle}
-            </p>
+            <p className="description !text-[#D6D6D6] mt-4">{subtitle}</p>
           </div>
 
           {/* CTA Button */}
@@ -64,7 +57,7 @@ const Hero = ({
             onClick={onCtaClick}
             variant="primary"
             size="lg"
-            className="mt-6"
+            className="btn-primary"
           >
             {ctaText}
           </Button>
