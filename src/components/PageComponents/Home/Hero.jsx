@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 
 const Hero = ({
-  title = "The first personalized supplement company\nfor athletes",
+  title = "The first biologically personalized supplement company built by athletes, for athletes",
   subtitle = "Personalized supplements engineered for your performance.",
   ctaText = "Shop Now",
   backgroundImage = null,

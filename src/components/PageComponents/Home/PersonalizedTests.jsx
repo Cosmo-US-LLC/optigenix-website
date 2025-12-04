@@ -31,7 +31,7 @@ const PersonalizedTests = () => {
         {/* Cards Container - Sticky Scroll Effect */}
         <div className="flex flex-col gap-0 max-w-[1280px] mx-auto px-4 md:px-8">
           {/* DNA Test Card - Sticky */}
-          <div className="sticky top-[80px] md:top-[100px] bg-[#fbfbfb] rounded-[32px] p-[16px] md:p-[32px] flex flex-col md:flex-row gap-[32px] md:gap-[48px] items-center justify-center">
+          <div className="sticky top-[-380px] md:top-[100px] bg-[#fbfbfb] rounded-[32px] p-[16px] md:p-[32px] flex flex-col md:flex-row gap-[32px] md:gap-[48px] items-center justify-center">
             {/* Left Content */}
             <div className="flex flex-col gap-[16px] w-full md:w-[624px]">
               <div className="flex flex-col gap-[24px]">
@@ -103,7 +103,7 @@ const PersonalizedTests = () => {
                 ].map((badge, index) => (
                   <div
                     key={index}
-                    className="backdrop-blur-[7px] bg-[#042B24] border border-[rgba(255,255,255,0.1)] rounded-[16px] px-[8px] py-[16px] md:py-[20px] flex-1 min-w-[70px] md:min-w-[100px]"
+                    className="backdrop-blur-[7px] bg-[#042B24] border border-[rgba(255,255,255,0.1)] rounded-[16px] px-[8px] py-[16px] md:py-[20px] flex-1 min-w-[90px] md:min-w-[100px]"
                   >
                     <div className="flex flex-col gap-[12px] md:gap-[16px] items-center">
                       <div className="w-[24px] h-[24px] md:w-[32px] md:h-[32px]">
@@ -141,48 +141,48 @@ const PersonalizedTests = () => {
               {/* Feature Badges - Grid Layout */}
               <div className="absolute inset-0 p-[16px] md:p-0">
                 {/* Top Left */}
-                <div className="absolute left-[16px] md:left-[60px] top-[180px] md:top-[282px] backdrop-blur-[7px] bg-[#042b24] border border-[rgba(255,255,255,0.1)] rounded-[16px] px-[8px] py-[16px] md:py-[20px] w-[90px] md:w-[123.5px]">
+                <div className="absolute left-[6px] md:left-[30px] top-[180px] md:top-[200px] backdrop-blur-[7px] bg-[#042b24] border border-[rgba(255,255,255,0.1)] rounded-[16px] px-[8px] py-[16px] md:py-[20px] w-[90px] md:w-[123.5px]">
                   <div className="flex flex-col gap-[12px] md:gap-[16px] items-center">
                     <div className="w-[24px] h-[24px] md:w-[32px] md:h-[32px]">
                       <img src={icon2} alt="" className="w-full h-full" />
                     </div>
-                    <p className="font-['Inter'] font-normal text-[12px] md:text-[14px] leading-[16px] md:leading-[20px] text-white text-center whitespace-pre-line">
+                    <p className="font-['Inter'] font-normal text-[11px] md:text-[14px] leading-[16px] md:leading-[20px] text-white text-center whitespace-pre-line">
                       Comprehensive{"\n"}Testing
                     </p>
                   </div>
                 </div>
 
                 {/* Bottom Left */}
-                <div className="absolute left-[16px] md:left-[60px] bottom-[16px] md:bottom-[46px] backdrop-blur-[7px] bg-[#042b24] border border-[rgba(255,255,255,0.1)] rounded-[16px] px-[8px] py-[16px] md:py-[20px] w-[90px] md:w-[123.5px]">
+                <div className="absolute left-[6px] md:left-[30px] bottom-[12px] md:bottom-[26px] backdrop-blur-[7px] bg-[#042b24] border border-[rgba(255,255,255,0.1)] rounded-[16px] px-[8px] py-[16px] md:py-[20px] w-[90px] md:w-[123.5px]">
                   <div className="flex flex-col gap-[12px] md:gap-[16px] items-center">
                     <div className="w-[24px] h-[24px] md:w-[32px] md:h-[32px]">
                       <img src={icon1} alt="" className="w-full h-full" />
                     </div>
-                    <p className="font-['Inter'] font-normal text-[12px] md:text-[14px] leading-[16px] md:leading-[20px] text-white text-center whitespace-pre-line">
+                    <p className="font-['Inter'] font-normal text-[11px] md:text-[14px] leading-[16px] md:leading-[20px] text-white text-center whitespace-pre-line">
                       HSA / FSA{"\n"}Accepted
                     </p>
                   </div>
                 </div>
 
                 {/* Top Right */}
-                <div className="absolute right-[16px] md:right-[60px] top-[180px] md:top-[282px] backdrop-blur-[7px] bg-[#042b24] border border-[rgba(255,255,255,0.1)] rounded-[16px] px-[8px] py-[16px] md:py-[20px] w-[90px] md:w-[123.5px]">
+                <div className="absolute right-[6px] md:right-[30px] top-[180px] md:top-[200px] backdrop-blur-[7px] bg-[#042b24] border border-[rgba(255,255,255,0.1)] rounded-[16px] px-[8px] py-[16px] md:py-[20px] w-[90px] md:w-[123.5px]">
                   <div className="flex flex-col gap-[12px] md:gap-[16px] items-center">
                     <div className="w-[24px] h-[24px] md:w-[32px] md:h-[32px]">
                       <img src={icon3} alt="" className="w-full h-full" />
                     </div>
-                    <p className="font-['Inter'] font-normal text-[12px] md:text-[14px] leading-[16px] md:leading-[20px] text-white text-center whitespace-pre-line">
-                      Cutting-Edge{"\n"}Science
+                    <p className="font-['Inter'] font-normal text-[11px] md:text-[14px] leading-[16px] md:leading-[20px] text-white text-center whitespace-pre-line">
+                      Cutting-Edge Science
                     </p>
                   </div>
                 </div>
 
                 {/* Bottom Right */}
-                <div className="absolute right-[16px] md:right-[60px] bottom-[16px] md:bottom-[44px] backdrop-blur-[7px] bg-[#042b24] border border-[rgba(255,255,255,0.1)] rounded-[16px] px-[8px] py-[16px] md:py-[20px] w-[90px] md:w-[123.5px]">
+                <div className="absolute right-[6px] md:right-[30px] bottom-[12px] md:bottom-[26px] backdrop-blur-[7px] bg-[#042b24] border border-[rgba(255,255,255,0.1)] rounded-[16px] px-[8px] py-[16px] md:py-[20px] w-[90px] md:w-[123.5px]">
                   <div className="flex flex-col gap-[12px] md:gap-[16px] items-center">
                     <div className="w-[24px] h-[24px] md:w-[32px] md:h-[32px]">
                       <img src={icon4} alt="" className="w-full h-full" />
                     </div>
-                    <p className="font-['Inter'] font-normal text-[12px] md:text-[14px] leading-[16px] md:leading-[20px] text-white text-center whitespace-pre-line">
+                    <p className="font-['Inter'] font-normal text-[11px] md:text-[14px] leading-[16px] md:leading-[20px] text-white text-center whitespace-pre-line">
                       Easy and{"\n"}Convenient
                     </p>
                   </div>
