@@ -131,7 +131,7 @@ const WhatMakesDifferent = () => {
 
                   {/* Text Content */}
                   <div className="flex-1 flex flex-col gap-[8px]">
-                    <h3 className="font-['Inter'] font-medium text-[16px] leading-[24px] text-[#010907]">
+                    <h3 className="font-['Inter'] font-medium !text-[16px] !leading-[24px] text-[#010907]">
                       {feature.title}
                     </h3>
                     <p className="font-['Inter'] font-light text-[16px] leading-[24px] text-[#010907]">

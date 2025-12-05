@@ -189,7 +189,7 @@ const QualitySection = () => {
                         </svg>
                       </div>
                     </div>
-                    <h3 className="font-['Funnel_Display'] font-bold text-[22px] leading-[24px] tracking-[-0.72px] text-[#010907]">
+                    <h3 className="font-['Funnel_Display'] font-bold !text-[22px] leading-[24px] tracking-[-0.72px] text-[#010907]">
                       {feature.title}
                     </h3>
                   </div>
@@ -226,7 +226,7 @@ const QualitySection = () => {
                         </svg>
                       </div>
                     </div>
-                    <h3 className="font-['Funnel_Display'] font-bold text-[22px] leading-[24px] tracking-[-0.72px] text-[#010907]">
+                    <h3 className="font-['Funnel_Display'] font-bold !text-[22px] leading-[24px] tracking-[-0.72px] text-[#010907]">
                       {feature.title}
                     </h3>
                   </div>
