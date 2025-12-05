@@ -9,6 +9,7 @@ import TermsOfService from "./pages/TermsOfService";
 import ScrollToTop from "./components/ScrollToTop";
 import "./App.css";
 import Athletes from "./pages/Athletes";
+import SingleTest from "./pages/SingleTest";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/all-category" element={<AllCategory />} />
           <Route path="/athletes" element={<Athletes />} />
+          <Route path="/single-test" element={<SingleTest />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
         </Route>

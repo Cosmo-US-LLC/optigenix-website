@@ -38,7 +38,7 @@ const Home = () => {
       <USPBanner />
       <Categories />
       <Products />
-      {/* <OurStory /> */}
+      <OurStory />
       {/* <DNABloodTest /> */}
       <PersonalizedTests />
       <TrustedPartners />

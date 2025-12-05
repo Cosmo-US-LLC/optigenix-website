@@ -1,0 +1,92 @@
+import React from "react";
+import collectionSwabImage from "@/assets/images/single_test/kit/carbon_security.svg";
+import instructionsGuideImage from "@/assets/images/single_test/kit/stash_mic.svg";
+import barcodeIdLabelImage from "@/assets/images/single_test/kit/streamline-plump_file-report.svg";
+import prepaidReturnEnvelopeImage from "@/assets/images/single_test/kit/iconoir_notes.svg";
+import safetyBiohazardBagImage from "@/assets/images/single_test/kit/mynaui_envelope.svg";
+import onlineKitRegistrationImage from "@/assets/images/single_test/kit/solar_dna-bold.svg";
+
+const items = [
+  {
+    title: "Collection Swab or Tube",
+    desc: "Easy-to-use cheek swab or saliva tube to safely collect your DNA sample.",
+    icon: collectionSwabImage,
+    accent: false,
+  },
+  {
+    title: "Instructions Guide",
+    desc: "Step-by-step directions to ensure your sample is collected correctly.",
+    icon: instructionsGuideImage,
+    accent: false,
+  },
+  {
+    title: "Barcode / ID Label",
+    desc: "Unique identifier linking your sample to your account for secure tracking.",
+    icon: barcodeIdLabelImage,
+    accent: true,
+  },
+  {
+    title: "Prepaid Return Envelope",
+    desc: "Convenient, pre-addressed packaging to send your sample back to the lab.",
+    icon: prepaidReturnEnvelopeImage,
+    accent: false,
+  },
+  {
+    title: "Safety / Biohazard Bag",
+    desc: "Keeps your sample protected during shipping.",
+    icon: safetyBiohazardBagImage,
+    accent: false,
+  },
+  {
+    title: "Online Kit Registration",
+    desc: "Quick registration to access your results online once your sample is processed.",
+    icon: onlineKitRegistrationImage,
+    accent: false,
+  },
+];
+
+const IncludedTestKit = () => {
+  return (
+    <section className="py-12 bg-white md:py-20">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-8">
+        <div className="flex flex-col gap-2 items-center mb-10 text-center md:mb-12">
+          <h2 className="text-[#010907] ">What’s Included In Your Test Kit</h2>
+          <p className=" description text-[#010907]">
+            Everything you need to unlock your genetic insights
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 md:gap-5">
+          {items.map((item, idx) => (
+            <div
+              key={idx}
+              className={`bg-white border transition-colors duration-200 ${
+                item.accent ? "border-2 " : "border-[#dedede] border-2"
+              } hover:border-[#0d8360] rounded-[16px] p-6 md:p-8 flex flex-col items-center text-center gap-5 shadow-sm`}
+            >
+              <div className="bg-[#0d8360] rounded-full w-[79px] h-[79px] flex items-center justify-center">
+                <img
+                  src={item.icon}
+                  alt={item.title}
+                  className="w-[44px] h-[44px]"
+                  loading="lazy"
+                />
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <h3 className="font-['Funnel_Display'] font-bold text-[18px] md:text-[20px] leading-[24px] text-[#010907]">
+                  {item.title}
+                </h3>
+                <p className="font-['Inter'] text-[14px] md:text-[16px] leading-[20px] md:leading-[24px] text-[#02110e]">
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default IncludedTestKit;
