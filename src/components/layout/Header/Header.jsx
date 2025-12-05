@@ -109,7 +109,7 @@ const Header = () => {
 
               {/* About Us */}
               <Link
-                to=""
+                to="/athletes"
                 className="font-['Funnel_Display'] text-[16px] text-black capitalize leading-normal hover:text-[#0d8360] transition-colors"
               >
                 Athletes
@@ -275,7 +275,7 @@ const Header = () => {
                   Science
                 </div>
                 <Link
-                  to=""
+                  to="/athletes"
                   className="font-['Funnel_Display'] text-[18px] text-black capitalize hover:text-[#0d8360] transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
