@@ -10,7 +10,7 @@ const items = [
   {
     title: "Collection Swab or Tube",
     desc: "Easy-to-use cheek swab or saliva tube to safely collect your DNA sample.",
-    icon: collectionSwabImage,
+    icon: onlineKitRegistrationImage,
     accent: false,
   },
   {
@@ -40,7 +40,7 @@ const items = [
   {
     title: "Online Kit Registration",
     desc: "Quick registration to access your results online once your sample is processed.",
-    icon: onlineKitRegistrationImage,
+    icon: collectionSwabImage,
     accent: false,
   },
 ];
@@ -74,12 +74,10 @@ const IncludedTestKit = () => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <h3 className="font-['Funnel_Display'] font-bold text-[18px] md:text-[20px] leading-[24px] text-[#010907]">
+                <h5 className="font-['Funnel_Display'] font-bold text-[18px] md:text-[20px] leading-[24px] text-[#010907]">
                   {item.title}
-                </h3>
-                <p className="font-['Inter'] text-[14px] md:text-[16px] leading-[20px] md:leading-[24px] text-[#02110e]">
-                  {item.desc}
-                </p>
+                </h5>
+                <p className="description !text-[#02110e]">{item.desc}</p>
               </div>
             </div>
           ))}

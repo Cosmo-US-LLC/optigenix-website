@@ -83,7 +83,10 @@ const Team = () => {
   }, [api]);
 
   return (
-    <section className="py-12 px-4 bg-[#f7f7f7] lg:py-[80px] lg:px-[60px]">
+    <section
+      className="py-12 px-4 bg-[#f7f7f7] lg:py-[80px] lg:px-[60px]"
+      id="meet-the-team"
+    >
       <div className="max-w-[1280px] lg:px-8 mx-auto">
         {/* Header */}
         <div className="flex flex-col gap-8 mb-8 lg:flex-row lg:justify-between lg:items-start lg:mb-[48px]">

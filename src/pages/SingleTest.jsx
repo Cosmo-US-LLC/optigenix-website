@@ -7,6 +7,7 @@ import StartDNATest from "@/components/PageComponents/SinglePage/StartDNATest";
 import GeneTest from "@/components/PageComponents/SinglePage/GeneTest";
 import SingleTestHero from "@/components/PageComponents/SinglePage/SingleTestHero";
 import Biomarker from "@/components/PageComponents/SinglePage/Biomarker";
+import BenefitsYouGet from "@/components/PageComponents/SinglePage/BenefitsYouGet";
 
 function SingleTest() {
   return (
@@ -17,6 +18,7 @@ function SingleTest() {
       <StartDNATest />
       <SingleTestHowItsWork />
       <IncludedTestKit />
+      <BenefitsYouGet />
       <BackedByScience />
       <SinglePageFAQs />
     </>

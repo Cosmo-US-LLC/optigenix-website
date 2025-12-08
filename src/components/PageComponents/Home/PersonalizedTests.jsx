@@ -37,9 +37,9 @@ const PersonalizedTests = () => {
               <div className="flex flex-col gap-[24px]">
                 <div className="flex flex-col gap-[16px]">
                   <div className="flex flex-col gap-[8px]">
-                    <h3 className="capitalize font-['Funnel_Display'] font-medium text-[32px] md:text-[48px] leading-[40px] md:leading-[56px] text-[#010907]">
+                    <h2 className="capitalize font-['Funnel_Display'] font-medium text-[32px] md:text-[48px] leading-[40px] md:leading-[56px] text-[#010907]">
                       At-Home DNA Test
-                    </h3>
+                    </h2>
                   </div>
                   <p className="text-black description">
                     Discover your body's unique genetic profile for performance,
@@ -192,9 +192,9 @@ const PersonalizedTests = () => {
 
             {/* Right Content */}
             <div className="flex flex-col gap-[25px] w-full md:w-[624px]">
-              <h3 className="capitalize font-['Funnel_Display'] font-medium text-[32px] md:text-[48px] leading-[40px] md:leading-[56px] text-[#010907]">
+              <h2 className="capitalize font-['Funnel_Display'] font-medium text-[32px] md:text-[48px] leading-[40px] md:leading-[56px] text-[#010907]">
                 Performance Blood Test
-              </h3>
+              </h2>
 
               <p className="font-['Inter'] font-normal text-[14px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">
                 Our Performance Bloodwork panel measures key biomarkers tied to

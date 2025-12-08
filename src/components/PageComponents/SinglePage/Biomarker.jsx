@@ -203,7 +203,7 @@ const Biomarker = () => {
         </div>
 
         {/* Navigation Controls */}
-        <div className="flex gap-5 justify-center items-center mt-8">
+        {/* <div className="flex gap-5 justify-center items-center mt-8">
           <button
             onClick={scrollPrev}
             className="border border-[#010907] hover:bg-[#010907] hover:text-white transition-colors p-2 rounded-full w-[44px] h-[44px] flex items-center justify-center"
@@ -212,7 +212,7 @@ const Biomarker = () => {
             <MoveLeft className="w-6 h-6" strokeWidth={1} />
           </button>
 
-          {/* Progress Dots */}
+          
           <div className="flex gap-2 items-center">
             {Array.from({ length: count }).map((_, index) => (
               <div
@@ -233,7 +233,7 @@ const Biomarker = () => {
           >
             <MoveRight className="w-6 h-6" strokeWidth={1} />
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -5,18 +5,16 @@ const PrivacyPolicyContent = () => {
 
   // Table of Contents data
   const tableOfContents = [
-    { id: "personal-information", title: "Personal Information We Collect" },
-    { id: "cookies-tracking", title: "Cookies and Tracking Technologies" },
-    { id: "how-we-use", title: "How We Use Your Personal Information" },
-    { id: "sharing-information", title: "Sharing Your Personal Information" },
-    { id: "data-security", title: "Data Security and Retention" },
-    { id: "third-party-links", title: "Third-Party Links & Cookies" },
-    { id: "children-under-16", title: "Children Under the Age of 16" },
-    { id: "do-not-track", title: "Do Not Track" },
-    { id: "data-access-rights", title: "Data Access Rights" },
-    { id: "opt-out", title: "Right to Opt-Out of Marketing Communications" },
-    { id: "changes", title: "Changes" },
-    { id: "contact-us", title: "Contact Us" },
+    // { id: "introduction", title: "Introduction" },
+    { id: "information-we-collect", title: "1. Information We Collect" },
+    { id: "how-we-use", title: "2. How We Use Your Information" },
+    { id: "data-safeguards", title: "3. How We Safeguard Your Data" },
+    { id: "sharing-information", title: "4. When We Share Your Information" },
+    { id: "your-rights", title: "5. Your Choices and Privacy Rights" },
+    { id: "children", title: "6. Children’s Privacy" },
+    { id: "do-not-track", title: "7. Do Not Track Preferences" },
+    { id: "updates", title: "8. Updates to This Privacy Policy" },
+    { id: "contact-us", title: "9. Contacting OptiGenix" },
   ];
 
   // Smooth scroll to section
@@ -42,7 +40,9 @@ const PrivacyPolicyContent = () => {
           {/* Left Side - Title & Table of Contents */}
           <div className="lg:w-[409px] shrink-0 lg:sticky md:top-29 lg:self-start">
             <div className="bg-[#e6f5ef] rounded-[16px] p-6 flex flex-col gap-4 shadow-sm border border-[#d1e7dd]">
-              <h1 className="!text-[#0D8360] text-[18px] md:!text-[24px] font-bold font-['Funnel_Display'] text-center lg:text-left">Table of Contents</h1>
+              <h1 className="!text-[#0D8360] text-[18px] md:!text-[24px] font-bold font-['Funnel_Display'] text-center lg:text-left">
+                Table of Contents
+              </h1>
               <nav className="flex flex-col gap-[16px]">
                 {tableOfContents.map((item) => (
                   <button
@@ -54,7 +54,7 @@ const PrivacyPolicyContent = () => {
                         : "text-[#252525] hover:bg-[#d1e7dd] border border-transparent"
                     }`}
                     style={{
-                      border:"1px solid rgba(13, 131, 96, 0.40)",
+                      border: "1px solid rgba(13, 131, 96, 0.40)",
                     }}
                   >
                     {item.title}
@@ -67,89 +67,229 @@ const PrivacyPolicyContent = () => {
           {/* Right Side - Content */}
           <div className="flex-1 flex flex-col gap-6 lg:gap-[32px]">
             {/* Privacy Policy Heading and Intro */}
-            <div className="flex flex-col gap-2 mb-2">
-              <h1 className="!text-[#010907] !text-[48px] font-[600] font-['Funnel_Display'] mb-2">Privacy Policy</h1>
+            <div
+              id="introduction"
+              className="flex flex-col gap-2 mb-2 scroll-mt-24"
+            >
+              <h1 className="!text-[#010907] !text-[48px] font-[600] font-['Funnel_Display'] mb-2">
+                Privacy Policy
+              </h1>
               <p className="!text-[#252525] !font-[400] text-[16px] font-inter leading-[24px]">
-                In today’s fast-paced world, taking time for self-care is more important than ever. A visit to the spa can be a rejuvenating experience for both your skin and your mind. Regular spa visits can help alleviate the stresses of daily life, enhance your skincare routine, and even improve your overall well-being. In this blog post, we will explore the numerous benefits of regular spa visits for both your skin and your mental health.
+                At OptiGenix Corporation (“OptiGenix,” “we,” “us,” or “our”),
+                your trust matters. We are committed to handling your personal
+                information with care and transparency. This Privacy Policy
+                explains what we collect, why we collect it, and how we protect
+                your information when you visit{" "}
+                <a
+                  href="https://optigenix.co"
+                  className="text-[#0d8360] underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  OptiGenix
+                </a>{" "}
+                or use our services.
               </p>
             </div>
 
-            {/* Personal Information We Collect */}
-            <div id="personal-information" className="flex flex-col gap-2 scroll-mt-24">
-              <h2 className="!text-[#252525] !text-[22px] font-[600] font-['Funnel_Display']">Personal Information We Collect</h2>
-              <p className="text-[#252525] text-[16px] font-inter">We collect two main types of information: Device Information and Form Information. These include both personal and non-personal data that help us improve your experience and provide you with the best services. Device Information: Automatically collected data about your device when you visit the Site, such as browser type, IP address, device information, application usage, and referral information.</p>
-              <p className="text-[#252525] text-[16px] font-inter">Form Information: Data that you provide when interacting with the Site, including: Identifiers: Name, mailing address, email address, phone number, IP address. Account Login Data: Login credentials, such as email and password. Demographic Data: Age, date of birth, geographic location (e.g., ZIP code). Transactional Data: Details of purchases or returns, including products, prices, and transaction dates. Sensitive Data: Health information (e.g., medical conditions, dietary preferences, exercise goals) if you voluntarily provide this information.</p>
+            {/* 1. Information We Collect */}
+            <div
+              id="information-we-collect"
+              className="flex flex-col gap-2 scroll-mt-24"
+            >
+              <h2 className="!text-[#252525] !text-[22px] font-[600] font-['Funnel_Display']">
+                1. Information We Collect
+              </h2>
+              <p className="text-[#252525] text-[16px] font-inter">
+                We collect two types of information: details you choose to share
+                with us and information gathered automatically through your
+                device.
+              </p>
+              <p className="text-[#252525] text-[16px] font-inter font-semibold">
+                Information you provide may include:
+              </p>
+              <ul className="list-disc list-inside text-[#252525] text-[16px] font-inter space-y-1">
+                <li>Name, email address, phone number, or mailing address</li>
+                <li>Account login information</li>
+                <li>Payment details for purchases</li>
+                <li>Your communication preferences</li>
+              </ul>
+              <p className="text-[#252525] text-[16px] font-inter font-semibold">
+                Information collected automatically may include:
+              </p>
+              <ul className="list-disc list-inside text-[#252525] text-[16px] font-inter space-y-1">
+                <li>IP address</li>
+                <li>Browser and device type</li>
+                <li>Pages viewed and time spent on the site</li>
+                <li>Referring links</li>
+                <li>General site usage data</li>
+              </ul>
+              <p className="text-[#252525] text-[16px] font-inter">
+                This helps us maintain a smooth, user-friendly experience.
+              </p>
             </div>
 
-            {/* Cookies and Tracking Technologies */}
-            <div id="cookies-tracking" className="flex flex-col gap-2 scroll-mt-24">
-              <h2 className="!text-[#252525] !text-[22px] font-[600] font-['Funnel_Display']">Cookies and Tracking Technologies</h2>
-              <p className="text-[#252525] text-[16px] font-inter">We use several technologies to collect Device Information, including: Cookies: Small data files placed on your device that may include an anonymous unique identifier. Cookies help us personalize your experience and track Site usage. You can manage or disable cookies through your browser settings, though this may affect the functionality of the Site. Log Files: Collects IP addresses, browser types, ISP data, and timestamps when you visit the Site. Web Beacons, Tags, and Pixels: Track how you interact with the Site to improve our services.</p>
-              <p className="text-[#252525] text-[16px] font-inter">Google Analytics: A web analysis tool to better understand how you use our Site. Google Analytics tracks your activities across websites but does not collect personal identifiers. You can opt out of Google Analytics by using the browser plugin available at <a href="https://tools.google.com/dlpage/gaoptout" className="text-[#0d8360] underline" target="_blank" rel="noopener noreferrer">Google Opt-Out</a>.</p>
-            </div>
-
-            {/* How We Use Your Personal Information */}
+            {/* 2. How We Use Your Information */}
             <div id="how-we-use" className="flex flex-col gap-2 scroll-mt-24">
-              <h2 className="!text-[#252525] !text-[22px] font-[600] font-['Funnel_Display']">How We Use Your Personal Information</h2>
-              <p className="text-[#252525] text-[16px] font-inter">We use the Personal Information we collect to: Communicate with You: To respond to inquiries, address your concerns, and send important updates. Process Transactions: To complete your purchases and handle payments securely. Administer the Site: To operate and maintain the Site, including conducting business analyses. Personalize Recommendations: To provide personalized product recommendations based on your interactions. Marketing Communications: To send you newsletters, promotions, and special offers, if you have consented to receive them. Cart Reminders: To send notifications if you leave items in your cart.</p>
+              <h2 className="!text-[#252525] !text-[22px] font-[600] font-['Funnel_Display']">
+                2. How We Use Your Information
+              </h2>
+              <p className="text-[#252525] text-[16px] font-inter">
+                We use the information we collect to support and enhance your
+                experience with OptiGenix. This may include:
+              </p>
+              <ul className="list-disc list-inside text-[#252525] text-[16px] font-inter space-y-1">
+                <li>Providing and improving our services</li>
+                <li>Processing orders and transactions</li>
+                <li>Responding to questions or support requests</li>
+                <li>Personalizing your experience on our website</li>
+                <li>
+                  Sending important updates related to your account or activity
+                </li>
+                <li>Meeting legal or regulatory obligations</li>
+              </ul>
+              <p className="text-[#252525] text-[16px] font-inter">
+                We only use your information in ways that support the operation
+                and improvement of our services.
+              </p>
             </div>
 
-            {/* Sharing Your Personal Information */}
-            <div id="sharing-information" className="flex flex-col gap-2 scroll-mt-24">
-              <h2 className="!text-[#252525] !text-[22px] font-[600] font-['Funnel_Display']">Sharing Your Personal Information</h2>
-              <p className="text-[#252525] text-[16px] font-inter">We do not sell your personal information. However, we share your data in the following ways: Service Providers: We may share data with third parties like payment processors (e.g., Stripe) and other services to facilitate transactions and services on our behalf. Business Transfers: If OptiGenix undergoes a merger, acquisition, or sale of assets, personal data may be transferred as part of that transaction. Legal Compliance: We may disclose your personal information to comply with legal obligations or protect our rights. For more details on how payment processors handle your data, please refer to their respective privacy policies (e.g., <a href="https://stripe.com/privacy" className="text-[#0d8360] underline" target="_blank" rel="noopener noreferrer">Stripe Privacy Policy</a>).</p>
+            {/* 3. How We Safeguard Your Data */}
+            <div
+              id="data-safeguards"
+              className="flex flex-col gap-2 scroll-mt-24"
+            >
+              <h2 className="!text-[#252525] !text-[22px] font-[600] font-['Funnel_Display']">
+                3. How We Safeguard Your Data
+              </h2>
+              <p className="text-[#252525] text-[16px] font-inter">
+                Protecting your information is important to us. We use
+                reasonable administrative, technical, and organizational
+                measures designed to help prevent unauthorized access. While no
+                system is completely foolproof, we continually work to maintain
+                safeguards that support the protection of your personal data.
+              </p>
             </div>
 
-            {/* Data Security and Retention */}
-            <div id="data-security" className="flex flex-col gap-2 scroll-mt-24">
-              <h2 className="!text-[#252525] !text-[22px] font-[600] font-['Funnel_Display']">Data Security and Retention</h2>
-              <p className="text-[#252525] text-[16px] font-inter">We take reasonable steps to protect your personal information through organizational, technical, and administrative measures. However, no method of data transmission or storage is 100% secure, and we cannot guarantee its absolute security. We retain your information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy, including compliance with legal and accounting obligations.</p>
+            {/* 4. When We Share Your Information */}
+            <div
+              id="sharing-information"
+              className="flex flex-col gap-2 scroll-mt-24"
+            >
+              <h2 className="!text-[#252525] !text-[22px] font-[600] font-['Funnel_Display']">
+                4. When We Share Your Information
+              </h2>
+              <p className="text-[#252525] text-[16px] font-inter">
+                We may share your information only when necessary and in limited
+                ways, such as:
+              </p>
+              <ul className="list-disc list-inside text-[#252525] text-[16px] font-inter space-y-1">
+                <li>
+                  With trusted service providers who help operate our website or
+                  process payments
+                </li>
+                <li>When required by law or to respond to a legal request</li>
+                <li>
+                  To protect the rights, safety, or security of our users or our
+                  company
+                </li>
+                <li>When you provide your consent</li>
+              </ul>
+              <p className="text-[#252525] text-[16px] font-inter">
+                Our service providers are only given the information they need
+                to perform their work.
+              </p>
             </div>
 
-            {/* Third-Party Links & Cookies */}
-            <div id="third-party-links" className="flex flex-col gap-2 scroll-mt-24">
-              <h2 className="!text-[#252525] !text-[22px] font-[600] font-['Funnel_Display']">Third-Party Links & Cookies</h2>
-              <p className="text-[#252525] text-[16px] font-inter">Our Site may contain links to external websites or third-party services that are not operated by us. Please be aware that we are not responsible for the privacy practices of these external sites. We encourage you to review their privacy policies before interacting with them.</p>
+            {/* 5. Your Choices and Privacy Rights */}
+            <div id="your-rights" className="flex flex-col gap-2 scroll-mt-24">
+              <h2 className="!text-[#252525] !text-[22px] font-[600] font-['Funnel_Display']">
+                5. Your Choices and Privacy Rights
+              </h2>
+              <p className="text-[#252525] text-[16px] font-inter">
+                You may have the right to access, correct, or request deletion
+                of your personal information, depending on your location and
+                applicable laws. To request this, you can contact us at{" "}
+                <a
+                  href="mailto:support@optigenix.co"
+                  className="text-[#0d8360] underline"
+                >
+                  support@optigenix.co
+                </a>
+                .
+              </p>
+              <p className="text-[#252525] text-[16px] font-inter">
+                If you no longer wish to receive marketing emails, you can
+                unsubscribe at any time using the link in the message or by
+                contacting us.
+              </p>
             </div>
 
-            {/* Children Under the Age of 16 */}
-            <div id="children-under-16" className="flex flex-col gap-2 scroll-mt-24">
-              <h2 className="!text-[#252525] !text-[22px] font-[600] font-['Funnel_Display']">Children Under the Age of 16</h2>
-              <p className="text-[#252525] text-[16px] font-inter">We do not knowingly collect personal information from children under 16. If you believe we have inadvertently collected such information, please contact us at <a href="mailto:support@optigenix.co" className="text-[#0d8360] underline">support@optigenix.co</a>, and we will take steps to delete it.</p>
+            {/* 6. Children’s Privacy */}
+            <div id="children" className="flex flex-col gap-2 scroll-mt-24">
+              <h2 className="!text-[#252525] !text-[22px] font-[600] font-['Funnel_Display']">
+                6. Children’s Privacy
+              </h2>
+              <p className="text-[#252525] text-[16px] font-inter">
+                Our services are not intended for individuals under the age of
+                16, and we do not knowingly collect information from them. If
+                you believe we have done so, please contact us so we can take
+                appropriate action.
+              </p>
             </div>
 
-            {/* Do Not Track */}
+            {/* 7. Do Not Track Preferences */}
             <div id="do-not-track" className="flex flex-col gap-2 scroll-mt-24">
-              <h2 className="!text-[#252525] !text-[22px] font-[600] font-['Funnel_Display']">Do Not Track</h2>
-              <p className="text-[#252525] text-[16px] font-inter">We do not alter our data collection and use practices in response to Do Not Track signals from your browser.</p>
+              <h2 className="!text-[#252525] !text-[22px] font-[600] font-['Funnel_Display']">
+                7. Do Not Track Preferences
+              </h2>
+              <p className="text-[#252525] text-[16px] font-inter">
+                Our website does not currently adjust its data practices based
+                on Do Not Track signals.
+              </p>
             </div>
 
-            {/* Data Access Rights */}
-            <div id="data-access-rights" className="flex flex-col gap-2 scroll-mt-24">
-              <h2 className="!text-[#252525] !text-[22px] font-[600] font-['Funnel_Display']">Data Access Rights</h2>
-              <p className="text-[#252525] text-[16px] font-inter">Under applicable law, you may have the right to access, update, or delete the personal information we hold about you. If you wish to exercise any of these rights, please contact us using the details provided below.</p>
+            {/* 8. Updates to This Privacy Policy */}
+            <div id="updates" className="flex flex-col gap-2 scroll-mt-24">
+              <h2 className="!text-[#252525] !text-[22px] font-[600] font-['Funnel_Display']">
+                8. Updates to This Privacy Policy
+              </h2>
+              <p className="text-[#252525] text-[16px] font-inter">
+                We may update this Privacy Policy occasionally to reflect
+                changes to our practices or services. When we do, the “Last
+                Modified” date above will be updated. We encourage you to review
+                this page from time to time.
+              </p>
             </div>
 
-            {/* Right to Opt-Out of Marketing Communications */}
-            <div id="opt-out" className="flex flex-col gap-2 scroll-mt-24">
-              <h2 className="!text-[#252525] !text-[22px] font-[600] font-['Funnel_Display']">Right to Opt-Out of Marketing Communications</h2>
-              <p className="text-[#252525] text-[16px] font-inter">You can opt out of receiving marketing communications from us at any time. If you no longer wish to receive emails or text messages about our products, you can unsubscribe via the links in those communications or contact us directly at <a href="mailto:support@optigenix.co" className="text-[#0d8360] underline">support@optigenix.co</a>. To opt out of SMS marketing, simply reply "STOP" to any message.</p>
-            </div>
-
-            {/* Changes to This Privacy Policy */}
-            <div id="changes" className="flex flex-col gap-2 scroll-mt-24">
-              <h2 className="!text-[#252525] !text-[22px] font-[600] font-['Funnel_Display']">Changes to This Privacy Policy</h2>
-              <p className="text-[#252525] text-[16px] font-inter">We may update this Privacy Policy periodically. If we make significant changes, we will notify you through email or a notice on our website. We encourage you to check this page regularly for updates.</p>
-            </div>
-
-            {/* Contact Us */}
+            {/* 9. Contacting OptiGenix */}
             <div id="contact-us" className="flex flex-col gap-2 scroll-mt-24">
-              <h2 className="!text-[#252525] !text-[22px] font-[600] font-['Funnel_Display']">Contact Us</h2>
-              <p className="text-[#252525] text-[16px] font-inter">If you have any questions, concerns, or complaints about our Privacy Policy or data practices, please contact us:</p>
+              <h2 className="!text-[#252525] !text-[22px] font-[600] font-['Funnel_Display']">
+                9. Contacting OptiGenix
+              </h2>
+              <p className="text-[#252525] text-[16px] font-inter">
+                If you have any questions, concerns, or requests related to this
+                Privacy Policy, please reach out to us:
+              </p>
               <div className="">
-                <p className="text-[#252525] text-[16px] font-inter mb-1">OptiGenix Corporation</p>
-                <p className="text-[#252525] text-[16px] font-inter mb-1">Address: 2991 Sacramento St #541, Berkeley, CA 94702</p>
-                <p className="text-[#252525] text-[16px] font-inter">Email: <a href="mailto:support@optigenix.co" className="text-[#0d8360] underline">support@optigenix.co</a></p>
+                <p className="text-[#252525] text-[16px] font-inter mb-1">
+                  OptiGenix Corporation
+                </p>
+                <p className="text-[#252525] text-[16px] font-inter mb-1">
+                  2991 Sacramento St #541
+                </p>
+                <p className="text-[#252525] text-[16px] font-inter mb-1">
+                  Berkeley, CA 94702
+                </p>
+                <p className="text-[#252525] text-[16px] font-inter">
+                  Email:{" "}
+                  <a
+                    href="mailto:support@optigenix.co"
+                    className="text-[#0d8360] underline"
+                  >
+                    support@optigenix.co
+                  </a>
+                </p>
               </div>
             </div>
           </div>

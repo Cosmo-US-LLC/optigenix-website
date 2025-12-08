@@ -76,7 +76,7 @@ const Categories = () => {
                 {/* Description and Button Container */}
                 <div className="bg-[#f7f7f7] rounded-[8px] p-[20px] flex flex-col gap-[12px] items-center w-full">
                   {/* Description */}
-                  <p className="w-full text-center description">
+                  <p className="w-full text-center description !font-['Funnel_Display']">
                     {category.description}
                   </p>
 
@@ -99,7 +99,7 @@ const Categories = () => {
           <div className="flex flex-col gap-[10px] items-center justify-center w-full">
             <Link to="/quiz">
               <button className="bg-[#0d8360] hover:bg-[#0c704d] cursor-pointer transition-all duration-200 rounded-[100px] px-[24px] py-[14px] flex gap-[10px] items-center justify-center">
-                <span className="text-white whitespace-nowrap  btn-primary">
+                <span className="text-white whitespace-nowrap btn-primary">
                   Unsure which one fits you? Take the quiz.
                 </span>
               </button>

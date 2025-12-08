@@ -3,7 +3,7 @@ import ourStoryImage from "../../../assets/images/our_story/our_story_img.webp";
 
 const OurStory = () => {
   return (
-    <section className="py-10 bg-white md:py-20">
+    <section className="py-10 bg-white md:py-20" id="our-story">
       <div className="max-w-[1280px] px-4 md:px-8 mx-auto">
         <div className="grid grid-cols-1 gap-12 items-center lg:grid-cols-2">
           {/* Left Content */}

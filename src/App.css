@@ -29,6 +29,24 @@ h3 {
   line-height: 40px;
 }
 
+h4 {
+  font-family: "Funnel Display", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px; /* 133.333% */
+  text-transform: capitalize;
+}
+
+h5 {
+  font-family: "Funnel Display", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 133.333% */
+  text-transform: capitalize;
+}
+
 h6 {
   color: #010907;
   font-family: "Funnel Display", sans-serif;
@@ -97,6 +115,14 @@ h6 {
   h3 {
     font-size: 24px;
     line-height: 32px;
+  }
+  h5 {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  h4 {
+    font-size: 16px;
+    line-height: 24px;
   }
   h6 {
     font-size: 14px;

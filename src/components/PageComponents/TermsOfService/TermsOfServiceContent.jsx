@@ -40,9 +40,9 @@ const TermsOfServiceContent = () => {
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-[48px]">
           {/* Left Side - Title & Table of Contents */}
           <div className="lg:w-[400px] shrink-0 lg:sticky md:top-29 lg:self-start">
-            <h1 className=" !text-[#010907] md:text-center md:text-left mb-0 md:mb-4 md:max-w-[230px]">
+            <h2 className=" !text-[#010907] md:text-center md:text-left mb-0 md:mb-4 md:max-w-[230px]">
               Terms of Service
-            </h1>
+            </h2>
 
             {/* Table of Contents */}
             {/* <div className="lg:max-h-[calc(100vh-200px)] hidden md:block lg:overflow-y-auto lg:pr-4">

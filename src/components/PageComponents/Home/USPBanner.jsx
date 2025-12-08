@@ -53,7 +53,9 @@ const USPBanner = () => {
               alt={item.text}
               className="flex-shrink-0 w-7 h-7"
             />
-            <span className="description !font-[600]">{item.text}</span>
+            <span className="description !font-[600] !text-[##010907]">
+              {item.text}
+            </span>
           </div>
         ))}
       </Marquee>

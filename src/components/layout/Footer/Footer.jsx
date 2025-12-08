@@ -17,6 +17,14 @@ const Footer = () => {
     email: "",
   });
 
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const offset = 80;
+    const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top, behavior: "smooth" });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Newsletter subscription:", formData);
@@ -140,9 +148,13 @@ const Footer = () => {
                   <h3 className="quick-heading">About Company</h3>
                   <ul className="space-y-2 lg:space-y-[8px]">
                     <li>
-                      <Link to="#" className="quick-links">
+                      <button
+                        type="button"
+                        onClick={() => scrollToSection("our-story")}
+                        className="text-left cursor-pointer quick-links"
+                      >
                         Our Story
-                      </Link>
+                      </button>
                     </li>
                     <li>
                       <Link to="#" className="quick-links">
@@ -155,9 +167,13 @@ const Footer = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link to="#" className="quick-links">
+                      <button
+                        type="button"
+                        onClick={() => scrollToSection("meet-the-team")}
+                        className="text-left cursor-pointer quick-links"
+                      >
                         Team
-                      </Link>
+                      </button>
                     </li>
                   </ul>
                 </div>
@@ -167,9 +183,13 @@ const Footer = () => {
                   <h3 className="quick-heading">Support</h3>
                   <ul className="space-y-2 lg:space-y-[8px]">
                     <li>
-                      <Link to="#" className="quick-links">
+                      <button
+                        type="button"
+                        onClick={() => scrollToSection("faqs")}
+                        className="text-left cursor-pointer quick-links"
+                      >
                         FAQ's
-                      </Link>
+                      </button>
                     </li>
                     <li>
                       <Link to="/terms-of-service" className="quick-links">

@@ -49,7 +49,7 @@ const Hero = ({
           <div className="space-y-4">
             <h1 className="text-white">{title}</h1>
 
-            <p className="description !text-[#D6D6D6] mt-4">{subtitle}</p>
+            <p className="description !text-[#ffffff] mt-4">{subtitle}</p>
           </div>
 
           {/* CTA Button */}
