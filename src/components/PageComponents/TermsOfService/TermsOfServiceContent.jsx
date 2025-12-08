@@ -39,19 +39,19 @@ const TermsOfServiceContent = () => {
       <div className="max-w-[1280px] mx-auto px-4 md:px-8">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-[48px]">
           {/* Left Side - Title & Table of Contents */}
-          <div className="lg:w-[500px] shrink-0 lg:sticky md:top-29 lg:self-start">
-            <h1 className=" !text-[#010907] text-center md:text-left mb-0 md:mb-4">
+          <div className="lg:w-[400px] shrink-0 lg:sticky md:top-29 lg:self-start">
+            <h1 className=" !text-[#010907] md:text-center md:text-left mb-0 md:mb-4 md:max-w-[230px]">
               Terms of Service
             </h1>
 
             {/* Table of Contents */}
-            <div className="lg:max-h-[calc(100vh-200px)] hidden md:block lg:overflow-y-auto lg:pr-4">
+            {/* <div className="lg:max-h-[calc(100vh-200px)] hidden md:block lg:overflow-y-auto lg:pr-4">
               <nav className="flex flex-col pl-1">
                 {tableOfContents.map((item) => (
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className={`text-left font-inter text-[14px] lg:text-[16px] leading-[22px] lg:leading-[24px] px-1 py-1  transition-all duration-200 ${
+                    className={`text-left font-inter text-[14px] lg:!text-[16px] leading-[22px] lg:leading-[24px] px-1 py-1  transition-all duration-200 ${
                       activeSection === item.id
                         ? " text-[#0d8360] font-medium border-l-3 border-[#0d8360] pl-3"
                         : "text-[#010907] hover:text-[#0d8360] border-l-3 border-transparent pl-3"
@@ -61,21 +61,21 @@ const TermsOfServiceContent = () => {
                   </button>
                 ))}
               </nav>
-            </div>
+            </div> */}
           </div>
 
           {/* Right Side - Content */}
-          <div className="flex-1 flex flex-col gap-6 lg:gap-[32px]">
+          <div className="flex-1 flex max-w-[722px] !w-[100%] flex-col gap-6 lg:gap-[32px]">
             {/* Introduction */}
             <div
               id="introduction"
               className="flex flex-col gap-3 lg:gap-[16px] scroll-mt-24"
             >
               <div className="flex flex-col gap-3 lg:gap-[14px]">
-                <h2 className="font-['Funnel_Display'] font-medium text-[20px] lg:text-[24px] leading-[28px] lg:leading-[32px] text-[#010907]">
+                <h2 className="font-['Funnel_Display'] !font-medium !text-[18px] lg:!text-[24px] leading-[28px] lg:leading-[32px] text-[#010907]">
                   Introduction
                 </h2>
-                <p className="font-inter text-[14px] lg:text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
+                <p className="font-inter text-[14px] lg:!text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
                   These Terms & Conditions ("Terms") govern your access and use
                   of the websites, and electronic services maintained by
                   OptiGenix, Inc., and/or its subsidiaries or affiliated
@@ -85,7 +85,7 @@ const TermsOfServiceContent = () => {
                 </p>
               </div>
               <div className="bg-[#f7f7f7] rounded-[8px] p-4 lg:p-[16px]">
-                <p className="font-inter font-bold text-[14px] lg:text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
+                <p className="font-inter font-bold text-[14px] lg:!text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
                   IMPORTANT: PLEASE NOTE THAT SECTION 4 OF THESE TERMS CONTAIN A
                   MANDATORY ARBITRATION PROVISION THAT REQUIRES THE USE OF
                   ARBITRATION ON AN INDIVIDUAL BASIS AND LIMITS THE REMEDIES
@@ -96,7 +96,7 @@ const TermsOfServiceContent = () => {
 
             {/* Additional Introduction Text */}
             <div className="flex flex-col gap-3 lg:gap-[14px]">
-              <p className="font-inter text-[14px] lg:text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
+              <p className="font-inter text-[14px] lg:!text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
                 Other terms also apply to your use of the Site, and they are
                 incorporated herein by this reference. These include terms that
                 will apply to sales promotions and other features which may be
@@ -110,10 +110,10 @@ const TermsOfServiceContent = () => {
               id="acceptance"
               className="flex flex-col gap-3 lg:gap-[14px] scroll-mt-24"
             >
-              <h2 className="font-['Funnel_Display'] font-medium text-[20px] lg:text-[24px] leading-[28px] lg:leading-[32px] text-[#010907]">
+              <h2 className="font-['Funnel_Display'] !font-medium !text-[18px] lg:!text-[24px] leading-[28px] lg:leading-[32px] text-[#010907]">
                 1. Acceptance and Modification of the Terms
               </h2>
-              <div className="font-inter text-[14px] lg:text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
+              <div className="font-inter text-[14px] lg:!text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
                 <p className="mb-4">
                   By accessing or using the Site, you acknowledge that you have
                   read, understood, and agree to be bound by these Terms and all
@@ -155,10 +155,10 @@ const TermsOfServiceContent = () => {
               id="fitness-nutrition"
               className="flex flex-col gap-3 lg:gap-[14px] scroll-mt-24"
             >
-              <h2 className="font-['Funnel_Display'] font-medium text-[20px] lg:text-[24px] leading-[28px] lg:leading-[32px] text-[#010907]">
+              <h2 className="font-['Funnel_Display'] !font-medium !text-[18px] lg:!text-[24px] leading-[28px] lg:leading-[32px] text-[#010907]">
                 2. Fitness, Nutrition, and Health Information
               </h2>
-              <div className="font-inter text-[14px] lg:text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
+              <div className="font-inter text-[14px] lg:!text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
                 <p className="mb-4">
                   OptiGenix provides personalized supplement sachets and
                   pre-formulated QuickPacks and other related services
@@ -178,7 +178,7 @@ const TermsOfServiceContent = () => {
                 </p>
               </div>
               <div className="bg-[#fff3f3] rounded-[8px] p-4 lg:p-[16px]">
-                <p className="font-inter text-[14px] lg:text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
+                <p className="font-inter text-[14px] lg:!text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
                   THE INFORMATION PRESENTED ON THE SITE IS NOT INTENDED FOR
                   TREATMENT OR DIAGNOSTIC PURPOSES. Always consult your doctor
                   for medical advice or treatment, especially if you're dealing
@@ -200,10 +200,10 @@ const TermsOfServiceContent = () => {
               id="eligibility"
               className="flex flex-col gap-3 lg:gap-[14px] scroll-mt-24"
             >
-              <h2 className="font-['Funnel_Display'] font-medium text-[20px] lg:text-[24px] leading-[28px] lg:leading-[32px] text-[#010907]">
+              <h2 className="font-['Funnel_Display'] !font-medium !text-[18px] lg:!text-[24px] leading-[28px] lg:leading-[32px] text-[#010907]">
                 3. Eligibility
               </h2>
-              <p className="font-inter text-[14px] lg:text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
+              <p className="font-inter text-[14px] lg:!text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
                 The Site is not targeted toward or intended for use by anyone
                 under the age of eighteen (18). By using the Site, you represent
                 and warrant that you: (a) are (i) eighteen (18+) years of age or
@@ -220,15 +220,15 @@ const TermsOfServiceContent = () => {
               id="arbitration"
               className="flex flex-col gap-3 lg:gap-[14px] scroll-mt-24"
             >
-              <h2 className="font-['Funnel_Display'] font-medium text-[20px] lg:text-[24px] leading-[28px] lg:leading-[32px] text-[#010907]">
+              <h2 className="font-['Funnel_Display'] !font-medium !text-[18px] lg:!text-[24px] leading-[28px] lg:leading-[32px] text-[#010907]">
                 4. Arbitration and Dispute Resolution
               </h2>
               <div className="bg-[#f7f7f7] rounded-[8px] p-4 lg:p-[16px]">
-                <p className="font-inter font-bold text-[14px] lg:text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
+                <p className="font-inter font-bold text-[14px] lg:!text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
                   PLEASE READ THIS SECTION CAREFULLY AS IT AFFECTS YOUR RIGHTS.
                 </p>
               </div>
-              <div className="font-inter text-[14px] lg:text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
+              <div className="font-inter text-[14px] lg:!text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
                 <p className="mb-4">
                   If you are located in, are based in, have offices in, or do
                   business in a jurisdiction in which this Section 4 is
@@ -313,14 +313,14 @@ const TermsOfServiceContent = () => {
               className="flex flex-col gap-5 lg:gap-[24px] scroll-mt-24"
             >
               <div className="flex flex-col gap-3 lg:gap-[14px]">
-                <h2 className="font-['Funnel_Display'] font-medium text-[20px] lg:text-[24px] leading-[28px] lg:leading-[32px] text-[#010907]">
+                <h2 className="font-['Funnel_Display'] !font-medium !text-[18px] lg:!text-[24px] leading-[28px] lg:leading-[32px] text-[#010907]">
                   5. Terms of Sale
                 </h2>
                 <div className="flex flex-col gap-2 lg:gap-[12px]">
-                  <h3 className="font-['Funnel_Display'] font-medium text-[18px] lg:text-[20px] leading-[26px] lg:leading-[28px] text-[#010907]">
+                  <h3 className="font-['Funnel_Display'] font-medium !text-[18px] lg:!text-[20px] leading-[26px] lg:leading-[28px] text-[#010907]">
                     Subscriptions and Auto Renewal
                   </h3>
-                  <div className="font-inter text-[14px] lg:text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
+                  <div className="font-inter text-[14px] lg:!text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
                     <p className="mb-4">
                       <span className="font-bold">Subscriptions:</span>{" "}
                       OptiGenix provides an automatically recurring subscription
@@ -361,7 +361,7 @@ const TermsOfServiceContent = () => {
               </div>
 
               <div className="bg-[#f7f7f7] rounded-[8px] p-4 lg:p-[16px]">
-                <div className="font-inter text-[14px] lg:text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
+                <div className="font-inter text-[14px] lg:!text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
                   <p className="mb-2 font-bold">
                     IMPORTANT SUBSCRIPTION NOTICE:
                   </p>
@@ -384,12 +384,12 @@ const TermsOfServiceContent = () => {
 
               <div className="flex flex-col gap-2 lg:gap-[12px]">
                 <div className="flex flex-col gap-3 lg:gap-[14px]">
-                  <h3 className="font-['Funnel_Display'] font-medium text-[18px] lg:text-[20px] leading-[26px] lg:leading-[28px] text-[#010907]">
+                  <h3 className="font-['Funnel_Display'] font-medium !text-[18px] lg:!text-[20px] leading-[26px] lg:leading-[28px] text-[#010907]">
                     Cancellation Policy
                   </h3>
                 </div>
                 <div className="bg-[#f7f7f7] rounded-[8px] p-4 lg:p-[16px]">
-                  <div className="font-inter text-[14px] lg:text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
+                  <div className="font-inter text-[14px] lg:!text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
                     <p className="mb-2 font-bold">CANCELLATION POLICY:</p>
                     <p className="mb-2">&nbsp;</p>
                     <p>
@@ -411,11 +411,11 @@ const TermsOfServiceContent = () => {
 
               <div className="flex flex-col gap-3 lg:gap-[16px]">
                 <div className="flex flex-col gap-3 lg:gap-[14px]">
-                  <h3 className="font-['Funnel_Display'] font-medium text-[18px] lg:text-[20px] leading-[26px] lg:leading-[28px] text-[#010907]">
+                  <h3 className="font-['Funnel_Display'] font-medium !text-[18px] lg:!text-[20px] leading-[26px] lg:leading-[28px] text-[#010907]">
                     Returns, Refunds, or Exchanges
                   </h3>
                 </div>
-                <p className="font-inter text-[14px] lg:text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
+                <p className="font-inter text-[14px] lg:!text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
                   If you are dissatisfied with a Product or ingredient for any
                   reason, you must contact us at "support@optigenix.co" within
                   fourteen (14) days of the date your order was received and we
@@ -439,12 +439,12 @@ const TermsOfServiceContent = () => {
             >
               <div className="flex flex-col gap-3 lg:gap-[16px]">
                 <div className="flex flex-col gap-3 lg:gap-[14px]">
-                  <h2 className="font-['Funnel_Display'] font-medium text-[20px] lg:text-[24px] leading-[28px] lg:leading-[32px] text-[#010907]">
+                  <h2 className="font-['Funnel_Display'] !font-medium !text-[18px] lg:!text-[24px] leading-[28px] lg:leading-[32px] text-[#010907]">
                     9. Disclaimers
                   </h2>
                 </div>
                 <div className="bg-[#f7f7f7] rounded-[8px] p-4 lg:p-[16px]">
-                  <div className="font-inter text-[14px] lg:text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
+                  <div className="font-inter text-[14px] lg:!text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
                     <p className="mb-2 font-bold">PRODUCT SAFETY NOTICE:</p>
                     <p className="mb-2">&nbsp;</p>
                     <p>
@@ -458,7 +458,7 @@ const TermsOfServiceContent = () => {
                     </p>
                   </div>
                 </div>
-                <p className="font-inter text-[14px] lg:text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
+                <p className="font-inter text-[14px] lg:!text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
                   EXCEPT AS MAY BE PROVIDED IN A WARRANTY BY THE MANUFACTURER OF
                   A PRODUCT, ALL PRODUCTS AND THE SITE AND CONTENT ARE PROVIDED
                   ON AN "AS IS" BASIS WITHOUT WARRANTIES OF ANY KIND, EITHER
@@ -477,14 +477,14 @@ const TermsOfServiceContent = () => {
               id="contact-information"
               className="flex flex-col gap-3 lg:gap-[14px] scroll-mt-24"
             >
-              <h2 className="font-['Funnel_Display'] font-medium text-[20px] lg:text-[24px] leading-[28px] lg:leading-[32px] text-[#010907]">
+              <h2 className="font-['Funnel_Display'] !font-medium !text-[18px] lg:!text-[24px] leading-[28px] lg:leading-[32px] text-[#010907]">
                 14. Contact Information
               </h2>
-              <p className="font-inter text-[14px] lg:text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
+              <p className="font-inter text-[14px] lg:!text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
                 For questions or concerns about these Terms, please contact:
               </p>
               <div className="bg-[#f7f7f7] rounded-[8px] p-4 lg:p-[16px]">
-                <div className="font-inter text-[14px] lg:text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
+                <div className="font-inter text-[14px] lg:!text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
                   <p className="mb-2">
                     <span className="font-bold">Address:</span> 2991 Sacramento
                     St #541, Berkeley, CA 94702

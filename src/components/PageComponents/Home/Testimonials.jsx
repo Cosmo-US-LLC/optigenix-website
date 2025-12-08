@@ -53,7 +53,7 @@ const testimonials = [
   },
   {
     title: "Esther Howard",
-    text: "I wanted to break through my workout plateaus. These performance-focused supplements helped me hit new personal bests I didn’t think were possible",
+    text: "I wanted to break through my workout plateaus. These performance-focused supplements helped me hit new personal bests I didn’t think were possible.",
     author: "Fencer",
     rating: 5,
   },
@@ -86,10 +86,10 @@ const TestimonialCard = ({ rating, title, description, author, isActive }) => {
       {/* Content */}
       <div className="flex flex-col gap-4 lg:gap-[20px]">
         {/* Title and Description */}
-        <div className="flex flex-col gap-3 lg:gap-[16px] h-[160px]">
+        <div className="flex flex-col gap-3 lg:gap-[8px] h-[160px]">
           <h3
-            className={`font-['Funnel_Display'] font-bold text-[18px] lg:text-[20px] leading-[20px] lg:leading-[22px] ${
-              isActive ? "text-[#042b24]" : "text-white"
+            className={`font-['Funnel_Display'] font-bold !text-[18px] lg:!text-[20px] leading-[20px] lg:leading-[22px] ${
+              isActive ? "!text-[#042b24]" : "!text-white"
             }`}
           >
             {title}

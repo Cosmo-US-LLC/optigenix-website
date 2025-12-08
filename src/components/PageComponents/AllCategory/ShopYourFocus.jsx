@@ -65,7 +65,7 @@ const ShopYourFocus = () => {
                 {/* Content */}
                 <div className="relative z-10 flex flex-col gap-[20px] w-full">
                   <div className="flex flex-col gap-[8px] text-white">
-                    <h3 className="font-['Funnel_Display'] font-medium text-[24px] leading-[32px] whitespace-pre-line">
+                    <h3 className="font-['Funnel_Display'] font-medium !text-[24px] !text-white !leading-[133.333%] whitespace-pre-line">
                       {category.title}
                     </h3>
                     <p className="font-['Inter'] font-normal text-[14px] leading-[22px]">

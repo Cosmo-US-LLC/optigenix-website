@@ -54,7 +54,7 @@ const CategoryHero = () => {
             {/* Right Column */}
             <div className="flex-1 lg:min-w-0 flex flex-col gap-[16px]">
               {/* Top Right Card - See Personalized Solutions */}
-              <div className="rounded-[16px] overflow-hidden relative min-h-[234px] flex flex-col justify-center p-[16px]">
+              <div className="rounded-[16px] overflow-hidden relative min-h-[234px] flex flex-col justify-end px-[16px] py-[24px]">
                 {/* Background with multiple layers */}
                 <div className="absolute inset-0 pointer-events-none">
                   <div className="overflow-hidden  absolute inset-0">

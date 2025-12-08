@@ -71,7 +71,7 @@ const PersonalizedSolutions = () => {
                 {isDNAModalOpen ? (
                   <div className="bg-white rounded-[8px] min-h-[490px] md:min-h-[369px] max-h-[450px] md:max-h-[369px] p-[12px] md:p-[12px] w-full flex flex-col gap-[10px]">
                     <div className="flex flex-col gap-[10px]">
-                      <h3 className="capitalize font-['Funnel_Display'] font-bold text-[20px] md:text-[32px] leading-[26px] md:leading-[40px] text-[#0d8360]">
+                      <h3 className="capitalize font-['Funnel_Display'] font-bold !text-[20px] md:!text-[32px] leading-[26px] md:leading-[40px] !text-[#0d8360]">
                         Decode your Genetic Blueprint
                       </h3>
                       <p className="font-['Inter'] font-normal text-[14px] leading-[22px] text-[#185348]">
@@ -199,7 +199,7 @@ const PersonalizedSolutions = () => {
                   </div>
                 ) : (
                   <div>
-                    <h3 className="font-['Funnel_Display'] pb-2 md:pb-4 text-white font-bold text-[20px] md:text-[26px] leading-[26px] md:leading-[40px]">
+                    <h3 className="font-['Funnel_Display'] pb-2 md:pb-4 !text-white font-bold text-[20px] md:text-[26px] leading-[26px] md:leading-[40px]">
                       Your Body's User Manual
                     </h3>
                     <div className="flex flex-col md:flex-row gap-[16px] items-end justify-between">
@@ -262,169 +262,169 @@ const PersonalizedSolutions = () => {
 
                 {/* Expanded or Collapsed Content */}
                 {isBloodModalOpen ? (
-                  <div className="bg-white rounded-[8px] p-[12px]  min-h-[450px] md:min-h-[369px] max-h-[450px] md:max-h-[369px] md:p-[24px] w-full flex flex-col justify-between">
-                   <div className="!gap-[16px]">
-                     <div className="flex flex-col gap-[12px]">
-                      <h3 className="capitalize font-['Funnel_Display'] font-bold text-[20px] md:text-[32px] leading-[36px] md:leading-[40px] text-[#0d8360]">
-                        Track Your Vital Stats
-                      </h3>
-                      <p className="font-['Inter'] font-normal text-[14px] leading-[22px] text-[#031a13]">
-                        Your DNA is your blueprint, but your blood is the live
-                        feed. We track key markers to see if your current
-                        routine is working or if you're running low on fuel. Get
-                        science-backed recommendations and expert guidance
-                        tailored to your health profile.
-                      </p>
+                  <div className="bg-white rounded-[8px] p-[12px]  min-h-[450px] md:min-h-[369px] max-h-[450px] md:max-h-[369px] md:px-[24px] pb-[24px] pt-[10px] w-full flex flex-col justify-between">
+                    <div className="!gap-[16px]">
+                      <div className="flex flex-col gap-[12px]">
+                        <h3 className="capitalize font-['Funnel_Display'] font-bold !text-[20px] md:!text-[32px] leading-[36px] md:leading-[40px] !text-[#0d8360]">
+                          Track Your Vital Stats
+                        </h3>
+                        <p className="font-['Inter'] font-normal text-[14px] leading-[22px] text-[#031a13]">
+                          Your DNA is your blueprint, but your blood is the live
+                          feed. We track key markers to see if your current
+                          routine is working or if you're running low on fuel.
+                          Get science-backed recommendations and expert guidance
+                          tailored to your health profile.
+                        </p>
+                      </div>
+
+                      {/* Features List */}
+                      <div className="flex flex-col gap-[12px] pt-[12px]">
+                        <div className="flex gap-[12px] items-center">
+                          <div>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                            >
+                              <circle
+                                cx="7.99406"
+                                cy="7.99406"
+                                r="4.50187"
+                                stroke="#010907"
+                                stroke-width="1.6"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M11.1797 11.1797L13.4987 13.4987"
+                                stroke="#010907"
+                                stroke-width="1.6"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M12.9964 2.99219H15.9976C18.7602 2.99219 20.9997 5.2317 20.9997 7.99427V15.9976C20.9997 18.7602 18.7602 20.9997 15.9976 20.9997H7.99427C5.2317 20.9997 2.99219 18.7602 2.99219 15.9976V12.9964"
+                                stroke="#010907"
+                                stroke-width="1.6"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </div>
+                          <p className="font-['Inter'] font-normal text-[14px] md:text-[16px] leading-[24px] text-[#031a13]">
+                            Comprehensive Health Scan
+                          </p>
+                        </div>
+
+                        <div className="flex gap-[12px] items-center">
+                          <div>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                            >
+                              <path
+                                d="M19.9993 7.99427V4.99302C19.9993 3.88799 19.1035 2.99219 17.9984 2.99219H4.99302C3.88799 2.99219 2.99219 3.88799 2.99219 4.99302V18.9989C2.99219 20.1039 3.88799 20.9997 4.99302 20.9997H9.9951"
+                                stroke="#010907"
+                                stroke-width="1.6"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M9.24219 15.0002H10.9929"
+                                stroke="#010907"
+                                stroke-width="1.6"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M9.24219 11.0002H11.9933"
+                                stroke="#010907"
+                                stroke-width="1.6"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M9.24219 7.1174H15.995"
+                                stroke="#010907"
+                                stroke-width="1.6"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M19.8534 11.0002H15.3516"
+                                stroke="#010907"
+                                stroke-width="1.6"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M19.1033 11V14.7836L21.6974 18.9453C22.0816 19.5616 22.1017 20.3376 21.7499 20.9729C21.3982 21.6082 20.7299 22.003 20.0037 22.0046H15.2067C14.4793 22.0056 13.8086 21.6117 13.4552 20.9759C13.1017 20.3401 13.1212 19.5626 13.506 18.9453L16.1001 14.7836V11"
+                                stroke="#010907"
+                                stroke-width="1.6"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M19.2343 15.0002H15.9609"
+                                stroke="#010907"
+                                stroke-width="1.6"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M6.1174 15.1253C6.18646 15.1253 6.24245 15.0693 6.24245 15.0002C6.24245 14.9311 6.18646 14.8752 6.1174 14.8752C6.04833 14.8752 5.99234 14.9311 5.99234 15.0002C5.99234 15.0693 6.04833 15.1253 6.1174 15.1253"
+                                stroke="#010907"
+                                stroke-width="1.6"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M6.1174 11.1253C6.18646 11.1253 6.24245 11.0693 6.24245 11.0002C6.24245 10.9311 6.18646 10.8752 6.1174 10.8752C6.04833 10.8752 5.99234 10.9311 5.99234 11.0002C5.99234 11.0693 6.04833 11.1253 6.1174 11.1253"
+                                stroke="#010907"
+                                stroke-width="1.6"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M6.1174 7.24245C6.18646 7.24245 6.24245 7.18646 6.24245 7.1174C6.24245 7.04833 6.18646 6.99234 6.1174 6.99234C6.04833 6.99234 5.99234 7.04833 5.99234 7.1174C5.99234 7.18646 6.04833 7.24245 6.1174 7.24245"
+                                stroke="#010907"
+                                stroke-width="1.6"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </div>
+                          <p className="font-['Inter'] font-normal text-[14px] md:text-[16px] leading-[24px] text-[#031a13]">
+                            105+ Biomarkers Tracked
+                          </p>
+                        </div>
+
+                        <div className="flex gap-[12px] items-center">
+                          <div className="">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                            >
+                              <path
+                                d="M3.85421 21.1331H8.86478V14.2031C8.86478 13.891 8.97019 13.6294 9.181 13.4183C9.3909 13.2063 9.65102 13.1003 9.96136 13.1003H14.0328C14.3431 13.1003 14.6037 13.2063 14.8145 13.4183C15.0244 13.6294 15.1294 13.891 15.1294 14.2031V21.1331H20.1399V9.2688C20.1399 9.12866 20.1096 9.00126 20.049 8.88661C19.9884 8.77195 19.9056 8.67185 19.8006 8.58631L12.4938 3.04728C12.3545 2.92535 12.1889 2.86438 11.9971 2.86438C11.8053 2.86438 11.6401 2.92535 11.5017 3.04728L4.1935 8.58631C4.08945 8.67367 4.00667 8.77377 3.94514 8.88661C3.88362 8.99944 3.85331 9.12684 3.85421 9.2688V21.1331ZM2.49707 21.1331V9.2688C2.49707 8.91937 2.57488 8.58859 2.7305 8.27647C2.88612 7.96435 3.10055 7.70728 3.37378 7.50526L10.682 1.93893C11.0647 1.64501 11.5017 1.49805 11.993 1.49805C12.4843 1.49805 12.924 1.64501 13.3121 1.93893L20.6204 7.5039C20.8945 7.70591 21.1089 7.96344 21.2636 8.27647C21.4193 8.58859 21.4971 8.91937 21.4971 9.2688V21.1331C21.4971 21.4989 21.3618 21.8178 21.0913 22.0899C20.8208 22.362 20.5036 22.498 20.1399 22.498H14.8688C14.5575 22.498 14.297 22.3925 14.0871 22.1814C13.8772 21.9693 13.7722 21.7073 13.7722 21.3952V14.4666H10.2219V21.3952C10.2219 21.7082 10.117 21.9703 9.90707 22.1814C9.69717 22.3925 9.43705 22.498 9.12671 22.498H3.85421C3.4905 22.498 3.17338 22.362 2.90286 22.0899C2.63233 21.8178 2.49707 21.4989 2.49707 21.1331Z"
+                                fill="black"
+                              />
+                            </svg>
+                          </div>
+                          <p className="font-['Inter'] font-normal text-[14px] md:text-[16px] leading-[24px] text-[#031a13]">
+                            Done at Home
+                          </p>
+                        </div>
+                      </div>
                     </div>
-
-                    {/* Features List */}
-                    <div className="flex flex-col gap-[12px] pt-[12px]">
-                      <div className="flex gap-[12px] items-center">
-                        <div>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                          >
-                            <circle
-                              cx="7.99406"
-                              cy="7.99406"
-                              r="4.50187"
-                              stroke="#010907"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M11.1797 11.1797L13.4987 13.4987"
-                              stroke="#010907"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M12.9964 2.99219H15.9976C18.7602 2.99219 20.9997 5.2317 20.9997 7.99427V15.9976C20.9997 18.7602 18.7602 20.9997 15.9976 20.9997H7.99427C5.2317 20.9997 2.99219 18.7602 2.99219 15.9976V12.9964"
-                              stroke="#010907"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </div>
-                        <p className="font-['Inter'] font-normal text-[14px] md:text-[16px] leading-[24px] text-[#031a13]">
-                          Comprehensive Health Scan
-                        </p>
-                      </div>
-
-                      <div className="flex gap-[12px] items-center">
-                        <div>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                          >
-                            <path
-                              d="M19.9993 7.99427V4.99302C19.9993 3.88799 19.1035 2.99219 17.9984 2.99219H4.99302C3.88799 2.99219 2.99219 3.88799 2.99219 4.99302V18.9989C2.99219 20.1039 3.88799 20.9997 4.99302 20.9997H9.9951"
-                              stroke="#010907"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M9.24219 15.0002H10.9929"
-                              stroke="#010907"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M9.24219 11.0002H11.9933"
-                              stroke="#010907"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M9.24219 7.1174H15.995"
-                              stroke="#010907"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M19.8534 11.0002H15.3516"
-                              stroke="#010907"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M19.1033 11V14.7836L21.6974 18.9453C22.0816 19.5616 22.1017 20.3376 21.7499 20.9729C21.3982 21.6082 20.7299 22.003 20.0037 22.0046H15.2067C14.4793 22.0056 13.8086 21.6117 13.4552 20.9759C13.1017 20.3401 13.1212 19.5626 13.506 18.9453L16.1001 14.7836V11"
-                              stroke="#010907"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M19.2343 15.0002H15.9609"
-                              stroke="#010907"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M6.1174 15.1253C6.18646 15.1253 6.24245 15.0693 6.24245 15.0002C6.24245 14.9311 6.18646 14.8752 6.1174 14.8752C6.04833 14.8752 5.99234 14.9311 5.99234 15.0002C5.99234 15.0693 6.04833 15.1253 6.1174 15.1253"
-                              stroke="#010907"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M6.1174 11.1253C6.18646 11.1253 6.24245 11.0693 6.24245 11.0002C6.24245 10.9311 6.18646 10.8752 6.1174 10.8752C6.04833 10.8752 5.99234 10.9311 5.99234 11.0002C5.99234 11.0693 6.04833 11.1253 6.1174 11.1253"
-                              stroke="#010907"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M6.1174 7.24245C6.18646 7.24245 6.24245 7.18646 6.24245 7.1174C6.24245 7.04833 6.18646 6.99234 6.1174 6.99234C6.04833 6.99234 5.99234 7.04833 5.99234 7.1174C5.99234 7.18646 6.04833 7.24245 6.1174 7.24245"
-                              stroke="#010907"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </div>
-                        <p className="font-['Inter'] font-normal text-[14px] md:text-[16px] leading-[24px] text-[#031a13]">
-                          105+ Biomarkers Tracked
-                        </p>
-                      </div>
-
-                      <div className="flex gap-[12px] items-center">
-                        <div>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="19"
-                            height="21"
-                            viewBox="0 0 19 21"
-                            fill="none"
-                          >
-                            <path
-                              d="M1.35714 19.635H6.36771V12.7051C6.36771 12.393 6.47312 12.1314 6.68393 11.9202C6.89383 11.7082 7.15395 11.6022 7.46429 11.6022H11.5357C11.846 11.6022 12.1066 11.7082 12.3174 11.9202C12.5273 12.1314 12.6323 12.393 12.6323 12.7051V19.635H17.6429V7.77075C17.6429 7.63061 17.6125 7.50322 17.5519 7.38856C17.4913 7.2739 17.4085 7.17381 17.3036 7.08827L9.99671 1.54924C9.85738 1.4273 9.69181 1.36633 9.5 1.36633C9.30819 1.36633 9.14307 1.4273 9.00464 1.54924L1.69643 7.08827C1.59238 7.17562 1.5096 7.27572 1.44807 7.38856C1.38655 7.5014 1.35624 7.62879 1.35714 7.77075V19.635ZM0 19.635V7.77075C0 7.42132 0.0778094 7.09054 0.233428 6.77842C0.389048 6.4663 0.603476 6.20923 0.876714 6.00721L8.18493 0.440885C8.56764 0.146962 9.00464 0 9.49593 0C9.98721 0 10.4269 0.146962 10.8151 0.440885L18.1233 6.00585C18.3974 6.20787 18.6119 6.46539 18.7666 6.77842C18.9222 7.09054 19 7.42132 19 7.77075V19.635C19 20.0008 18.8647 20.3198 18.5942 20.5919C18.3237 20.864 18.0066 21 17.6429 21H12.3717C12.0605 21 11.7999 20.8944 11.59 20.6833C11.3801 20.4713 11.2751 20.2092 11.2751 19.8971V12.9685H7.72486V19.8971C7.72486 20.2101 7.6199 20.4722 7.41 20.6833C7.2001 20.8944 6.93998 21 6.62964 21H1.35714C0.993429 21 0.676309 20.864 0.405785 20.5919C0.135262 20.3198 0 20.0008 0 19.635Z"
-                              fill="black"
-                            />
-                          </svg>
-                        </div>
-                        <p className="font-['Inter'] font-normal text-[14px] md:text-[16px] leading-[24px] text-[#031a13]">
-                          Done at Home
-                        </p>
-                      </div>
-                    </div>
-                   </div>
 
                     {/* CTA Link */}
                     <button className="flex gap-[10px] items-center group w-fit">
@@ -436,7 +436,7 @@ const PersonalizedSolutions = () => {
                   </div>
                 ) : (
                   <div>
-                    <h3 className="capitalize font-['Funnel_Display'] text-white pb-2 md:pb-4 font-bold text-[20px] md:text-[32px] leading-[26px] md:leading-[40px]">
+                    <h3 className="capitalize font-['Funnel_Display'] !text-white pb-2 md:pb-4 font-bold !text-[20px] md:!text-[32px] leading-[26px] md:leading-[40px]">
                       Unlock vital health markers
                     </h3>
                     <div className="flex flex-col md:flex-row gap-[16px] items-end justify-between">

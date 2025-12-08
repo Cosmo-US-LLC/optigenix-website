@@ -92,7 +92,7 @@ const Comparison = () => {
             <h2 className=" text-[#010907] capitalize">Comparison</h2>
 
             {/* Comparison Table */}
-            <div className="flex flex-col gap-6 lg:gap-[24px] relative">
+            <div className="flex flex-col gap-6 lg:gap-[14px] relative">
               {/* Vertical dark pill behind OptiGenix column */}
               <div className="absolute bg-[#042b24] w-[50px] h-[342px] lg:w-[68px] lg:h-[380px] rounded-[100px] md:left-[57%] left-[58%] lg:left-[260px] md:top-[-10px] translate-x-[-50%] lg:translate-x-0" />
 

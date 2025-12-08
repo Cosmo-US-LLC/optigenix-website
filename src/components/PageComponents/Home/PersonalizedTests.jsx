@@ -78,7 +78,7 @@ const PersonalizedTests = () => {
                 className="w-fit"
                 onClick={() => console.log("Explore DNA Test")}
               >
-                Explore
+                Shop Now
               </Button>
             </div>
 
@@ -231,7 +231,7 @@ const PersonalizedTests = () => {
                 className="w-fit"
                 onClick={() => console.log("Explore Blood Test")}
               >
-                Explore
+                Shop Now
               </Button>
             </div>
           </div>
