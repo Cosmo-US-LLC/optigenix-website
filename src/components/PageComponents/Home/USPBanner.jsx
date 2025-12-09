@@ -34,6 +34,26 @@ const uspItems = [
   { icon: atheletes, text: "Used & Founded by athletes" },
   { icon: tubeTest, text: "Dual-Data Precision" },
   { icon: inHouse, text: "In-House PhD researchers & registered dietitians" },
+  { icon: science, text: "Science Backed" },
+  { icon: dna, text: "DNA Personalized" },
+  { icon: pharma, text: "Pharmaceutical Grade" },
+  { icon: allNaturalIcon, text: "All Natural" },
+  { icon: thirdPartyTestedIcon, text: "Third-Party Tested" },
+  { icon: usa, text: "Made in the USA" },
+  { icon: performance, text: "Performance Guaranteed" },
+  { icon: atheletes, text: "Used & Founded by athletes" },
+  { icon: tubeTest, text: "Dual-Data Precision" },
+  { icon: inHouse, text: "In-House PhD researchers & registered dietitians" },
+  { icon: science, text: "Science Backed" },
+  { icon: dna, text: "DNA Personalized" },
+  { icon: pharma, text: "Pharmaceutical Grade" },
+  { icon: allNaturalIcon, text: "All Natural" },
+  { icon: thirdPartyTestedIcon, text: "Third-Party Tested" },
+  { icon: usa, text: "Made in the USA" },
+  { icon: performance, text: "Performance Guaranteed" },
+  { icon: atheletes, text: "Used & Founded by athletes" },
+  { icon: tubeTest, text: "Dual-Data Precision" },
+  { icon: inHouse, text: "In-House PhD researchers & registered dietitians" },
 ];
 
 const USPBanner = () => {
@@ -44,7 +64,7 @@ const USPBanner = () => {
         gradient={false}
         speed={40}
         pauseOnHover={true}
-        className="flex gap-12 items-center"
+        className="flex gap-0 items-center md:gap-0"
       >
         {uspItems.map((item, index) => (
           <div key={index} className="flex gap-3 items-center mx-6">
@@ -53,7 +73,7 @@ const USPBanner = () => {
               alt={item.text}
               className="flex-shrink-0 w-7 h-7"
             />
-            <span className="description !font-[600] !text-[##010907]">
+            <span className="description !font-[600] !text-[#010907]">
               {item.text}
             </span>
           </div>
