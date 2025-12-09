@@ -27,9 +27,12 @@
         }
 
         .header {
-            /* text-align: center; */
+            text-align: center;
             color: black;
             margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .header h1 {
@@ -448,6 +451,76 @@
             <button id="backBtn" class="back-btn" style="display: none;">← Back</button>
         </div>
 
+        <!-- Email Gate Section -->
+        <!-- Email Gate Section -->
+        <!-- Email Gate Section -->
+        <!-- Email Gate Section -->
+        <div id="emailGateSection" class="results-card" style="display:none; padding:32px;">
+
+            <!-- Clean Back Button -->
+            <button onclick="goBackToLastQuestion()" style="
+            background:none;
+            border:none;
+            color:#0D8360;
+            font-size:0.95rem;
+            font-weight:600;
+            cursor:pointer;
+            padding:0;
+            margin-bottom:20px;
+            display:flex;
+            align-items:center;
+            gap:6px;
+        " onmouseover="this.style.color='#0a6b4f'" onmouseout="this.style.color='#0D8360'">
+                <span style="font-size:1.1rem;">←</span> Back
+            </button>
+
+            <h2 style="color:#0D8360; font-size:1.8rem; font-weight:700; margin-bottom:8px;">
+                Almost Done
+            </h2>
+
+            <p style="font-size:1rem; color:#4b5563; margin-bottom:24px;">
+                Enter your email to unlock your personalized supplement pack.
+            </p>
+
+            <!-- Email Input -->
+            <label for="userEmail"
+                style="font-size:0.95rem; color:#374151; font-weight:600; display:block; margin-bottom:6px;">
+                Email Address
+            </label>
+
+            <input id="userEmail" type="email" placeholder="you@example.com" style="
+            width:100%;
+            padding:14px 16px;
+            border:2px solid #e5e7eb;
+            border-radius:12px;
+            font-size:1rem;
+            transition:all 0.2s;
+        " onfocus="this.style.borderColor='#0D8360'" onblur="this.style.borderColor='#e5e7eb'" />
+
+            <div id="emailError" style="color:#dc2626; font-size:0.85rem; margin-top:8px; display:none;">
+                Please enter a valid email address.
+            </div>
+
+            <!-- Show Results Button -->
+            <button onclick="submitEmailAndShowResults()" style="
+            margin-top:28px;
+            background:#0D8360;
+            color:white;
+            padding:14px 24px;
+            border:none;
+            border-radius:10px;
+            font-size:1rem;
+            font-weight:600;
+            cursor:pointer;
+            width:auto;
+            " onmouseover="this.style.background='#0a6b4f'" onmouseout="this.style.background='#0D8360'">
+                Show My Results →
+            </button>
+
+        </div>
+
+
+
         <!-- Results Section -->
         <div id="resultsSection" class="results-card" style="display: none;">
             <div class="results-header">
@@ -483,9 +556,12 @@
                         <img src="../images/quiz/quizOptiginix.webp" style="width: 100%;">
                     </div>
                 </div>
-                <button class="purchase-btn" onclick="alert('Purchase functionality would go here!')">
-                    Purchase Now
-                </button>
+                <a href="https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01" target="_top">
+
+                    <button class="purchase-btn">
+                        Purchase Now
+                    </button>
+                </a>
             </div>
 
             <div id="productsContainer"></div>
@@ -760,6 +836,10 @@
 
         let currentQuestion = 0;
         let answers = {};
+        let finalTopProducts = [];
+        let lastQuestionIndex = 0;
+
+
 
         // Initialize Quiz
         function renderQuestion() {
@@ -786,6 +866,7 @@
 
         function selectAnswer(field, value) {
             answers[field] = value;
+            lastQuestionIndex = currentQuestion; // Save last question index
             currentQuestion++;
 
             if (currentQuestion < QUESTIONS.length) {
@@ -1056,75 +1137,195 @@
         }
 
 
+        // function showResults() {
+        //     document.getElementById('quizSection').style.display = 'none';
+        //     document.getElementById('resultsSection').style.display = 'block';
+
+        //     const needs = calculateNeeds();
+        //     let scores = scoreProducts(needs);
+        //     scores = applyBoosts(scores, needs);
+        //     const topProducts = selectTopProducts(scores);
+
+        //     // Calculate price
+        //     // const pricePerProduct = 14.99;
+        //     // const total = (topProducts.length * pricePerProduct).toFixed(2);
+        //     // document.getElementById('packTotal').textContent = '$' + total;
+
+        //     // Render products
+        //     const container = document.getElementById('productsContainer');
+        //     container.innerHTML = topProducts.map((item, index) => `
+        //         <div class="product-card">
+        //             <div class="product-header" onclick="toggleProduct('product${index}')">
+        //                 <div class="product-icon">   <img 
+        //                     src="${item.product.imageUrl}" 
+        //                     alt="${item.product.name}" 
+        //                     class="product-icon-img"
+        //                 /></div>
+
+        //                 <div class="product-info">
+        //                     <div class="product-name">${item.product.name}</div>
+        //                     <div class="product-supports">${item.product.supports}</div>
+        //                 </div>
+        //                 <span class="expand-icon" id="icon${index}">▼</span>
+        //             </div>
+        //             <div class="product-details" id="product${index}">
+        //                 <span class="dosage-badge">${item.product.dosage}</span>
+
+        //                 <div class="detail-section">
+        //                     <div class="detail-title">
+        //                         <span class="detail-bullet"></span>
+        //                         Why Recommended
+        //                     </div>
+        //                     <div class="detail-text">${item.product.whyRecommended}</div>
+        //                 </div>
+
+        //                 <div class="detail-section">
+        //                     <div class="detail-title">
+        //                         <span class="detail-bullet"></span>
+        //                         Scientific Evidence
+        //                     </div>
+        //                     <div class="detail-text">${item.product.scientificEvidence}</div>
+        //                 </div>
+
+        //                 <div class="detail-section">
+        //                     <div class="detail-title">
+        //                         <span class="detail-bullet"></span>
+        //                         Best Timing
+        //                     </div>
+        //                     <div class="detail-text">${item.product.bestTiming}</div>
+        //                 </div>
+
+        //                 ${item.boostNotes.length > 0 ? `
+        //                     <div class="boost-notes">
+        //                         <strong>Personalized for you:</strong> ${item.boostNotes.join(' • ')}
+        //                     </div>
+        //                 ` : ''}
+        //             </div>
+        //         </div>
+        //     `).join('');
+
+        //     window.scrollTo(0, 0);
+        // }
+
         function showResults() {
             document.getElementById('quizSection').style.display = 'none';
-            document.getElementById('resultsSection').style.display = 'block';
 
             const needs = calculateNeeds();
             let scores = scoreProducts(needs);
             scores = applyBoosts(scores, needs);
-            const topProducts = selectTopProducts(scores);
+            finalTopProducts = selectTopProducts(scores);
 
-            // Calculate price
-            // const pricePerProduct = 14.99;
-            // const total = (topProducts.length * pricePerProduct).toFixed(2);
-            // document.getElementById('packTotal').textContent = '$' + total;
+            // Show email gate instead of actual results
+            document.getElementById('emailGateSection').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
 
-            // Render products
+        function goBackToLastQuestion() {
+            document.getElementById('emailGateSection').style.display = 'none';
+            document.getElementById('quizSection').style.display = 'block';
+
+            currentQuestion = lastQuestionIndex;
+            renderQuestion();
+            window.scrollTo(0, 0);
+        }
+
+
+        async function submitEmailAndShowResults() {
+            const email = document.getElementById('userEmail').value.trim();
+            const emailError = document.getElementById('emailError');
+
+            const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            if (!valid) {
+                emailError.style.display = "block";
+                return;
+            }
+
+            emailError.style.display = "none";
+
+            // Prepare message for email
+            const productsMessage = finalTopProducts.map(p => ({
+                name: p.product.name,
+                supports: p.product.supports,
+                dosage: p.product.dosage
+            }));
+
+            try {
+                const response = await fetch('/send-mail', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        subject: 'Your OptiGenix Personalized Supplement Pack',
+                        message: JSON.stringify(productsMessage, null, 2)
+                    }),
+                    signal: AbortSignal.timeout(10000)
+                });
+
+                // You may check for success here if needed
+            } catch (err) {
+                console.error("Email API failed:", err);
+            }
+
+            // Hide email gate → Show real results
+            document.getElementById('emailGateSection').style.display = "none";
+            document.getElementById('resultsSection').style.display = "block";
+
+            renderFinalProducts();
+        }
+
+
+        function renderFinalProducts() {
             const container = document.getElementById('productsContainer');
-            container.innerHTML = topProducts.map((item, index) => `
-                <div class="product-card">
-                    <div class="product-header" onclick="toggleProduct('product${index}')">
-                        <div class="product-icon">   <img 
-                            src="${item.product.imageUrl}" 
-                            alt="${item.product.name}" 
-                            class="product-icon-img"
-                        /></div>
-                        
-                        <div class="product-info">
-                            <div class="product-name">${item.product.name}</div>
-                            <div class="product-supports">${item.product.supports}</div>
-                        </div>
-                        <span class="expand-icon" id="icon${index}">▼</span>
-                    </div>
-                    <div class="product-details" id="product${index}">
-                        <span class="dosage-badge">${item.product.dosage}</span>
-                        
-                        <div class="detail-section">
-                            <div class="detail-title">
-                                <span class="detail-bullet"></span>
-                                Why Recommended
-                            </div>
-                            <div class="detail-text">${item.product.whyRecommended}</div>
-                        </div>
 
-                        <div class="detail-section">
-                            <div class="detail-title">
-                                <span class="detail-bullet"></span>
-                                Scientific Evidence
-                            </div>
-                            <div class="detail-text">${item.product.scientificEvidence}</div>
-                        </div>
-
-                        <div class="detail-section">
-                            <div class="detail-title">
-                                <span class="detail-bullet"></span>
-                                Best Timing
-                            </div>
-                            <div class="detail-text">${item.product.bestTiming}</div>
-                        </div>
-
-                        ${item.boostNotes.length > 0 ? `
-                            <div class="boost-notes">
-                                <strong>Personalized for you:</strong> ${item.boostNotes.join(' • ')}
-                            </div>
-                        ` : ''}
-                    </div>
+            container.innerHTML = finalTopProducts.map((item, index) => `
+        <div class="product-card">
+            <div class="product-header" onclick="toggleProduct('product${index}')">
+                <div class="product-icon">
+                    <img src="${item.product.imageUrl}" class="product-icon-img" />
                 </div>
-            `).join('');
+
+                <div class="product-info">
+                    <div class="product-name">${item.product.name}</div>
+                    <div class="product-supports">${item.product.supports}</div>
+                </div>
+
+                <span class="expand-icon" id="icon${index}">▼</span>
+            </div>
+
+            <div class="product-details" id="product${index}">
+                <span class="dosage-badge">${item.product.dosage}</span>
+
+                <div class="detail-section">
+                    <div class="detail-title"><span class="detail-bullet"></span>Why Recommended</div>
+                    <div class="detail-text">${item.product.whyRecommended}</div>
+                </div>
+
+                <div class="detail-section">
+                    <div class="detail-title"><span class="detail-bullet"></span>Scientific Evidence</div>
+                    <div class="detail-text">${item.product.scientificEvidence}</div>
+                </div>
+
+                <div class="detail-section">
+                    <div class="detail-title"><span class="detail-bullet"></span>Best Timing</div>
+                    <div class="detail-text">${item.product.bestTiming}</div>
+                </div>
+
+                ${item.boostNotes.length > 0 ? `
+                    <div class="boost-notes">
+                        <strong>Personalized for you:</strong> ${item.boostNotes.join(' • ')}
+                    </div>
+                ` : ""}
+            </div>
+        </div>
+    `).join('');
 
             window.scrollTo(0, 0);
         }
+
+
+
 
         function toggleProduct(productId) {
             const details = document.getElementById(productId);
