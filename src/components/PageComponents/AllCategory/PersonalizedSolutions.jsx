@@ -151,7 +151,7 @@ const PersonalizedSolutions = () => {
                             Discover
                           </p>
                         </div>
-                        <p className="font-['Inter'] font-normal text-[14px] leading-[22px] text-[#185348]">
+                        <p className="font-['Inter'] font-normal text-[16px] leading-[22px] text-[#185348]">
                           How your body adapts to strength, endurance, and
                           recovery
                         </p>
@@ -185,7 +185,7 @@ const PersonalizedSolutions = () => {
                               </defs>
                             </svg>
                           </div>
-                          <p className="font-['Inter'] font-[700] text-[14px] leading-[22px] text-[#185348]">
+                          <p className="font-['Inter'] font-[700] text-[16px] leading-[22px] text-[#185348]">
                             Get
                           </p>
                         </div>
@@ -213,7 +213,7 @@ const PersonalizedSolutions = () => {
                       At-Home DNA Test
                     </h3>
                     <div className="flex flex-col md:flex-row gap-[16px] items-end justify-between">
-                      <div className="flex flex-col gap-[16px] text-[#f8fffd] ">
+                      <div className="flex flex-col gap-[16px] w-full md:max-w-[360px] text-[#f8fffd] ">
                         <p className="font-['Inter'] max-w-[350px] font-normal text-[14px] md:text-[16px] leading-[20px] md:leading-[22px]">
                           Ever wish you came with instructions? Discover how
                           your body is wired to handle stress, food, and
@@ -327,7 +327,7 @@ const PersonalizedSolutions = () => {
                           </p>
                         </div>
 
-                        {/* <div className="flex gap-[12px] items-center">
+                        <div className="flex gap-[12px] items-center">
                           <div>
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -408,12 +408,12 @@ const PersonalizedSolutions = () => {
                               />
                             </svg>
                           </div>
-                          <p className="font-['Inter'] font-normal text-[14px] md:text-[16px] leading-[24px] text-[#031a13]">
+                          <p className="font-['Inter'] font-[700] text-[14px] md:text-[16px] leading-[24px] text-[#185348]">
                             105+ Biomarkers Tracked
                           </p>
-                        </div> */}
+                        </div>
 
-                        <div className="flex gap-[12px] items-center">
+                        {/* <div className="flex gap-[12px] items-center">
                           <div className="">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -431,7 +431,7 @@ const PersonalizedSolutions = () => {
                           <p className="font-['Inter'] text-[#185348] font-[700] text-[14px] md:text-[16px] leading-[24px]">
                             Done at Home
                           </p>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
 
@@ -449,8 +449,8 @@ const PersonalizedSolutions = () => {
                       Performance Blood Test
                     </h3>
                     <div className="flex flex-col md:flex-row gap-[16px] items-end justify-between">
-                      <div className="flex-1 flex flex-col gap-[16px] text-[#f8fffd]">
-                        <p className="font-['Inter'] max-w-[300px] font-normal text-[14px] md:text-[16px] leading-[20px] md:leading-[22px]">
+                      <div className="flex-1 flex flex-col w-full gap-[16px] md:max-w-[300px] text-[#f8fffd]">
+                        <p className="font-['Inter']  font-normal text-[14px] md:text-[16px] leading-[20px] md:leading-[22px]">
                           Take a blood test to understand exactly what your
                           biology needs to perform at the next level.
                         </p>

@@ -1,46 +1,46 @@
 import React from "react";
-import collectionSwabImage from "@/assets/images/single_test/kit/carbon_security.svg";
-import instructionsGuideImage from "@/assets/images/single_test/kit/stash_mic.svg";
-import barcodeIdLabelImage from "@/assets/images/single_test/kit/streamline-plump_file-report.svg";
-import prepaidReturnEnvelopeImage from "@/assets/images/single_test/kit/iconoir_notes.svg";
-import safetyBiohazardBagImage from "@/assets/images/single_test/kit/mynaui_envelope.svg";
-import onlineKitRegistrationImage from "@/assets/images/single_test/kit/solar_dna-bold.svg";
+import icon1 from "@/assets/images/single_test/kit/icon1.svg";
+import icon2 from "@/assets/images/single_test/kit/icon2.svg";
+import icon3 from "@/assets/images/single_test/kit/icon3.svg";
+import icon4 from "@/assets/images/single_test/kit/icon4.svg";
+import icon5 from "@/assets/images/single_test/kit/icon5.svg";
+import icon6 from "@/assets/images/single_test/kit/icon6.svg";
 
 const items = [
   {
     title: "Collection Swab or Tube",
     desc: "Easy-to-use cheek swab or saliva tube to safely collect your DNA sample.",
-    icon: onlineKitRegistrationImage,
+    icon: icon1,
     accent: false,
   },
   {
     title: "Instructions Guide",
     desc: "Step-by-step directions to ensure your sample is collected correctly.",
-    icon: safetyBiohazardBagImage,
+    icon: icon2,
     accent: false,
   },
   {
     title: "Barcode / ID Label",
     desc: "Unique identifier linking your sample to your account.",
-    icon: prepaidReturnEnvelopeImage,
+    icon: icon3,
     accent: true,
   },
   {
     title: "Prepaid Return Envelope",
     desc: "Convenient, pre-addressed packaging to send your sample back to the lab.",
-    icon: barcodeIdLabelImage,
+    icon: icon4,
     accent: false,
   },
   {
     title: "Safety / Biohazard Bag",
     desc: "Keeps your sample protected during shipping.",
-    icon: instructionsGuideImage,
+    icon: icon5,
     accent: false,
   },
   {
     title: "Online Kit Registration",
     desc: "Quick registration to access results online once processed.",
-    icon: collectionSwabImage,
+    icon: icon6,
     accent: false,
   },
 ];
