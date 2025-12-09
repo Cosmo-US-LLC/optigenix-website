@@ -1,5 +1,5 @@
 import React from "react";
-import backedByScienceImage from "@/assets/images/single_test/backed_image/backed_by_img.webp";
+import backedByScienceImage from "@/assets/images/single_test/backed_image/backed_by_img2.webp";
 
 const checklist = [
   "Your DNA is secure, encrypted, anonymized, and never shared or sold",
@@ -14,7 +14,7 @@ const BackedByScience = () => {
     <section className="py-12 bg-white md:py-20">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col lg:flex-row items-center gap-10 lg:gap-[88px]">
         {/* Left: Content */}
-        <div className="flex-1 flex flex-col gap-5 max-w-[616px]">
+        <div className="flex-1 flex flex-col gap-5 max-w-[510px]">
           <h2 className="text-[#252525] capitalize">
             Backed By Science & Trust
           </h2>

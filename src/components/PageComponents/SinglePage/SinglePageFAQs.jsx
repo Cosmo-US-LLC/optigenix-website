@@ -43,7 +43,7 @@ const faqs = [
 const SinglePageFAQs = () => {
   return (
     <section
-      className="bg-[#f7f7f7] py-[40px] md:py-[80px] px-4 lg:px-[180px]"
+      className="bg-[#f7f7f7] py-[40px] md:py-[80px] px-4 lg:px-[80px]"
       id="faqs"
     >
       <div className="max-w-[1080px] mx-auto flex flex-col gap-[48px]">

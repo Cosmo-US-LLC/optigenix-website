@@ -30,7 +30,7 @@ const categories = [
 
 const ShopYourFocus = () => {
   return (
-    <section id="shop-your-focus" className="bg-white md:py-[80px]">
+    <section id="shop-your-focus" className="bg-white md:py-[20px]">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8">
         <div className="flex flex-col gap-[30px] items-center">
           {/* Header */}
