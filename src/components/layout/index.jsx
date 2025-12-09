@@ -6,10 +6,10 @@ const Layout = () => {
   const location = useLocation();
 
   // Add the paths where you want to hide the footer
-  const hideFooterPaths = ["/quiz"];
+  // const hideFooterPaths = ["/quiz"];
 
-  const shouldShowFooter = !hideFooterPaths.includes(location.pathname);
-
+  // const shouldShowFooter = !hideFooterPaths.includes(location.pathname);
+const shouldShowFooter = !location.pathname.startsWith("/quiz");
   return (
     <div className="flex flex-col min-h-screen bg-[#f1f1f1]">
       <Header />
