@@ -7,7 +7,15 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 
-import iconImage from "@/assets/images/single_test/bio/bio_icon.svg";
+import iconImage1 from "@/assets/images/single_test/bio/bio_icon1.svg";
+import iconImage2 from "@/assets/images/single_test/bio/bio_icon2.svg";
+import iconImage3 from "@/assets/images/single_test/bio/bio_icon3.svg";
+import iconImage4 from "@/assets/images/single_test/bio/bio_icon4.svg";
+import iconImage5 from "@/assets/images/single_test/bio/bio_icon5.svg";
+import iconImage6 from "@/assets/images/single_test/bio/bio_icon6.svg";
+import iconImage7 from "@/assets/images/single_test/bio/bio_icon7.svg";
+import iconImage8 from "@/assets/images/single_test/bio/bio_icon8.svg";
+import iconImage9 from "@/assets/images/single_test/bio/bio_icon9.svg";
 import bioImage1 from "@/assets/images/single_test/bio/bio_img10.webp";
 import bioImage2 from "@/assets/images/single_test/bio/bio_img11.webp";
 import bioImage3 from "@/assets/images/single_test/bio/bio_img12.webp";
@@ -58,6 +66,7 @@ const Biomarker = () => {
       title: "Muscle Performance & Fiber Type",
       description:
         "Explore your natural power, endurance, and muscle potential.",
+      icon: iconImage1,
       categories: [
         "Resistance training adaptation",
         "Explosive power",
@@ -72,6 +81,7 @@ const Biomarker = () => {
       id: 2,
       title: "Recovery & Injury Risk",
       description: "Understand your body’s resilience and recovery needs.",
+      icon: iconImage2,
       categories: [
         "Tissue robustness",
         "Inflammation response",
@@ -85,6 +95,7 @@ const Biomarker = () => {
       id: 3,
       title: "Nutrition & Vitamin Absorption",
       description: "See how your body processes key nutrients and vitamins.",
+      icon: iconImage3,
       categories: [
         "Vitamin A, B12, C, D",
         "Iron",
@@ -98,6 +109,7 @@ const Biomarker = () => {
       id: 4,
       title: "Metabolism & Body Composition",
       description: "Optimize energy use and body composition.",
+      icon: iconImage4,
       categories: [
         "Fat metabolism",
         "Energy efficiency",
@@ -111,6 +123,7 @@ const Biomarker = () => {
       id: 5,
       title: "Cognition & Stress Response:",
       description: "Improve focus, learning, and mental resilience.",
+      icon: iconImage5,
       categories: [
         "Focus & concentration",
         "Learning efficiency",
@@ -124,6 +137,7 @@ const Biomarker = () => {
       id: 6,
       title: "Rhythm & Adaptation",
       description: "Train and recover at your body’s natural peak times.",
+      icon: iconImage6,
       categories: [
         "Chronotype",
         "Sleep-wake timing",
@@ -138,6 +152,7 @@ const Biomarker = () => {
       title: "Substance Metabolism",
       description:
         "Learn how your body handles alcohol, caffeine, and supplements.",
+      icon: iconImage7,
       categories: [
         "Alcohol metabolism",
         "Caffeine response",
@@ -150,6 +165,7 @@ const Biomarker = () => {
       id: 8,
       title: "Bone & Structural Health",
       description: "Support stronger bones, ligaments, and connective tissue.",
+      icon: iconImage8,
       categories: [
         "Bone density",
         "Connective tissue strength",
@@ -162,6 +178,7 @@ const Biomarker = () => {
       id: 9,
       title: "Longevity & Cellular Health",
       description: "Promote long-term cellular resilience and healthy aging.",
+      icon: iconImage9,
       categories: [
         "DNA repair efficiency",
         "Cellular Stress Resistance",
@@ -216,8 +233,8 @@ const Biomarker = () => {
                     <div className="flex flex-col gap-4">
                       <div className="flex gap-3 items-start">
                         <img
-                          src={iconImage}
-                          alt=""
+                          src={biomarker.icon}
+                          alt={biomarker.title}
                           className="w-[41px] h-[41px] object-contain shrink-0"
                         />
                         <h3 className="font-['Funnel_Display'] font-light text-[22px] md:text-[26px] leading-[32px] md:leading-[40px] text-[#010907] tracking-[-0.72px]">

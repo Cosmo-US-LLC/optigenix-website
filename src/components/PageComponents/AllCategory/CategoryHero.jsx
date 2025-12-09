@@ -81,9 +81,9 @@ const CategoryHero = () => {
 
                 {/* Content */}
                 <div className="relative z-10 flex flex-col gap-[16px] ">
-                  <h3 className="description !text-[#F8FFFD] max-w-[240px]">
+                  <p className="description !text-[#F8FFFD] max-w-[240px]">
                     Get recommendations backed by your DNA and blood test.
-                  </h3>
+                  </p>
 
                   <button
                     className="btn_secondary max-w-[260px] w-full"

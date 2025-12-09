@@ -1,5 +1,5 @@
 import React from "react";
-import bgImage from "@/assets/images/single_test/dna_test/dna_test_img.webp";
+import bgImage from "@/assets/images/single_test/dna_test/dna_test_img2.webp";
 
 const cartIcon =
   "https://www.figma.com/api/mcp/asset/f4cf1ac2-31f9-46e1-831a-3a853f972cae";
