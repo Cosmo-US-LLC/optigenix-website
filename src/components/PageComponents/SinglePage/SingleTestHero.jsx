@@ -26,9 +26,7 @@ const SingleTestHero = () => {
             training, nutrition, and overall wellness. Backed by science.
             HSA/FSA accepted.
           </p>
-          <Button variant="primary" size="lg">
-            Order Your Trust
-          </Button>
+          <button className="btn_primary">Order Your Trust</button>
         </div>
       </div>
     </section>

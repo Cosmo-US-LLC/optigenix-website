@@ -94,13 +94,52 @@ h6 {
   line-height: 24px;
 }
 
-.btn-primary {
-  font-family: "Funnel Display", sans-serif;
+.btn_primary {
+  display: flex;
+  padding: 12px 19px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 100px;
+  background: #0d8360;
+  color: #fff;
+  font-family: "Funnel Display", sans-serif !important;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 20px;
+  line-height: 24px; /* 150% */
+  cursor: pointer;
   text-transform: capitalize;
+}
+.btn_primary:hover {
+  background: #0a6b4f;
+}
+
+.btn_secondary {
+  display: flex;
+  padding: 14px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 100px;
+  background: #fff;
+  border: 1px solid #fff;
+  color: var(--Primary-Color-900, #010907);
+  font-family: "Funnel Display";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 125% */
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.btn_secondary:hover {
+  background: rgba(13, 131, 96, 0.08);
+  color: #fff;
+  background: rgba(13, 131, 96, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid #fff;
 }
 
 @media (max-width: 768px) {
@@ -140,4 +179,6 @@ h6 {
     font-size: 16px;
     font-weight: 500;
   }
+
+  /* Button styles */
 }
