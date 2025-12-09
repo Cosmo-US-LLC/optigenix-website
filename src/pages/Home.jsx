@@ -32,7 +32,7 @@ const Home = () => {
       <Hero
         backgroundVideo={backgroundVideo}
         backgroundImage={backgroundImage}
-        ctaText="Start Your Performance Journey"
+        ctaText="Discover Your Personalized Plan"
         onCtaClick={handleHeroClick}
       />
       <USPBanner />
