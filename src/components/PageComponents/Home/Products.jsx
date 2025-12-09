@@ -87,7 +87,6 @@ const Products = () => {
   return (
     <section className="bg-[#f7f7f7] md:py-20 py-12">
       <div className="max-w-[1280px] px-4 md:px-8 mx-auto">
-        {/* Header */}
         <div className="flex justify-between items-center mb-8 md:mb-12">
           <h2 className="text-[#010907] capitalize max-w-[660px] text-center md:text-left w-full md:w-auto">
             Our Most Trusted QuickPacks
