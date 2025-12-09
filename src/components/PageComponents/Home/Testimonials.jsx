@@ -179,8 +179,8 @@ const Testimonials = () => {
                 slidesToScroll: 1,
                 containScroll: "trimSnaps",
               }}
-              onMouseEnter={() => plugin.current.stop()}
-              onMouseLeave={() => plugin.current.play()}
+              // onMouseEnter={() => plugin.current.stop()}
+              // onMouseLeave={() => plugin.current.play()}
               className="w-full"
             >
               <CarouselContent className="-ml-3 md:-ml-3 lg:-ml-4">

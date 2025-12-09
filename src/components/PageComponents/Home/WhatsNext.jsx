@@ -37,7 +37,7 @@ const FeatureCard = ({ image, tagText, title, description, buttonLabel }) => {
         </p>
 
         {/* Button */}
-        <button className="bg-[#fcfcf7] btn-primary hover:bg-white transition-colors text-[#1c3a13]   px-6 md:px-7 lg:px-8 py-3 md:py-3.5 lg:py-4 rounded-full tracking-[-0.04px] mt-2 md:mt-3 lg:mt-4">
+        <button className="bg-[#fcfcf7] btn_secondary mt-2 md:mt-3 lg:mt-4">
           {buttonLabel}
         </button>
       </div>
@@ -51,14 +51,14 @@ const WhatsNext = () => {
       image: optiGenixBlueprint,
       tagText: "Coming Soon",
       title: "OptiGenix Blueprint",
-      description: '"A complete bio-data performance roadmap."',
+      description: "A complete bio-data performance roadmap.",
       buttonLabel: "Join the Waitlist",
     },
     {
       image: optiGenixElite,
       tagText: "Coming Soon",
       title: "OptiGenix Elite",
-      description: '"A private precision program for athletes."',
+      description: "A private precision program for athletes.",
       buttonLabel: "Join the Waitlist",
     },
   ];
