@@ -13,7 +13,9 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe
+             UI', Roboto, 'Helvetica Neue', Arial, sans-serif; */
+              font-family: "Funnel Display", sans-serif !important;
             /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
             /* min-height: 100vh; */
             padding: 20px;
@@ -206,7 +208,8 @@
         .product-icon {
             width: 60px;
             height: 60px;
-            background: #0D8360;
+            background: #fff;
+            border: 1px solid #0D8360;
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -337,35 +340,52 @@
         }
 
         .product-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    flex-shrink: 0;
-}
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
 
-.product-icon-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+        .product-icon-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-.your_pack_total_flexbox {
-  display: flex;
-}
-
-
+        .your_pack_total_flexbox {
+            display: flex;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <!-- <div class="header">
-            <h1>🧬 OptiGenix</h1>
-            <p>Your Personalized Supplement Quiz</p>
-        </div> -->
+        <div class="header">
+            <!-- <h1>🧬 OptiGenix</h1> -->
+
+        </div>
 
         <!-- Quiz Section -->
+        <!-- <a href="/" style="font-weight: 500; padding-bottom: 4px;">< Back</p> -->
+        <a href="/" target="_top" style="
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+    padding-bottom: 4px;
+">
+            <!-- Back Arrow SVG -->
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+
+            <span>Back</span>
+        </a>
+
         <div id="quizSection" class="quiz-card">
             <div class="progress">
                 <div class="progress-bar" id="progressBar" style="width: 0%"></div>
@@ -406,7 +426,7 @@
                         </div>
                     </div>
                     <div class="image">
-                        <img src="./images/quiz/quizOptiginix.webp" style="width: 100%;">
+                        <img src="../images/quiz/quizOptiginix.webp" style="width: 100%;">
                     </div>
                 </div>
                 <button class="purchase-btn" onclick="alert('Purchase functionality would go here!')">
@@ -426,7 +446,7 @@
             {
                 id: "SUP001",
                 name: "Turmeric",
-                imageUrl: "./images/Webp_pills_images/Turmeric.webp",
+                imageUrl: "../images/Webp_pills_images/Turmeric.webp",
                 dosage: "700mg",
                 supports: "Joint health & inflammation management",
                 whyRecommended: "Your quiz indicated joint discomfort and inflammation. This supplement helps optimize joint mobility and reduces post-workout inflammation.",
@@ -438,7 +458,7 @@
             {
                 id: "SUP002",
                 name: "Rhodiola",
-                imageUrl: "./images/Webp_pills_images/Rhodiola.webp",
+                imageUrl: "../images/Webp_pills_images/Rhodiola.webp",
                 dosage: "500mg",
                 supports: "Mental clarity & stress adaptation",
                 whyRecommended: "Your quiz showed high stress levels and mental fatigue. This adaptogen helps manage stress while improving mental performance.",
@@ -450,7 +470,7 @@
             {
                 id: "SUP006",
                 name: "Ashwagandha",
-                imageUrl: "./images/Webp_pills_images/Ashwagandha.webp",
+                imageUrl: "../images/Webp_pills_images/Ashwagandha.webp",
                 dosage: "600mg",
                 supports: "Stress management & sleep quality",
                 whyRecommended: "Your quiz revealed high stress and poor sleep quality. This adaptogen helps lower cortisol levels while improving sleep depth.",
@@ -462,7 +482,7 @@
             {
                 id: "SUP007",
                 name: "Magnesium",
-                imageUrl: "./images/Webp_pills_images/Magnesium.webp",
+                imageUrl: "../images/Webp_pills_images/Magnesium.webp",
                 dosage: "400mg",
                 supports: "Recovery & sleep support",
                 whyRecommended: "Your quiz indicated muscle soreness and sleep issues. Magnesium supports muscle relaxation and promotes deep sleep.",
@@ -474,7 +494,7 @@
             {
                 id: "SUP008",
                 name: "Vitamin D",
-                imageUrl: "./images/Webp_pills_images/Vitamin_D.webp",
+                imageUrl: "../images/Webp_pills_images/Vitamin_D.webp",
                 dosage: "5000 IU",
                 supports: "Immune health & bone strength",
                 whyRecommended: "Your quiz indicated immune vulnerability. This foundation supplement supports immune function, bone health, and mood.",
@@ -487,7 +507,7 @@
             {
                 id: "SUP011",
                 name: "Glucosamine",
-                imageUrl: "./images/Webp_pills_images/Vegan_Glucosamine.webp",
+                imageUrl: "../images/Webp_pills_images/Vegan_Glucosamine.webp",
                 dosage: "1500mg",
                 supports: "Joint cartilage & mobility",
                 whyRecommended: "Your quiz revealed joint pain and stiffness. Glucosamine supports cartilage repair and reduces joint discomfort.",
@@ -499,7 +519,7 @@
             {
                 id: "SUP004",
                 name: "Green Tea Extract",
-                imageUrl: "./images/Webp_pills_images/Green_Tea_Extract.webp",
+                imageUrl: "../images/Webp_pills_images/Green_Tea_Extract.webp",
                 dosage: "400mg",
                 supports: "Energy & immune function",
                 whyRecommended: "Your quiz showed need for mental clarity and metabolic support. This extract provides sustained energy without jitters.",
@@ -511,7 +531,7 @@
             {
                 id: "SUP009",
                 name: "Vitamin B12",
-                imageUrl: "./images/Webp_pills_images/Vitamin_B12.webp",
+                imageUrl: "../images/Webp_pills_images/Vitamin_B12.webp",
                 dosage: "1000mcg",
                 supports: "Energy production & nervous system",
                 whyRecommended: "Your quiz showed low energy. B12 is essential for energy metabolism, especially critical for vegans and older athletes.",
@@ -523,7 +543,7 @@
             {
                 id: "SUP016",
                 name: "CoQ10",
-                imageUrl: "./images/Webp_pills_images/CoQ10.webp",
+                imageUrl: "../images/Webp_pills_images/CoQ10.webp",
                 dosage: "200mg",
                 supports: "Cellular energy & heart health",
                 whyRecommended: "Your quiz indicated you're 45+ with energy concerns. CoQ10 supports mitochondrial energy production.",
@@ -535,7 +555,7 @@
             {
                 id: "SUP019",
                 name: "Omega-3",
-                imageUrl: "./images/Webp_pills_images/Omega-3.webp",
+                imageUrl: "../images/Webp_pills_images/Omega-3.webp",
                 dosage: "2000mg",
                 supports: "Inflammation control & brain health",
                 whyRecommended: "Your quiz indicated inflammation and low fish intake. Omega-3s provide anti-inflammatory benefits for joints, heart, and brain.",
@@ -548,7 +568,7 @@
             {
                 id: "SUP021",
                 name: "Iron",
-                imageUrl: "./images/Webp_pills_images/Zinc.webp", // ⚠️ No Iron image provided → using placeholder (Zinc.webp)
+                imageUrl: "../images/Webp_pills_images/Zinc.webp", // ⚠️ No Iron image provided → using placeholder (Zinc.webp)
                 dosage: "45mg",
                 supports: "Energy & oxygen transport",
                 whyRecommended: "Your quiz indicated low energy and you're female/endurance athlete. Iron supports oxygen transport and energy production.",
@@ -560,7 +580,7 @@
             {
                 id: "SUP005",
                 name: "Elderberry",
-                imageUrl: "./images/Webp_pills_images/Elderberry.webp",
+                imageUrl: "../images/Webp_pills_images/Elderberry.webp",
                 dosage: "500mg",
                 supports: "Immune system function",
                 whyRecommended: "Your quiz indicated frequent illness or immune vulnerability. This provides powerful immune system support.",
@@ -572,7 +592,7 @@
             {
                 id: "SUP010",
                 name: "Vitamin C",
-                imageUrl: "./images/Webp_pills_images/Vitamin_C.webp",
+                imageUrl: "../images/Webp_pills_images/Vitamin_C.webp",
                 dosage: "1000mg",
                 supports: "Immune function & recovery",
                 whyRecommended: "Your quiz indicated immune support needs and heavy training load. This antioxidant supports immune function.",
@@ -584,7 +604,7 @@
             {
                 id: "SUP002",
                 name: "Cordyceps",
-                imageUrl: "./images/Webp_pills_images/Cordyceps.webp",
+                imageUrl: "../images/Webp_pills_images/Cordyceps.webp",
                 dosage: "500mg",
                 supports: "Energy & athletic performance",
                 whyRecommended: "Your quiz showed need for enhanced performance and energy. Cordyceps supports endurance and stamina.",
@@ -596,7 +616,7 @@
             {
                 id: "SUP017",
                 name: "NAC",
-                imageUrl: "./images/Webp_pills_images/NAC.webp",
+                imageUrl: "../images/Webp_pills_images/NAC.webp",
                 dosage: "1200mg",
                 supports: "Antioxidant defense & recovery",
                 whyRecommended: "Your quiz indicated heavy training load and oxidative stress. NAC supports glutathione production and respiratory health.",
@@ -992,9 +1012,9 @@
             const topProducts = selectTopProducts(scores);
 
             // Calculate price
-            const pricePerProduct = 14.99;
-            const total = (topProducts.length * pricePerProduct).toFixed(2);
-            document.getElementById('packTotal').textContent = '$' + total;
+            // const pricePerProduct = 14.99;
+            // const total = (topProducts.length * pricePerProduct).toFixed(2);
+            // document.getElementById('packTotal').textContent = '$' + total;
 
             // Render products
             const container = document.getElementById('productsContainer');
