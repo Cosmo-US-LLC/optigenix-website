@@ -345,7 +345,7 @@ const Footer = () => {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="font-['Funnel_Display'] !cursor-pointer w-full bg-[#0d8360] hover:bg-[#0c704d] active:bg-[#0a5c40] transition-all duration-200 text-white text-[14px] md:text-[16px] leading-[24px] px-[19px] py-[10px] rounded-full font-semibold"
+                  className="font-['Funnel_Display'] w-full bg-[#0d8360] hover:bg-[#0c704d] active:bg-[#0a5c40] transition-all duration-200 text-white text-[14px] md:text-[16px] leading-[24px] px-[19px] py-[10px] rounded-full font-semibold"
                 >
                   Subscribe Now
                 </button>

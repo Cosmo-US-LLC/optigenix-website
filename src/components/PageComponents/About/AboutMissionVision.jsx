@@ -45,13 +45,13 @@ const AboutMissionVision = () => {
           </div>
 
           {/* Sections */}
-          <div className="flex flex-col gap-[24px]">
+          <div className="flex flex-col md:gap-[24px] gap-[45px]">
             {sections.map((section, index) => (
               <div key={index} className="bg-[#010907] w-full">
                 <div className="flex flex-col lg:flex-row gap-[0px] md:gap-[48px] items-center w-full">
                   {/* Left - Image */}
-                  <div className="w-full lg:w-[600px] py-[16px] md:py-[48px]">
-                    <div className="relative h-[300px] md:h-[377px] w-full rounded-[8px] overflow-hidden">
+                  <div className="w-full lg:w-[575px] py-[16px] md:py-[48px]">
+                    <div className="relative h-[230px] md:h-[377px] w-full rounded-[8px] overflow-hidden">
                       <img src={section.image} alt={section.title} />
                     </div>
                   </div>
