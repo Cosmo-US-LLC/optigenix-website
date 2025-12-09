@@ -1,8 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import shopByFocusImage from "../../../assets/images/all_category/category_hero/category_hero_img1.webp";
-import personalizedSolutionsImage2 from "../../../assets/images/all_category/category_hero/category_hero_img2.webp";
+import personalizedSolutionsImage2 from "../../../assets/images/all_category/category_hero/category_hero_img3.webp";
 
 // Temporary image URLs from Figma - you'll need to replace these with your actual images
 // const shopByFocusImage =
@@ -10,15 +9,29 @@ import personalizedSolutionsImage2 from "../../../assets/images/all_category/cat
 
 const CategoryHero = () => {
   const navigate = useNavigate();
+
+  const handleExploreGoals = () => {
+    const target = document.getElementById("shop-your-focus");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const handleSeePersonalized = () => {
+    const target = document.getElementById("personalized-solutions");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
   return (
     <section className="bg-[#042b24] py-[60px] ">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8">
         <div className="flex flex-col gap-[40px]">
           {/* Header */}
           <div className="flex flex-col gap-[30px] items-center max-w-[1000px] mx-auto">
-            <h1 className="font-['Funnel_Display'] font-semibold text-[32px] md:text-[48px] leading-[40px] md:leading-[48px] text-[#f8fffd] text-center">
+            <h2 className="!text-[#f8fffd] text-center">
               Find the Right Path to Better Health
-            </h1>
+            </h2>
           </div>
 
           {/* Cards Grid */}
@@ -38,16 +51,16 @@ const CategoryHero = () => {
 
               {/* Content */}
               <div className="relative z-10 flex flex-col max-md:justify-end gap-[16px] max-md:min-h-[250px]">
-                <h2 className="capitalize font-['Funnel_Display'] font-bold md:!text-[32px] !leading-[40px] !text-white">
-                  Shop by Focus
-                </h2>
-                <Button
-                  variant="outline"
-                  className="w-fit bg-white text-[#010907] hover:bg-white/90 font-['Funnel_Display'] font-semibold text-[16px] px-[24px] py-[14px] rounded-full h-auto"
-                  onClick={() => console.log("Browse Categories")}
+                <p className="description !text-[#F8FFFD] max-w-[320px]">
+                  Find supplements designed to target your specific performance
+                  and wellness goals.
+                </p>
+                <button
+                  className="btn_secondary max-w-[160px] w-full"
+                  onClick={handleExploreGoals}
                 >
-                  Browse Categories
-                </Button>
+                  Explore Goals
+                </button>
               </div>
             </div>
 
@@ -57,44 +70,48 @@ const CategoryHero = () => {
               <div className="rounded-[16px] overflow-hidden relative min-h-[234px] flex flex-col justify-end px-[16px] py-[24px]">
                 {/* Background with multiple layers */}
                 <div className="absolute inset-0 pointer-events-none">
-                  <div className="overflow-hidden  absolute inset-0">
-                    <img src={personalizedSolutionsImage2} className="min-h-[234px] object-cover" alt="" />
+                  <div className="overflow-hidden absolute inset-0">
+                    <img
+                      src={personalizedSolutionsImage2}
+                      className="min-h-[234px] object-cover"
+                      alt=""
+                    />
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="relative z-10 flex flex-col gap-[16px] ">
-                  <h2 className="font-['Funnel_Display'] font-bold md:!text-[32px] !leading-[31px] !text-white max-w-[276px]">
-                    See Personalized Solutions
-                  </h2>
-                  <Button
-                    variant="outline"
-                    className="w-fit bg-white text-[#010907] hover:bg-white/90 font-['Funnel_Display'] font-semibold text-[16px] px-[24px] py-[14px] rounded-full h-auto"
-                    onClick={() => console.log("Browse Categories")}
+                  <h3 className="description !text-[#F8FFFD] max-w-[240px]">
+                    Get recommendations backed by your DNA and blood test.
+                  </h3>
+
+                  <button
+                    className="btn_secondary max-w-[260px] w-full"
+                    onClick={handleSeePersonalized}
                   >
-                    Browse Categories
-                  </Button>
+                    See Personalized Solutions
+                  </button>
                 </div>
               </div>
 
               {/* Bottom Right Card - Not sure where to start */}
               <div className="bg-[#2b7a6c] rounded-[16px] p-[24px] md:h-[175px] flex flex-col md:flex-row md:items-center items-start gap-[16px]">
                 <div className="flex-1 flex flex-col gap-[6px]">
-                  <h2 className="font-['Funnel_Display'] font-bold !text-[32px] !leading-[31px] !text-white max-w-[286px]">
+                  <h3 className="!text-[#fff] !font-[700] !leading-[31px] max-w-[286px]">
                     Not sure where to start?
-                  </h2>
+                  </h3>
                   <p className="font-['Inter'] font-normal text-[16px] leading-[22px] text-[#f8fffd] max-w-[344px]">
                     Get a quick suggestion and customize your routine in under a
                     minute.
                   </p>
                 </div>
-                <Button
-                  variant="outline"
-                  className="bg-[#f8fffd] text-[#042b24] hover:bg-[#f8fffd]/90 font-['Funnel_Display'] font-semibold text-[16px] capitalize px-[16px] py-[12px] rounded-full h-auto shrink-0"
+
+                <button
+                  className="btn_secondary max-w-[160px] w-full"
                   onClick={() => navigate("/quiz")}
                 >
                   Take the Quiz
-                </Button>
+                </button>
               </div>
             </div>
           </div>

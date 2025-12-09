@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
   Plus,
@@ -14,15 +15,21 @@ import dnaHelixImage from "../../../assets/images/all_category/personalized_solu
 import testTubeImage from "../../../assets/images/all_category/personalized_solutions/personalized_solutions_img2.webp";
 
 const PersonalizedSolutions = () => {
+  const navigate = useNavigate();
   const [isDNAModalOpen, setIsDNAModalOpen] = useState(false);
   const [isBloodModalOpen, setIsBloodModalOpen] = useState(false);
+
+  const handleDiscoverMore = () => navigate("/gene-test");
   return (
-    <section className="bg-white py-[80px] px-4 md:px-8">
+    <section
+      id="personalized-solutions"
+      className="bg-white py-[80px] px-4 md:px-8"
+    >
       <div className="max-w-[1280px] mx-auto px-0 md:px-8">
         <div className="flex flex-col gap-[30px] items-center w-full">
           {/* Header */}
           <div className="flex flex-col gap-[16px] items-center text-center">
-            <h2 className="capitalize font-['Funnel_Display'] font-semibold text-[32px] md:text-[48px] leading-[40px] md:leading-[48px] text-[#010907]">
+            <h2 className="capitalize text-[#010907]">
               Personalized Solutions
             </h2>
             <p className="font-['Inter'] font-normal text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-[#010907]">
@@ -34,7 +41,7 @@ const PersonalizedSolutions = () => {
           {/* Cards Grid */}
           <div className="flex flex-col lg:flex-row gap-[24px] w-full">
             {/* Card 1 - Your Body's User Manual */}
-            <div className="flex-1 rounded-[24px] overflow-hidden relative min-h-[590px] max-h-[590px] md:min-h-[479px] md:max-h-[479px] flex flex-col justify-end p-[16px] md:p-[24px]">
+            <div className="flex-1 rounded-[24px] overflow-hidden relative min-h-[590px] max-h-[590px] md:min-h-[499px] md:max-h-[499px] flex flex-col justify-end p-[16px] md:p-[24px]">
               {/* Background */}
               <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute inset-0 overflow-hidden rounded-[24px]">
@@ -60,9 +67,9 @@ const PersonalizedSolutions = () => {
                     } rounded-full p-[12px] w-[48px] h-[48px] mb-2 flex items-center justify-center hover:opacity-90 transition-all`}
                   >
                     {isDNAModalOpen ? (
-                      <X className="w-[24px] h-[24px] text-white" />
+                      <X className="w-[24px] h-[24px] text-white cursor-pointer" />
                     ) : (
-                      <Plus className="w-[24px] h-[24px] text-[#010907]" />
+                      <Plus className="w-[24px] cursor-pointer h-[24px] text-[#010907]" />
                     )}
                   </button>
                 </div>
@@ -72,7 +79,7 @@ const PersonalizedSolutions = () => {
                   <div className="bg-white rounded-[8px] min-h-[490px] md:min-h-[369px] max-h-[450px] md:max-h-[369px] p-[12px] md:p-[12px] w-full flex flex-col gap-[10px]">
                     <div className="flex flex-col gap-[10px]">
                       <h3 className="capitalize font-['Funnel_Display'] font-bold !text-[20px] md:!text-[32px] leading-[26px] md:leading-[40px] !text-[#0d8360]">
-                        Decode your Genetic Blueprint
+                        At-Home DNA Test
                       </h3>
                       <p className="font-['Inter'] font-normal text-[14px] leading-[22px] text-[#185348]">
                         A simple cheek swab reveals what makes you tick. We
@@ -102,12 +109,12 @@ const PersonalizedSolutions = () => {
                               />
                             </svg>
                           </div>
-                          <p className="font-['Inter'] font-bold text-[14px] leading-[22px] text-[#185348]">
+                          <p className="font-['Inter'] font-[700] text-[16px] leading-[22px] text-[#185348]">
                             Decode
                           </p>
                         </div>
                         <p className="font-['Inter'] font-normal text-[14px] leading-[22px] text-[#185348]">
-                          30+ genes and 50+ key variants to see your body's
+                          30+ genes and 50+ key variants to see your body’s
                           unique responses.
                         </p>
                       </div>
@@ -140,7 +147,7 @@ const PersonalizedSolutions = () => {
                               </defs>
                             </svg>
                           </div>
-                          <p className="font-['Inter'] font-bold text-[14px] leading-[22px] text-[#185348]">
+                          <p className="font-['Inter'] font-[700] text-[14px] leading-[22px] text-[#185348]">
                             Discover
                           </p>
                         </div>
@@ -178,7 +185,7 @@ const PersonalizedSolutions = () => {
                               </defs>
                             </svg>
                           </div>
-                          <p className="font-['Inter'] font-bold text-[14px] leading-[22px] text-[#185348]">
+                          <p className="font-['Inter'] font-[700] text-[14px] leading-[22px] text-[#185348]">
                             Get
                           </p>
                         </div>
@@ -190,9 +197,12 @@ const PersonalizedSolutions = () => {
                     </div>
 
                     {/* CTA Link */}
-                    <button className="flex gap-[10px] items-center group w-fit">
+                    <button
+                      className="flex gap-[10px] items-center group w-fit"
+                      onClick={handleDiscoverMore}
+                    >
                       <span className="font-['Funnel_Display'] font-semibold text-[16px] leading-[20px] text-[#0d8360] underline">
-                        Get My User Manual
+                        Discover More
                       </span>
                       <ArrowRight className="w-[20px] h-[20px] text-[#0d8360] group-hover:translate-x-1 transition-transform" />
                     </button>
@@ -200,24 +210,23 @@ const PersonalizedSolutions = () => {
                 ) : (
                   <div>
                     <h3 className="font-['Funnel_Display'] pb-2 md:pb-4 !text-white font-bold text-[20px] md:text-[26px] leading-[26px] md:leading-[40px]">
-                      Your Body's User Manual
+                      At-Home DNA Test
                     </h3>
                     <div className="flex flex-col md:flex-row gap-[16px] items-end justify-between">
                       <div className="flex flex-col gap-[16px] text-[#f8fffd] ">
-                        <p className="font-['Inter'] font-normal text-[14px] md:text-[16px] leading-[20px] md:leading-[22px]">
+                        <p className="font-['Inter'] max-w-[350px] font-normal text-[14px] md:text-[16px] leading-[20px] md:leading-[22px]">
                           Ever wish you came with instructions? Discover how
                           your body is wired to handle stress, food, and
                           exercise.
                         </p>
                       </div>
-                      <div className="flex justify-end">
-                        <Button
-                          variant="secondary"
-                          className="bg-[#0d8360] hover:bg-[#0a6b4f] text-white font-['Funnel_Display'] font-semibold text-[16px] px-[24px] py-[14px] rounded-full h-auto whitespace-nowrap"
-                          onClick={() => console.log("Get My User Manual")}
+                      <div className="flex justify-end w-full max-w-[160px]">
+                        <button
+                          className="w-full btn_primary"
+                          onClick={handleDiscoverMore}
                         >
-                          Get My User Manual
-                        </Button>
+                          Discover More
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -226,7 +235,7 @@ const PersonalizedSolutions = () => {
             </div>
 
             {/* Card 2 - Unlock Vital Health Markers */}
-            <div className="flex-1 rounded-[24px] overflow-hidden relative min-h-[590px] max-h-[590px] md:min-h-[479px] md:max-h-[479px] flex flex-col justify-end p-[24px]">
+            <div className="flex-1 rounded-[24px] overflow-hidden relative min-h-[590px] max-h-[590px] md:min-h-[499px] md:max-h-[499px] flex flex-col justify-end p-[24px]">
               {/* Background */}
               <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute inset-0 bg-[#dce3e4] rounded-[24px]" />
@@ -253,9 +262,9 @@ const PersonalizedSolutions = () => {
                     } rounded-full p-[12px] w-[48px] h-[48px] mb-2 flex  items-center justify-center hover:opacity-90 transition-all`}
                   >
                     {isBloodModalOpen ? (
-                      <X className="w-[24px] h-[24px] text-white" />
+                      <X className="w-[24px] h-[24px] text-white cursor-pointer" />
                     ) : (
-                      <Plus className="w-[24px] h-[24px] text-[#010907]" />
+                      <Plus className="w-[24px] h-[24px] text-[#010907] cursor-pointer" />
                     )}
                   </button>
                 </div>
@@ -266,14 +275,14 @@ const PersonalizedSolutions = () => {
                     <div className="!gap-[16px]">
                       <div className="flex flex-col gap-[12px]">
                         <h3 className="capitalize font-['Funnel_Display'] font-bold !text-[20px] md:!text-[32px] leading-[36px] md:leading-[40px] !text-[#0d8360]">
-                          Track Your Vital Stats
+                          Performance Blood Test
                         </h3>
                         <p className="font-['Inter'] font-normal text-[14px] leading-[22px] text-[#031a13]">
-                          Your DNA is your blueprint, but your blood is the live
-                          feed. We track key markers to see if your current
-                          routine is working or if you're running low on fuel.
-                          Get science-backed recommendations and expert guidance
-                          tailored to your health profile.
+                          Your DNA provides the blueprint, while your blood
+                          delivers real-time insights. By analyzing key
+                          biomarkers, we assess how your current routine is
+                          affecting your health and offer evidence-based,
+                          personalized recommendations.
                         </p>
                       </div>
 
@@ -313,12 +322,12 @@ const PersonalizedSolutions = () => {
                               />
                             </svg>
                           </div>
-                          <p className="font-['Inter'] font-normal text-[14px] md:text-[16px] leading-[24px] text-[#031a13]">
+                          <p className="font-['Inter'] text-[14px] font-[700] md:text-[16px] leading-[22px] text-[#185348]">
                             Comprehensive Health Scan
                           </p>
                         </div>
 
-                        <div className="flex gap-[12px] items-center">
+                        {/* <div className="flex gap-[12px] items-center">
                           <div>
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -402,7 +411,7 @@ const PersonalizedSolutions = () => {
                           <p className="font-['Inter'] font-normal text-[14px] md:text-[16px] leading-[24px] text-[#031a13]">
                             105+ Biomarkers Tracked
                           </p>
-                        </div>
+                        </div> */}
 
                         <div className="flex gap-[12px] items-center">
                           <div className="">
@@ -419,7 +428,7 @@ const PersonalizedSolutions = () => {
                               />
                             </svg>
                           </div>
-                          <p className="font-['Inter'] font-normal text-[14px] md:text-[16px] leading-[24px] text-[#031a13]">
+                          <p className="font-['Inter'] text-[#185348] font-[700] text-[14px] md:text-[16px] leading-[24px]">
                             Done at Home
                           </p>
                         </div>
@@ -428,8 +437,8 @@ const PersonalizedSolutions = () => {
 
                     {/* CTA Link */}
                     <button className="flex gap-[10px] items-center group w-fit">
-                      <span className="font-['Funnel_Display'] font-semibold text-[16px] leading-[20px] text-[#0d8360] underline">
-                        Check My Stats
+                      <span className="font-['Funnel_Display'] font-semibold underline text-[16px] leading-[20px] text-[#0d8360] underline">
+                        Join Waitlist
                       </span>
                       <ArrowRight className="w-[20px] h-[20px] text-[#0d8360] group-hover:translate-x-1 transition-transform" />
                     </button>
@@ -437,23 +446,19 @@ const PersonalizedSolutions = () => {
                 ) : (
                   <div>
                     <h3 className="capitalize font-['Funnel_Display'] !text-white pb-2 md:pb-4 font-bold !text-[20px] md:!text-[32px] leading-[26px] md:leading-[40px]">
-                      Unlock vital health markers
+                      Performance Blood Test
                     </h3>
                     <div className="flex flex-col md:flex-row gap-[16px] items-end justify-between">
                       <div className="flex-1 flex flex-col gap-[16px] text-[#f8fffd]">
-                        <p className="font-['Inter'] font-normal text-[14px] md:text-[16px] leading-[20px] md:leading-[22px]">
-                          Take a Gene Test and see what your DNA needs to push
-                          you to the next level
+                        <p className="font-['Inter'] max-w-[300px] font-normal text-[14px] md:text-[16px] leading-[20px] md:leading-[22px]">
+                          Take a blood test to understand exactly what your
+                          biology needs to perform at the next level.
                         </p>
                       </div>
-                      <div className="flex justify-end shrink-0">
-                        <Button
-                          variant="secondary"
-                          className="bg-[#0d8360] hover:bg-[#0a6b4f] text-white font-['Funnel_Display'] font-semibold text-[16px] px-[24px] py-[14px] rounded-full h-auto whitespace-nowrap"
-                          onClick={() => console.log("Check My Stats")}
-                        >
-                          Check My Stats
-                        </Button>
+                      <div className="flex justify-end shrink-0 max-w-[200px]">
+                        <button className="w-full btn_primary">
+                          Join Waitlist
+                        </button>
                       </div>
                     </div>
                   </div>

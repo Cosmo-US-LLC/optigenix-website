@@ -1,5 +1,5 @@
 import React from "react";
-import meetOurExpertImage from "../../../assets/images/all_category/meet_out_expert/meet_out_expert_img.webp";
+import meetOurExpertImage from "../../../assets/images/all_category/meet_out_expert/meet_out_expert_img2.webp";
 
 const MeetOurExpert = () => {
   return (
@@ -31,10 +31,10 @@ const MeetOurExpert = () => {
                 <h2 className="capitalize font-['Funnel_Display'] font-bold text-[32px] md:text-[48px] leading-[40px] md:leading-[56px]">
                   Meet Our Expert
                 </h2>
-                <p className="font-['Inter'] font-normal text-[16px] leading-[24px]">
+                <p className="description !text-[##010907]">
                   Curious why personalized supplementation works?
                 </p>
-                <p className="font-['Inter'] font-normal text-[16px] leading-[24px]">
+                <p className="description !text-[##010907]">
                   Laura Hix Glickman, Ph.D., Chief Strategic and Scientific
                   Advisor at OptiGenix, combines her expertise as a five-time
                   biotech founder and top-five ranked female Series A
@@ -47,10 +47,10 @@ const MeetOurExpert = () => {
 
             {/* Bottom - Expert Credentials */}
             <div className="flex flex-col gap-[8px]">
-              <p className="font-['Inter'] font-medium text-[16px] leading-[24px] text-[#010907]">
+              <p className="description !font-[500] !text-[#010907]">
                 Laura Hix Glickman, Ph.D.
               </p>
-              <p className="font-['Inter'] font-light text-[16px] leading-[24px] text-[#010907]">
+              <p className=" description !text-[#010907]">
                 Chief Strategic and Scientific Advisor at OptiGenix
               </p>
             </div>

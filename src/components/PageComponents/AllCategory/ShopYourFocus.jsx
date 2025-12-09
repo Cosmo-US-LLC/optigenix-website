@@ -8,14 +8,14 @@ const categories = [
   {
     title: "Mental\nPerformance",
     description:
-      "Enhance focus, clarity, and cognitive function with supplements carefully formulated to support your mind and mental agility.",
+      "Enhance focus, clarity, and cognitive function with supplements carefully formulated to support mental agility.",
     image: mentalPerformanceImage,
     imagePosition: "top-[-17.75%] left-[-2.99%] w-[105.99%] h-[140.5%]",
   },
   {
     title: "Physical\nPerformance",
     description:
-      "Elevate strength, endurance, and overall athletic potential with targeted supplements crafted to fuel your body's performance goals.",
+      "Elevate strength, endurance, and overall athletic potential with targeted supplements crafted to fuel your body’s performance goals.",
     image: physicalPerformanceImage,
     imagePosition: "top-[-10.13%] left-[-59.2%] w-[203.77%] h-[120.27%]",
   },
@@ -30,17 +30,15 @@ const categories = [
 
 const ShopYourFocus = () => {
   return (
-    <section className="bg-white md:py-[80px]">
+    <section id="shop-your-focus" className="bg-white md:py-[80px]">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8">
         <div className="flex flex-col gap-[30px] items-center">
           {/* Header */}
-          <div className="flex flex-col gap-[16px] items-center text-center max-w-[832px]">
-            <h2 className="capitalize font-['Funnel_Display'] font-semibold text-[32px] md:text-[48px] leading-[40px] md:leading-[48px] text-[#010907]">
-              Shop Your Focus
-            </h2>
+          <div className="flex flex-col gap-[16px] items-center text-center max-w-[812px]">
+            <h2 className="capitalize !text-[#010907]">Shop Your Goal</h2>
             <p className="font-['Inter'] font-normal text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-[#010907]">
               Explore expertly formulated, clinically proven supplements
-              designed to support your body's unique needs and health goals
+              designed to support your body's unique needs and health goals.
             </p>
           </div>
 
@@ -65,25 +63,17 @@ const ShopYourFocus = () => {
                 {/* Content */}
                 <div className="relative z-10 flex flex-col gap-[20px] w-full">
                   <div className="flex flex-col gap-[8px] text-white">
-                    <h3 className="font-['Funnel_Display'] font-medium !text-[24px] !text-white !leading-[133.333%] whitespace-pre-line">
+                    <h4 className="whitespace-pre-line !leading-[30px]">
                       {category.title}
-                    </h3>
-                    <p className="font-['Inter'] font-normal text-[14px] leading-[22px]">
+                    </h4>
+                    <p className="font-['Inter'] font-[400] text-[14px] leading-[22px]">
                       {category.description}
                     </p>
                   </div>
 
-                  <Button
-                    variant="outline"
-                    className="w-full bg-white text-[#010907] hover:bg-white/90 font-['Funnel_Display'] font-semibold text-[16px] px-[24px] py-[14px] rounded-full h-auto"
-                    onClick={() =>
-                      console.log(
-                        `View ${category.title.replace("\n", " ")} Products`
-                      )
-                    }
-                  >
+                  <button className="w-full btn_secondary">
                     View Products
-                  </Button>
+                  </button>
                 </div>
               </div>
             ))}
