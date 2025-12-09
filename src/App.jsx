@@ -10,6 +10,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import "./App.css";
 import Athletes from "./pages/Athletes";
 import SingleTest from "./pages/SingleTest";
+import QuizSecond from "./pages/QuizSecond";
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/about-us" element={<About />} />
-          <Route path="/quiz" element={<Quiz />} />
+          <Route path="/quiz" element={<QuizSecond />} />
+          {/* <Route path="/quiz" element={<Quiz />} /> */}
           <Route path="/all-category" element={<AllCategory />} />
           <Route path="/athletes" element={<Athletes />} />
           <Route path="/gene-test" element={<SingleTest />} />
