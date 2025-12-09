@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import icon1 from "../../../assets/images/performance_blood_test/icon1.svg";
@@ -10,18 +11,20 @@ import dnaTest from "../../../assets/images/performance_blood_test/dna_img1.webp
 import bloodTest from "../../../assets/images/performance_blood_test/tube_img1.webp";
 
 const PersonalizedTests = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="bg-white py-[80px] ">
       <div className="max-w-[1440px] mx-auto">
         {/* Section Header */}
         <div className="text-center mb-[48px] w-full md:max-w-[800px] mx-auto ">
-          <h2 className="text-[#042b24] mb-[15px] px-4 !text-[30px] md:!text-[48px] !leading-[30px] md:!leading-[56px]">
-            Looking for a More Personalized Supplement Approach?
+          <h2 className="!text-[#010907] mb-[15px] px-4 ">
+            Take a Personalized Approach to Supplementation
           </h2>
           <p className="description text-[#010907] mb-[15px] px-4">
             Discover exactly what your body needs with our DNA and Performance
-            Blood analysis. These comprehensive tests are designed to create
-            your fully personalized supplement plan.
+            Blood tests. These comprehensive tests are designed to create your
+            fully personalized supplement plan.
           </p>
           <p className="font-['Funnel_Display'] font-bold text-[20px] md:text-[24px] leading-[28px] md:leading-[32px] text-[#0d8360]">
             Choose how to get started.
@@ -42,8 +45,8 @@ const PersonalizedTests = () => {
                     </h2>
                   </div>
                   <p className="text-black description">
-                    Discover your body's unique genetic profile for performance,
-                    recovery, and nutrition. Our at-home DNA test uses a simple
+                    Discover your body’s unique genetic profile for performance,
+                    recovery, and nutrition. Our at-home Gene Test uses a simple
                     cheek swab to reveal how your body responds to training,
                     diet, and supplementation.
                   </p>
@@ -72,14 +75,12 @@ const PersonalizedTests = () => {
               </div>
 
               {/* CTA Button */}
-              <Button
-                variant="primary"
-                size="md"
-                className="w-fit"
-                onClick={() => console.log("Explore DNA Test")}
+              <button
+                className="w-fit btn_primary"
+                onClick={() => navigate("/gene-test")}
               >
-                Shop Now
-              </Button>
+                Explore
+              </button>
             </div>
 
             {/* Right Graphics */}
@@ -225,14 +226,12 @@ const PersonalizedTests = () => {
               </div>
 
               {/* CTA Button */}
-              <Button
-                variant="primary"
-                size="md"
-                className="w-fit"
+              <button
+                className="w-fit btn_primary"
                 onClick={() => console.log("Explore Blood Test")}
               >
-                Shop Now
-              </Button>
+                Join Waitlist
+              </button>
             </div>
           </div>
         </div>
