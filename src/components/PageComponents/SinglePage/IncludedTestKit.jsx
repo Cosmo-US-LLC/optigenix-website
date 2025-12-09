@@ -16,30 +16,30 @@ const items = [
   {
     title: "Instructions Guide",
     desc: "Step-by-step directions to ensure your sample is collected correctly.",
-    icon: instructionsGuideImage,
+    icon: safetyBiohazardBagImage,
     accent: false,
   },
   {
     title: "Barcode / ID Label",
-    desc: "Unique identifier linking your sample to your account for secure tracking.",
-    icon: barcodeIdLabelImage,
+    desc: "Unique identifier linking your sample to your account.",
+    icon: prepaidReturnEnvelopeImage,
     accent: true,
   },
   {
     title: "Prepaid Return Envelope",
     desc: "Convenient, pre-addressed packaging to send your sample back to the lab.",
-    icon: prepaidReturnEnvelopeImage,
+    icon: barcodeIdLabelImage,
     accent: false,
   },
   {
     title: "Safety / Biohazard Bag",
     desc: "Keeps your sample protected during shipping.",
-    icon: safetyBiohazardBagImage,
+    icon: instructionsGuideImage,
     accent: false,
   },
   {
     title: "Online Kit Registration",
-    desc: "Quick registration to access your results online once your sample is processed.",
+    desc: "Quick registration to access results online once processed.",
     icon: collectionSwabImage,
     accent: false,
   },
@@ -49,9 +49,9 @@ const IncludedTestKit = () => {
   return (
     <section className="py-12 bg-white md:py-20">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8">
-        <div className="flex flex-col gap-2 items-center mb-10 text-center md:mb-12">
+        <div className="flex flex-col gap-5 items-center mb-10 text-center md:mb-8">
           <h2 className="text-[#010907] ">What’s Included In Your Test Kit</h2>
-          <p className=" description text-[#010907]">
+          <p className=" description !text-[#010907]">
             Everything you need to unlock your genetic insights
           </p>
         </div>
@@ -74,9 +74,7 @@ const IncludedTestKit = () => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <h5 className="font-['Funnel_Display'] font-bold text-[18px] md:text-[20px] leading-[24px] text-[#010907]">
-                  {item.title}
-                </h5>
+                <h5 className=" !text-[#010907] !font-[700]">{item.title}</h5>
                 <p className="description !text-[#02110e]">{item.desc}</p>
               </div>
             </div>

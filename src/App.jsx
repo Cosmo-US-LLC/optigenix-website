@@ -18,11 +18,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about-us" element={<About />} />
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/all-category" element={<AllCategory />} />
           <Route path="/athletes" element={<Athletes />} />
-          <Route path="/single-test" element={<SingleTest />} />
+          <Route path="/gene-test" element={<SingleTest />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
         </Route>

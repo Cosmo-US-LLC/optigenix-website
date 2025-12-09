@@ -47,17 +47,17 @@ const steps = [
   },
   {
     title: "Constant Lab Analysis",
-    desc: "Our lab analyzes key SNPs and polygenic markers linked to your performance, nutrition, and recovery.",
+    desc: "Our lab analyzes key SNPs and polygenic markers linked to performance, nutrition, and recovery.",
     icon: CustomTestTubeIcon,
   },
   {
     title: "Receive Your Report",
-    desc: "A detailed, easy-to-understand report explaining actionable steps based on your unique genetics.",
+    desc: "Get a detailed, easy-to-understand report explaining actionable steps based on your unique genetics.",
     icon: CustomTestTubeIcon,
   },
   {
     title: "Personalized 1:1 Nutrition Review",
-    desc: "Take a one-on-one session with our certified nutrition expert to review your results and get tailored guidance.",
+    desc: "Meet one-on-one with a certified nutrition expert to review your results and receive tailored guidance.",
     icon: CustomTestTubeIcon,
   },
 ];
@@ -71,10 +71,9 @@ const SingleTestHowItsWork = () => {
           <div className="flex flex-col gap-4">
             <h2 className="text-[#252525]  ">How It Works</h2>
             <p className="font-['Inter'] text-[16px] leading-[26px] md:text-[16px] md:leading-[29px] text-black max-w-[520px] ">
-              Get clarity on your body's unique needs with advanced genetic and
-              nutrition insights. This test empowers you to optimize your
-              performance, improve your health, and prevent issues before they
-              start. Follow these simple steps to get started
+              Get clarity on your body’s unique needs with advanced genetic
+              insights. Optimize performance, improve health, and prevent issues
+              before they start.
             </p>
           </div>
           <button className="bg-[#0d8360] text-white rounded-full px-6 py-3 font-['Funnel_Display'] font-semibold text-[16px] leading-[24px] w-fit">
@@ -93,10 +92,10 @@ const SingleTestHowItsWork = () => {
                 <step.icon className="w-6 h-6 text-black transition-colors duration-200 group-hover:text-white" />
               </div>
               <div className="flex flex-col gap-2">
-                <h5 className="text-black transition-colors duration-200 group-hover:!text-white">
+                <h5 className="!text-[#000] transition-colors duration-200 group-hover:!text-white">
                   {step.title}
                 </h5>
-                <p className="text-black transition-colors duration-200 description group-hover:!text-white">
+                <p className="!text-[#000] transition-colors duration-200 description group-hover:!text-white">
                   {step.desc}
                 </p>
               </div>

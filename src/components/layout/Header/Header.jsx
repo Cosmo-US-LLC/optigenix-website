@@ -28,8 +28,7 @@ const Header = () => {
   return (
     <header
       className={`sticky top-0 z-50 bg-white ${
-        isQuizPage ? "rounded-bl-[24px] rounded-br-[24px]" : ""
-      }`}
+        isQuizPage ? "rounded-bl-[24px] rounded-br-[24px]" : ""}`}
     >
       {/* Discover Menu */}
       <DiscoverMenu
@@ -86,17 +85,17 @@ const Header = () => {
             {/* Navigation Links */}
             <div className="flex items-center gap-[32px]">
               <Link
-                to="/about"
+                to="/about-us"
                 className="font-['Funnel_Display'] text-[16px] text-black capitalize leading-normal hover:text-[#0d8360] transition-colors"
               >
-                About
+                About us
               </Link>
               {/* Products with Dropdown */}
-              <div className="flex items-center gap-[5px] cursor-pointer group">
+              {/* <div className="flex items-center gap-[5px] cursor-pointer group">
                 <span className="font-['Funnel_Display'] text-[16px] text-black capitalize leading-normal group-hover:text-[#0d8360] transition-colors">
                   Science
                 </span>
-                {/* <svg
+                <svg
                   width="8"
                   height="4"
                   viewBox="0 0 8 4"
@@ -104,8 +103,8 @@ const Header = () => {
                   className="text-black group-hover:text-[#0d8360] transition-colors"
                 >
                   <path d="M4 4L0 0H8L4 4Z" />
-                </svg> */}
-              </div>
+                </svg>
+              </div> */}
 
               {/* About Us */}
               <Link
@@ -160,8 +159,7 @@ const Header = () => {
       {/* Mobile Navigation */}
       <nav
         className={`px-4 py-3 bg-white md:hidden ${
-          isQuizPage ? "rounded-bl-[24px] rounded-br-[24px]" : ""
-        }`}
+          isQuizPage ? "rounded-bl-[24px] rounded-br-[24px]" : ""}`}
       >
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -261,19 +259,19 @@ const Header = () => {
               </SheetHeader>
               <div className="flex flex-col gap-6 mt-8">
                 <Link
-                  to="/about"
+                  to="/about-us"
                   onClick={() => setMobileMenuOpen(false)}
                   className="font-['Funnel_Display'] text-[16px] text-black capitalize leading-normal hover:text-[#0d8360] transition-colors"
                 >
-                  About
+                  About us
                 </Link>
                 {/* Navigation Links */}
-                <div
+                {/* <div
                   className="font-['Funnel_Display'] text-[18px] text-black capitalize hover:text-[#0d8360] transition-colors cursor-pointer"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Science
-                </div>
+                </div> */}
                 <Link
                   to="/athletes"
                   className="font-['Funnel_Display'] text-[18px] text-black capitalize hover:text-[#0d8360] transition-colors"

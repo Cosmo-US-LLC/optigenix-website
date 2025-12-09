@@ -131,6 +131,11 @@ const Footer = () => {
                       </Link>
                     </li>
                     <li>
+                      <Link to="gene-test" className="quick-links">
+                        Gene Test
+                      </Link>
+                    </li>
+                    {/* <li>
                       <Link to="#" className="quick-links">
                         Products
                       </Link>
@@ -139,7 +144,7 @@ const Footer = () => {
                       <Link to="#" className="quick-links">
                         Blogs
                       </Link>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
 
@@ -156,14 +161,14 @@ const Footer = () => {
                         Our Story
                       </button>
                     </li>
-                    <li>
+                    {/* <li>
                       <Link to="#" className="quick-links">
                         Shop
                       </Link>
-                    </li>
+                    </li> */}
                     <li>
-                      <Link to="/about" className="quick-links">
-                        About
+                      <Link to="/about-us" className="quick-links">
+                        About Us
                       </Link>
                     </li>
                     <li>

@@ -13,7 +13,7 @@ function SingleTest() {
   return (
     <>
       <SingleTestHero />
-      <GeneTest />
+      {/* <GeneTest /> */}
       <Biomarker />
       <StartDNATest />
       <SingleTestHowItsWork />

@@ -63,16 +63,14 @@ const BenefitsYouGet = () => {
     Autoplay({
       delay: 3000,
       stopOnInteraction: false,
-      stopOnMouseEnter: true,
+      stopOnMouseEnter: false,
     })
   );
 
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-[#ffffff]">
-      <div className="max-w-[1280px] mx-auto px-4 md:px-6 lg:px-8 flex flex-col gap-8">
-        <h2 className="text-center text-[#010907] text-[28px] md:text-[36px] font-semibold font-['Funnel_Display']">
-          Benefits You’ll Get
-        </h2>
+      <div className="max-w-[1340px] mx-auto px-4 md:px-6 lg:px-8 flex flex-col gap-8">
+        <h2 className="text-center text-[#010907]">Benefits You’ll Get</h2>
 
         <div className="relative">
           <Carousel
@@ -86,7 +84,7 @@ const BenefitsYouGet = () => {
                   key={card.title}
                   className="sm:basis-1/2 lg:basis-1/4"
                 >
-                  <div className="relative overflow-hidden rounded-[20px] bg-[#0f2c27] h-[320px] sm:h-[360px] lg:h-[360px] flex items-end">
+                  <div className="relative overflow-hidden rounded-[20px] bg-[#0f2c27]  h-[320px] sm:h-[360px] lg:h-[360px] flex items-end">
                     <img
                       src={card.image}
                       alt={card.title}
@@ -98,7 +96,7 @@ const BenefitsYouGet = () => {
                       <h3 className="!text-[#ffffff] !text-[24px] capitalize">
                         {card.title}
                       </h3>
-                      <p className=" description !text-[#ffffff] ">
+                      <p className=" description !text-[#ffffff] !text-[14px] !font-[400] h-[50px]">
                         {card.description}
                       </p>
                     </div>

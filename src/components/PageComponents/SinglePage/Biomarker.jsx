@@ -8,10 +8,15 @@ import {
 } from "@/components/ui/carousel";
 
 import iconImage from "@/assets/images/single_test/bio/bio_icon.svg";
-import bioImage1 from "@/assets/images/single_test/bio/bio_img1.webp";
-import bioImage2 from "@/assets/images/single_test/bio/bio_img2.webp";
-import bioImage3 from "@/assets/images/single_test/bio/bio_img3.webp";
-import bioImage4 from "@/assets/images/single_test/bio/bio_img4.webp";
+import bioImage1 from "@/assets/images/single_test/bio/bio_img10.webp";
+import bioImage2 from "@/assets/images/single_test/bio/bio_img11.webp";
+import bioImage3 from "@/assets/images/single_test/bio/bio_img12.webp";
+import bioImage4 from "@/assets/images/single_test/bio/bio_img13.webp";
+import bioImage5 from "@/assets/images/single_test/bio/bio_img14.webp";
+import bioImage6 from "@/assets/images/single_test/bio/bio_img15.webp";
+import bioImage7 from "@/assets/images/single_test/bio/bio_img16.webp";
+import bioImage8 from "@/assets/images/single_test/bio/bio_img17.webp";
+import bioImage9 from "@/assets/images/single_test/bio/bio_img18.webp";
 
 const Biomarker = () => {
   const plugin = React.useRef(
@@ -59,21 +64,21 @@ const Biomarker = () => {
         "Strength potential",
         "Fast-twitch vs slow-twitch",
       ],
-      bgColor: "rgba(255,132,132,0.16)",
+      bgColor: "#FF848429",
       image: bioImage1,
       imageFlipped: true,
     },
     {
       id: 2,
       title: "Recovery & Injury Risk",
-      description: "Understand your body's resilience and recovery needs.",
+      description: "Understand your body’s resilience and recovery needs.",
       categories: [
         "Tissue robustness",
         "Inflammation response",
         "Recovery efficiency",
         "Muscle damage susceptibility",
       ],
-      bgColor: "rgba(19, 111, 203, 0.1)",
+      bgColor: "#136FCB1A",
       image: bioImage2,
     },
     {
@@ -86,21 +91,84 @@ const Biomarker = () => {
         "Choline",
         "Omega-3 & Omega-6 Fatty Acids",
       ],
-      bgColor: "rgba(254, 241, 91, 0.1)",
+      bgColor: "#FEF15B1A",
       image: bioImage3,
     },
     {
       id: 4,
       title: "Metabolism & Body Composition",
-      description: "Insights to optimize energy use and body composition.",
+      description: "Optimize energy use and body composition.",
       categories: [
         "Fat metabolism",
         "Energy efficiency",
         "Weight tendencies",
         "Omega-3 & Omega-6 Fatty Acids",
       ],
-      bgColor: "rgba(66, 255, 76, 0.1)",
+      bgColor: "#42FF4C1A",
       image: bioImage4,
+    },
+    {
+      id: 5,
+      title: "Cognition & Stress Response:",
+      description: "Improve focus, learning, and mental resilience.",
+      categories: [
+        "Focus & concentration",
+        "Learning efficiency",
+        "Mental performance",
+        "Stress tolerance",
+      ],
+      bgColor: "#FFFEEF",
+      image: bioImage5,
+    },
+    {
+      id: 6,
+      title: "Rhythm & Adaptation",
+      description: "Train and recover at your body’s natural peak times.",
+      categories: [
+        "Chronotype",
+        "Sleep-wake timing",
+        "Mental performance",
+        "Optimal training windows",
+      ],
+      bgColor: "#E8F1FA",
+      image: bioImage6,
+    },
+    {
+      id: 7,
+      title: "Substance Metabolism",
+      description:
+        "Learn how your body handles alcohol, caffeine, and supplements.",
+      categories: [
+        "Alcohol metabolism",
+        "Caffeine response",
+        "Ergogenic response",
+      ],
+      bgColor: "#A32E161A",
+      image: bioImage7,
+    },
+    {
+      id: 8,
+      title: "Bone & Structural Health",
+      description: "Support stronger bones, ligaments, and connective tissue.",
+      categories: [
+        "Bone density",
+        "Connective tissue strength",
+        "Ligament resilience",
+      ],
+      bgColor: "#42FF4C1A",
+      image: bioImage8,
+    },
+    {
+      id: 9,
+      title: "Longevity & Cellular Health",
+      description: "Promote long-term cellular resilience and healthy aging.",
+      categories: [
+        "DNA repair efficiency",
+        "Cellular Stress Resistance",
+        "Longevity Potential",
+      ],
+      bgColor: "#E8F1FA",
+      image: bioImage9,
     },
   ];
 
@@ -110,8 +178,14 @@ const Biomarker = () => {
         {/* Header */}
         <div className="flex flex-col gap-5 items-center mb-10 text-center md:mb-12">
           <h2 className="text-[#042b24] tracking-[-0.72px]">
-            Precision Insights from Every Biomarker
+            Discover What Your DNA Reveals
           </h2>
+          <p className="description max-w-[750px]">
+            {" "}
+            Our comprehensive Gene Test analyzes 30+ genes and 50+ SNPs across 9
+            functional categories, giving you actionable insights to optimize
+            training, recovery, nutrition, and overall performance.{" "}
+          </p>
         </div>
 
         {/* Carousel */}
@@ -122,8 +196,8 @@ const Biomarker = () => {
             align: "start",
             loop: true,
           }}
-          onMouseEnter={() => plugin.current.stop()}
-          onMouseLeave={() => plugin.current.play()}
+          // onMouseEnter={() => plugin.current.stop()}
+          // onMouseLeave={() => plugin.current.play()}
           className="w-full"
         >
           <CarouselContent className="-ml-4 md:-ml-6">
@@ -156,7 +230,7 @@ const Biomarker = () => {
                     </div>
 
                     {/* Divider */}
-                    <div className="h-[1.5px] w-full bg-transparent" />
+                    <div className="h-[1.5px] max-w-[520px] w-full bg-gradient-to-r from-transparent via-[#99999999] to-transparent" />
 
                     {/* Category Tags */}
                     <div className="flex flex-wrap gap-3">

@@ -14,7 +14,7 @@ const StartDNATest = () => {
             <img
               src={bgImage}
               alt="DNA background"
-              className="absolute w-[120%] h-[160%] left-[-10%] top-[-30%] max-w-none object-cover"
+              // className="absolute w-[120%] h-[160%] left-[-10%] top-[-30%] max-w-none object-cover"
               loading="lazy"
             />
           </div>
@@ -22,7 +22,7 @@ const StartDNATest = () => {
           {/* Content */}
           <div className="flex relative flex-col gap-4 items-center px-6 py-10 text-center md:gap-5 md:py-14 md:px-12">
             <div className="bg-[#FFFFFF05] backdrop-blur-sm border border-white/30 rounded-[24px] p-6 md:p-10 flex flex-col gap-4 items-center">
-              <h2 className="!text-[#ffffff]">Start Your DNA Test Today</h2>
+              <h2 className="!text-[#ffffff]">Get Your DNA Test Kit</h2>
               <div className="flex flex-col gap-1 items-center">
                 <div className="text-[#0d8360] text-[48px] md:text-[68px] leading-[56px] md:leading-[72px] font-['Funnel_Display'] font-semibold">
                   $200
@@ -43,9 +43,9 @@ const StartDNATest = () => {
                 Order Your Test
               </button>
 
-              <p className="!text-[#ffffff] description   max-w-[520px]">
-                Results are based on your DNA, giving personalized insights to
-                guide decisions in training, nutrition, and lifestyle.
+              <p className="!text-[#ffffff] description  !text-[14px] max-w-[520px]">
+                Your results will provide personalized insights to guide your
+                training, nutrition, and overall wellness.
               </p>
             </div>
           </div>

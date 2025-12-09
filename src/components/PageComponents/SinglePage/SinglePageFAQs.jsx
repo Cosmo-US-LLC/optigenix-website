@@ -9,19 +9,34 @@ import {
 
 const faqs = [
   {
-    question: "How does OptiGenix work?",
+    question: "How long does it take to get my gene test results?",
     answer:
-      "OptiGenix combines advanced Gene and blood testing with personalized supplement formulations. We analyze your unique genetic markers and current biomarker levels to create a customized nutrition plan tailored specifically to your body's needs, goals, and lifestyle.",
+      "Once your sample reaches our lab, processing typically takes 3–4 weeks. You’ll receive a detailed, personalized report online as soon as your results are ready.",
   },
   {
-    question: "Is OptiGenix only for athletes?",
+    question: "Is this gene test safe and private?",
     answer:
-      "Not at all! While athletes love our personalized approach, OptiGenix is designed for anyone looking to optimize their health and wellness. Whether you're a busy professional, fitness enthusiast, or simply focused on healthy aging, our personalized supplements work for you.",
+      "Absolutely. Your genetic information is encrypted, anonymized, and never shared or sold. We follow HIPAA-compliant standards, and you have full control over your data — you can download or remove it at any time.",
   },
   {
-    question: "Why choose OptiGenix?",
+    question: "What exactly does this test analyze?",
     answer:
-      "Unlike generic supplements, OptiGenix is built on science-backed personalization. Our Gene and blood analysis ensures you get exactly what your body needs - no more, no less. Plus, our supplements are third-party tested, and backed by expert support to help you achieve your health goals.",
+      "Our test examines key genes and SNPs across 9 functional categories, including: muscle performance, recovery, nutrition, metabolism, bone health, cognition, substance metabolism, circadian rhythm, and cellular health. It provides personalized, actionable insights.",
+  },
+  {
+    question: "How is this different from other gene or health tests?",
+    answer:
+      "OUnlike generic fitness or ancestry tests, this test decodes genetic factors that directly affect your performance, recovery, and nutrient absorption. You get science-backed guidance you can act on in your training routine.",
+  },
+  {
+    question: "Can this test help me improve my training or nutrition?",
+    answer:
+      "Yes! Understanding your genetic predispositions allows you to train smarter, recover faster, and optimize your nutrition and supplementation for your body’s unique biology. Your report includes clear, actionable recommendations.",
+  },
+  {
+    question: "Can I share my gene test results with my healthcare provider?",
+    answer:
+      "Absolutely! You can download your personalized report and share it with your doctor, nutritionist, or any healthcare professional to get tailored guidance based on your genetic insights.",
   },
 ];
 
