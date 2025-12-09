@@ -1,53 +1,60 @@
 import React from "react";
-import { MoveLeft, MoveRight } from "lucide-react";
+import { MoveLeft, MoveRight, Linkedin, Twitter } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import gabrielAbbes from "../../../assets/images/team/meet_team_img1.webp";
-import jaiWilliams from "../../../assets/images/team/meet_team_img2.webp";
-import lauraHixGlickman from "../../../assets/images/team/meet_team_img3.webp";
-import alec_headshot from "../../../assets/images/team/alec_headshot.webp";
-import cecelia_headshot from "../../../assets/images/team/cecelia_headshot.webp";
-import kai_headshot from "../../../assets/images/team/kai_headshot.webp";
+import teamImage1 from "../../../assets/images/team/meet_team_img6.webp";
+import teamImage2 from "../../../assets/images/team/meet_team_img7.webp";
+import teamImage3 from "../../../assets/images/team/meet_team_img8.webp";
+import teamImage4 from "../../../assets/images/team/meet_team_img9.webp";
+import teamImage5 from "../../../assets/images/team/meet_team_img10.webp";
+import teamImage6 from "../../../assets/images/team/meet_team_img11.webp";
 
 const teamMembers = [
   {
     name: "Gabriel Abbes",
     role: "Chief Executive Officer",
-    image: gabrielAbbes,
+    image: teamImage1,
     bio: "As a former Division 1 NCAA distance runner at Cal, Gabriel brings his athletic experience and entrepreneurial vision to lead OptiGenix in revolutionizing personalized supplements and performance solutions for athletes.",
+    linkedin: "https://www.linkedin.com/in/gabriel-abbes",
+    twitter: "https://twitter.com/GabeAbbes_2020",
   },
   {
     name: "Jai Williams",
     role: "Chief Operating Officer",
-    image: jaiWilliams,
+    image: teamImage2,
     bio: "A former Division 1 NCAA high jumper at Cal and two-time podium finisher in the Pac-12 Conference of Champions, Jai brings his athletic expertise and operational excellence to drive OptiGenix's mission forward.",
+    linkedin: "https://www.linkedin.com/in/jai-williams",
   },
   {
     name: "Laura Hix Glickman, Ph.D.",
     role: "Chief Strategic and Scientific Advisor",
-    image: lauraHixGlickman,
+    image: teamImage3,
     bio: "Dr. Glickman brings extensive expertise in scientific strategy and research methodology as a five-time biotech founder and a top five-ranked female Series A entrepreneur in the U.S. Laura ensures that OptiGenix approaches personalized supplementation with grounded research, fueled by her passion for discovery.",
+    linkedin: "https://www.linkedin.com/in/laurahix",
   },
   {
     name: "Alec Bizieff, Ph.D.",
     role: "Scientific Advisor and Research Specialist",
-    image: alec_headshot,
+    image: teamImage4,
     bio: "Dr. Bizieff brings his expertise in metabolic biology to advance OptiGenix's research initiatives while also leading the development of comprehensive educational content on biomarkers, supplements, and performance optimization. Through his contributions, he plays a pivotal role in fulfilling OptiGenix's mission to empower athletes with knowledge and tools needed to personalize their athletic journey and performance.",
+    linkedin: "https://www.linkedin.com/in/alec-bizieff",
   },
   {
     name: "Cecelia Zielke, Ph.D. Candidate",
     role: "Scientific Advisor",
-    image: cecelia_headshot,
+    image: teamImage5,
     bio: "As a Ph.D. Candidate and D1 athlete, Cecelia brings cutting-edge research perspectives to OptiGenix, contributing to our understanding of personalized supplementation and athletic performance optimization. In addition, she plays a key role in reviewing pilot studies to evaluate and enhance the effectiveness of our personalized supplementation process.",
+    linkedin: "https://www.linkedin.com/in/cecelia-zielke-11a4a0202/",
   },
   {
     name: "Kai Samiere, BS MS",
     role: "Registered Dietician - Sports Nutrition",
-    image: kai_headshot,
+    image: teamImage6,
     bio: "Kai Samiere brings a strong foundation in sports nutrition and evidence-based dietetics as a Registered Dietitian with hands-on experience guiding athletes and active individuals. At OptiGenix, he supports the goal that every personalized supplement plan is both scientifically grounded and tailored to real-world performance needs. His passion for precision and measurable outcomes supports our mission to help athletes train smarter, recover faster, and perform at their peak.",
+    linkedin: "https://www.linkedin.com/in/kai-samiere-808/",
   },
 ];
 
@@ -92,7 +99,7 @@ const Team = () => {
         <div className="flex flex-col gap-8 mb-8 lg:flex-row lg:justify-between lg:items-start lg:mb-[48px]">
           <div className="flex flex-col gap-4 lg:gap-[24px] lg:max-w-[660px]">
             <h2 className="text-[#010907] capitalize">Meet the team</h2>
-            <p className=" description text-[#010907]">
+            <p className=" description text-[#010907] max-w-[590px]">
               Founded and formulated by a world-class team of doctors and
               performance experts.
             </p>
@@ -168,25 +175,35 @@ const Team = () => {
                     </p>
 
                     {/* Social Links */}
-                    <div className="flex gap-2 items-center">
-                      <span className="font-['Inter'] font-normal text-[16px] leading-[24px] text-[#010907]">
-                        Follow Me:
-                      </span>
-                      <div className="flex gap-3">
-                        <button
-                          className="border border-[#010907] border-solid rounded-[16px] w-[32px] h-[32px] flex items-center justify-center hover:bg-[#010907] hover:text-white transition-colors"
-                          aria-label="LinkedIn"
-                        >
-                          <span className="text-[16px]">in</span>
-                        </button>
-                        <button
-                          className="border border-[#010907] border-solid rounded-[16px] w-[32px] h-[32px] flex items-center justify-center hover:bg-[#010907] hover:text-white transition-colors"
-                          aria-label="Twitter/X"
-                        >
-                          <span className="text-[16px]">𝕏</span>
-                        </button>
+                    {member.linkedin && (
+                      <div className="flex gap-2 items-center">
+                        <span className="font-['Inter'] font-normal text-[16px] leading-[24px] text-[#010907]">
+                          Follow Me:
+                        </span>
+                        <div className="flex gap-3">
+                          <a
+                            href={member.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="border border-[#010907] border-solid rounded-[16px] w-[32px] h-[32px] flex items-center justify-center hover:bg-[#010907] hover:text-white transition-colors"
+                            aria-label={`${member.name} LinkedIn`}
+                          >
+                            <Linkedin className="w-[18px] h-[18px]" />
+                          </a>
+                          {member.twitter && (
+                            <a
+                              href={member.twitter}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="border border-[#010907] border-solid rounded-[16px] w-[32px] h-[32px] flex items-center justify-center hover:bg-[#010907] hover:text-white transition-colors"
+                              aria-label={`${member.name} Twitter/X`}
+                            >
+                              <Twitter className="w-[18px] h-[18px]" />
+                            </a>
+                          )}
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                 </div>
               </CarouselItem>
