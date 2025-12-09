@@ -1,12 +1,12 @@
 import React from "react";
-import caseStudyBg from "../../../assets/images/case_study/case_study_bg.webp";
+import caseStudyBg from "../../../assets/images/case_study/case_study_bg2.webp";
 
 const CaseStudy = () => {
   const mainStats = [
-    { value: "42%", label: "Avg. Performance Gain", highlighted: true },
-    { value: "30", label: "Athletes", highlighted: false },
-    { value: "30", label: "Days", highlighted: false },
-    { value: "100%", label: "Completion Rate", highlighted: false },
+    { value: "42%", label: "Average Performance Gain", highlighted: true },
+    // { value: "30", label: "Athletes", highlighted: false },
+    // { value: "30", label: "Days", highlighted: false },
+    // { value: "100%", label: "Completion Rate", highlighted: false },
   ];
 
   const resultCards = [
@@ -50,7 +50,7 @@ const CaseStudy = () => {
               {/* Content Overlay */}
               <div className="flex absolute inset-0 flex-col justify-between p-4 md:p-6">
                 {/* Title and Description */}
-                <div className="flex flex-col gap-[14px] lg:gap-[24px] text-center text-white max-w-[674px] md:mt-36 mt-44 ">
+                {/* <div className="flex flex-col gap-[14px] lg:gap-[24px] text-center text-white max-w-[674px] md:mt-36 mt-44 ">
                   <h2 className="!text-[#ffffff] md:!text-[40px] !text-[25px] md:!leading-[44px] !leading-[29px] ">
                     How Athletes Use OptiGenix and Transformed Their Game
                   </h2>
@@ -58,18 +58,18 @@ const CaseStudy = () => {
                     30 collegiate endurance athletes participated in a 30-day
                     pilot study on personalized supplementation
                   </p>
-                </div>
+                </div> */}
 
                 {/* Stats Grid - 2x2 */}
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4 justify-end h-full">
                   <div className="grid grid-cols-2 gap-2 md:gap-4">
                     {/* First row */}
                     {mainStats.slice(0, 2).map((stat, index) => (
                       <div
                         key={index}
-                        className={`flex justify-center items-center px-2 py-5 border bg-white/15 hover:bg-[rgba(82,201,180,0.43)] border-transparent backdrop-blur-[7px] hover:border-white rounded-[16px] lg:px-[20px] lg:py-[26px]`}
+                        className={`flex justify-center items-center px-2 py-5 border bg-[rgba(82,201,180,0.43)] hover:bg-[rgba(82,201,180,0.43)] border-transparent backdrop-blur-[7px] hover:border-white rounded-[16px] lg:px-[20px] lg:py-[26px]`}
                       >
-                        <div className="flex flex-col gap-4 items-center w-full text-center text-white">
+                        <div className="flex flex-row gap-4 items-center w-full text-left text-white">
                           <p className="font-['Inter'] font-bold text-[24px] lg:text-[40px] leading-[22px]">
                             {stat.value}
                           </p>
@@ -98,6 +98,11 @@ const CaseStudy = () => {
                         </div>
                       </div>
                     ))}
+                  </div>
+                  <div className="flex flex-col gap-[14px] lg:gap-[24px] text-center md:text-left text-white max-w-[474px]   ">
+                    <h2 className="!text-[#ffffff] md:!text-[40px] !text-[25px] md:!leading-[44px] !leading-[29px] ">
+                      How Athletes Use OptiGenix to Transform Their Game
+                    </h2>
                   </div>
                 </div>
               </div>

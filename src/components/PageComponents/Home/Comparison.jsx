@@ -1,6 +1,6 @@
 import React from "react";
 import { Check, X } from "lucide-react";
-import comparisonImg from "../../../assets/images/comparison/comparison_img.webp";
+import comparisonImg from "../../../assets/images/comparison/comparison_img2.webp";
 import optigenixIcon from "../../../assets/images/footer/footer_logo.webp";
 
 // Reusable TableRow Component
