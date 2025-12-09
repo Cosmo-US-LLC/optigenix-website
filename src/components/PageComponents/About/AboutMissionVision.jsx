@@ -5,7 +5,7 @@ import visionImage from "../../../assets/images/about/about_mission/about_missio
 
 const sections = [
   {
-    title: "Our Why",
+    title: "The Reason We Started",
     description: [
       "We created OptiGenix with one goal in mind: to help athletes and active individuals perform at their highest level with personalized, science-driven solutions. Understanding your body is not just about performance; it is about living your best life. By taking a data-driven approach, we optimize every aspect of your health, from energy and sleep to recovery and focus.",
       "We are passionate about helping you understand your body better so you can train smarter, recover faster, and feel your best.",
@@ -22,7 +22,7 @@ const sections = [
     imageClass: "absolute top-[-33.82%] left-0 w-full h-[190.98%]",
   },
   {
-    title: "Vision Statement",
+    title: "The Future We’re Building",
     description: [
       "At OptiGenix, our vision is to create a world where everyone has the tools and knowledge to perform at their best. We aim to make personalized health and performance optimization accessible to all, powered by data and grounded in science.",
     ],
@@ -45,13 +45,13 @@ const AboutMissionVision = () => {
           </div>
 
           {/* Sections */}
-          <div className="flex flex-col gap-[24px]">
+          <div className="flex flex-col md:gap-[24px] gap-[45px]">
             {sections.map((section, index) => (
               <div key={index} className="bg-[#010907] w-full">
                 <div className="flex flex-col lg:flex-row gap-[0px] md:gap-[48px] items-center w-full">
                   {/* Left - Image */}
-                  <div className="w-full lg:w-[600px] py-[16px] md:py-[48px]">
-                    <div className="relative h-[300px] md:h-[377px] w-full rounded-[8px] overflow-hidden">
+                  <div className="w-full lg:w-[575px] py-[16px] md:py-[48px]">
+                    <div className="relative h-[230px] md:h-[377px] w-full rounded-[8px] overflow-hidden">
                       <img src={section.image} alt={section.title} />
                     </div>
                   </div>
