@@ -6,7 +6,7 @@ const QuizSecond = () => {
       <iframe
         src="/quiz/index.html"
         style={{ width: "100%", border: "none" }}
-        className='md:h-[calc(100vh_-_77px)] h-[calc(100vh_-_67px)]'
+        className='md:min-h-[calc(100vh)] min-h-[calc(100vh)]'
       />
     </>
   )
