@@ -7,25 +7,25 @@ import shopYourFocusC3 from "../../../assets/images/shop_your_focus/shop_your_fo
 
 const categories = [
   {
-    title: "Recovery",
+    title: "Mental Performance",
     description:
-      "Improve focus, mental clarity, and cognitive function with nootropic blends.",
-    buttonText: "Shop recovery",
-    image: shopYourFocusC1,
+      "Boost focus, clarity, and cognitive function with brain-supporting nootropics.",
+    buttonText: "shop mental health",
+    image: shopYourFocusC3,
   },
   {
     title: "Physical Performance",
     description:
-      "Enhance strength and endurance with comprehensive performance formulas.",
+      "Enhance strength, endurance, and overall athletic performance with comprehensive formulas.",
     buttonText: "Shop physical performance",
     image: shopYourFocusC2,
   },
   {
-    title: "Mental Performance",
+    title: "Recovery",
     description:
-      "Targeted supplements for joint health, immune support, and quality sleep.",
-    buttonText: "shop mental health",
-    image: shopYourFocusC3,
+      "Support muscle repair, joint health, and quality sleep with targeted recovery blends.",
+    buttonText: "Shop recovery",
+    image: shopYourFocusC1,
   },
 ];
 
@@ -36,16 +36,15 @@ const Categories = () => {
         {/* Title with Description */}
         <div className="flex flex-col gap-[16px] items-center text-center md:mb-[48px] mb-[24px]">
           {/* Heading */}
-          <h2 className="">Shop your Focus</h2>
+          <h2 className="!text-[#010907]">Find Your Personalized Path</h2>
 
           {/* Subtitle */}
-          <p
-            className="max-w-full description"
-            style={{ fontFamily: "Inter, sans-serif" }}
-          >
-            Expertly formulated, personalized blends designed to support your{" "}
+          <p className="w-full description md:max-w-[500px]">
+            Expertly formulated, personalized blends designed to support your
+            body’s unique goals and lasting results.
+            {/* Expertly formulated, personalized blends designed to support your{" "}
             <br className="hidden md:block" />
-            body's unique performance goals and provide sustained results.
+            body's unique performance goals and provide sustained results. */}
           </p>
         </div>
 
@@ -76,7 +75,7 @@ const Categories = () => {
                 {/* Description and Button Container */}
                 <div className="bg-[#f7f7f7] rounded-[8px] p-[20px] flex flex-col gap-[12px] items-center w-full">
                   {/* Description */}
-                  <p className="w-full text-center description !font-['Funnel_Display']">
+                  <p className="w-full text-center description !font-['Funnel_Display'] h-[100px]">
                     {category.description}
                   </p>
 
@@ -98,10 +97,8 @@ const Categories = () => {
           {/* Bottom CTA Button */}
           <div className="flex flex-col gap-[10px] items-center justify-center w-full">
             <Link to="/quiz">
-              <button className="bg-[#0d8360] hover:bg-[#0c704d] cursor-pointer transition-all duration-200 rounded-[100px] px-[24px] py-[14px] flex gap-[10px] items-center justify-center">
-                <span className="text-white whitespace-nowrap btn-primary">
-                  Unsure which one fits you? Take the quiz.
-                </span>
+              <button className="btn_primary flex gap-[10px] items-center justify-center">
+                Not sure which path is right for you? Take our quiz.
               </button>
             </Link>
           </div>

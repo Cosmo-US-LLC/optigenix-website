@@ -147,7 +147,7 @@ const PersonalizedSolutions = () => {
                               </defs>
                             </svg>
                           </div>
-                          <p className="font-['Inter'] font-[700] text-[14px] leading-[22px] text-[#185348]">
+                          <p className="font-['Inter'] font-[700] text-[16px] leading-[22px] text-[#185348]">
                             Discover
                           </p>
                         </div>

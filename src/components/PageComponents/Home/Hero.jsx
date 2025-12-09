@@ -2,8 +2,8 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 
 const Hero = ({
-  title = "The first biologically personalized supplement company built by athletes, for athletes",
-  subtitle = "Personalized supplements engineered for your performance.",
+  title = "Science-Backed Supplements Designed by Athletes, Personalized for Your Body",
+  subtitle = "Unlock peak performance with supplements tailored to your genetics and unique needs.",
   ctaText = "Shop Now",
   backgroundImage = null,
   backgroundVideo = null,
@@ -49,18 +49,15 @@ const Hero = ({
           <div className="space-y-4">
             <h1 className="text-white">{title}</h1>
 
-            <p className="description !text-[#ffffff] mt-4">{subtitle}</p>
+            <p className="description !text-[#ffffff] mt-4 max-w-[500px]">
+              {subtitle}
+            </p>
           </div>
 
           {/* CTA Button */}
-          <Button
-            onClick={onCtaClick}
-            variant="primary"
-            size="lg"
-            className="btn-primary"
-          >
+          <button onClick={onCtaClick} className="btn_primary">
             {ctaText}
-          </Button>
+          </button>
         </div>
       </div>
     </section>

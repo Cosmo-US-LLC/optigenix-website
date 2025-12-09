@@ -90,7 +90,7 @@ const Products = () => {
         {/* Header */}
         <div className="flex justify-between items-center mb-8 md:mb-12">
           <h2 className="text-[#010907] capitalize max-w-[660px] text-center md:text-left w-full md:w-auto">
-            Our Most Trusted Formulas
+            Our Most Trusted QuickPacks
           </h2>
 
           {/* Desktop Navigation Buttons */}
