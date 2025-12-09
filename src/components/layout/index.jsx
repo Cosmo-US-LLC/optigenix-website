@@ -12,7 +12,7 @@ const Layout = () => {
 const shouldShowFooter = !location.pathname.startsWith("/quiz");
   return (
     <div className="flex flex-col min-h-screen bg-[#f1f1f1]">
-      <Header />
+      {shouldShowFooter && <Header /> }
       <main className="flex-1">
         <Outlet />
       </main>
