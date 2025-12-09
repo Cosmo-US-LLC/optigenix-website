@@ -15,7 +15,7 @@
         body {
             /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe
              UI', Roboto, 'Helvetica Neue', Arial, sans-serif; */
-              font-family: "Funnel Display", sans-serif !important;
+            font-family: "Funnel Display", sans-serif !important;
             /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
             /* min-height: 100vh; */
             padding: 20px;
@@ -27,7 +27,7 @@
         }
 
         .header {
-            text-align: center;
+            /* text-align: center; */
             color: black;
             margin-bottom: 30px;
         }
@@ -40,6 +40,7 @@
         .header p {
             font-size: 1.1rem;
             opacity: 0.9;
+            margin-top: 10px;
         }
 
         .quiz-card,
@@ -356,6 +357,31 @@
         .your_pack_total_flexbox {
             display: flex;
         }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            /* same as gap-3 */
+            height: 42px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .logo-icon {
+            width: 37.33px;
+            height: 42px;
+            position: relative;
+        }
+
+        .logo-text {
+            font-weight: bold;
+            font-size: 30px;
+            line-height: 1;
+            font-family: "Funnel", sans-serif;
+            /* replace with accurate font */
+            color: black;
+        }
     </style>
 </head>
 
@@ -363,12 +389,41 @@
     <div class="container">
         <div class="header">
             <!-- <h1>🧬 OptiGenix</h1> -->
+            <a href="/" target="_top" class="logo-link">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="38" height="42" viewBox="0 0 38 42" fill="none">
+                        <g clip-path="url(#clip0_669_105)">
+                            <path
+                                d="M22.5332 10.3786L27.368 7.96167C37.8245 14.7422 37.374 15.4438 34.0107 19.248C34.616 16.9108 26.6113 12.3613 22.5332 10.3786Z"
+                                fill="black" />
+                            <path
+                                d="M14.9225 31.4422L10.0876 33.8592C-0.128263 27.4724 0.0816251 26.377 3.44498 22.5729C2.83958 24.91 10.8444 29.4596 14.9225 31.4422Z"
+                                fill="black" />
+                            <path
+                                d="M27.9626 0L30.2596 5.64319C20.3869 10.2842 0.677061 20.74 0.639387 25.5147C0.639423 25.5256 0.639438 25.5365 0.639438 25.5473C0.639321 25.5365 0.639301 25.5256 0.639387 25.5147C0.617414 18.3698 -6.59298 17.2751 27.9626 0Z"
+                                fill="black" />
+                            <path
+                                d="M9.34191 41.9958L7.04492 36.3526C16.9176 31.7117 36.6274 21.2558 36.6651 16.4811C36.6651 16.4702 36.6651 16.4594 36.6651 16.4485C36.6652 16.4593 36.6652 16.4702 36.6651 16.4811C36.6871 23.626 43.8975 24.7208 9.34191 41.9958Z"
+                                fill="black" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_669_105">
+                                <rect width="37.3333" height="42" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </div>
 
+                <span class="logo-text">OptiGenix</span>
+            </a>
+
+
+            <p>Your Personalized Supplement Quiz</p>
         </div>
 
         <!-- Quiz Section -->
         <!-- <a href="/" style="font-weight: 500; padding-bottom: 4px;">< Back</p> -->
-        <a href="/" target="_top" style="
+        <!-- <a href="/" target="_top" style="
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -377,14 +432,13 @@
     font-weight: 500;
     padding-bottom: 4px;
 ">
-            <!-- Back Arrow SVG -->
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="15 18 9 12 15 6"></polyline>
             </svg>
 
             <span>Back</span>
-        </a>
+        </a> -->
 
         <div id="quizSection" class="quiz-card">
             <div class="progress">
