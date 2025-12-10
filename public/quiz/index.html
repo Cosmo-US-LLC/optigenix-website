@@ -1245,9 +1245,54 @@
             emailError.style.display = "none";
 
             // Prepare user message
-            const productsMessage = finalTopProducts.map(p => {
-                return `Name: ${p.product.name}\nSupports: ${p.product.supports}\nDosage: ${p.product.dosage}\n`;
-            }).join("\n-----------------\n");
+            const supplementList = finalTopProducts.map(p => {
+                return `• ${p.product.name} — ${p.product.supports}`;
+            }).join("\n");
+
+            // Full email body
+            const messageHTML = `
+<p>Hi,</p>
+
+<p>Thank you for completing the OptiGenix quiz! You’ve taken the first step toward a supplement plan designed specifically for your body and goals.</p>
+
+<p>Based on your responses, we’ve selected the supplements that best support your performance and overall wellness:</p>
+
+<ul>
+  ${finalTopProducts.map(p => `<li><strong>${p.product.name}</strong> — ${p.product.supports}</li>`).join("")}
+</ul>
+
+<p>You can order your personalized supplements directly through the link below and start optimizing your health today:</p>
+
+<p>
+  👉 <a href="https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01" target="_blank">
+      <strong>Order Your Personalized Pack</strong>
+    </a>
+</p>
+
+<p>If you have any questions about your recommendations or need guidance on getting started, our team is here to help.</p>
+
+<p>Thank you for choosing OptiGenix to support your journey toward peak performance.</p>
+
+<p>Best regards,<br>The OptiGenix Team</p>
+`;
+
+
+            const messageText = `
+Hi,
+
+Thank you for completing the OptiGenix quiz!
+
+Your supplements:
+
+${finalTopProducts.map(p => `• ${p.product.name} — ${p.product.supports}`).join("\n")}
+
+Order your personalized pack:
+https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01
+
+- OptiGenix Team
+`;
+
+
 
             // Auto-detect backend domain (local → or production)
             const API_BASE = window.location.hostname === "localhost"
@@ -1262,8 +1307,9 @@
                     },
                     body: JSON.stringify({
                         email: email,
-                        subject: 'Your OptiGenix Personalized Supplement Pack',
-                        message: productsMessage
+                        subject: 'Your Personalized Supplement Plan from OptiGenix',
+                        messageHTML,
+                        messageText
                     }),
                     signal: AbortSignal.timeout(10000)
                 });
