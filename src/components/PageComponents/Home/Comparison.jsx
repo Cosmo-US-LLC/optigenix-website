@@ -89,7 +89,9 @@ const Comparison = () => {
           {/* Comparison Content */}
           <div className="flex-1 w-full flex flex-col gap-6 lg:gap-0 lg:h-[600px] lg:justify-between">
             {/* Title */}
-            <h2 className=" text-[#010907] capitalize">Comparison</h2>
+            <h2 className=" text-[#010907] capitalize max-w-[374px]">
+              Why OptiGenix Is Different
+            </h2>
 
             {/* Comparison Table */}
             <div className="flex flex-col gap-6 lg:gap-[14px] relative">

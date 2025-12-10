@@ -114,7 +114,8 @@ const Waitlist = () => {
                 return (
                   <div
                     key={test.id}
-                    className={`border-solid content-stretch flex flex-col items-start w-full transition-colors ${
+                    onClick={() => handleTestToggle(test.id)}
+                    className={`border-solid content-stretch flex flex-col hover:bg-[#0d836008] items-start w-full transition-colors cursor-pointer ${
                       isSelected
                         ? "bg-[#f8fffd] border-2 border-[#0d8360]"
                         : "bg-white border border-[#c7c7c7]"
@@ -143,7 +144,10 @@ const Waitlist = () => {
                       {/* Checkbox */}
                       <CheckBox
                         isChecked={isSelected}
-                        onClick={() => handleTestToggle(test.id)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleTestToggle(test.id);
+                        }}
                         className="shrink-0 p-[3.333px] md:p-[4px] w-5 h-5 md:w-6 md:h-6 rounded-[4px]"
                       />
                     </div>
@@ -170,7 +174,7 @@ const Waitlist = () => {
                     placeholder="Full Name"
                     value={formData.fullName}
                     onChange={handleInputChange}
-                    className="bg-white border border-[#c7c7c7] border-solid flex flex-[1_0_0] items-center min-h-px min-w-px md:w-full px-[8px] md:px-4 py-[10px] md:py-[20px] rounded-[6px] shrink-0 font-inter font-normal text-[12px] md:text-[14px] text-black placeholder:text-black placeholder:opacity-80 focus:outline-none focus:border-[#0d8360] transition-colors"
+                    className="bg-white border border-[#c7c7c7] border-solid flex flex-[1_0_0] items-center min-h-px min-w-px md:w-full px-[8px] md:px-4 py-[10px] md:py-[20px] rounded-[6px] shrink-0 font-inter font-normal text-[12px] md:text-[14px] text-black placeholder:text-[#00000080] placeholder:opacity-80 focus:outline-none focus:border-[#0d8360] transition-colors"
                     required
                   />
                   <input
@@ -179,7 +183,7 @@ const Waitlist = () => {
                     placeholder="Email Address"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="bg-white border font-Inter border-[#c7c7c7] border-solid flex flex-[1_0_0] items-center min-h-px min-w-px md:w-full px-[8px] md:px-4 py-[10px] md:py-[20px] rounded-[6px] shrink-0 font-inter font-normal text-[12px] md:text-[14px] text-black placeholder:text-black placeholder:opacity-80 focus:outline-none focus:border-[#0d8360] transition-colors"
+                    className="bg-white border font-Inter border-[#c7c7c7] border-solid flex flex-[1_0_0] items-center min-h-px min-w-px md:w-full px-[8px] md:px-4 py-[10px] md:py-[20px] rounded-[6px] shrink-0 font-inter font-normal text-[12px] md:text-[14px] text-black placeholder:text-[#00000080] placeholder:opacity-80 focus:outline-none focus:border-[#0d8360] transition-colors"
                     required
                   />
                 </div>
