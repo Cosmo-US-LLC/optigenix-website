@@ -19,12 +19,10 @@ const PersonalizedTests = () => {
         {/* Section Header */}
         <div className="text-center mb-[48px] w-full md:max-w-[800px] mx-auto ">
           <h2 className="!text-[#010907] mb-[15px] px-4 ">
-            Take a Personalized Approach to Supplementation
+            Unlock Precision Personalization
           </h2>
-          <p className="description text-[#010907] mb-[15px] px-4">
-            Discover exactly what your body needs with our DNA and Performance
-            Blood tests. These comprehensive tests are designed to create your
-            fully personalized supplement plan.
+          <p className="description text-[#010907] !text-[18px] mb-[15px] px-4">
+            Use DNA and blood insights to build a supplement plan engineered for your biology. <br /> No guesswork, just results.
           </p>
           <p className="font-['Funnel_Display'] font-bold text-[20px] md:text-[24px] leading-[28px] md:leading-[32px] text-[#0d8360]">
             Choose how to get started.
@@ -41,14 +39,11 @@ const PersonalizedTests = () => {
                 <div className="flex flex-col gap-[16px]">
                   <div className="flex flex-col gap-[8px]">
                     <h2 className="capitalize font-['Funnel_Display'] font-medium text-[32px] md:text-[48px] leading-[40px] md:leading-[56px] text-[#010907]">
-                      At-Home DNA Test
+                      At-Home Gene Test
                     </h2>
                   </div>
                   <p className="text-black description">
-                    Discover your body’s unique genetic profile for performance,
-                    recovery, and nutrition. Our at-home Gene Test uses a simple
-                    cheek swab to reveal how your body responds to training,
-                    diet, and supplementation.
+                    Discover your genetic strengths, nutrient needs, and performance markers through a simple cheek swab.
                   </p>
                 </div>
 
@@ -56,10 +51,10 @@ const PersonalizedTests = () => {
                 <div className="backdrop-blur-[7px] bg-[#f8fffd] border border-[#2b7a6c] rounded-[16px] p-[12px] md:p-[24px]">
                   <div className="flex flex-col gap-[16px]">
                     {[
-                      "Train to your genetic strengths",
-                      "Optimize nutrition based on your biology",
-                      "Skip supplements you don't need",
-                      "Includes free 1:1 expert dietitian review",
+                      "Train to Your Genetic Strengths",
+                      "Optimize Nutrition Based on Your Biology",
+                      "Skip Unnecessary Supplements",
+                      "Includes Free 1:1 Expert Dietitian Review",
                     ].map((benefit, index) => (
                       <div key={index} className="flex gap-[10px] items-center">
                         <div className="shrink-0 w-[20px] h-[20px] rounded-full bg-[#0D8360] flex items-center justify-center">
@@ -184,7 +179,7 @@ const PersonalizedTests = () => {
                       <img src={icon3} alt="" className="w-full h-full" />
                     </div>
                     <p className="font-['Inter'] font-normal text-[11px] md:text-[14px] leading-[16px] md:leading-[20px] text-white text-center whitespace-pre-line">
-                      Easy and{"\n"}Convenient
+                      Easy and{"\n"}Convenient 
                     </p>
                   </div>
                 </div>
@@ -198,20 +193,18 @@ const PersonalizedTests = () => {
               </h2>
 
               <p className="font-['Inter'] font-normal text-[14px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">
-                Our Performance Bloodwork panel measures key biomarkers tied to
-                energy, recovery, and overall performance, including Vitamin D,
-                Ferritin, Testosterone, Inflammation, and more.
+                Measure 100+ biomarkers to uncover hidden imbalances and optimize recovery, energy, hormones, and nutrient status.
               </p>
 
               {/* Benefits Box */}
               <div className="backdrop-blur-[7px] bg-[#f8fffd] border border-[#2b7a6c] rounded-[16px] p-[12px] md:p-[16px]">
                 <div className="flex flex-col gap-[10px]">
                   {[
-                    "Identify hidden imbalances affecting recovery and performance",
-                    "Check Stress Markers & Neurocognitive Markers",
-                    "105+ Biomarker Levels Tracked",
-                    "Test Nutrient & Vitamin Levels",
-                    "Includes free 1:1 expert dietitian review",
+                    "Identify Hidden Imbalances Affecting Recovery and Performance",
+                    "Check Stress and Cognitive Markers",
+                    "Track 105+ Biomarker Levels", 
+                    "Test Nutrient and Vitamin Levels",
+                    "Includes Free 1:1 Expert Dietitian Review",
                   ].map((benefit, index) => (
                     <div key={index} className="flex gap-[10px] items-center">
                       <div className="shrink-0 w-[20px] h-[20px] rounded-full bg-[#0D8360] flex items-center justify-center">
@@ -227,7 +220,7 @@ const PersonalizedTests = () => {
 
               {/* CTA Button */}
               <button
-                className="w-fit btn_primary"
+                className="w-fit btn_black"
                 onClick={() => console.log("Explore Blood Test")}
               >
                 Join Waitlist

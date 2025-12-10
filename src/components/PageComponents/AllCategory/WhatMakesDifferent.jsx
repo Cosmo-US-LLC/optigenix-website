@@ -159,7 +159,7 @@ const features = [
     ),
     title: "Clarity & Confidence",
     description:
-      "Kkip supplements your body doesn’t need — no guesswork, no generic plans.",
+      "Skip supplements your body doesn’t need — no guesswork, no generic plans.",
   },
 ];
 
