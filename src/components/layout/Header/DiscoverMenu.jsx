@@ -21,6 +21,11 @@ const DiscoverMenu = ({ isOpen, onClose }) => {
     onClose();
   };
 
+  const handleWaitlistClick = () => {
+    navigate("/join-wait-list");
+    onClose();
+  };
+
   return (
     <>
       {/* Backdrop */}
@@ -117,6 +122,16 @@ const DiscoverMenu = ({ isOpen, onClose }) => {
                     Recovery
                   </p>
                 </div>
+              </div>
+
+              {/* Join Waitlist link under cards */}
+              <div className="flex justify-center w-[60%]">
+                <button
+                  onClick={handleWaitlistClick}
+                  className="font-['Inter'] text-[#3fa290] text-[13px] md:text-[14px] font-semibold hover:underline"
+                >
+                  Join Waitlist!
+                </button>
               </div>
             </div>
 
