@@ -49,7 +49,7 @@ const FAQs = () => {
               value={`item-${index}`}
               className="bg-white rounded-[16px] overflow-hidden border-none"
             >
-              <AccordionTrigger className="md:px-[24px] px-4 py-[24px] md:py-[32px] hover:bg-gray-50 hover:no-underline group">
+              <AccordionTrigger className="cursor-pointer md:px-[24px] px-4 py-[24px] md:py-[32px] hover:bg-gray-50 hover:no-underline group">
                 <h3 className=" text-[#010907] pr-4">{faq.question}</h3>
                 <div className="bg-[rgba(0,0,0,0.06)] rounded-[24px] w-[48px] h-[48px] flex items-center justify-center shrink-0 ml-4 relative">
                   <Plus
