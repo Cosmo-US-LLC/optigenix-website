@@ -36,7 +36,7 @@ const CaseStudy = () => {
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-[32px] items-center">
           {/* Left Side: Image with Overlay Content */}
           <div className="relative flex-1 w-full">
-            <div className="relative h-[646px] md:h-[640px] w-full lg:w-[604px] rounded-[24px] overflow-hidden">
+            <div className="relative h-[400px] md:h-[640px] w-full lg:w-[604px] rounded-[24px] overflow-hidden">
               {/* Background Image with Dark Overlay */}
               <div className="absolute inset-0 pointer-events-none rounded-[24px]">
                 <img
@@ -62,7 +62,7 @@ const CaseStudy = () => {
 
                 {/* Stats Grid - 2x2 */}
                 <div className="flex flex-col gap-4 justify-start h-full">
-                  <div className="flex flex-col gap-[14px] lg:gap-[24px] text-center md:text-left text-white max-w-[474px]   ">
+                  <div className="flex flex-col gap-[14px] lg:gap-[24px] text-left text-white max-w-[474px]   ">
                     <h2 className="!text-[#010907] md:!text-[40px] !text-[25px] md:!leading-[44px] !leading-[29px] ">
                       OptiGenix × UC Berkeley Triathlon Team
                     </h2>

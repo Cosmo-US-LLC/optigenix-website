@@ -4,6 +4,8 @@ import Stripe from "stripe";
 import { SMTPClient } from "emailjs";
 import path from "path";
 import { fileURLToPath } from "url";
+import cors from "cors";
+
 
 dotenv.config();
 
@@ -12,14 +14,25 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 // Email Setup
 const client = new SMTPClient({
-  user: process.env.SMTP_USER,
-  password: process.env.SMTP_PASSWORD,
-  host: process.env.SMTP_HOST,
+  user: process.env.SMTP_USER,        // optigenix.help@gmail.com
+  password: process.env.SMTP_PASS,    // your Gmail App Password
+  host: "smtp.gmail.com",
   ssl: true,
 });
 
 // Express Setup
 const app = express();
+
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "http://localhost:3000",
+    "https://yourdomain.com"
+  ],
+  methods: "GET,POST,PUT",
+  allowedHeaders: "Content-Type"
+}));
+
 app.use(express.json()); // allow JSON request bodies
 
 // Resolve __dirname in ES modules
@@ -30,6 +43,8 @@ const __dirname = path.dirname(__filename);
    📧 SEND EMAIL ROUTE
 ==================================== */
 app.post("/api/send-mail", async (req, res) => { 
+
+  console.log('route hitt 123')
   const { email, subject, message } = req.body;
 
   if (!email || !subject || !message) {
@@ -38,7 +53,7 @@ app.post("/api/send-mail", async (req, res) => {
 
   try {
     await client.sendAsync({
-      from: "Your Name <no-reply@yourdomain.com>",
+      from: "Optigenix Support <no-reply@optigenix.com>",
       to: email,
       subject,
       text: message,

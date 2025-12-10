@@ -1231,9 +1231,11 @@
 
 
         async function submitEmailAndShowResults() {
-            const email = document.getElementById('userEmail').value.trim();
+            const emailInput = document.getElementById('userEmail');
+            const email = emailInput.value.trim();
             const emailError = document.getElementById('emailError');
 
+            // Basic email validation
             const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
             if (!valid) {
                 emailError.style.display = "block";
@@ -1242,15 +1244,18 @@
 
             emailError.style.display = "none";
 
-            // Prepare message for email
-            const productsMessage = finalTopProducts.map(p => ({
-                name: p.product.name,
-                supports: p.product.supports,
-                dosage: p.product.dosage
-            }));
+            // Prepare user message
+            const productsMessage = finalTopProducts.map(p => {
+                return `Name: ${p.product.name}\nSupports: ${p.product.supports}\nDosage: ${p.product.dosage}\n`;
+            }).join("\n-----------------\n");
+
+            // Auto-detect backend domain (local → or production)
+            const API_BASE = window.location.hostname === "localhost"
+                ? "http://localhost:5000"
+                : "https://yourdomain.com"; // replace with your real domain
 
             try {
-                const response = await fetch('/send-mail', {
+                const response = await fetch(`${API_BASE}/api/send-mail`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -1258,22 +1263,26 @@
                     body: JSON.stringify({
                         email: email,
                         subject: 'Your OptiGenix Personalized Supplement Pack',
-                        message: JSON.stringify(productsMessage, null, 2)
+                        message: productsMessage
                     }),
                     signal: AbortSignal.timeout(10000)
                 });
 
-                // You may check for success here if needed
+                if (!response.ok) {
+                    console.error("Email API error:", await response.text());
+                }
+
             } catch (err) {
                 console.error("Email API failed:", err);
             }
 
-            // Hide email gate → Show real results
+            // Hide email input → Show results
             document.getElementById('emailGateSection').style.display = "none";
             document.getElementById('resultsSection').style.display = "block";
 
             renderFinalProducts();
         }
+
 
 
         function renderFinalProducts() {

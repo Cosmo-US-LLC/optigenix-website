@@ -239,7 +239,7 @@ const SingleTestHowItsWork = () => {
               before they start.
             </p>
           </div>
-          <button className="bg-[#0d8360] text-white rounded-full px-6 py-3 font-['Funnel_Display'] font-semibold text-[16px] leading-[24px] w-fit">
+          <button className="btn_primary">
             Get Started Today
           </button>
         </div>
