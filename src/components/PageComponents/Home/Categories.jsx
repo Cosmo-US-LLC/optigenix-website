@@ -55,7 +55,7 @@ const Categories = () => {
               >
                 {/* Image with Label Overlay */}
                 <div className="relative w-full">
-                  <div className="h-[302px] md:h-[318px] w-full rounded-lg overflow-hidden">
+                  <div className="max-md:max-w-[390px] md:h-[318px] w-full rounded-lg overflow-hidden">
                     <img
                       src={category.image}
                       alt={category.title}
@@ -76,7 +76,7 @@ const Categories = () => {
                   </p>
 
                   {/* Button */}
-                  <button className="border-[1.5px] border-[#010907] border-solid rounded-[100px] px-[24px] py-[14px] flex gap-[10px] items-center justify-center hover:bg-[#010907] font-semibold  hover:text-white transition-all duration-200 group">
+                  <button className="border-[1.5px] border-[#010907] border-solid rounded-[100px] px-[24px] py-[14px] flex gap-[10px] items-center justify-center hover:bg-[#010907] font-semibold cursor-pointer hover:text-white transition-all duration-200 group">
                     <span className="text-[#010907] !font-['Funnel_Display'] capitalize group-hover:text-white btn-primary">
                       {category.buttonText}
                     </span>
