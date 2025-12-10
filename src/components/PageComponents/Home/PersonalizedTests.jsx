@@ -22,11 +22,11 @@ const PersonalizedTests = () => {
             Unlock Precision Personalization
           </h2>
           <p className="description text-[#010907] !text-[18px] mb-[15px] px-4">
-            Use DNA and blood insights to build a supplement plan engineered for your biology. <br /> No guesswork, just results.
+            Use DNA and blood insights to build a supplement plan engineered for your biology. <br className="max-md:hidden" /> No guesswork, just results.
           </p>
-          <p className="font-['Funnel_Display'] font-bold text-[20px] md:text-[24px] leading-[28px] md:leading-[32px] text-[#0d8360]">
+          {/* <p className="font-['Funnel_Display'] font-bold text-[20px] md:text-[24px] leading-[28px] md:leading-[32px] text-[#0d8360]">
             Choose how to get started.
-          </p>
+          </p> */}
         </div>
 
         {/* Cards Container - Sticky Scroll Effect */}
