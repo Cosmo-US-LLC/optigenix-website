@@ -1297,7 +1297,7 @@ https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01
             // Auto-detect backend domain (local → or production)
             const API_BASE = window.location.hostname === "localhost"
                 ? "http://localhost:5000"
-                : "https://yourdomain.com"; // replace with your real domain
+                : "http://138.197.29.179:5000"; // replace with your real domain
 
             try {
                 const response = await fetch(`${API_BASE}/api/send-mail`, {
