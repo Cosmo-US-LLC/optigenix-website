@@ -26,7 +26,7 @@ const faqs = [
   {
     question: "How is this different from other gene or health tests?",
     answer:
-      "OUnlike generic fitness or ancestry tests, this test decodes genetic factors that directly affect your performance, recovery, and nutrient absorption. You get science-backed guidance you can act on in your training routine.",
+      "Unlike generic fitness or ancestry tests, this test decodes genetic factors that directly affect your performance, recovery, and nutrient absorption. You get science-backed guidance you can act on in your training routine.",
   },
   {
     question: "Can this test help me improve my training or nutrition?",

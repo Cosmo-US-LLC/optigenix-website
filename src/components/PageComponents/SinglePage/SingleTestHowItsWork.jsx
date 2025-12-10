@@ -112,7 +112,7 @@ const ReviewTestTubeIcon = ({ className }) => (
     <g mask="url(#mask0_2813_4344)">
       <path
         d="M29.6562 23.5333V4.70789C29.6562 3.52359 28.657 2.55335 27.4356 2.55335H23.9603M15.7639 27.5156H27.4356C28.657 27.5156 29.6562 26.5454 29.6562 25.3593V18.3215M14.2117 2.55335H10.7347C9.51328 2.55335 8.51413 3.52359 8.51413 4.70789V15.2104"
-        stroke="black"
+        stroke="currentColor"
         stroke-width="1.09714"
         stroke-miterlimit="10"
         stroke-linecap="round"
@@ -120,7 +120,7 @@ const ReviewTestTubeIcon = ({ className }) => (
       />
       <path
         d="M26.1493 20.0967C25.7171 18.3144 23.8797 17.2082 22.0423 17.6262C20.2067 18.0442 19.0675 19.83 19.498 21.6124C19.9284 23.3965 21.7676 24.5026 23.6032 24.083C25.4406 23.6649 26.5798 21.8809 26.1493 20.0967Z"
-        stroke="black"
+        stroke="currentColor"
         stroke-width="1.09714"
         stroke-miterlimit="10"
         stroke-linecap="round"
@@ -128,7 +128,7 @@ const ReviewTestTubeIcon = ({ className }) => (
       />
       <path
         d="M25.6797 8.39062H11.663"
-        stroke="black"
+        stroke="currentColor"
         stroke-width="1.09714"
         stroke-miterlimit="10"
         stroke-linecap="round"
@@ -136,7 +136,7 @@ const ReviewTestTubeIcon = ({ className }) => (
       />
       <path
         d="M25.6797 11.5195H14.3737"
-        stroke="black"
+        stroke="currentColor"
         stroke-width="1.09714"
         stroke-miterlimit="10"
         stroke-linecap="round"
@@ -144,7 +144,7 @@ const ReviewTestTubeIcon = ({ className }) => (
       />
       <path
         d="M24.041 20.9942L23.2378 21.7266L21.6051 19.9833"
-        stroke="black"
+        stroke="currentColor"
         stroke-width="1.09714"
         stroke-miterlimit="10"
         stroke-linecap="round"
@@ -152,7 +152,7 @@ const ReviewTestTubeIcon = ({ className }) => (
       />
       <path
         d="M23.4463 1.28326H14.723C14.4413 1.28326 14.2103 1.50751 14.2103 1.78115V3.41233C14.2103 3.68585 14.4413 3.91016 14.723 3.91016H23.4463C23.728 3.91016 23.959 3.68585 23.959 3.41233V1.78115C23.959 1.50751 23.728 1.28326 23.4463 1.28326Z"
-        stroke="black"
+        stroke="currentColor"
         stroke-width="1.09714"
         stroke-miterlimit="10"
         stroke-linecap="round"
@@ -160,7 +160,7 @@ const ReviewTestTubeIcon = ({ className }) => (
       />
       <path
         d="M25.6797 14.6445H16.1323"
-        stroke="black"
+        stroke="currentColor"
         stroke-width="1.09714"
         stroke-miterlimit="10"
         stroke-linecap="round"
@@ -168,7 +168,7 @@ const ReviewTestTubeIcon = ({ className }) => (
       />
       <path
         d="M9.34438 17.9908C18.7185 14.8066 18.6398 30.7734 11.0698 30.7734H9.34438H7.61721C0.0472423 30.7734 -0.0315011 14.8066 9.34265 17.9908H9.34438Z"
-        stroke="black"
+        stroke="currentColor"
         stroke-width="1.09714"
         stroke-miterlimit="10"
         stroke-linecap="round"
@@ -176,7 +176,7 @@ const ReviewTestTubeIcon = ({ className }) => (
       />
       <path
         d="M9.34555 17.9961C9.3298 17.9944 9.22308 14.9206 12.6406 15.0821C12.4604 16.2544 12.0001 17.1278 11.176 17.5985"
-        stroke="black"
+        stroke="currentColor"
         stroke-width="1.09714"
         stroke-miterlimit="10"
         stroke-linecap="round"
@@ -184,7 +184,7 @@ const ReviewTestTubeIcon = ({ className }) => (
       />
       <path
         d="M9.34242 17.9961C9.34242 17.9961 9.56469 13.2622 4.26946 13.5138C4.57573 15.4915 5.39819 16.9137 6.90482 17.578"
-        stroke="black"
+        stroke="currentColor"
         stroke-width="1.09714"
         stroke-miterlimit="10"
         stroke-linecap="round"
@@ -192,7 +192,7 @@ const ReviewTestTubeIcon = ({ className }) => (
       />
       <path
         d="M29.6562 15.9258V15.9141"
-        stroke="black"
+        stroke="currentColor"
         stroke-width="1.09714"
         stroke-miterlimit="10"
         stroke-linecap="round"
@@ -240,7 +240,7 @@ const SingleTestHowItsWork = () => {
             </p>
           </div>
           <button className="btn_primary">
-            Get Started Today
+            Order Your Test
           </button>
         </div>
 

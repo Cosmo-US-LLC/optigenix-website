@@ -14,6 +14,7 @@ const StartDNATest = () => {
             <img
               src={bgImage}
               alt="DNA background"
+              className="h-[100%]"
               // className="absolute w-[120%] h-[160%] left-[-10%] top-[-30%] max-w-none object-cover"
               loading="lazy"
             />
