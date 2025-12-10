@@ -202,7 +202,7 @@ const PersonalizedSolutions = () => {
                       className="flex gap-[10px] items-center group w-fit"
                       onClick={handleDiscoverMore}
                     >
-                      <span className="font-['Funnel_Display'] font-semibold text-[16px] leading-[20px] text-[#0d8360] underline">
+                      <span className="font-['Funnel_Display'] cursor-pointer font-semibold text-[16px] leading-[20px] text-[#0d8360] underline">
                         Discover More
                       </span>
                       <ArrowRight className="w-[20px] h-[20px] text-[#0d8360] group-hover:translate-x-1 transition-transform" />
@@ -441,7 +441,7 @@ const PersonalizedSolutions = () => {
                       className="flex gap-[10px] items-center group w-fit"
                       onClick={handleJoinWaitlist}
                     >
-                      <span className="font-['Funnel_Display'] font-semibold underline text-[16px] leading-[20px] text-[#0d8360] underline">
+                      <span className="cursor-pointer font-['Funnel_Display'] font-semibold underline text-[16px] leading-[20px] text-[#0d8360] underline">
                         Join Waitlist
                       </span>
                       <ArrowRight className="w-[20px] h-[20px] text-[#0d8360] group-hover:translate-x-1 transition-transform" />

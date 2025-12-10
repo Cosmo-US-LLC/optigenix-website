@@ -145,9 +145,9 @@ const Team = () => {
             {teamMembers.map((member, index) => (
               <CarouselItem
                 key={index}
-                className="pl-3 lg:pl-4 basis-[304px]  lg:basis-auto"
+                className="pl-3 lg:pl-4 basis-[364px]  lg:basis-auto"
               >
-                <div className="bg-white border min-h-[460px] border-[rgba(1,9,7,0.1)] rounded-[16px] flex flex-col lg:flex-row gap-2 lg:gap-[32px] items-start lg:items-center p-2 lg:pl-[16px] lg:pr-[32px] lg:py-[16px] w-full lg:w-[800px]">
+                <div className="bg-white border min-h-[760px] md:min-h-[495px] border-[rgba(1,9,7,0.1)] rounded-[16px] flex flex-col lg:flex-row gap-2 lg:gap-[32px] items-start lg:items-center p-2 lg:pl-[16px] lg:pr-[32px] lg:py-[16px] w-full lg:w-[800px]">
                   {/* Image */}
                   <div className="w-full h-[260px] lg:w-[300px] md:h-[400px] rounded-[8px] overflow-hidden shrink-0">
                     <img
@@ -160,7 +160,7 @@ const Team = () => {
                   {/* Content */}
                   <div className="flex-1 flex flex-col gap-5 lg:gap-[32px] px-2 py-4 lg:py-[16px]">
                     {/* Name and Role */}
-                    <div className="flex flex-col gap-1 h-[60px] ">
+                    <div className="flex flex-col gap-1 min-h-[60px] ">
                       <h3 className="font-['Funnel_Display'] font-bold text-[20px] leading-[28px] lg:text-[24px] lg:leading-[32px] text-[#042b24] capitalize">
                         {member.name}
                       </h3>
