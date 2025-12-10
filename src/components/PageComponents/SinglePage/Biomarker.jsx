@@ -28,7 +28,7 @@ import bioImage9 from "@/assets/images/single_test/bio/bio_img18.webp";
 
 const Biomarker = () => {
   const plugin = React.useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: true })
+    Autoplay({ delay: 4000, stopOnInteraction: false })
   );
   const [api, setApi] = React.useState(null);
   const [current, setCurrent] = React.useState(0);
@@ -121,7 +121,7 @@ const Biomarker = () => {
     },
     {
       id: 5,
-      title: "Cognition & Stress Response:",
+      title: "Cognition & Stress Response",
       description: "Improve focus, learning, and mental resilience.",
       icon: iconImage5,
       categories: [
@@ -230,7 +230,7 @@ const Biomarker = () => {
                   {/* Left: Content */}
                   <div className="flex flex-col gap-12 w-full lg:w-[580px]">
                     {/* Heading with Icon */}
-                    <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-4 ">
                       <div className="flex gap-3 items-start">
                         <img
                           src={biomarker.icon}
@@ -250,15 +250,18 @@ const Biomarker = () => {
                     <div className="h-[1.5px] max-w-[520px] w-full bg-gradient-to-r from-transparent via-[#99999999] to-transparent" />
 
                     {/* Category Tags */}
-                    <div className="flex flex-wrap gap-3">
+                    <div className="min-h-[100px]">
+
+                    <div className="flex flex-wrap gap-3 ">
                       {biomarker.categories.map((category, idx) => (
                         <span
                           key={idx}
-                          className="backdrop-blur-[15px] border border-[#d7d7d7] md:border-[#dedede] px-4 py-2 rounded-full font-['Inter'] font-light text-[12px] md:text-[14px] text-[#010907]"
+                          className="backdrop-blur-[15px]  border border-[#d7d7d7] md:border-[#dedede] px-4 py-2 rounded-full font-['Inter'] font-light text-[12px] md:text-[14px] text-[#010907]"
                         >
                           {category}
                         </span>
                       ))}
+                    </div>
                     </div>
                   </div>
 

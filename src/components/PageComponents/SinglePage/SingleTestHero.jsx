@@ -16,8 +16,8 @@ const SingleTestHero = () => {
       </div>
 
       {/* Content Container */}
-      <div className="relative h-full max-w-[1280px] mx-auto px-4 md:px-8 lg:px-[60px] flex items-center justify-start py-16 md:py-32 lg:py-[264px]">
-        <div className="w-full max-w-[766px] space-y-5">
+      <div className="relative h-full max-w-[1280px] mx-auto px-4 md:px-8 flex items-center justify-start py-16 md:py-32 lg:py-[264px]">
+        <div className="w-full max-w-[766px] space-y-5 md:pb-18">
           <h1 className="text-[#ffffff]    capitalize">
             Optimize Your Health & Performance with Gene Insights
           </h1>
