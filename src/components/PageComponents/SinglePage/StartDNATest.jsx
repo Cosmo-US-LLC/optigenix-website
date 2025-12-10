@@ -33,9 +33,15 @@ const StartDNATest = () => {
                 </p>
               </div>
 
-              <button 
+              <button
                 className="bg-[#0d8360] hover:bg-[#0b7254] active:bg-[#095c45] transition-colors text-white rounded-full px-5 md:px-[19px] py-3 md:py-[12px] flex items-center gap-2 font-['Funnel_Display'] font-semibold text-[16px] leading-[24px] shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
-                onClick={() => window.open("https://buy.stripe.com/7sY7sM0arfBlgMW77gf3a02", "_blank", "noopener,noreferrer")}
+                onClick={() =>
+                  window.open(
+                    "https://buy.stripe.com/7sY7sM0arfBlgMW77gf3a02",
+                    "_blank",
+                    "noopener,noreferrer"
+                  )
+                }
               >
                 <img
                   src={cartIcon}

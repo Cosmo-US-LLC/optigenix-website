@@ -42,21 +42,23 @@ const __dirname = path.dirname(__filename);
 /* ====================================
    📧 SEND EMAIL ROUTE
 ==================================== */
-app.post("/api/send-mail", async (req, res) => { 
+app.post("/api/send-mail", async (req, res) => {
 
-  console.log('route hitt 123')
-  const { email, subject, message } = req.body;
+  const { email, subject, message, messageHTML, messageText } = req.body;
 
-  if (!email || !subject || !message) {
+  if (!email || !subject) {
     return res.status(400).json({ status: "error", message: "Missing fields." });
   }
 
   try {
     await client.sendAsync({
-      from: "Optigenix Support <no-reply@optigenix.com>",
+      from: "OptiGenix <optigenix.help@gmail.com>",
       to: email,
       subject,
-      text: message,
+      text: messageText,
+      attachment: [
+        { data: messageHTML, alternative: true }
+      ]
     });
 
     res.json({ status: "success", message: "Email sent successfully!" });
