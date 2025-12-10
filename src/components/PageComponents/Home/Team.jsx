@@ -149,7 +149,7 @@ const Team = () => {
               >
                 <div className="bg-white border min-h-[760px] md:min-h-[495px] border-[rgba(1,9,7,0.1)] rounded-[16px] flex flex-col lg:flex-row gap-2 lg:gap-[32px] items-start lg:items-center p-2 lg:pl-[16px] lg:pr-[32px] lg:py-[16px] w-full lg:w-[800px]">
                   {/* Image */}
-                  <div className="w-full h-[260px] lg:w-[300px] md:h-[400px] rounded-[8px] overflow-hidden shrink-0">
+                  <div className="w-full h-[325px] lg:w-[300px] md:h-[400px] rounded-[8px] overflow-hidden shrink-0">
                     <img
                       src={member.image}
                       alt={member.name}

@@ -82,7 +82,7 @@ const PersonalizedTests = () => {
             </div>
 
             {/* Right Graphics */}
-            <div className="bg-[#dce3e4] rounded-[24px] w-full md:w-[550px] h-[320px] md:h-[500px] relative overflow-hidden shrink-0">
+            <div className="bg-[#dce3e4] rounded-[24px] w-full md:w-[550px] h-[280px] md:h-[500px] relative overflow-hidden shrink-0">
               {/* DNA Image */}
               <div className="flex absolute inset-0 justify-center items-center">
                 <img

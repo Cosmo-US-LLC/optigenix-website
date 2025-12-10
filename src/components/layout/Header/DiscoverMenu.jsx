@@ -26,6 +26,11 @@ const DiscoverMenu = ({ isOpen, onClose }) => {
     onClose();
   };
 
+  const handleCard1Click = () => {
+    navigate("/gene-test");
+    onClose();
+  };
+
   return (
     <>
       {/* Backdrop */}
@@ -45,12 +50,15 @@ const DiscoverMenu = ({ isOpen, onClose }) => {
 
               <div className="flex flex-wrap gap-[8px] md:gap-[12px] items-center justify-center md:justify-start">
                 {/* Card 1: Your Body's User Manual */}
-                <div className="bg-[#f6f6f6] flex flex-col items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]">
+                <div
+                  onClick={handleCard1Click}
+                  className="bg-[#f6f6f6] hover:bg-[#e6e6e640] cursor-pointer flex flex-col items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]"
+                >
                   <div className="flex relative justify-center items-center">
                     <div className="rotate-180">
                       <div className="h-[85px] w-[152px] relative">
                         <div className="absolute inset-0">
-                          <div className="absolute bg-[#dce3e4] inset-0" />
+                          <div className="absolute bg-[#dce3e4] hover:bg-[#e6e6e640] inset-0" />
                           <div className="overflow-hidden absolute inset-0">
                             <img alt="" src={Image1} />
                           </div>
@@ -66,7 +74,10 @@ const DiscoverMenu = ({ isOpen, onClose }) => {
                 </div>
 
                 {/* Card 2: Unlock Vital Health Markers */}
-                <div className="bg-[#f6f6f6] flex flex-col items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]">
+                <div
+                  onClick={handleWaitlistClick}
+                  className="bg-[#f6f6f6] hover:bg-[#e6e6e640] cursor-pointer flex flex-col items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]"
+                >
                   <div className="bg-[#dce3e4] h-[60px] md:h-[85px] overflow-hidden rounded-tl-[12px] rounded-tr-[12px] w-full relative">
                     <img
                       src={Image2}
@@ -128,7 +139,7 @@ const DiscoverMenu = ({ isOpen, onClose }) => {
               <div className="flex justify-center w-[60%]">
                 <button
                   onClick={handleWaitlistClick}
-                  className="font-['Inter'] curser-pointer text-[#3fa290] text-[13px] md:text-[14px] font-semibold hover:underline"
+                  className="font-['Inter'] cursor-pointer text-[#3fa290] text-[13px] md:text-[14px] font-semibold hover:underline"
                 >
                   Join Waitlist!
                 </button>
@@ -201,9 +212,9 @@ const DiscoverMenu = ({ isOpen, onClose }) => {
                     </p>
                     <button
                       onClick={handleQuizClick}
-                      className="bg-[#f8fffd] flex curser-pointer gap-[6px] md:gap-[8px] items-center justify-center px-[12px] py-[8px] rounded-[100px] hover:bg-white transition-colors group"
+                      className="bg-[#f8fffd] flex cursor-pointer gap-[6px] md:gap-[8px] items-center justify-center px-[12px] py-[8px] rounded-[100px] hover:bg-white transition-colors group"
                     >
-                      <span className="font-['Inter'] curser-pointer font-bold leading-[16px] md:leading-[19px] text-[#2b7a6c] text-[11px] md:text-[12px]">
+                      <span className="font-['Inter'] font-bold leading-[16px] md:leading-[19px] text-[#2b7a6c] text-[11px] md:text-[12px]">
                         Take our Quiz
                       </span>
                       <ArrowRight className="w-[14px] h-[14px] md:w-[16px] md:h-[16px] text-[#2b7a6c] group-hover:translate-x-1 transition-transform" />
