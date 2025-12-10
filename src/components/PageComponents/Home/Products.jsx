@@ -199,12 +199,12 @@ const Products = () => {
                       {product.name}
                     </h6>
                     <div className="">
-                      <p className="description !text-[14px] max-w-[280px] md:h-[80px] h-[120px] text-[#010907]">
+                      <p className="description !text-[14px] max-w-[280px] md:h-[80px] h-[90px] text-[#010907]">
                         {product.description}
                       </p>
-                      <h6 className=" text-[#010907] !font-[700]">
+                      {/* <h6 className=" text-[#010907] !font-[700]">
                         {product.price}
-                      </h6>
+                      </h6> */}
                     </div>
                   </div>
                 </div>
