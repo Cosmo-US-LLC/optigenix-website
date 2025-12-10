@@ -1,5 +1,5 @@
 import React from "react";
-import caseStudyBg from "../../../assets/images/case_study/case_study_bg2.webp";
+import caseStudyBg from "../../../assets/images/case_study/case_study_bg3.webp";
 
 const CaseStudy = () => {
   const mainStats = [
@@ -36,7 +36,7 @@ const CaseStudy = () => {
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-[32px] items-center">
           {/* Left Side: Image with Overlay Content */}
           <div className="relative flex-1 w-full">
-            <div className="relative h-[646px] md:h-[670px] w-full lg:w-[604px] rounded-[24px] overflow-hidden">
+            <div className="relative h-[646px] md:h-[640px] w-full lg:w-[604px] rounded-[24px] overflow-hidden">
               {/* Background Image with Dark Overlay */}
               <div className="absolute inset-0 pointer-events-none rounded-[24px]">
                 <img
@@ -61,13 +61,18 @@ const CaseStudy = () => {
                 </div> */}
 
                 {/* Stats Grid - 2x2 */}
-                <div className="flex flex-col gap-4 justify-end h-full">
-                  <div className="grid grid-cols-2 gap-2 md:gap-4">
+                <div className="flex flex-col gap-4 justify-start h-full">
+                  <div className="flex flex-col gap-[14px] lg:gap-[24px] text-center md:text-left text-white max-w-[474px]   ">
+                    <h2 className="!text-[#010907] md:!text-[40px] !text-[25px] md:!leading-[44px] !leading-[29px] ">
+                      OptiGenix × UC Berkeley Triathlon Team
+                    </h2>
+                  </div>
+                  <div className="grid grid-cols-1 gap-2 md:grid-cols-1 md:gap-4">
                     {/* First row */}
                     {mainStats.slice(0, 2).map((stat, index) => (
                       <div
                         key={index}
-                        className={`flex justify-center items-center px-2 py-5 border bg-[rgba(82,201,180,0.43)] hover:bg-[rgba(82,201,180,0.43)] border-transparent backdrop-blur-[7px] hover:border-white rounded-[16px] lg:px-[20px] lg:py-[26px]`}
+                        className={`flex justify-center w-fit items-center px-4 py-5 border bg-[#2B7A6C]   border-transparent backdrop-blur-[7px]   md:rounded-[28px] rounded-[30px] md:px-[20px] md:py-[16px]`}
                       >
                         <div className="flex flex-row gap-4 items-center w-full text-left text-white">
                           <p className="font-['Inter'] font-bold text-[24px] lg:text-[40px] leading-[22px]">
@@ -99,11 +104,6 @@ const CaseStudy = () => {
                       </div>
                     ))}
                   </div>
-                  <div className="flex flex-col gap-[14px] lg:gap-[24px] text-center md:text-left text-white max-w-[474px]   ">
-                    <h2 className="!text-[#ffffff] md:!text-[40px] !text-[25px] md:!leading-[44px] !leading-[29px] ">
-                      How Athletes Use OptiGenix to Transform Their Game
-                    </h2>
-                  </div>
                 </div>
               </div>
             </div>
@@ -114,21 +114,21 @@ const CaseStudy = () => {
             {/* Header Section */}
             <div className="flex flex-col gap-6 lg:gap-[24px]">
               {/* Badge */}
-              <div className="bg-[#2b7a6c] rounded-full flex items-center px-4 py-2 lg:px-[20px] w-full lg:w-full">
+              {/* <div className="bg-[#2b7a6c] rounded-full flex items-center px-4 py-2 lg:px-[20px] w-full lg:w-full">
                 <p className="font-['Funnel_Display'] font-medium text-[16px] lg:text-[21px] leading-[24px] text-white">
                   OptiGenix × UC Berkeley Triathlon Team
                 </p>
-              </div>
+              </div> */}
 
               {/* Title and Description */}
               <div className="flex flex-col gap-3 lg:gap-[12px]">
-                <h2 className="font-['Funnel_Display'] font-medium text-[32px] lg:text-[48px] leading-[48px] lg:leading-[45px] text-[#010907]">
+                {/* <h2 className="font-['Funnel_Display'] font-medium text-[32px] lg:text-[48px] leading-[48px] lg:leading-[45px] text-[#010907]">
                   Results
-                </h2>
+                </h2> */}
                 <div className="flex flex-col gap-2">
-                  <p className="font-['Funnel_Display'] font-medium text-[16px] lg:text-[21px] leading-[24px] text-[#010907]">
+                  {/* <p className="font-['Funnel_Display'] font-medium text-[16px] lg:text-[21px] leading-[24px] text-[#010907]">
                     Performance & Recovery
-                  </p>
+                  </p> */}
                   <p className="font-['Inter'] font-normal text-[14px] lg:text-[16px] leading-[22px] lg:leading-[24px] text-[#010907]">
                     A 30-day pilot with collegiate endurance athletes showed
                     that biomarker-based, personalized supplements improved
@@ -144,7 +144,7 @@ const CaseStudy = () => {
               {resultCards.map((card, index) => (
                 <div
                   key={index}
-                  className={`bg-white ${card.borderColor} border-l-[3px] rounded-[12px] p-3 lg:p-[20px] shrink-0 w-[100%] max-md:mb-4 md:w-[210px] lg:flex-1 md:h-[164px] h-[110px] flex flex-col gap-2`}
+                  className={`bg-white ${card.borderColor} border-l-[3px] rounded-[12px] p-3 lg:p-[20px] shrink-0 w-[100%] max-md:mb-4 md:w-[210px] lg:flex-1 md:h-[200px] h-[110px] flex flex-col gap-2`}
                 >
                   <h4 className="font-['Funnel_Display'] font-medium text-[18px] leading-[20px] text-[#010907]">
                     {card.title}

@@ -1,9 +1,9 @@
 import React from "react";
 import { MoveLeft } from "lucide-react";
 import { Link } from "react-router-dom";
-import shopYourFocusC1 from "../../../assets/images/shop_your_focus/shop_your_focus_c1.webp";
+import shopYourFocusC1 from "../../../assets/images/shop_your_focus/shop_your_focus_c4.webp";
 import shopYourFocusC2 from "../../../assets/images/shop_your_focus/shop_your_focus_c2.webp";
-import shopYourFocusC3 from "../../../assets/images/shop_your_focus/shop_your_focus_c3.webp";
+import shopYourFocusC3 from "../../../assets/images/shop_your_focus/shop_your_focus_c5.webp";
 
 const categories = [
   {
@@ -32,19 +32,15 @@ const categories = [
 const Categories = () => {
   return (
     <section className="bg-white md:py-[80px] py-[40px]">
-      <div className="max-w-[1280px] mx-auto px-4 md:px-8">
+      <div className="max-w-[1284px] mx-auto px-4 md:px-8">
         {/* Title with Description */}
         <div className="flex flex-col gap-[16px] items-center text-center md:mb-[48px] mb-[24px]">
           {/* Heading */}
           <h2 className="!text-[#010907]">Find Your Personalized Path</h2>
 
           {/* Subtitle */}
-          <p className="w-full description md:max-w-[500px]">
-            Expertly formulated, personalized blends designed to support your
-            body’s unique goals and lasting results.
-            {/* Expertly formulated, personalized blends designed to support your{" "}
-            <br className="hidden md:block" />
-            body's unique performance goals and provide sustained results. */}
+          <p className="w-full description md:max-w-[540px]">
+            Goal-focused packs to support mental, physical, and recovery needs.
           </p>
         </div>
 
@@ -59,7 +55,7 @@ const Categories = () => {
               >
                 {/* Image with Label Overlay */}
                 <div className="relative w-full">
-                  <div className="h-[274px] md:h-[330px] w-full rounded-lg overflow-hidden">
+                  <div className="h-[274px] md:h-[318px] w-full rounded-lg overflow-hidden">
                     <img
                       src={category.image}
                       alt={category.title}
@@ -67,7 +63,7 @@ const Categories = () => {
                     />
                   </div>
                   {/* Category Label */}
-                  <h6 className="absolute top-[4px] md:top-[8px] left-[-1px] md:!text-[15px] !text-[13px] text-[#010907]">
+                  <h6 className="absolute top-[4px] md:top-[8px] md:left-[-4px] left-[-1px] md:!text-[16px] !text-[13px] text-[#010907]">
                     {category.title}
                   </h6>
                 </div>
@@ -81,7 +77,7 @@ const Categories = () => {
 
                   {/* Button */}
                   <button className="border-[1.5px] border-[#010907] border-solid rounded-[100px] px-[24px] py-[14px] flex gap-[10px] items-center justify-center hover:bg-[#010907] hover:text-white transition-all duration-200 group">
-                    <span className="text-[#010907] group-hover:text-white btn-primary">
+                    <span className="text-[#010907] !font-['Funnel_Display'] capitalize group-hover:text-white btn-primary">
                       {category.buttonText}
                     </span>
                     {/* Arrow Icon */}

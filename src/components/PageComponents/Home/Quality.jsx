@@ -90,10 +90,10 @@ const Quality = () => {
                 <h2 className="!text-[#fff] !text-[30px] md:!text-[48px]">
                   Backed By Science
                 </h2>
-                <p className=" description !text-[#fff]">
-                  Our process starts with genetic and metabolic insights and
-                  ends with supplements verified for purity, safety, and
-                  efficacy in ISO-accredited, third-party labs.
+                <p className=" description !text-[#fff] md:max-w-[484px] w-full">
+                  From genetic and metabolic insights to third-party testing,
+                  every formula is engineered with precision and verified for
+                  purity, safety, and efficacy.
                 </p>
               </div>
             </div>
