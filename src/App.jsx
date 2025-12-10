@@ -11,6 +11,7 @@ import "./App.css";
 import Athletes from "./pages/Athletes";
 import SingleTest from "./pages/SingleTest";
 import QuizSecond from "./pages/QuizSecond";
+import Waitlist from "./pages/Waitlist";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="gene-test" element={<SingleTest />} />
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="terms-of-service" element={<TermsOfService />} />
+          <Route path="waitlist" element={<Waitlist />} />
         </Route>
       </Routes>
     </>
