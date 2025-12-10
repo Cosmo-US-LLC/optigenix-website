@@ -20,6 +20,7 @@ const PersonalizedSolutions = () => {
   const [isBloodModalOpen, setIsBloodModalOpen] = useState(false);
 
   const handleDiscoverMore = () => navigate("/gene-test");
+  const handleJoinWaitlist = () => navigate("/join-wait-list");
   return (
     <section
       id="personalized-solutions"
@@ -436,7 +437,10 @@ const PersonalizedSolutions = () => {
                     </div>
 
                     {/* CTA Link */}
-                    <button className="flex gap-[10px] items-center group w-fit">
+                    <button
+                      className="flex gap-[10px] items-center group w-fit"
+                      onClick={handleJoinWaitlist}
+                    >
                       <span className="font-['Funnel_Display'] font-semibold underline text-[16px] leading-[20px] text-[#0d8360] underline">
                         Join Waitlist
                       </span>
@@ -456,7 +460,10 @@ const PersonalizedSolutions = () => {
                         </p>
                       </div>
                       <div className="flex justify-end shrink-0 max-w-[200px]">
-                        <button className="w-full btn_secondary">
+                        <button
+                          className="w-full btn_secondary"
+                          onClick={handleJoinWaitlist}
+                        >
                           Join Waitlist
                         </button>
                       </div>

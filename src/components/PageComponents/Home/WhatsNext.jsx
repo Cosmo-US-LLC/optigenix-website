@@ -1,9 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import optiGenixBlueprint from "../../../assets/images/human_performance/human_performance_c1.webp";
 import optiGenixElite from "../../../assets/images/human_performance/human_performance_c2.webp";
 
 // Reusable Card Component
-const FeatureCard = ({ image, tagText, title, description, buttonLabel }) => {
+const FeatureCard = ({
+  image,
+  tagText,
+  title,
+  description,
+  buttonLabel,
+  onButtonClick,
+}) => {
   return (
     <div className="relative flex-1 h-[400px] md:h-[560px] rounded-[16px] overflow-hidden group">
       {/* Background Image with Overlay */}
@@ -37,7 +45,10 @@ const FeatureCard = ({ image, tagText, title, description, buttonLabel }) => {
         </p>
 
         {/* Button */}
-        <button className="bg-[#fcfcf7] btn_secondary mt-2 md:mt-3 lg:mt-4">
+        <button
+          onClick={onButtonClick}
+          className="bg-[#fcfcf7] btn_secondary mt-2 md:mt-3 lg:mt-4"
+        >
           {buttonLabel}
         </button>
       </div>
@@ -46,6 +57,12 @@ const FeatureCard = ({ image, tagText, title, description, buttonLabel }) => {
 };
 
 const WhatsNext = () => {
+  const navigate = useNavigate();
+
+  const handleJoinWaitlist = () => {
+    navigate("/join-wait-list");
+  };
+
   const features = [
     {
       image: optiGenixBlueprint,
@@ -82,6 +99,7 @@ const WhatsNext = () => {
                 title={feature.title}
                 description={feature.description}
                 buttonLabel={feature.buttonLabel}
+                onButtonClick={handleJoinWaitlist}
               />
             ))}
           </div>

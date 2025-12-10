@@ -22,7 +22,9 @@ const PersonalizedTests = () => {
             Unlock Precision Personalization
           </h2>
           <p className="description text-[#010907] !text-[18px] mb-[15px] px-4">
-            Use DNA and blood insights to build a supplement plan engineered for your biology. <br className="max-md:hidden" /> No guesswork, just results.
+            Use DNA and blood insights to build a supplement plan engineered for
+            your biology. <br className="max-md:hidden" /> No guesswork, just
+            results.
           </p>
           {/* <p className="font-['Funnel_Display'] font-bold text-[20px] md:text-[24px] leading-[28px] md:leading-[32px] text-[#0d8360]">
             Choose how to get started.
@@ -43,7 +45,8 @@ const PersonalizedTests = () => {
                     </h2>
                   </div>
                   <p className="text-black description">
-                    Discover your genetic strengths, nutrient needs, and performance markers through a simple cheek swab.
+                    Discover your genetic strengths, nutrient needs, and
+                    performance markers through a simple cheek swab.
                   </p>
                 </div>
 
@@ -179,7 +182,7 @@ const PersonalizedTests = () => {
                       <img src={icon3} alt="" className="w-full h-full" />
                     </div>
                     <p className="font-['Inter'] font-normal text-[11px] md:text-[14px] leading-[16px] md:leading-[20px] text-white text-center whitespace-pre-line">
-                      Easy and{"\n"}Convenient 
+                      Easy and{"\n"}Convenient
                     </p>
                   </div>
                 </div>
@@ -193,7 +196,8 @@ const PersonalizedTests = () => {
               </h2>
 
               <p className="font-['Inter'] font-normal text-[14px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">
-                Measure 100+ biomarkers to uncover hidden imbalances and optimize recovery, energy, hormones, and nutrient status.
+                Measure 100+ biomarkers to uncover hidden imbalances and
+                optimize recovery, energy, hormones, and nutrient status.
               </p>
 
               {/* Benefits Box */}
@@ -202,7 +206,7 @@ const PersonalizedTests = () => {
                   {[
                     "Identify Hidden Imbalances Affecting Recovery and Performance",
                     "Check Stress and Cognitive Markers",
-                    "Track 105+ Biomarker Levels", 
+                    "Track 105+ Biomarker Levels",
                     "Test Nutrient and Vitamin Levels",
                     "Includes Free 1:1 Expert Dietitian Review",
                   ].map((benefit, index) => (
@@ -221,7 +225,7 @@ const PersonalizedTests = () => {
               {/* CTA Button */}
               <button
                 className="w-fit btn_black"
-                onClick={() => console.log("Explore Blood Test")}
+                onClick={() => navigate("/join-wait-list")}
               >
                 Join Waitlist
               </button>
