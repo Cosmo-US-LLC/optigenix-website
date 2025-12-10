@@ -28,7 +28,7 @@ function App() {
           <Route path="gene-test" element={<SingleTest />} />
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="terms-of-service" element={<TermsOfService />} />
-          <Route path="waitlist" element={<Waitlist />} />
+          <Route path="join-wait-list" element={<Waitlist />} />
         </Route>
       </Routes>
     </>
