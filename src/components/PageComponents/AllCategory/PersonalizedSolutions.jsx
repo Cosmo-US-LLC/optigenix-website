@@ -225,7 +225,7 @@ const PersonalizedSolutions = () => {
                           className="w-full btn_primary"
                           onClick={handleDiscoverMore}
                         >
-                          Discover More
+                          Explore
                         </button>
                       </div>
                     </div>

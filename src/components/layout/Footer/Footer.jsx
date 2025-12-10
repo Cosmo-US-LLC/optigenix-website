@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import linkedinIcon from "../../../assets/images/footer/Linkedin.svg";
-import twitterIcon from "../../../assets/images/footer/devicon_twitter.svg";
+// import twitterIcon from "../../../assets/images/footer/devicon_twitter.svg";
 import logoIcon from "../../../assets/images/footer/footer_logo.webp";
 import visaIcon from "../../../assets/images/footer/footer_visa.webp";
 import mastercardIcon from "../../../assets/images/footer/footer_mastercard.webp";
@@ -13,7 +13,7 @@ import googlePayIcon from "../../../assets/images/footer/footer_google_pay.webp"
 const Footer = () => {
   const [formData, setFormData] = useState({
     firstName: "",
-    lastName: "",
+    lastName: "", 
     email: "",
   });
 
@@ -59,16 +59,17 @@ const Footer = () => {
 
               {/* Social Icons */}
               <div className="flex gap-2 md:gap-3 lg:gap-[12px] items-center">
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.instagram.com/optigenix/" target="_blank" rel="noopener noreferrer">
                   <button
                     className="w-[40px] h-[40px] md:w-[48px] md:h-[48px] border border-white rounded-full flex items-center justify-center text-white cursor-pointer hover:bg-[#5CDDC6] hover:text-[#042b24] transition-all duration-200"
-                    aria-label="Twitter"
+                    aria-label="Instagram"
                   >
-                    <img
+                    {/* <img
                       src={twitterIcon}
                       alt="Twitter"
                       className="w-4 h-4 md:w-[16px] md:h-[16px]"
-                    />
+                    /> */}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram-icon lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
                   </button>
                 </a>
                 {/* <a

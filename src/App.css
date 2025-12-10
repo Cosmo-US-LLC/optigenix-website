@@ -115,6 +115,28 @@ h6 {
   background: #0a6b4f;
 }
 
+.btn_black {
+  display: flex;
+  padding: 12px 19px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 100px;
+  background: #000000;
+  color: #fff;
+  font-family: "Funnel Display", sans-serif !important;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 150% */
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.btn_black:hover {
+  background: #000000cf;
+}
+
+
 .btn_secondary {
   display: flex;
   padding: 14px 24px;
