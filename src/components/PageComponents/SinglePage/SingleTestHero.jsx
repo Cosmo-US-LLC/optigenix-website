@@ -36,7 +36,18 @@ const SingleTestHero = () => {
             training, nutrition, and overall wellness. Backed by science.
             HSA/FSA accepted.
           </p>
-          <button className="btn_primary">Order Your Test</button>
+          <button
+            className="btn_primary"
+            onClick={() =>
+              window.open(
+                "https://buy.stripe.com/7sY7sM0arfBlgMW77gf3a02",
+                "_blank",
+                "noopener,noreferrer"
+              )
+            }
+          >
+            Order Your Test
+          </button>
         </div>
       </div>
     </section>
