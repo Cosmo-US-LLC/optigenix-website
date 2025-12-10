@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const SingleTestHero = () => {
   return (
-    <section className="relative w-full min-h-[500px] md:min-h-[600px] overflow-hidden rounded-bl-[30px] rounded-br-[30px]">
+    <section className="relative w-full min-h-[500px] md:min-h-[600px] overflow-hidden ">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <img
@@ -16,7 +16,7 @@ const SingleTestHero = () => {
       </div>
 
       {/* Content Container */}
-      <div className="relative h-full max-w-[1280px] mx-auto px-4 md:px-8 flex items-center justify-start py-16 md:py-32 lg:py-[264px]">
+      <div className="relative h-[calc(100vh-6rem)] max-w-[1280px] mx-auto px-4 md:px-8 flex items-center justify-start py-16 md:py-32 lg:py-[264px]">
         <div className="w-full max-w-[766px] space-y-5 md:pb-18">
           <h1 className="text-[#ffffff]    capitalize">
             Optimize Your Health & Performance with Gene Insights
