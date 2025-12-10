@@ -1,68 +1,98 @@
-import Stripe from "stripe";
 import express from "express";
-import process from "process";
+import dotenv from "dotenv";
+import Stripe from "stripe";
 import { SMTPClient } from "emailjs";
+import path from "path";
+import { fileURLToPath } from "url";
 
-const router = express.Router();
+dotenv.config();
+
+// Stripe Setup
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
+// Email Setup
 const client = new SMTPClient({
-  user: "user",
-  password: "password",
-  host: "smtp.your-email.com",
+  user: process.env.SMTP_USER,
+  password: process.env.SMTP_PASSWORD,
+  host: process.env.SMTP_HOST,
   ssl: true,
 });
 
-router.post("/send-mail", async (req, res) => {
+// Express Setup
+const app = express();
+app.use(express.json()); // allow JSON request bodies
+
+// Resolve __dirname in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+/* ====================================
+   📧 SEND EMAIL ROUTE
+==================================== */
+app.post("/api/send-mail", async (req, res) => { 
   const { email, subject, message } = req.body;
-  console.log(`Email: ${email}, Subject: ${subject}, Message: ${message}`);
+
+  if (!email || !subject || !message) {
+    return res.status(400).json({ status: "error", message: "Missing fields." });
+  }
 
   try {
     await client.sendAsync({
-      from: "Your Name",
+      from: "Your Name <no-reply@yourdomain.com>",
       to: email,
-      subject: subject,
+      subject,
       text: message,
     });
+
+    res.json({ status: "success", message: "Email sent successfully!" });
   } catch (error) {
     console.error("Failed to send email:", error);
-    return res
-      .status(500)
-      .json({ status: "error", message: "Failed to send email." });
+    res.status(500).json({ status: "error", message: "Failed to send email." });
+  }
+});
+
+/* ====================================
+   💳 STRIPE CHECKOUT SESSION ROUTE
+==================================== */
+app.post("/api/create-checkout-session", async (req, res) => {
+  const { priceId } = req.body;
+
+  if (!priceId) {
+    return res.status(400).json({ error: "Missing priceId" });
   }
 
-  res.json({ status: "success", message: "Email sent successfully!" });
+  try {
+    const session = await stripe.checkout.sessions.create({
+      mode: "payment",
+      line_items: [{ price: priceId, quantity: 1 }],
+      success_url: "https://yourdomain.com/success",
+      cancel_url: "https://yourdomain.com/cancel",
+    });
+
+    res.json({ url: session.url });
+
+  } catch (error) {
+    console.error("Stripe session error:", error);
+    res.status(500).json({ error: "Failed to create checkout session" });
+  }
 });
 
-router.post("/create-checkout-session", async (req, res) => {
-  const { priceId } = req.body; // price_xxx from Stripe dashboard
+/* ====================================
+   🟩 SERVE VITE REACT BUILD (dist/)
+==================================== */
+app.use(express.static(path.join(__dirname, "dist")));
 
-  const session = await stripe.checkout.sessions.create({
-    mode: "payment",
-    line_items: [
-      {
-        price: priceId,
-        quantity: 1,
-      },
-    ],
-    success_url: "https://yourdomain.com/success",
-    cancel_url: "https://yourdomain.com/cancel",
-  });
-
-  res.json({ url: session.url });
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
 
-// router.post("/webhook", express.raw({ type: "application/json" }), (req, res) => {
-//   const sig = req.headers["stripe-signature"];
-//   const event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
 
-//   if (event.type === "checkout.session.completed") {
-//     const session = event.data.object;
-//     // Fulfill order instantly
-//     console.log(`Payment for session ${session.id} was successful!`);
-//   }
+/* ====================================
+   🚀 START SERVER
+==================================== */
+const PORT = process.env.PORT || 5000;
 
-//   res.sendStatus(200);
-// });
-
-export default router;
+app.listen(PORT, () => {
+  console.log(`🔥 Server running on port ${PORT}`);
+  console.log("Stripe key (test):", process.env.STRIPE_SECRET_KEY);
+});

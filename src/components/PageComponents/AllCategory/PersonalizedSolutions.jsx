@@ -23,7 +23,7 @@ const PersonalizedSolutions = () => {
   return (
     <section
       id="personalized-solutions"
-      className="bg-white py-[80px] px-4 md:px-8"
+      className="bg-white py-[50px] px-4 md:px-8"
     >
       <div className="max-w-[1280px] mx-auto px-0 md:px-8">
         <div className="flex flex-col gap-[30px] items-center w-full">
