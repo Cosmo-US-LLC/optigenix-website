@@ -128,7 +128,7 @@ const Testimonials = () => {
   const [current, setCurrent] = React.useState(0);
 
   const plugin = React.useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: true })
+    Autoplay({ delay: 4000, stopOnInteraction: false })
   );
 
   React.useEffect(() => {

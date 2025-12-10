@@ -109,7 +109,7 @@ const Team = () => {
           <div className="hidden lg:flex gap-[24px] items-center">
             <button
               onClick={scrollPrev}
-              className="border border-[#010907] border-solid hover:bg-[#010907] hover:text-white transition-colors p-[12px] rounded-full w-[48px] h-[48px] flex items-center justify-center"
+              className="border border-[#010907] cursor-pointer border-solid hover:bg-[#010907] hover:text-white transition-colors p-[12px] rounded-full w-[48px] h-[48px] flex items-center justify-center"
               aria-label="Previous slide"
             >
               <MoveLeft
@@ -120,7 +120,7 @@ const Team = () => {
             </button>
             <button
               onClick={scrollNext}
-              className="border border-[#010907] border-solid hover:bg-[#010907] hover:text-white transition-colors p-[12px] rounded-full w-[48px] h-[48px] flex items-center justify-center"
+              className="border border-[#010907] cursor-pointer border-solid hover:bg-[#010907] hover:text-white transition-colors p-[12px] rounded-full w-[48px] h-[48px] flex items-center justify-center"
               aria-label="Next slide"
             >
               <MoveRight
@@ -216,7 +216,7 @@ const Team = () => {
           {/* Previous Button */}
           <button
             onClick={scrollPrev}
-            className="border border-[#010907] hover:bg-[#010907] hover:text-white transition-colors p-2 rounded-full w-[44px] h-[44px] flex items-center justify-center"
+            className="border border-[#010907] cursor-pointer hover:bg-[#010907] hover:text-white transition-colors p-2 rounded-full w-[44px] h-[44px] flex items-center justify-center"
             aria-label="Previous"
           >
             <MoveLeft className="w-12 h-12" size={24} strokeWidth={1} />
@@ -239,7 +239,7 @@ const Team = () => {
           {/* Next Button */}
           <button
             onClick={scrollNext}
-            className="border border-[#010907] hover:bg-[#010907] hover:text-white transition-colors p-2 rounded-full w-[44px] h-[44px] flex items-center justify-center"
+            className="border border-[#010907] cursor-pointer hover:bg-[#010907] hover:text-white transition-colors p-2 rounded-full w-[44px] h-[44px] flex items-center justify-center"
             aria-label="Next"
           >
             <MoveRight className="w-12 h-12" size={24} strokeWidth={1} />

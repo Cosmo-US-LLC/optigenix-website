@@ -132,14 +132,14 @@ const Products = () => {
           <div className="hidden gap-6 items-center md:flex">
             <button
               onClick={() => api?.scrollPrev()}
-              className="border border-[#010907] hover:bg-[#010907] hover:text-white transition-colors p-3 w-[48px] h-[48px] flex items-center justify-center rounded-full"
+              className="border border-[#010907] cursor-pointer hover:bg-[#010907] hover:text-white transition-colors p-3 w-[48px] h-[48px] flex items-center justify-center rounded-full"
               aria-label="Scroll left"
             >
               <MoveLeft className="w-8 h-8" size={24} strokeWidth={1} />
             </button>
             <button
               onClick={() => api?.scrollNext()}
-              className="border border-[#010907] hover:bg-[#010907] hover:text-white transition-colors p-3 w-[48px] h-[48px] flex items-center justify-center rounded-full"
+              className="border border-[#010907] cursor-pointer hover:bg-[#010907] hover:text-white transition-colors p-3 w-[48px] h-[48px] flex items-center justify-center rounded-full"
               aria-label="Scroll right"
             >
               <MoveLeft
@@ -164,7 +164,7 @@ const Products = () => {
             {products.map((product, index) => (
               <CarouselItem
                 key={index}
-                className="pl-3 md:pl-4 basis-[140px] md:basis-[360px]"
+                className="pl-3 md:pl-4 basis-[300px] md:basis-[360px]"
               >
                 <div className="cursor-pointer group">
                   {/* Product Image */}
@@ -218,7 +218,7 @@ const Products = () => {
             <button
               onClick={() => api?.scrollPrev()}
               disabled={current === 1}
-              className="border border-[#010907] hover:bg-[#010907] hover:text-white disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-[#010907] transition-colors p-2 rounded-full w-[44px] h-[44px] flex items-center justify-center"
+              className="border border-[#010907] cursor-pointer hover:bg-[#010907] hover:text-white disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-[#010907] transition-colors p-2 rounded-full w-[44px] h-[44px] flex items-center justify-center"
               aria-label="Previous"
             >
               <MoveLeft className="w-8 h-8" size={24} strokeWidth={1} />
@@ -242,7 +242,7 @@ const Products = () => {
             <button
               onClick={() => api?.scrollNext()}
               disabled={current === count}
-              className="border border-[#010907] hover:bg-[#010907] hover:text-white disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-[#010907] transition-colors p-2 rounded-full w-[44px] h-[44px] flex items-center justify-center"
+              className="border border-[#010907] cursor-pointer hover:bg-[#010907] hover:text-white disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-[#010907] transition-colors p-2 rounded-full w-[44px] h-[44px] flex items-center justify-center"
               aria-label="Next"
             >
               <MoveRight className="w-8 h-8" size={24} strokeWidth={1} />

@@ -97,6 +97,7 @@ const Instagram = () => {
       if (playingVideo === index) {
         video.pause();
         setPlayingVideo(null);
+        plugin.current.play(); // Resume auto-scroll when video is paused
       } else {
         // Pause any currently playing video
         if (playingVideo !== null) {
@@ -105,12 +106,14 @@ const Instagram = () => {
         }
         video.play();
         setPlayingVideo(index);
+        plugin.current.stop(); // Stop auto-scroll when video is played
       }
     }
   };
 
   const handleVideoEnd = () => {
     setPlayingVideo(null);
+    plugin.current.play(); // Resume auto-scroll when video ends
   };
 
   return (
@@ -128,8 +131,6 @@ const Instagram = () => {
             align: "start",
             loop: true,
           }}
-          onMouseEnter={() => plugin.current.stop()}
-          onMouseLeave={() => plugin.current.play()}
           className="w-full"
         >
           <CarouselContent className="-ml-2 md:-ml-3 lg:-ml-4">
