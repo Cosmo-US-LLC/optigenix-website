@@ -456,7 +456,7 @@ const PersonalizedSolutions = () => {
                         </p>
                       </div>
                       <div className="flex justify-end shrink-0 max-w-[200px]">
-                        <button className="w-full btn_primary">
+                        <button className="w-full btn_secondary">
                           Join Waitlist
                         </button>
                       </div>
