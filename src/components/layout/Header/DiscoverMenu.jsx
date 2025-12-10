@@ -128,7 +128,7 @@ const DiscoverMenu = ({ isOpen, onClose }) => {
               <div className="flex justify-center w-[60%]">
                 <button
                   onClick={handleWaitlistClick}
-                  className="font-['Inter'] text-[#3fa290] text-[13px] md:text-[14px] font-semibold hover:underline"
+                  className="font-['Inter'] curser-pointer text-[#3fa290] text-[13px] md:text-[14px] font-semibold hover:underline"
                 >
                   Join Waitlist!
                 </button>
@@ -201,9 +201,9 @@ const DiscoverMenu = ({ isOpen, onClose }) => {
                     </p>
                     <button
                       onClick={handleQuizClick}
-                      className="bg-[#f8fffd] flex gap-[6px] md:gap-[8px] items-center justify-center px-[12px] py-[8px] rounded-[100px] hover:bg-white transition-colors group"
+                      className="bg-[#f8fffd] flex curser-pointer gap-[6px] md:gap-[8px] items-center justify-center px-[12px] py-[8px] rounded-[100px] hover:bg-white transition-colors group"
                     >
-                      <span className="font-['Inter'] font-bold leading-[16px] md:leading-[19px] text-[#2b7a6c] text-[11px] md:text-[12px]">
+                      <span className="font-['Inter'] curser-pointer font-bold leading-[16px] md:leading-[19px] text-[#2b7a6c] text-[11px] md:text-[12px]">
                         Take our Quiz
                       </span>
                       <ArrowRight className="w-[14px] h-[14px] md:w-[16px] md:h-[16px] text-[#2b7a6c] group-hover:translate-x-1 transition-transform" />
