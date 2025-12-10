@@ -7,6 +7,15 @@ import ourMostTrustedFormulasC4 from "../../../assets/images/our_most_trusted/ou
 import ourMostTrustedFormulasC5 from "../../../assets/images/our_most_trusted/our_most_trusted_c12.webp";
 import ourMostTrustedFormulasC6 from "../../../assets/images/our_most_trusted/our_most_trusted_c13.webp";
 import ourMostTrustedFormulasC7 from "../../../assets/images/our_most_trusted/our_most_trusted_c14.webp";
+
+import quickPackIcon1 from "../../../assets/images/our_most_trusted/quick_pack_1.svg";
+import quickPackIcon2 from "../../../assets/images/our_most_trusted/quick_pack_2.svg";
+import quickPackIcon3 from "../../../assets/images/our_most_trusted/quick_pack_3.svg";
+import quickPackIcon4 from "../../../assets/images/our_most_trusted/quick_pack_4.svg";
+import quickPackIcon5 from "../../../assets/images/our_most_trusted/quick_pack_5.svg";
+import quickPackIcon6 from "../../../assets/images/our_most_trusted/quick_pack_6.svg";
+import quickPackIcon7 from "../../../assets/images/our_most_trusted/quick_pack_7.svg";
+
 import {
   Carousel,
   CarouselContent,
@@ -20,18 +29,27 @@ const products = [
       "Built for faster recovery, muscle repair, and performance resilience",
     price: "$59.99",
     image: ourMostTrustedFormulasP1,
+    icon: quickPackIcon1,
+    iconBgColor: "rgba(246, 241, 233, 0.50)",
+    iconBorderColor: "rgba(173, 138, 48, 0.30)",
   },
   {
     name: "Sleep QuickPack™",
     description: "Built for deep sleep, calm recovery, and restorative rest",
     price: "$59.99",
     image: ourMostTrustedFormulasP2,
+    icon: quickPackIcon2,
+    iconBgColor: "rgba(159, 79, 139, 0.10)",
+    iconBorderColor: "rgba(95, 21, 74, 0.20)",
   },
   {
     name: "Strength QuickPack™",
     description: "Built for muscle growth, power, and resilient strength",
     price: "$59.99",
     image: ourMostTrustedFormulasC3,
+    icon: quickPackIcon3,
+    iconBgColor: "rgba(42, 114, 139, 0.20)",
+    iconBorderColor: "rgba(90, 181, 199, 0.10)",
   },
   {
     name: "Endurance QuickPack™",
@@ -39,18 +57,27 @@ const products = [
       "Built for cellular energy, stamina, and sustained performance",
     price: "$59.99",
     image: ourMostTrustedFormulasC4,
+    icon: quickPackIcon4,
+    iconBgColor: "rgba(32, 112, 29, 0.20)",
+    iconBorderColor: "rgba(41, 147, 41, 0.10)",
   },
   {
     name: "Focus QuickPack™",
     description: "Built for clarity, focus, and real-world stress",
     price: "$59.99",
     image: ourMostTrustedFormulasC5,
+    icon: quickPackIcon5,
+    iconBgColor: "rgba(51, 107, 141, 0.20)",
+    iconBorderColor: "rgba(30, 123, 180, 0.10)",
   },
   {
     name: "Joint Health QuickPack™",
     description: "Built for mobility, flexibility, and joint comfort",
     price: "$59.99",
     image: ourMostTrustedFormulasC6,
+    icon: quickPackIcon6,
+    iconBgColor: "rgba(205, 68, 61, 0.20)",
+    iconBorderColor: "rgba(186, 32, 14, 0.10)",
   },
   {
     name: "Immune Health QuickPack™",
@@ -58,6 +85,9 @@ const products = [
       "Built for immune response, detox support, and antioxidant defense",
     price: "$59.99",
     image: ourMostTrustedFormulasC7,
+    icon: quickPackIcon7,
+    iconBgColor: "rgba(176, 87, 35, 0.20)",
+    iconBorderColor: "rgba(233, 96, 0, 0.10)",
   },
 ];
 
@@ -88,9 +118,15 @@ const Products = () => {
     <section className="bg-[#f7f7f7] md:py-20 py-12">
       <div className="max-w-[1280px] px-4 md:px-8 mx-auto">
         <div className="flex justify-between items-center mb-8 md:mb-12">
-          <h2 className="text-[#010907] capitalize w-full md:max-w-[760px] text-center md:text-left w-full md:w-auto">
-            Our Most Trusted QuickPacks
-          </h2>
+          <div className="flex flex-col gap-4">
+            <h2 className="text-[#010907] capitalize w-full md:max-w-[760px] text-center md:text-left w-full md:w-auto">
+              Our Most Trusted QuickPacks
+            </h2>
+
+            <p className="description text-[#010907]">
+              Ready-to-go formulas trusted by athletes.
+            </p>
+          </div>
 
           {/* Desktop Navigation Buttons */}
           <div className="hidden gap-6 items-center md:flex">
@@ -138,6 +174,16 @@ const Products = () => {
                       alt={product.name}
                       className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
                     />
+                    {/* Icon in top-left corner */}
+                    <div
+                      className="absolute top-[10px] left-[10px] backdrop-blur-[22.5px] border border-solid flex items-center justify-center p-2 rounded-full"
+                      style={{
+                        backgroundColor: product.iconBgColor,
+                        borderColor: product.iconBorderColor,
+                      }}
+                    >
+                      <img src={product.icon} alt="" className="w-6 h-6" />
+                    </div>
                     {/* Plus Button */}
                     {/* <button
                       className="absolute bottom-[8px] right-[8px] bg-[#0d8360] hover:bg-[#0a6b4f] rounded-full w-[24px] md:w-[44px] h-[24px] md:h-[44px] flex items-center justify-center transition-colors"

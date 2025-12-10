@@ -100,8 +100,8 @@ const Team = () => {
           <div className="flex flex-col gap-4 lg:gap-[24px] lg:max-w-[660px]">
             <h2 className="text-[#010907] capitalize">Meet the team</h2>
             <p className=" description text-[#010907] max-w-[590px]">
-              Founded and formulated by a world-class team of doctors and
-              performance experts.
+              Built by athletes, scientists, and performance experts dedicated
+              to redefining personalized supplementation.
             </p>
           </div>
 
