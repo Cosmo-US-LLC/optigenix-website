@@ -230,7 +230,7 @@ const SingleTestHowItsWork = () => {
     <section className="py-12 bg-white md:py-20">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col lg:flex-row items-start gap-4 md:gap-8">
         {/* Left: Heading + CTA */}
-        <div className="flex flex-col gap-6 justify-between items-start h-full group">
+        <div className="flex flex-col gap-6 justify-between items-start md:min-h-[500px] h-full group">
           <div className="flex flex-col gap-4">
             <h2 className="text-[#252525]  ">How It Works</h2>
             <p className="font-['Inter'] text-[16px] leading-[26px] md:text-[16px] md:leading-[29px] text-black max-w-[520px] ">
@@ -249,7 +249,7 @@ const SingleTestHowItsWork = () => {
           {steps.map((step, idx) => (
             <div
               key={idx}
-              className="group rounded-[16px] border border-[#dedede] bg-[#f7f7f7] opacity-90 p-6 md:p-7 flex flex-col gap-4 shadow-sm transition-all duration-200 hover:border-[#0d8360] hover:bg-[#0d8360] hover:opacity-100 hover:-rotate-2"
+              className="group cursor-pointer rounded-[16px] border border-[#dedede] bg-[#f7f7f7] opacity-90 p-6 md:p-7 flex flex-col gap-4 shadow-sm transition-all duration-200 hover:border-[#0d8360] hover:bg-[#0d8360] hover:opacity-100 hover:-rotate-2"
             >
               <div className="relative w-6 h-6">
                 <step.icon className="w-6 h-6 text-black transition-colors duration-200 group-hover:text-white" />

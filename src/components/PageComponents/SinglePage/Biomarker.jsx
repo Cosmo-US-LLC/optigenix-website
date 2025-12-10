@@ -224,7 +224,7 @@ const Biomarker = () => {
                 className="pl-4 md:pl-6 basis-full lg:basis-auto"
               >
                 <div
-                  className="flex flex-col lg:flex-row gap-6 lg:gap-12 items-center px-6 lg:px-6 py-8 lg:py-12 rounded-[16px] min-h-[364px]"
+                  className="flex flex-col lg:flex-row gap-6 lg:gap-12 items-center px-6 lg:px-6 py-8 lg:py-12 rounded-[16px] min-h-[364px] cursor-pointer"
                   style={{ backgroundColor: biomarker.bgColor }}
                 >
                   {/* Left: Content */}

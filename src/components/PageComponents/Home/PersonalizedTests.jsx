@@ -34,7 +34,7 @@ const PersonalizedTests = () => {
         {/* Cards Container - Sticky Scroll Effect */}
         <div className="flex flex-col gap-0 max-w-[1280px] mx-auto px-4 md:px-8">
           {/* DNA Test Card - Sticky */}
-          <div className="sticky top-[-6px] md:top-[100px] bg-[#fbfbfb] rounded-[32px] p-[16px] md:p-[32px] flex flex-col md:flex-row gap-[32px] md:gap-[48px] items-center justify-center">
+          <div className="sticky top-[60px] md:top-[-6px] md:top-[100px] bg-[#fbfbfb] rounded-[32px] p-[16px] md:p-[32px] flex flex-col md:flex-row gap-[32px] md:gap-[48px] items-center justify-center">
             {/* Left Content */}
             <div className="flex flex-col gap-[16px] w-full md:w-[624px]">
               <div className="flex flex-col gap-[24px]">
@@ -82,7 +82,7 @@ const PersonalizedTests = () => {
             </div>
 
             {/* Right Graphics */}
-            <div className="bg-[#dce3e4] rounded-[24px] w-full md:w-[550px] h-[400px] md:h-[500px] relative overflow-hidden shrink-0">
+            <div className="bg-[#dce3e4] rounded-[24px] w-full md:w-[550px] h-[320px] md:h-[500px] relative overflow-hidden shrink-0">
               {/* DNA Image */}
               <div className="flex absolute inset-0 justify-center items-center">
                 <img
