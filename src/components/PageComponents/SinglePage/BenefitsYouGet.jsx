@@ -84,7 +84,7 @@ const BenefitsYouGet = () => {
                   key={card.title}
                   className="sm:basis-1/2 lg:basis-1/4"
                 >
-                  <div className="relative overflow-hidden rounded-[20px] bg-[#0f2c27]  h-[320px] sm:h-[360px] lg:h-[360px] flex items-end">
+                  <div className="relative overflow-hidden rounded-[20px] bg-[#0f2c27]  h-[520px] sm:h-[360px] lg:h-[360px] flex items-end">
                     <img
                       src={card.image}
                       alt={card.title}

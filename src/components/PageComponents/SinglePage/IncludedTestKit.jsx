@@ -47,7 +47,7 @@ const items = [
 
 const IncludedTestKit = () => {
   return (
-    <section className="py-12 bg-white md:py-20">
+    <section className="py-12 bg-[#DCE3E4] md:py-20">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8">
         <div className="flex flex-col gap-5 items-center mb-10 text-center md:mb-8">
           <h2 className="text-[#010907] ">What’s Included In Your Test Kit</h2>
