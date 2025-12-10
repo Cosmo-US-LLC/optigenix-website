@@ -62,8 +62,8 @@ const CaseStudy = () => {
 
                 {/* Stats Grid - 2x2 */}
                 <div className="flex flex-col gap-4 justify-start h-full">
-                  <div className="flex flex-col gap-[14px] lg:gap-[24px] text-left text-white max-w-[474px]   ">
-                    <h2 className="!text-[#010907] md:!text-[40px] !text-[25px] md:!leading-[44px] !leading-[29px] ">
+                  <div className="flex flex-col gap-[14px] lg:gap-[24px] text-left text-white max-w-[574px]   ">
+                    <h2 className="!text-[#010907] md:!text-[42px] !text-[25px] md:!leading-[44px] !leading-[29px] ">
                       OptiGenix × UC Berkeley Triathlon Team
                     </h2>
                   </div>
@@ -75,7 +75,7 @@ const CaseStudy = () => {
                         className={`flex justify-center w-fit items-center px-4 py-5 border bg-[#2B7A6C]   border-transparent backdrop-blur-[7px]   md:rounded-[28px] rounded-[30px] md:px-[20px] md:py-[16px]`}
                       >
                         <div className="flex flex-row gap-4 items-center w-full text-left text-white">
-                          <p className="font-['Inter'] font-bold text-[24px] lg:text-[40px] leading-[22px]">
+                          <p className="font-['Inter'] font-bold text-[24px] lg:text-[21px] leading-[22px]">
                             {stat.value}
                           </p>
                           <p className="font-['Inter'] font-normal text-[14px] lg:text-[16px] leading-[22px]">
@@ -144,9 +144,9 @@ const CaseStudy = () => {
               {resultCards.map((card, index) => (
                 <div
                   key={index}
-                  className={`bg-white ${card.borderColor} border-l-[3px] rounded-[12px] p-3 lg:p-[20px] shrink-0 w-[100%] max-md:mb-4 md:w-[210px] lg:flex-1 md:h-[200px] h-[110px] flex flex-col gap-2`}
+                  className={`bg-white ${card.borderColor} border-l-[3px] rounded-[12px] p-3 lg:p-[20px] shrink-0 w-[100%] max-md:mb-4 md:w-[210px] lg:flex-1 md:h-[180px] h-[110px] flex flex-col gap-2`}
                 >
-                  <h4 className="font-['Funnel_Display'] font-medium text-[18px] leading-[20px] text-[#010907]">
+                  <h4 className="font-['Funnel_Display'] font-medium !text-[18px] leading-[20px] text-[#010907]">
                     {card.title}
                   </h4>
                   <p className="font-['Inter'] font-normal text-[16px] leading-[24px] text-[rgba(1,9,7,0.7)]">
