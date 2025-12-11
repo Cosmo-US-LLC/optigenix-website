@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   ShoppingCart,
   User,
@@ -33,11 +33,24 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [discoverMenuOpen, setDiscoverMenuOpen] = useState(false);
   const [mobileDiscoverOpen, setMobileDiscoverOpen] = useState(false);
+  const navigate = useNavigate();
   const location = useLocation();
   const isQuizPage = location.pathname === "/quiz";
   const discoverItems = [
-    { title: "Your Body's User Manual", image: Image1 },
-    { title: "Unlock Vital Health Markers", image: Image2 },
+    { title: "Your Body's User Manual", image: Image1, href: "/gene-test" },
+    {
+      title: "Unlock Vital Health Markers",
+      image: Image2,
+      href: "/join-wait-list",
+    },
+    // { title: "Mental Performance", image: Image4 },
+    // { title: "Physical Performance", image: Image3 },
+    // { title: "Recovery", image: Image5 },
+  ];
+
+  const discoverItems2 = [
+    // { title: "Your Body's User Manual", image: Image1 },
+    // { title: "Unlock Vital Health Markers", image: Image2 },
     { title: "Mental Performance", image: Image4 },
     { title: "Physical Performance", image: Image3 },
     { title: "Recovery", image: Image5 },
@@ -231,7 +244,7 @@ const Header = () => {
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="w-[300px] sm:w-[400px] bg-white h-[100vh] flex flex-col"
+              className="w-[330px] sm:w-[400px] bg-white h-[100vh] flex flex-col"
             >
               <SheetHeader>
                 <Link to="/" className="flex items-center gap-3 h-[42px]">
@@ -316,12 +329,17 @@ const Header = () => {
                       />
                     </button>
                     {mobileDiscoverOpen && (
-                      <div className="flex flex-col gap-3">
+                      <div className="flex flex-col gap-3 items-end">
                         <div className="grid grid-cols-2 gap-3">
                           {discoverItems.map((item, idx) => (
-                            <div
+                            <Link
                               key={idx}
-                              className="bg-[#f6f6f6] flex mt-2 flex-col items-center overflow-hidden rounded-[12px] w-full"
+                              to={item.href}
+                              onClick={() => {
+                                setMobileMenuOpen(false);
+                                setMobileDiscoverOpen(false);
+                              }}
+                              className="bg-[#f6f6f6] flex mt-2 flex-col items-center overflow-hidden rounded-[12px] w-full hover:bg-white transition-colors"
                             >
                               <div className="h-[70px] w-full overflow-hidden bg-[#dce3e4]">
                                 <img
@@ -335,7 +353,7 @@ const Header = () => {
                                   {item.title}
                                 </p>
                               </div>
-                            </div>
+                            </Link>
                           ))}
                         </div>
                         <Link
@@ -344,10 +362,31 @@ const Header = () => {
                             setMobileMenuOpen(false);
                             setMobileDiscoverOpen(false);
                           }}
-                          className="font-['Inter'] text-[#3fa290] text-[13px] font-semibold text-center hover:underline"
+                          className="font-['Inter'] text-[#3fa290] text-[13px] pr-6 font-semibold text-center hover:underline"
                         >
                           Join Waitlist!
                         </Link>
+                        <div className="grid grid-cols-1 gap-3">
+                          {discoverItems2.map((item, idx) => (
+                            <div
+                              key={idx}
+                              className="bg-[#f6f6f6] flex mt-2 flex-row items-center overflow-hidden rounded-[12px] w-full"
+                            >
+                              <div className="h-[100px] w-1/2 overflow-hidden  bg-[#dce3e4]">
+                                <img
+                                  src={item.image}
+                                  alt={item.title}
+                                  className="object-cover w-full h-full"
+                                />
+                              </div>
+                              <div className="px-2 py-2 w-1/2 text-center">
+                                <p className="font-['Funnel_Display'] font-medium text-[#010907] md:text-[11px] text-[14px] leading-[16px] whitespace-pre-wrap">
+                                  {item.title}
+                                </p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>
@@ -361,7 +400,7 @@ const Header = () => {
                     </div>
 
                     <div className="flex flex-col gap-[12px] md:gap-[16px] min-h-[120px] md:h-[137px] justify-center px-[12px] md:px-[16px] py-[16px] md:py-[20px] rounded-[12px] w-full md:w-[360px] bg-linear-to-br from-[#2b7a6c] to-[#0a694d]">
-                      <div className="flex flex-col md:flex-row gap-[16px] md:gap-[24px] items-center w-full">
+                      <div className="flex flex-row md:flex-row gap-[16px] md:gap-[24px] items-center w-full">
                         {/* Customer Images */}
                         <div className="flex flex-col gap-[12px] md:gap-[15px] items-center md:items-start leading-0 w-[100px] md:w-[116px] shrink-0">
                           <div className="grid relative grid-cols-1 grid-rows-1 scale-90 md:scale-100">
@@ -417,7 +456,11 @@ const Header = () => {
                             Find your perfect supplement in under 2 mins.
                           </p>
                           <button
-                            // onClick={handleQuizClick}
+                            onClick={() => {
+                              navigate("/quiz");
+                              setMobileMenuOpen(false);
+                              setMobileDiscoverOpen(false);
+                            }}
                             className="bg-[#f8fffd] flex gap-[6px] md:gap-[8px] items-center justify-center px-[12px] py-[8px] rounded-[100px] hover:bg-white transition-colors group"
                           >
                             <span className="font-['Inter'] font-bold leading-[16px] md:leading-[19px] text-[#2b7a6c] text-[11px] md:text-[12px]">
