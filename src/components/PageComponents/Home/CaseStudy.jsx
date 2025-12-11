@@ -72,13 +72,13 @@ const CaseStudy = () => {
                     {mainStats.slice(0, 2).map((stat, index) => (
                       <div
                         key={index}
-                        className={`flex justify-center w-fit items-center px-4 py-5 border bg-[#2B7A6C]   border-transparent backdrop-blur-[7px]   md:rounded-[28px] rounded-[30px] md:px-[20px] md:py-[16px]`}
+                        className={`flex justify-center w-fit items-center px-4 py-3 border bg-[#2B7A6C]   border-transparent backdrop-blur-[7px]   md:rounded-[28px] rounded-[30px] md:px-[20px] md:py-[12px]`}
                       >
                         <div className="flex flex-row gap-4 items-center w-full text-left text-white">
-                          <p className="font-['Inter'] font-bold text-[24px] lg:text-[21px] leading-[22px]">
+                          <p className="font-['Funnel_Display'] font-bold text-[24px] lg:text-[21px] leading-[22px]">
                             {stat.value}
                           </p>
-                          <p className="font-['Inter'] font-normal text-[14px] lg:text-[16px] leading-[22px]">
+                          <p className="font-['Funnel_Display'] font-normal text-[14px] lg:text-[16px] leading-[22px]">
                             {stat.label}
                           </p>
                         </div>

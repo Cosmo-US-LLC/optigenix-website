@@ -31,6 +31,7 @@ const Waitlist = () => {
     fullName: "",
     email: "",
   });
+  const [loading, setLoading] = useState(false);
 
   const tests = [
     {
@@ -72,14 +73,67 @@ const Waitlist = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", {
-      selectedTests,
-      formData,
-    });
-    // You can add API call or navigation here
+    if (!isFormValid || loading) return;
+
+    setLoading(true);
+
+    const API_BASE =
+      window.location.hostname === "localhost"
+        ? "http://localhost:5000"
+        : "https://yourdomain.com"; // Replace for production
+
+    const selectedTestTitles = tests
+      .filter((test) => selectedTests.includes(test.id))
+      .map((test) => test.title);
+
+    const messageText = `
+Hi ${formData.fullName},
+
+Thanks for joining the OptiGenix waitlist! You selected:
+${selectedTestTitles.map((title) => `- ${title}`).join("\n")}
+We'll be in touch with next steps and early access details.
+
+Best,
+The OptiGenix Team
+`;
+
+    const messageHTML = `
+  <p>Hi ${formData.fullName},</p>
+  <p>
+    Thanks for joining the OptiGenix waitlist! You selected:
+    <ul>
+      ${selectedTestTitles.map((title) => `<li>${title}</li>`).join("")}
+    </ul>
+    We'll be in touch with next steps and early access details.
+  </p>
+  <p>
+    Best,<br>
+    The OptiGenix Team
+  </p>
+`;
+
+    try {
+      await fetch(`${API_BASE}/api/send-mail`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: formData.email,
+          subject: "Thanks for joining the OptiGenix waitlist",
+          messageText,
+          messageHTML,
+        }),
+      });
+
+      // Reset form on success
+      setSelectedTests([]);
+      setFormData({ fullName: "", email: "" });
+    } catch (error) {
+      console.error("Waitlist submission error:", error);
+    }
+
+    setLoading(false);
   };
 
   const selectedCount = selectedTests.length;
@@ -192,15 +246,23 @@ const Waitlist = () => {
                 <div className="flex flex-col gap-2 items-center w-full md:gap-3">
                   <button
                     type="submit"
-                    disabled={!isFormValid}
+                    disabled={!isFormValid || loading}
                     className={`transition-colors flex items-center justify-center px-5 py-[10px] rounded-[100px] w-full font-funnel font-semibold text-[16px] text-white ${
-                      isFormValid
+                      isFormValid && !loading
                         ? "bg-[#0d8360] hover:bg-[#0a6b4f] cursor-pointer"
                         : "bg-[#c7c7c7] cursor-not-allowed opacity-60"
                     }`}
                   >
-                    <span className="md:hidden">Reserve Your Spot</span>
-                    <span className="hidden md:inline">Reserve Your Sport</span>
+                    {loading ? (
+                      "Sending..."
+                    ) : (
+                      <>
+                        <span className="md:hidden">Reserve Your Spot</span>
+                        <span className="hidden md:inline">
+                          Reserve Your Spot
+                        </span>
+                      </>
+                    )}
                   </button>
                   <p className="font-inter font-normal opacity-80 text-[#02110e] text-[12px] leading-[24px]">
                     {selectedCount === 0

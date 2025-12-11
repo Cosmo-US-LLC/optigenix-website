@@ -92,21 +92,7 @@ const DiscoverMenu = ({ isOpen, onClose }) => {
                   </div>
                 </div>
 
-                {/* Card 3: Physical Performance */}
-                <div className="bg-[#f6f6f6] flex flex-col gap-[4px] md:gap-[6px] items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]">
-                  <div className="h-[60px] md:h-[85px] rounded-tl-[12px] rounded-tr-[12px] w-full relative overflow-hidden">
-                    <img
-                      alt="Physical Performance"
-                      className="object-cover w-full h-full"
-                      src={Image3}
-                    />
-                  </div>
-                  <div className="font-['Funnel_Display'] font-medium text-[#010907] text-[11px] md:text-[12px] lg:[16px] text-center leading-[14px] md:leading-[16px] w-full px-1 whitespace-pre-wrap">
-                    Physical Performance
-                  </div>
-                </div>
-
-                {/* Card 4: Mental Performance */}
+                {/* Card 3: Mental Performance */}
                 <div className="bg-[#f6f6f6] flex flex-col gap-[4px] md:gap-[6px] items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]">
                   <div className="h-[60px] md:h-[85px] rounded-tl-[12px] rounded-tr-[12px] w-full relative overflow-hidden">
                     <img
@@ -117,6 +103,20 @@ const DiscoverMenu = ({ isOpen, onClose }) => {
                   </div>
                   <div className="font-['Funnel_Display'] font-medium text-[#010907] text-[11px] md:text-[12px] lg:[16px] text-center leading-[14px] md:leading-[16px] w-full px-1 whitespace-pre-wrap">
                     Mental <br></br> Performance
+                  </div>
+                </div>
+
+                {/* Card 4: Physical Performance */}
+                <div className="bg-[#f6f6f6] flex flex-col gap-[4px] md:gap-[6px] items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]">
+                  <div className="h-[60px] md:h-[85px] rounded-tl-[12px] rounded-tr-[12px] w-full relative overflow-hidden">
+                    <img
+                      alt="Physical Performance"
+                      className="object-cover w-full h-full"
+                      src={Image3}
+                    />
+                  </div>
+                  <div className="font-['Funnel_Display'] font-medium text-[#010907] text-[11px] md:text-[12px] lg:[16px] text-center leading-[14px] md:leading-[16px] w-full px-1 whitespace-pre-wrap">
+                    Physical Performance
                   </div>
                 </div>
 

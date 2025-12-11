@@ -5,7 +5,7 @@ import { SMTPClient } from "emailjs";
 import path from "path";
 import { fileURLToPath } from "url";
 import cors from "cors";
-
+import process from "process";
 
 dotenv.config();
 
@@ -14,8 +14,8 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 // Email Setup
 const client = new SMTPClient({
-  user: process.env.SMTP_USER,        // optigenix.help@gmail.com
-  password: process.env.SMTP_PASS,    // your Gmail App Password
+  user: process.env.SMTP_USER, // optigenix.help@gmail.com
+  password: process.env.SMTP_PASS, // your Gmail App Password
   host: "smtp.gmail.com",
   ssl: true,
 });
@@ -23,16 +23,18 @@ const client = new SMTPClient({
 // Express Setup
 const app = express();
 
-app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "http://138.197.29.179:4173",
-    "http://localhost:3000",
-    "https://yourdomain.com"
-  ],
-  methods: "GET,POST,PUT",
-  allowedHeaders: "Content-Type"
-}));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "http://138.197.29.179:4173",
+      "http://localhost:3000",
+      "https://yourdomain.com",
+    ],
+    methods: "GET,POST,PUT",
+    allowedHeaders: "Content-Type",
+  })
+);
 
 app.use(express.json()); // allow JSON request bodies
 
@@ -44,11 +46,12 @@ const __dirname = path.dirname(__filename);
    📧 SEND EMAIL ROUTE
 ==================================== */
 app.post("/api/send-mail", async (req, res) => {
-
   const { email, subject, message, messageHTML, messageText } = req.body;
 
   if (!email || !subject) {
-    return res.status(400).json({ status: "error", message: "Missing fields." });
+    return res
+      .status(400)
+      .json({ status: "error", message: "Missing fields." });
   }
 
   try {
@@ -57,9 +60,7 @@ app.post("/api/send-mail", async (req, res) => {
       to: email,
       subject,
       text: messageText,
-      attachment: [
-        { data: messageHTML, alternative: true }
-      ]
+      attachment: [{ data: messageHTML, alternative: true }],
     });
 
     res.json({ status: "success", message: "Email sent successfully!" });
@@ -88,7 +89,6 @@ app.post("/api/create-checkout-session", async (req, res) => {
     });
 
     res.json({ url: session.url });
-
   } catch (error) {
     console.error("Stripe session error:", error);
     res.status(500).json({ error: "Failed to create checkout session" });
@@ -103,7 +103,6 @@ app.use(express.static(path.join(__dirname, "dist")));
 app.use((req, res) => {
   res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
-
 
 /* ====================================
    🚀 START SERVER
