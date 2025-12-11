@@ -16,6 +16,14 @@ import quickPackIcon5 from "../../../assets/images/our_most_trusted/quick_pack_5
 import quickPackIcon6 from "../../../assets/images/our_most_trusted/quick_pack_6.svg";
 import quickPackIcon7 from "../../../assets/images/our_most_trusted/quick_pack_7.svg";
 
+import quickPackHover1 from "../../../assets/images/our_most_trusted/quick_packs_hover_1.webp";
+import quickPackHover2 from "../../../assets/images/our_most_trusted/quick_packs_hover_2.webp";
+import quickPackHover3 from "../../../assets/images/our_most_trusted/quick_packs_hover_3.webp";
+import quickPackHover4 from "../../../assets/images/our_most_trusted/quick_packs_hover_4.webp";
+import quickPackHover5 from "../../../assets/images/our_most_trusted/quick_packs_hover_5.webp";
+import quickPackHover6 from "../../../assets/images/our_most_trusted/quick_packs_hover_6.webp";
+import quickPackHover7 from "../../../assets/images/our_most_trusted/quick_packs_hover_7.webp";
+
 import {
   Carousel,
   CarouselContent,
@@ -32,6 +40,8 @@ const products = [
     icon: quickPackIcon1,
     iconBgColor: "rgba(246, 241, 233, 0.50)",
     iconBorderColor: "rgba(173, 138, 48, 0.30)",
+    hoverImage: quickPackHover1,
+    hoverText: "Repair,\nRecharge,\nRecover",
   },
   {
     name: "Sleep QuickPack™",
@@ -41,6 +51,8 @@ const products = [
     icon: quickPackIcon2,
     iconBgColor: "rgba(159, 79, 139, 0.10)",
     iconBorderColor: "rgba(95, 21, 74, 0.20)",
+    hoverImage: quickPackHover2,
+    hoverText: "Rest Deeply,\n Recover Fully",
   },
   {
     name: "Strength QuickPack™",
@@ -50,6 +62,8 @@ const products = [
     icon: quickPackIcon3,
     iconBgColor: "rgba(42, 114, 139, 0.20)",
     iconBorderColor: "rgba(90, 181, 199, 0.10)",
+    hoverImage: quickPackHover3,
+    hoverText: "Build Strength & Recover Stronger",
   },
   {
     name: "Endurance QuickPack™",
@@ -60,6 +74,8 @@ const products = [
     icon: quickPackIcon4,
     iconBgColor: "rgba(32, 112, 29, 0.20)",
     iconBorderColor: "rgba(41, 147, 41, 0.10)",
+    hoverImage: quickPackHover4,
+    hoverText: "Push Your Limits & Go the Distance",
   },
   {
     name: "Focus QuickPack™",
@@ -69,6 +85,8 @@ const products = [
     icon: quickPackIcon5,
     iconBgColor: "rgba(51, 107, 141, 0.20)",
     iconBorderColor: "rgba(30, 123, 180, 0.10)",
+    hoverImage: quickPackHover5,
+    hoverText: "Sharpen Your Focus & Boost Mental Stamina",
   },
   {
     name: "Joint Health QuickPack™",
@@ -78,6 +96,8 @@ const products = [
     icon: quickPackIcon6,
     iconBgColor: "rgba(205, 68, 61, 0.20)",
     iconBorderColor: "rgba(186, 32, 14, 0.10)",
+    hoverImage: quickPackHover6,
+    hoverText: "Keep Your Joints in Motion",
   },
   {
     name: "Immune Health QuickPack™",
@@ -88,6 +108,8 @@ const products = [
     icon: quickPackIcon7,
     iconBgColor: "rgba(176, 87, 35, 0.20)",
     iconBorderColor: "rgba(233, 96, 0, 0.10)",
+    hoverImage: quickPackHover7,
+    hoverText: "Strengthen Your Defenses",
   },
 ];
 
@@ -95,6 +117,7 @@ const Products = () => {
   const [api, setApi] = useState();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
+  const [activeCard, setActiveCard] = useState(null);
 
   useEffect(() => {
     if (!api) {
@@ -166,14 +189,44 @@ const Products = () => {
                 key={index}
                 className="pl-3 md:pl-4 basis-[300px] md:basis-[360px]"
               >
-                <div className="cursor-pointer group">
+                <div
+                  className="cursor-pointer group"
+                  onClick={() =>
+                    setActiveCard((prev) => (prev === index ? null : index))
+                  }
+                >
                   {/* Product Image */}
                   <div className="relative h-[234px] md:h-[360px] mb-[14px] md:mb-4 rounded-[8px] md:rounded-lg overflow-hidden bg-white">
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                      className="object-cover w-full h-full transition-transform duration-300"
                     />
+                    {/* Hover image slide-in */}
+                    <div className="overflow-hidden absolute top-0 right-[-1px] bottom-0 left-0 z-10">
+                      <img
+                        src={product.hoverImage}
+                        alt={`${product.name} details`}
+                        className={`object-cover absolute inset-0 w-full h-full transition-transform duration-500 ease-out ${
+                          activeCard === index
+                            ? "translate-x-0"
+                            : "translate-x-full group-hover:translate-x-0"
+                        }`}
+                        loading="lazy"
+                      />
+                    </div>
+                    {/* Hover overlay with text (top) */}
+                    <div
+                      className={`flex absolute inset-0 z-20 items-start p-4 to-transparent transition-all md:p-5 duration-400 bg-linear-to-b ${
+                        activeCard === index
+                          ? "opacity-100 translate-x-0"
+                          : "opacity-0 translate-x-full group-hover:opacity-100 group-hover:translate-x-0"
+                      }`}
+                    >
+                      <p className="text-white text-[14px] font-[500] md:text-[30px] leading-[20px] md:leading-[27px] font-['Funnel_Display'] max-w-[260px] drop-shadow-[0_4px_12px_rgba(0,0,0,0.45)] whitespace-pre-line">
+                        {product.hoverText || product.description}
+                      </p>
+                    </div>
                     {/* Icon in top-left corner */}
                     <div
                       className="absolute top-[10px] left-[10px] backdrop-blur-[22.5px] border border-solid flex items-center justify-center p-2 rounded-full"

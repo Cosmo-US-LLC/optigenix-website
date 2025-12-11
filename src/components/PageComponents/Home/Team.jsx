@@ -91,7 +91,7 @@ const Team = () => {
 
   return (
     <section
-      className="py-12 px-4 bg-[#f7f7f7] lg:py-[80px] lg:px-[60px]"
+      className="py-8 px-4 bg-[#f7f7f7] lg:py-[80px] lg:px-[60px]"
       id="meet-the-team"
     >
       <div className="max-w-[1280px] lg:px-8 mx-auto">
@@ -145,7 +145,7 @@ const Team = () => {
             {teamMembers.map((member, index) => (
               <CarouselItem
                 key={index}
-                className="pl-3 lg:pl-4 basis-[364px]  lg:basis-auto"
+                className="pl-3 lg:pl-4 basis-[354px]  lg:basis-auto"
               >
                 <div className="bg-white border min-h-[760px] md:min-h-[495px] border-[rgba(1,9,7,0.1)] rounded-[16px] flex flex-col lg:flex-row gap-2 lg:gap-[32px] items-start lg:items-center p-2 lg:pl-[16px] lg:pr-[32px] lg:py-[16px] w-full lg:w-[800px]">
                   {/* Image */}
@@ -170,7 +170,7 @@ const Team = () => {
                     </div>
 
                     {/* Bio */}
-                    <p className="description text-[#010907] h-[280px] md:h-[220px] ">
+                    <p className="description text-[#010907] h-[260px] md:h-[220px] ">
                       {member.bio}
                     </p>
 
@@ -212,7 +212,7 @@ const Team = () => {
         </Carousel>
 
         {/* Mobile Navigation Controls */}
-        <div className="flex gap-5 justify-center items-center mt-8 lg:hidden">
+        <div className="flex gap-5 justify-center items-center mt-3 lg:hidden">
           {/* Previous Button */}
           <button
             onClick={scrollPrev}
