@@ -118,6 +118,18 @@ const Products = () => {
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
   const [activeCard, setActiveCard] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint is 768px
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     if (!api) {
@@ -191,36 +203,42 @@ const Products = () => {
               >
                 <div
                   className="cursor-pointer group"
-                  onClick={() =>
-                    setActiveCard((prev) => (prev === index ? null : index))
-                  }
+                  onClick={() => {
+                    // Only allow click-to-toggle on mobile
+                    if (isMobile) {
+                      setActiveCard((prev) => (prev === index ? null : index));
+                    }
+                  }}
                 >
                   {/* Product Image */}
                   <div className="relative h-[234px] md:h-[360px] mb-[14px] md:mb-4 rounded-[8px] md:rounded-lg overflow-hidden bg-white">
+                    {/* Default image */}
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="object-cover w-full h-full transition-transform duration-300"
+                      className={`object-cover w-full h-full transition-opacity duration-300 ${
+                        isMobile && activeCard === index
+                          ? "opacity-0"
+                          : "opacity-100 md:group-hover:opacity-0"
+                      }`}
                     />
-                    {/* Hover image slide-in */}
-                    <div className="overflow-hidden absolute top-0 right-[-1px] bottom-0 left-0 z-10">
-                      <img
-                        src={product.hoverImage}
-                        alt={`${product.name} details`}
-                        className={`object-cover absolute inset-0 w-full h-full transition-transform duration-500 ease-out ${
-                          activeCard === index
-                            ? "translate-x-0"
-                            : "translate-x-full group-hover:translate-x-0"
-                        }`}
-                        loading="lazy"
-                      />
-                    </div>
+                    {/* Hover image - simple fade in */}
+                    <img
+                      src={product.hoverImage}
+                      alt={`${product.name} details`}
+                      className={`object-cover absolute z-10 inset-0 w-full h-full transition-opacity duration-300 ${
+                        isMobile && activeCard === index
+                          ? "opacity-100"
+                          : "opacity-0 md:group-hover:opacity-100"
+                      }`}
+                      loading="lazy"
+                    />
                     {/* Hover overlay with text (top) */}
                     <div
-                      className={`flex absolute inset-0 z-20 items-start p-4 to-transparent transition-all md:p-5 duration-400 bg-linear-to-b ${
-                        activeCard === index
-                          ? "opacity-100 translate-x-0"
-                          : "opacity-0 translate-x-full group-hover:opacity-100 group-hover:translate-x-0"
+                      className={`flex absolute inset-0 z-20 items-start p-4 to-transparent transition-opacity md:p-5 duration-300 bg-linear-to-b ${
+                        isMobile && activeCard === index
+                          ? "opacity-100"
+                          : "opacity-0 md:group-hover:opacity-100"
                       }`}
                     >
                       <p className="text-white text-[14px] font-[500] md:text-[30px] leading-[20px] md:leading-[27px] font-['Funnel_Display'] max-w-[260px] drop-shadow-[0_4px_12px_rgba(0,0,0,0.45)] whitespace-pre-line">
