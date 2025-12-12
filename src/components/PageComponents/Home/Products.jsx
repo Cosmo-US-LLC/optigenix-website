@@ -42,6 +42,7 @@ const products = [
     iconBorderColor: "rgba(173, 138, 48, 0.30)",
     hoverImage: quickPackHover1,
     hoverText: "Repair,\nRecharge,\nRecover",
+    link: "https://tryoptigenix.com/products/immune-health-quickpack%E2%84%A2-c-copy"
   },
   {
     name: "Sleep QuickPack™",
@@ -53,6 +54,7 @@ const products = [
     iconBorderColor: "rgba(95, 21, 74, 0.20)",
     hoverImage: quickPackHover2,
     hoverText: "Rest Deeply,\n Recover Fully",
+    link: "https://tryoptigenix.com/products/sleep-quickpack%E2%84%A2-c"
   },
   {
     name: "Strength QuickPack™",
@@ -64,6 +66,7 @@ const products = [
     iconBorderColor: "rgba(90, 181, 199, 0.10)",
     hoverImage: quickPackHover3,
     hoverText: "Build Strength & Recover Stronger",
+    link: "https://tryoptigenix.com/products/sleep-quickpack%E2%84%A2-c-copy"
   },
   {
     name: "Endurance QuickPack™",
@@ -76,6 +79,7 @@ const products = [
     iconBorderColor: "rgba(41, 147, 41, 0.10)",
     hoverImage: quickPackHover4,
     hoverText: "Push Your Limits & Go the Distance",
+    link: "https://tryoptigenix.com/products/strength-quickpack%E2%84%A2-c-copy"
   },
   {
     name: "Focus QuickPack™",
@@ -87,6 +91,7 @@ const products = [
     iconBorderColor: "rgba(30, 123, 180, 0.10)",
     hoverImage: quickPackHover5,
     hoverText: "Sharpen Your Focus & Boost Mental Stamina",
+    link: "https://tryoptigenix.com/products/focus-quickpack%E2%84%A2-c"
   },
   {
     name: "Joint Health QuickPack™",
@@ -98,6 +103,7 @@ const products = [
     iconBorderColor: "rgba(186, 32, 14, 0.10)",
     hoverImage: quickPackHover6,
     hoverText: "Keep Your Joints in Motion",
+    link: "https://tryoptigenix.com/products/joint-health-quickpack%E2%84%A2-c"
   },
   {
     name: "Immune Health QuickPack™",
@@ -110,6 +116,7 @@ const products = [
     iconBorderColor: "rgba(233, 96, 0, 0.10)",
     hoverImage: quickPackHover7,
     hoverText: "Strengthen Your Defenses",
+    link: "https://tryoptigenix.com/products/joint-health-c"
   },
 ];
 
@@ -207,6 +214,8 @@ const Products = () => {
                     // Only allow click-to-toggle on mobile
                     if (isMobile) {
                       setActiveCard((prev) => (prev === index ? null : index));
+                    } else {
+                      window.open(product.link, "_blank");
                     }
                   }}
                 >
@@ -265,18 +274,22 @@ const Products = () => {
                   </div>
 
                   {/* Product Info */}
-                  <div className="space-y-[8px]">
-                    <h6 className=" text-[#010907] h-[40px] md:h-[26px]">
-                      {product.name}
-                    </h6>
-                    <div className="">
-                      <p className="description !text-[14px] max-w-[280px] md:h-[80px] h-[90px] text-[#010907]">
-                        {product.description}
-                      </p>
-                      {/* <h6 className=" text-[#010907] !font-[700]">
-                        {product.price}
-                      </h6> */}
-                    </div>
+                  <div>
+                    <a href={product.link} target="_blank">
+                      <div className="space-y-[8px]">
+                        <h6 className=" text-[#010907] h-[40px] md:h-[26px]">
+                          {product.name}
+                        </h6>
+                        <div className="">
+                          <p className="description !text-[14px] max-w-[280px] md:h-[80px] h-[90px] text-[#010907]">
+                            {product.description}
+                          </p>
+                          {/* <h6 className=" text-[#010907] !font-[700]">
+                            {product.price}
+                          </h6> */}
+                        </div>
+                      </div>
+                    </a>
                   </div>
                 </div>
               </CarouselItem>

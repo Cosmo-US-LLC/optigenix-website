@@ -386,6 +386,7 @@ const Header = () => {
                             <div key={idx}>
                               <a
                                 href={item?.links}
+                                target="_blank"
                                 className="bg-[#f6f6f6] flex mt-2 flex-row items-center overflow-hidden rounded-[12px] w-full"
                               >
                                 <div className="h-[100px] w-1/2 overflow-hidden  bg-[#dce3e4]">

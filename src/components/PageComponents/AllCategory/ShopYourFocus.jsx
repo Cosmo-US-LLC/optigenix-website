@@ -74,7 +74,7 @@ const ShopYourFocus = () => {
                     </p>
                   </div>
 
-                  <a href={category.link}>
+                  <a href={category.link} target="_blank">
                     <button className="w-full btn_secondary">
                       View Products
                     </button>
