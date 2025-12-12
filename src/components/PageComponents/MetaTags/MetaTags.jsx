@@ -6,10 +6,10 @@ function MetaTags({ title = "", description = "" }) {
     <Helmet>
       {title && <title>{title}</title>}
       {description && <meta name="description" content={description} />}
-      {title && <meta property="og:title" content={title} />}
+      {/* {title && <meta property="og:title" content={title} />}
       {description && <meta property="og:description" content={description} />}
       {title && <meta name="twitter:title" content={title} />}
-      {description && <meta name="twitter:description" content={description} />}
+      {description && <meta name="twitter:description" content={description} />} */}
     </Helmet>
   );
 }
