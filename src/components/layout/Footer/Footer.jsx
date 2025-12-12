@@ -12,8 +12,6 @@ import googlePayIcon from "../../../assets/images/footer/footer_google_pay.webp"
 import NewsLetterForm from "./NewsLetterForm";
 
 const Footer = () => {
- 
-
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (!el) return;
@@ -21,8 +19,6 @@ const Footer = () => {
     const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
     window.scrollTo({ top, behavior: "smooth" });
   };
-
- 
 
   return (
     <div className="w-full md:max-w-[1280px] mx-auto px-4 md:px-6  py-6">
@@ -184,7 +180,7 @@ const Footer = () => {
                         About Us
                       </Link>
                     </li>
-                    <li>
+                    {/* <li>
                       <button
                         type="button"
                         onClick={() => scrollToSection("meet-the-team")}
@@ -192,7 +188,7 @@ const Footer = () => {
                       >
                         Team
                       </button>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
 
@@ -200,7 +196,7 @@ const Footer = () => {
                 <div className="space-y-3 md:space-y-4 lg:space-y-[16px]">
                   <h3 className="quick-heading">Support</h3>
                   <ul className="space-y-2 lg:space-y-[8px]">
-                    <li>
+                    {/* <li>
                       <button
                         type="button"
                         onClick={() => scrollToSection("faqs")}
@@ -208,7 +204,7 @@ const Footer = () => {
                       >
                         FAQ's
                       </button>
-                    </li>
+                    </li> */}
                     <li>
                       <Link to="/terms-of-service" className="quick-links">
                         Terms and Conditions
