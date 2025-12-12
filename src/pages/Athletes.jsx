@@ -10,6 +10,7 @@ import athletesImage5 from "@/assets/images/athletes/athletes_img5.webp";
 import athletesImage6 from "@/assets/images/athletes/athletes_img6.webp";
 import athletesImage7 from "@/assets/images/athletes/athletes_img7.webp";
 import athletesImage8 from "@/assets/images/athletes/athletes_img8.webp";
+import MetaTags from "@/components/PageComponents/MetaTags/MetaTags";
 
 const athletes = [
   {
@@ -73,6 +74,10 @@ const athletes = [
 function Athletes() {
   return (
     <>
+      <MetaTags
+        title="How our athletes Maximize Performance with Customized Solutions"
+        description="Learn how athletes optimize their performance, training, and recovery with customized health solutions based on genetics and lifestyle insights."
+      />
       <AthleteHero />
       {athletes.map((athlete, idx) => (
         <AthletesInfo key={idx} {...athlete} />

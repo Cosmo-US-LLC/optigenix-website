@@ -8,10 +8,15 @@ import GeneTest from "@/components/PageComponents/SinglePage/GeneTest";
 import SingleTestHero from "@/components/PageComponents/SinglePage/SingleTestHero";
 import Biomarker from "@/components/PageComponents/SinglePage/Biomarker";
 import BenefitsYouGet from "@/components/PageComponents/SinglePage/BenefitsYouGet";
+import MetaTags from "@/components/PageComponents/MetaTags/MetaTags";
 
 function SingleTest() {
   return (
     <>
+      <MetaTags
+        title="Order Genetic Testing Kit for Personalized Health Insights"
+        description="Unlock personalized health insights with a genetic testing kit. Discover your nutrition, vitamin absorption, and more for better fitness and wellness."
+      />
       <SingleTestHero />
       {/* <GeneTest /> */}
       <Biomarker />
