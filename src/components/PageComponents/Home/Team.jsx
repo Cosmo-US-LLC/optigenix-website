@@ -158,9 +158,9 @@ const Team = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1 flex flex-col gap-5 lg:gap-[32px] px-2 py-4 lg:py-[16px]">
+                  <div className="flex-1 flex flex-col gap-2 lg:gap-[32px] px-2 py-4 lg:py-[16px]">
                     {/* Name and Role */}
-                    <div className="flex flex-col gap-1 min-h-[60px] ">
+                    <div className="flex flex-col gap-1 min-h-[90px] md:min-h-[60px]">
                       <h3 className="font-['Funnel_Display'] font-bold text-[20px] leading-[28px] lg:text-[24px] lg:leading-[32px] text-[#042b24] capitalize">
                         {member.name}
                       </h3>
