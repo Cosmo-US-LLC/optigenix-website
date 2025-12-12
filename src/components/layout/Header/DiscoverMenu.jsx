@@ -93,45 +93,57 @@ const DiscoverMenu = ({ isOpen, onClose }) => {
                 </div>
 
                 {/* Card 3: Mental Performance */}
-                <div className="bg-[#f6f6f6] flex flex-col gap-[4px] md:gap-[6px] items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]">
-                  <div className="h-[60px] md:h-[85px] rounded-tl-[12px] rounded-tr-[12px] w-full relative overflow-hidden">
-                    <img
-                      alt="Mental Performance"
-                      src={Image4}
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-                  <div className="font-['Funnel_Display'] font-medium text-[#010907] text-[11px] md:text-[12px] lg:[16px] text-center leading-[14px] md:leading-[16px] w-full px-1 whitespace-pre-wrap">
-                    Mental <br></br> Performance
-                  </div>
+                <div>
+                  <a href="https://tryoptigenix.com/collections/mental-performance">
+                    <div className="bg-[#f6f6f6] flex flex-col gap-[4px] md:gap-[6px] items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]">
+                      <div className="h-[60px] md:h-[85px] rounded-tl-[12px] rounded-tr-[12px] w-full relative overflow-hidden">
+                        <img
+                          alt="Mental Performance"
+                          src={Image4}
+                          className="object-cover w-full h-full"
+                        />
+                      </div>
+                      <div className="font-['Funnel_Display'] font-medium text-[#010907] text-[11px] md:text-[12px] lg:[16px] text-center leading-[14px] md:leading-[16px] w-full px-1 whitespace-pre-wrap">
+                        Mental <br></br> Performance
+                      </div>
+                    </div>
+                  </a>
                 </div>
 
                 {/* Card 4: Physical Performance */}
-                <div className="bg-[#f6f6f6] flex flex-col gap-[4px] md:gap-[6px] items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]">
-                  <div className="h-[60px] md:h-[85px] rounded-tl-[12px] rounded-tr-[12px] w-full relative overflow-hidden">
-                    <img
-                      alt="Physical Performance"
-                      className="object-cover w-full h-full"
-                      src={Image3}
-                    />
-                  </div>
-                  <div className="font-['Funnel_Display'] font-medium text-[#010907] text-[11px] md:text-[12px] lg:[16px] text-center leading-[14px] md:leading-[16px] w-full px-1 whitespace-pre-wrap">
-                    Physical Performance
-                  </div>
+                <div>
+                  <a href="https://tryoptigenix.com/collections/physical-performance">
+                    <div className="bg-[#f6f6f6] flex flex-col gap-[4px] md:gap-[6px] items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]">
+                      <div className="h-[60px] md:h-[85px] rounded-tl-[12px] rounded-tr-[12px] w-full relative overflow-hidden">
+                        <img
+                          alt="Physical Performance"
+                          className="object-cover w-full h-full"
+                          src={Image3}
+                        />
+                      </div>
+                      <div className="font-['Funnel_Display'] font-medium text-[#010907] text-[11px] md:text-[12px] lg:[16px] text-center leading-[14px] md:leading-[16px] w-full px-1 whitespace-pre-wrap">
+                        Physical Performance
+                      </div>
+                    </div>
+                  </a>
                 </div>
 
                 {/* Card 5: Recovery */}
-                <div className="bg-[#f6f6f6] flex flex-col gap-[8px] md:gap-[12px] items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]">
-                  <div className="h-[60px] md:h-[85px] rounded-tl-[12px] rounded-tr-[12px] w-full relative overflow-hidden">
-                    <img
-                      alt="Recovery"
-                      src={Image5}
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-                  <p className="font-['Funnel_Display'] font-medium text-[#010907] text-[11px] md:text-[12px] text-center leading-[14px] md:leading-[16px] w-full px-1 whitespace-pre-wrap">
-                    Recovery
-                  </p>
+                <div>
+                  <a href="https://tryoptigenix.com/collections/recovery">
+                    <div className="bg-[#f6f6f6] flex flex-col gap-[8px] md:gap-[12px] items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]">
+                      <div className="h-[60px] md:h-[85px] rounded-tl-[12px] rounded-tr-[12px] w-full relative overflow-hidden">
+                        <img
+                          alt="Recovery"
+                          src={Image5}
+                          className="object-cover w-full h-full"
+                        />
+                      </div>
+                      <p className="font-['Funnel_Display'] font-medium text-[#010907] text-[11px] md:text-[12px] text-center leading-[14px] md:leading-[16px] w-full px-1 whitespace-pre-wrap">
+                        Recovery
+                      </p>
+                    </div>
+                  </a>
                 </div>
               </div>
 

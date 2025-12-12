@@ -11,6 +11,7 @@ const categories = [
     description:
       "Boost focus, clarity, and cognitive function with brain-supporting nootropics.",
     buttonText: "shop mental health",
+    link: "https://tryoptigenix.com/collections/mental-performance",
     image: shopYourFocusC3,
   },
   {
@@ -18,6 +19,7 @@ const categories = [
     description:
       "Enhance strength, endurance, and overall athletic performance with comprehensive formulas.",
     buttonText: "Shop physical performance",
+    link: "https://tryoptigenix.com/collections/physical-performance",
     image: shopYourFocusC2,
   },
   {
@@ -25,6 +27,7 @@ const categories = [
     description:
       "Support muscle repair, joint health, and quality sleep with targeted recovery blends.",
     buttonText: "Shop recovery",
+    link: "https://tryoptigenix.com/collections/recovery",
     image: shopYourFocusC1,
   },
 ];
@@ -76,15 +79,17 @@ const Categories = () => {
                   </p>
 
                   {/* Button */}
-                  <button className="border-[1.5px] border-[#010907] border-solid rounded-[100px] px-[24px] py-[14px] flex gap-[10px] items-center justify-center hover:bg-[#010907] font-semibold cursor-pointer hover:text-white transition-all duration-200 group">
-                    <span className="text-[#010907] !font-['Funnel_Display'] capitalize group-hover:text-white btn-primary">
-                      {category.buttonText}
-                    </span>
-                    {/* Arrow Icon */}
-                    <div className="w-[20px] h-[20px] flex items-center justify-center rotate-90">
-                      <MoveLeft className="text-[#010907] group-hover:text-[#ffffff] rotate-45" />
-                    </div>
-                  </button>
+                  <a href={category.link}>
+                    <button className="border-[1.5px] border-[#010907] border-solid rounded-[100px] px-[24px] py-[14px] flex gap-[10px] items-center justify-center hover:bg-[#010907] font-semibold cursor-pointer hover:text-white transition-all duration-200 group">
+                      <span className="text-[#010907] !font-['Funnel_Display'] capitalize group-hover:text-white btn-primary">
+                        {category.buttonText}
+                      </span>
+                      {/* Arrow Icon */}
+                      <div className="w-[20px] h-[20px] flex items-center justify-center rotate-90">
+                        <MoveLeft className="text-[#010907] group-hover:text-[#ffffff] rotate-45" />
+                      </div>
+                    </button>
+                  </a>
                 </div>
               </div>
             ))}

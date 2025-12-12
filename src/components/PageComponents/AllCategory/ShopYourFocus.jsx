@@ -11,6 +11,7 @@ const categories = [
       "Enhance focus, clarity, and cognitive function with supplements carefully formulated to support mental agility.",
     image: mentalPerformanceImage,
     imagePosition: "top-[-17.75%] left-[-2.99%] w-[105.99%] h-[140.5%]",
+    link: "https://tryoptigenix.com/collections/mental-performance",
   },
   {
     title: "Physical\nPerformance",
@@ -18,6 +19,7 @@ const categories = [
       "Elevate strength, endurance, and overall athletic potential with targeted supplements crafted to fuel your body’s performance goals.",
     image: physicalPerformanceImage,
     imagePosition: "top-[-10.13%] left-[-59.2%] w-[203.77%] h-[120.27%]",
+    link: "https://tryoptigenix.com/collections/physical-performance",
   },
   {
     title: "Recovery",
@@ -25,6 +27,7 @@ const categories = [
       "Support joint health, immune function, quality sleep, and overall recovery with personalized blends designed to help your body bounce back faster.",
     image: recoveryImage,
     imagePosition: "top-[-1.46%] left-[-7.3%] w-[173.99%] h-[102.71%]",
+    link: "https://tryoptigenix.com/collections/recovery",
   },
 ];
 
@@ -71,9 +74,11 @@ const ShopYourFocus = () => {
                     </p>
                   </div>
 
-                  <button className="w-full btn_secondary">
-                    View Products
-                  </button>
+                  <a href={category.link}>
+                    <button className="w-full btn_secondary">
+                      View Products
+                    </button>
+                  </a>
                 </div>
               </div>
             ))}

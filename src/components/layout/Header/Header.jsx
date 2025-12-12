@@ -51,15 +51,28 @@ const Header = () => {
   const discoverItems2 = [
     // { title: "Your Body's User Manual", image: Image1 },
     // { title: "Unlock Vital Health Markers", image: Image2 },
-    { title: "Mental Performance", image: Image4 },
-    { title: "Physical Performance", image: Image3 },
-    { title: "Recovery", image: Image5 },
+    {
+      title: "Mental Performance",
+      image: Image4,
+      links: "https://tryoptigenix.com/collections/mental-performance",
+    },
+    {
+      title: "Physical Performance",
+      image: Image3,
+      links: "https://tryoptigenix.com/collections/physical-performance",
+    },
+    {
+      title: "Recovery",
+      image: Image5,
+      links: "https://tryoptigenix.com/collections/recovery",
+    },
   ];
 
   return (
     <header
       className={`sticky top-0 z-50 bg-white ${
-        isQuizPage ? "rounded-bl-[24px] rounded-br-[24px]" : ""}`}
+        isQuizPage ? "rounded-bl-[24px] rounded-br-[24px]" : ""
+      }`}
     >
       {/* Discover Menu */}
       <DiscoverMenu
@@ -190,7 +203,8 @@ const Header = () => {
       {/* Mobile Navigation */}
       <nav
         className={`px-4 py-3 bg-white md:hidden ${
-          isQuizPage ? "rounded-bl-[24px] rounded-br-[24px]" : ""}`}
+          isQuizPage ? "rounded-bl-[24px] rounded-br-[24px]" : ""
+        }`}
       >
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -325,7 +339,8 @@ const Header = () => {
                       <span>Discover</span>
                       <ChevronDown
                         className={`w-4 h-4 transition-transform ${
-                          mobileDiscoverOpen ? "rotate-180" : ""}`}
+                          mobileDiscoverOpen ? "rotate-180" : ""
+                        }`}
                       />
                     </button>
                     {mobileDiscoverOpen && (
@@ -368,22 +383,24 @@ const Header = () => {
                         </Link>
                         <div className="grid grid-cols-1 gap-3">
                           {discoverItems2.map((item, idx) => (
-                            <div
-                              key={idx}
-                              className="bg-[#f6f6f6] flex mt-2 flex-row items-center overflow-hidden rounded-[12px] w-full"
-                            >
-                              <div className="h-[100px] w-1/2 overflow-hidden  bg-[#dce3e4]">
-                                <img
-                                  src={item.image}
-                                  alt={item.title}
-                                  className="object-cover w-full h-full"
-                                />
-                              </div>
-                              <div className="px-2 py-2 w-1/2 text-center">
-                                <p className="font-['Funnel_Display'] font-medium text-[#010907] md:text-[11px] text-[14px] leading-[16px] whitespace-pre-wrap">
-                                  {item.title}
-                                </p>
-                              </div>
+                            <div key={idx}>
+                              <a
+                                href={item?.links}
+                                className="bg-[#f6f6f6] flex mt-2 flex-row items-center overflow-hidden rounded-[12px] w-full"
+                              >
+                                <div className="h-[100px] w-1/2 overflow-hidden  bg-[#dce3e4]">
+                                  <img
+                                    src={item.image}
+                                    alt={item.title}
+                                    className="object-cover w-full h-full"
+                                  />
+                                </div>
+                                <div className="px-2 py-2 w-1/2 text-center">
+                                  <p className="font-['Funnel_Display'] font-medium text-[#010907] md:text-[11px] text-[14px] leading-[16px] whitespace-pre-wrap">
+                                    {item.title}
+                                  </p>
+                                </div>
+                              </a>
                             </div>
                           ))}
                         </div>
