@@ -35,6 +35,13 @@ const Waitlist = () => {
     email: "",
   });
   const [loading, setLoading] = useState(false);
+  const [emailError, setEmailError] = useState("");
+
+  const validateEmail = (value) => {
+    // Basic email pattern: some text, "@", domain, ".", tld (2+ chars)
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    return emailPattern.test(value);
+  };
 
   const tests = [
     {
@@ -70,6 +77,14 @@ const Waitlist = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+
+    if (name === "email") {
+      // Clear error live when email becomes valid
+      if (emailError && validateEmail(value)) {
+        setEmailError("");
+      }
+    }
+
     setFormData((prev) => ({
       ...prev,
       [name]: value,
@@ -78,6 +93,13 @@ const Waitlist = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validate email before submit
+    if (!validateEmail(formData.email)) {
+      setEmailError("Please enter a valid email address.");
+      return;
+    }
+
     if (!isFormValid || loading) return;
 
     setLoading(true);
@@ -244,6 +266,11 @@ The OptiGenix Team
                     className="bg-white border font-Inter border-[#c7c7c7] border-solid flex flex-[1_0_0] items-center min-h-px min-w-px md:w-full px-[8px] md:px-4 py-[10px] md:py-[20px] rounded-[6px] shrink-0 font-inter font-normal text-[12px] md:text-[14px] text-black placeholder:text-[#00000080] placeholder:opacity-80 focus:outline-none focus:border-[#0d8360] transition-colors"
                     required
                   />
+                  {emailError && (
+                    <p className="text-red-500 text-[11px] md:text-[12px] mt-1">
+                      {emailError}
+                    </p>
+                  )}
                 </div>
 
                 {/* CTA Button and Selected Count */}

@@ -9,9 +9,23 @@ const NewsLetterForm = () => {
   });
 
   const [loading, setLoading] = useState(false);
+  const [emailError, setEmailError] = useState("");
+
+  const validateEmail = (value) => {
+    // Basic email pattern: some text, "@", domain, ".", tld (2+ chars)
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    return emailPattern.test(value);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Client-side email validation
+    if (!validateEmail(formData.email)) {
+      setEmailError("Please enter a valid email address.");
+      return;
+    }
+
+    setEmailError("");
     setLoading(true);
 
     const { email } = formData;
@@ -82,9 +96,20 @@ const NewsLetterForm = () => {
           placeholder="Email"
           required
           value={formData.email}
-          onChange={(e) => setFormData({ email: e.target.value })}
+          onChange={(e) => {
+            const value = e.target.value;
+            setFormData({ email: value });
+            if (emailError && validateEmail(value)) {
+              setEmailError("");
+            }
+          }}
           className="font-inter w-full bg-[rgba(248,255,253,0.1)] backdrop-blur-xl border-[0.5px] border-[rgba(255,255,255,0.1)] rounded-[4px] px-3 py-2 text-[12px] md:text-[14px] leading-[22px] text-white placeholder:text-white/80 focus:outline-none focus:border-white/30 transition-colors"
         />
+        {emailError && (
+          <p className="text-red-300 text-[11px] md:text-[12px] mt-1">
+            {emailError}
+          </p>
+        )}
       </div>
 
       {/* Submit Button */}
