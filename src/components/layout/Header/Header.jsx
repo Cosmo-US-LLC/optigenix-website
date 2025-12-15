@@ -71,8 +71,7 @@ const Header = () => {
   return (
     <header
       className={`sticky top-0 z-50 bg-white ${
-        isQuizPage ? "rounded-bl-[24px] rounded-br-[24px]" : ""
-      }`}
+        isQuizPage ? "rounded-bl-[24px] rounded-br-[24px]" : ""}`}
     >
       {/* Discover Menu */}
       <DiscoverMenu
@@ -119,7 +118,14 @@ const Header = () => {
               </svg>
             </div>
             {/* Logo Text */}
-            <span className="font-bold leading-[-0.602px] text-[30px] font-funnel text-black">
+            <span
+              className="font-bold font-Gibson leading-[-0.602px] text-[30px] font-funnel text-black
+            "
+              style={{
+                fontFamily: "Gibson, sans-serif",
+                letterSpacing: "-0.52px",
+              }}
+            >
               OptiGenix
             </span>
           </Link>
@@ -203,8 +209,7 @@ const Header = () => {
       {/* Mobile Navigation */}
       <nav
         className={`px-4 py-3 bg-white md:hidden ${
-          isQuizPage ? "rounded-bl-[24px] rounded-br-[24px]" : ""
-        }`}
+          isQuizPage ? "rounded-bl-[24px] rounded-br-[24px]" : ""}`}
       >
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -244,7 +249,13 @@ const Header = () => {
               </svg>
             </div>
             {/* Logo Text */}
-            <span className="font-semibold text-[22px] font-['Funnel_Display'] text-black">
+            <span
+              className="font-semibold text-[22px] font-['Funnel_Display'] text-black"
+              style={{
+                fontFamily: "Gibson, sans-serif",
+                letterSpacing: "-0.52px",
+              }}
+            >
               OptiGenix
             </span>
           </Link>
@@ -297,7 +308,13 @@ const Header = () => {
                     </svg>
                   </div>
                   {/* Logo Text */}
-                  <span className="font-bold leading-[-0.602px] text-[30px] font-funnel text-black">
+                  <span
+                    className="font-bold leading-[-0.602px] text-[30px] font-funnel text-black"
+                    style={{
+                      fontFamily: "Gibson, sans-serif",
+                      letterSpacing: "-0.52px",
+                    }}
+                  >
                     OptiGenix
                   </span>
                 </Link>
@@ -339,8 +356,7 @@ const Header = () => {
                       <span>Discover</span>
                       <ChevronDown
                         className={`w-4 h-4 transition-transform ${
-                          mobileDiscoverOpen ? "rotate-180" : ""
-                        }`}
+                          mobileDiscoverOpen ? "rotate-180" : ""}`}
                       />
                     </button>
                     {mobileDiscoverOpen && (
