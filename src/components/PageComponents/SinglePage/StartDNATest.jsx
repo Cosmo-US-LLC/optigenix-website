@@ -1,8 +1,6 @@
 import React from "react";
 import bgImage from "@/assets/images/single_test/dna_test/dna_test_img2.webp";
-
-const cartIcon =
-  "https://www.figma.com/api/mcp/asset/f4cf1ac2-31f9-46e1-831a-3a853f972cae";
+import cartIcon from "@/assets/images/single_test/gene_test/cart_icon.svg";
 
 const StartDNATest = () => {
   return (
@@ -34,7 +32,7 @@ const StartDNATest = () => {
               </div>
 
               <button
-                className="bg-[#0d8360] hover:bg-[#0b7254] active:bg-[#095c45] transition-colors text-white rounded-full px-5 md:px-[19px] py-3 md:py-[12px] flex items-center gap-2 font-['Funnel_Display'] font-semibold text-[16px] leading-[24px] shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
+                className="bg-[#0d8360] hover:bg-[#0b7254] cursor-pointer active:bg-[#095c45] transition-colors text-white rounded-full px-5 md:px-[19px] py-3 md:py-[12px] flex items-center gap-2 font-['Funnel_Display'] font-semibold text-[16px] leading-[24px] shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
                 onClick={() =>
                   window.open(
                     "https://buy.stripe.com/7sY7sM0arfBlgMW77gf3a02",
