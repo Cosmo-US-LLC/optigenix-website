@@ -13,9 +13,9 @@ import instagramPost5 from "../../../assets/images/as_seen_on/as_seen_as_c5.webp
 import instagramPost6 from "../../../assets/images/as_seen_on/as_seen_as_c6.webp";
 
 import profileImage1 from "../../../assets/images/as_seen_on/as_seen_as_profile_1.webp";
-import profileImage2 from "../../../assets/images/as_seen_on/as_seen_as_profile_2.webp";
+import profileImage2 from "../../../assets/images/as_seen_on/jaiangelowilliams.jpg";
 import profileImage3 from "../../../assets/images/as_seen_on/as_seen_as_profile_3.webp";
-import profileImage4 from "../../../assets/images/as_seen_on/as_seen_as_profile_4.webp";
+import profileImage4 from "../../../assets/images/as_seen_on/optigenix.jpg";
 
 import video1 from "../../../assets/images/as_seen_on/video_1.mp4";
 import video2 from "../../../assets/images/as_seen_on/video_2.mp4";
@@ -44,7 +44,7 @@ const instagramPosts = [
   },
   {
     type: "video",
-    username: "eatuncracked",
+    username: "jaiangelowilliams",
     image: instagramPost2,
     profileImage: profileImage2,
     video: video2,
@@ -84,7 +84,7 @@ const instagramPosts = [
   },
   {
     type: "video",
-    username: "companyjarvis",
+    username: "optigenix",
     image: instagramPost6,
     profileImage: profileImage4,
     video: video6,

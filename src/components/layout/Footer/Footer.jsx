@@ -360,11 +360,10 @@ const Footer = () => {
 
         {/* Large Background Watermark Text */}
         <p
-          className="font-semibold text-[74px] md:text-[252px] leading-none text-transparent bg-clip-text bg-linear-to-b from-white/20 to-transparent whitespace-nowrap text-center relative z-0 mt-8 md:mt-8"
+          className="font-semibold text-[74px] tracking-[-6.28px] md:tracking-[-10.48px] md:text-[252px] leading-none text-transparent bg-clip-text bg-linear-to-b from-white/20 to-transparent whitespace-nowrap text-center relative z-0 mt-8 md:mt-8"
           style={{
-            WebkitTextFillColor: "transparent",
             fontFamily: "Gibson, sans-serif",
-            letterSpacing: "-10.48px",
+            // letterSpacing: "-10.48px",
           }}
         >
           OptiGenix
