@@ -119,7 +119,7 @@ const Header = () => {
             </div>
             {/* Logo Text */}
             <span
-              className="font-bold font-Gibson leading-[-0.602px] text-[30px] font-funnel text-black
+              className="font-[600] font-Gibson leading-[-0.602px] text-[30px] font-funnel text-black
             "
               style={{
                 fontFamily: "Gibson, sans-serif",
@@ -250,7 +250,7 @@ const Header = () => {
             </div>
             {/* Logo Text */}
             <span
-              className="font-semibold text-[22px] font-['Funnel_Display'] text-black"
+              className="font-[600] text-[22px] font-['Funnel_Display'] text-black"
               style={{
                 fontFamily: "Gibson, sans-serif",
                 letterSpacing: "-0.52px",
@@ -309,7 +309,7 @@ const Header = () => {
                   </div>
                   {/* Logo Text */}
                   <span
-                    className="font-bold leading-[-0.602px] text-[30px] font-funnel text-black"
+                    className="font-[600] leading-[-0.602px] text-[30px] font-funnel text-black"
                     style={{
                       fontFamily: "Gibson, sans-serif",
                       letterSpacing: "-0.52px",
