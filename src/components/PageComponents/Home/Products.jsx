@@ -16,13 +16,13 @@ import quickPackIcon5 from "../../../assets/images/our_most_trusted/quick_pack_5
 import quickPackIcon6 from "../../../assets/images/our_most_trusted/quick_pack_6.svg";
 import quickPackIcon7 from "../../../assets/images/our_most_trusted/quick_pack_7.svg";
 
-import quickPackHover1 from "../../../assets/images/our_most_trusted/quick_packs_hover_1.webp";
-import quickPackHover2 from "../../../assets/images/our_most_trusted/quick_packs_hover_2.webp";
-import quickPackHover3 from "../../../assets/images/our_most_trusted/quick_packs_hover_3.webp";
-import quickPackHover4 from "../../../assets/images/our_most_trusted/quick_packs_hover_4.webp";
-import quickPackHover5 from "../../../assets/images/our_most_trusted/quick_packs_hover_5.webp";
-import quickPackHover6 from "../../../assets/images/our_most_trusted/quick_packs_hover_6.webp";
-import quickPackHover7 from "../../../assets/images/our_most_trusted/quick_packs_hover_7.webp";
+import quickPackHover1 from "../../../assets/images/our_most_trusted/quick_packs_hover_8.webp";
+import quickPackHover2 from "../../../assets/images/our_most_trusted/quick_packs_hover_9.webp";
+import quickPackHover3 from "../../../assets/images/our_most_trusted/quick_packs_hover_10.webp";
+import quickPackHover4 from "../../../assets/images/our_most_trusted/quick_packs_hover_11.webp";
+import quickPackHover5 from "../../../assets/images/our_most_trusted/quick_packs_hover_12.webp";
+import quickPackHover6 from "../../../assets/images/our_most_trusted/quick_packs_hover_13.webp";
+import quickPackHover7 from "../../../assets/images/our_most_trusted/quick_packs_hover_14.webp";
 
 import {
   Carousel,
@@ -42,7 +42,7 @@ const products = [
     iconBorderColor: "rgba(173, 138, 48, 0.30)",
     hoverImage: quickPackHover1,
     hoverText: "Repair,\nRecharge,\nRecover",
-    link: "https://tryoptigenix.com/products/immune-health-quickpack%E2%84%A2-c-copy"
+    link: "https://tryoptigenix.com/products/immune-health-quickpack%E2%84%A2-c-copy",
   },
   {
     name: "Sleep QuickPack™",
@@ -54,7 +54,7 @@ const products = [
     iconBorderColor: "rgba(95, 21, 74, 0.20)",
     hoverImage: quickPackHover2,
     hoverText: "Rest Deeply,\n Recover Fully",
-    link: "https://tryoptigenix.com/products/sleep-quickpack%E2%84%A2-c"
+    link: "https://tryoptigenix.com/products/sleep-quickpack%E2%84%A2-c",
   },
   {
     name: "Strength QuickPack™",
@@ -66,7 +66,7 @@ const products = [
     iconBorderColor: "rgba(90, 181, 199, 0.10)",
     hoverImage: quickPackHover3,
     hoverText: "Build Strength & Recover Stronger",
-    link: "https://tryoptigenix.com/products/sleep-quickpack%E2%84%A2-c-copy"
+    link: "https://tryoptigenix.com/products/sleep-quickpack%E2%84%A2-c-copy",
   },
   {
     name: "Endurance QuickPack™",
@@ -79,7 +79,7 @@ const products = [
     iconBorderColor: "rgba(41, 147, 41, 0.10)",
     hoverImage: quickPackHover4,
     hoverText: "Push Your Limits & Go the Distance",
-    link: "https://tryoptigenix.com/products/strength-quickpack%E2%84%A2-c-copy"
+    link: "https://tryoptigenix.com/products/strength-quickpack%E2%84%A2-c-copy",
   },
   {
     name: "Focus QuickPack™",
@@ -91,7 +91,7 @@ const products = [
     iconBorderColor: "rgba(30, 123, 180, 0.10)",
     hoverImage: quickPackHover5,
     hoverText: "Sharpen Your Focus & Boost Mental Stamina",
-    link: "https://tryoptigenix.com/products/focus-quickpack%E2%84%A2-c"
+    link: "https://tryoptigenix.com/products/focus-quickpack%E2%84%A2-c",
   },
   {
     name: "Joint Health QuickPack™",
@@ -103,7 +103,7 @@ const products = [
     iconBorderColor: "rgba(186, 32, 14, 0.10)",
     hoverImage: quickPackHover6,
     hoverText: "Keep Your Joints in Motion",
-    link: "https://tryoptigenix.com/products/joint-health-quickpack%E2%84%A2-c"
+    link: "https://tryoptigenix.com/products/joint-health-quickpack%E2%84%A2-c",
   },
   {
     name: "Immune Health QuickPack™",
@@ -116,7 +116,7 @@ const products = [
     iconBorderColor: "rgba(233, 96, 0, 0.10)",
     hoverImage: quickPackHover7,
     hoverText: "Strengthen Your Defenses",
-    link: "https://tryoptigenix.com/products/joint-health-c"
+    link: "https://tryoptigenix.com/products/joint-health-c",
   },
 ];
 
