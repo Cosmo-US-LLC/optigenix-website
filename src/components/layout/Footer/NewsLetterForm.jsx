@@ -1,11 +1,13 @@
 import { useState } from "react";
+
+// Base URL for the backend API, configured via Vite env vars
 const API_BASE = import.meta.env.VITE_BASE_URL;
 
 const NewsLetterForm = () => {
   const [formData, setFormData] = useState({
     email: "",
   });
-  console.log(API_BASE);
+
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -39,12 +41,11 @@ const NewsLetterForm = () => {
   </p>
 `;
 
-    const API_BASE =
-      window.location.hostname === "localhost"
-        ? "http://localhost:5000"
-        : API_BASE; // Replace for production
-
     try {
+      if (!API_BASE) {
+        throw new Error("Missing API_BASE configuration (VITE_BASE_URL)");
+      }
+
       await fetch(`${API_BASE}/api/send-mail`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
