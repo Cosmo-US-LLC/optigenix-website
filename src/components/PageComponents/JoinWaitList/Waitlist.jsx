@@ -4,6 +4,8 @@ import image1 from "../../../assets/images/join_wait_list/join_wait_list_img1.we
 import image2 from "../../../assets/images/join_wait_list/join_wait_list_img2.webp";
 import image3 from "../../../assets/images/join_wait_list/join_wait_list_img3.webp";
 
+const API_BASE = import.meta.env.VITE_BASE_URL;
+
 const CheckBox = ({ isChecked, onClick, className = "" }) => {
   return (
     <button
@@ -26,6 +28,7 @@ const CheckBox = ({ isChecked, onClick, className = "" }) => {
 };
 
 const Waitlist = () => {
+  console.log(API_BASE);
   const [selectedTests, setSelectedTests] = useState(["test1"]); // Start with test1 selected
   const [formData, setFormData] = useState({
     fullName: "",
@@ -82,7 +85,7 @@ const Waitlist = () => {
     const API_BASE =
       window.location.hostname === "localhost"
         ? "http://localhost:5000"
-        : "https://yourdomain.com"; // Replace for production
+        : API_BASE; // Replace for production
 
     const selectedTestTitles = tests
       .filter((test) => selectedTests.includes(test.id))
