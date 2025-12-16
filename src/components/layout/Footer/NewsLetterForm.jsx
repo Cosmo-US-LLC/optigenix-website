@@ -60,7 +60,7 @@ const NewsLetterForm = () => {
         throw new Error("Missing API_BASE configuration (VITE_BASE_URL)");
       }
 
-      await fetch(`${API_BASE}/api/send-mail`, {
+      await fetch(`${API_BASE}api/send-mail`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
