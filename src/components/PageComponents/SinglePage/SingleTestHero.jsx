@@ -1,6 +1,6 @@
 import React from "react";
-import heroImage from "@/assets/images/single_test/single_hero/hero_section_img.webp";
-import heroImagemob from "@/assets/images/single_test/single_hero/mob_hero.png";
+import heroImage from "@/assets/images/single_test/single_hero/hero_section_img1.webp";
+import heroImagemob from "@/assets/images/single_test/single_hero/mob_hero1.webp";
 
 const SingleTestHero = () => {
   return (
