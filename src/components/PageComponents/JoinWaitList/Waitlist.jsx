@@ -141,7 +141,7 @@ The OptiGenix Team
 `;
 
     try {
-      await fetch(`${API_BASE}/api/send-mail`, {
+      await fetch(`${API_BASE}api/send-mail`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
