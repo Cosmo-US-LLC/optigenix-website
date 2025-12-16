@@ -99,6 +99,13 @@ optigenix-website/
 | `npm run preview` | Preview production build locally |
 | `npm run lint` | Run ESLint to check code quality |
 
+## 📫 Serverless Email API
+
+- **Endpoint**: `/api/send-mail` implemented as a Vercel Serverless Function (`api/send-mail.js`) that sends transactional emails through Gmail/SMTP via `emailjs`.
+- **Environment Variables**: Define `SMTP_USER` and `SMTP_PASS` (app password) in your Vercel project settings so the function can authenticate with Gmail securely.
+- **Local Testing**: Use `vercel dev` in the project root to run the Vite app and the serverless function together; requests to `/api/send-mail` will automatically hit the local function.
+- **Frontend Calls**: Client components now default to the current origin when `VITE_BASE_URL` is unset, so deployments and the standalone quiz page can call the function without manual URL changes.
+
 ## 🎨 Key Features
 
 ### ✅ React Compiler

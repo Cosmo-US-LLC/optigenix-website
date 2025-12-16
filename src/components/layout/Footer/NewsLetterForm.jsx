@@ -1,7 +1,11 @@
 import { useState } from "react";
 
-// Base URL for the backend API, configured via Vite env vars
-const API_BASE = import.meta.env.VITE_BASE_URL;
+// Normalize backend base URL (defaults to current origin)
+const API_BASE = (() => {
+  const base = import.meta.env.VITE_BASE_URL;
+  if (!base) return "/";
+  return base.endsWith("/") ? base : `${base}/`;
+})();
 
 const NewsLetterForm = () => {
   const [formData, setFormData] = useState({
@@ -56,10 +60,6 @@ const NewsLetterForm = () => {
 `;
 
     try {
-      if (!API_BASE) {
-        throw new Error("Missing API_BASE configuration (VITE_BASE_URL)");
-      }
-
       await fetch(`${API_BASE}api/send-mail`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

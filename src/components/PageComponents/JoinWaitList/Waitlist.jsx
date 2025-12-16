@@ -4,8 +4,12 @@ import image1 from "../../../assets/images/join_wait_list/join_wait_list_img1.we
 import image2 from "../../../assets/images/join_wait_list/join_wait_list_img2.webp";
 import image3 from "../../../assets/images/join_wait_list/join_wait_list_img3.webp";
 
-// Base URL for the backend API, configured via Vite env vars
-const API_BASE = import.meta.env.VITE_BASE_URL;
+// Normalize backend base URL (defaults to current origin)
+const API_BASE = (() => {
+  const base = import.meta.env.VITE_BASE_URL;
+  if (!base) return "/";
+  return base.endsWith("/") ? base : `${base}/`;
+})();
 
 const CheckBox = ({ isChecked, onClick, className = "" }) => {
   return (
@@ -103,12 +107,6 @@ const Waitlist = () => {
     if (!isFormValid || loading) return;
 
     setLoading(true);
-
-    if (!API_BASE) {
-      console.error("Missing API_BASE configuration (VITE_BASE_URL)");
-      setLoading(false);
-      return;
-    }
 
     const selectedTestTitles = tests
       .filter((test) => selectedTests.includes(test.id))

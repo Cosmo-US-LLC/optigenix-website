@@ -1292,15 +1292,11 @@ https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01
 - OptiGenix Team
 `;
 
-
-
-            // Auto-detect backend domain (local → or production)
-            const API_BASE = window.location.hostname === "localhost"
-                ? "http://localhost:5000"
-                : "http://138.197.29.179:5000"; // replace with your real domain
+            // API requests default to same origin (works locally via `vercel dev` and in production)
+            const endpoint = "/api/send-mail";
 
             try {
-                const response = await fetch(`${API_BASE}/api/send-mail`, {
+                const response = await fetch(endpoint, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

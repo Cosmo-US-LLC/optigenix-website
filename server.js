@@ -46,7 +46,7 @@ const __dirname = path.dirname(__filename);
    📧 SEND EMAIL ROUTE
 ==================================== */
 app.post("/api/send-mail", async (req, res) => {
-  const { email, subject, message, messageHTML, messageText } = req.body;
+  const { email, subject, messageHTML, messageText } = req.body;
 
   if (!email || !subject) {
     return res
