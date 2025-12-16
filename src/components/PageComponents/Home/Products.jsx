@@ -280,7 +280,7 @@ const Products = () => {
                         <h6 className="flex items-center gap-2 text-[#010907] h-[40px] md:h-[26px]">
                           {product.name}
                           <ExternalLink
-                            className="w-4 h-4 md:w-3.5 md:h-3.5 shrink-0 text-[#0D8360]"
+                            className="w-4 h-4 md:w-3.5 md:h-3.5 shrink-0 text-[#010907]"
                             strokeWidth={1.5}
                           />
                         </h6>
@@ -301,7 +301,7 @@ const Products = () => {
           </CarouselContent>
 
           {/* Mobile Navigation Controls */}
-          <div className="flex md:hidden items-center justify-center gap-[20px] mt-[32px]">
+          <div className="flex md:hidden items-center justify-center gap-[20px] ">
             {/* Previous Button */}
             <button
               onClick={() => api?.scrollPrev()}
