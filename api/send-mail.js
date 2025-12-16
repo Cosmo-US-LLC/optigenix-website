@@ -1,12 +1,5 @@
 import { SMTPClient } from "emailjs";
 
-const client = new SMTPClient({
-  user: process.env.SMTP_USER,
-  password: process.env.SMTP_PASS,
-  host: "smtp.gmail.com",
-  ssl: true,
-});
-
 const REQUIRED_FIELDS = ["email", "subject", "messageHTML", "messageText"];
 
 export default async function handler(req, res) {
@@ -24,6 +17,13 @@ export default async function handler(req, res) {
     });
   }
 
+  const client = new SMTPClient({
+    user: process.env.SMTP_USER,
+    password: process.env.SMTP_PASS,
+    host: "smtp.gmail.com",
+    ssl: true,
+  });
+
   try {
     await client.sendAsync({
       from: "OptiGenix <optigenix.help@gmail.com>",
@@ -40,5 +40,11 @@ export default async function handler(req, res) {
       status: "error",
       message: "Failed to send email",
     });
+  } finally {
+    try {
+      client.close();
+    } catch (closeError) {
+      console.warn("SMTP client close failed:", closeError);
+    }
   }
 }
