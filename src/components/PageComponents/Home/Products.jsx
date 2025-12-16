@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { MoveLeft, MoveRight, Plus } from "lucide-react";
+import { MoveLeft, MoveRight, Plus, ExternalLink } from "lucide-react";
 import ourMostTrustedFormulasP1 from "../../../assets/images/our_most_trusted/our_most_trusted_c8.webp";
 import ourMostTrustedFormulasP2 from "../../../assets/images/our_most_trusted/our_most_trusted_c9.webp";
 import ourMostTrustedFormulasC3 from "../../../assets/images/our_most_trusted/our_most_trusted_c10.webp";
@@ -277,8 +277,12 @@ const Products = () => {
                   <div>
                     <a href={product.link} target="_blank">
                       <div className="space-y-[8px]">
-                        <h6 className=" text-[#010907] h-[40px] md:h-[26px]">
+                        <h6 className="flex items-center gap-2 text-[#010907] h-[40px] md:h-[26px]">
                           {product.name}
+                          <ExternalLink
+                            className="w-4 h-4 md:w-3.5 md:h-3.5 shrink-0 text-[#0D8360]"
+                            strokeWidth={1.5}
+                          />
                         </h6>
                         <div className="">
                           <p className="description !text-[14px] max-w-[280px] md:h-[80px] h-[90px] text-[#010907]">

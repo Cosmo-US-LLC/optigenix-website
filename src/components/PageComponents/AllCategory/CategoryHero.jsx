@@ -10,18 +10,26 @@ import personalizedSolutionsImage2 from "../../../assets/images/all_category/cat
 const CategoryHero = () => {
   const navigate = useNavigate();
 
-  const handleExploreGoals = () => {
-    const target = document.getElementById("shop-your-focus");
+  // Helper function to scroll to element with offset above
+  const scrollToElementWithOffset = (elementId, offset = 80) => {
+    const target = document.getElementById(elementId);
     if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     }
   };
 
+  const handleExploreGoals = () => {
+    scrollToElementWithOffset("shop-your-focus", 80);
+  };
+
   const handleSeePersonalized = () => {
-    const target = document.getElementById("personalized-solutions");
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    scrollToElementWithOffset("personalized-solutions", 70);
   };
   return (
     <section className="bg-[#042b24] py-[60px] ">
