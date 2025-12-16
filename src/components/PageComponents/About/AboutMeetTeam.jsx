@@ -11,29 +11,22 @@ const teamMembers = [
     name: "Gabriel Abbes",
     title: "CEO",
     description:
-      "A former Division 1 NCAA distance runner at Cal, Gabriel combines his athletic experience with a clear vision to lead OptiGenix in transforming personalized health and performance.",
+      "As a former Division 1 NCAA distance runner at Cal, Gabriel brings his athletic experience and entrepreneurial vision to lead OptiGenix in revolutionizing personalized supplements and performance solutions for athletes.",
     image: teamMember1Image,
   },
   {
     name: "Jai Williams",
     title: "COO",
     description:
-      "Jai, a former Division 1 NCAA high jumper at Cal and two-time podium finisher in the Pac-12 Conference of Champions, brings his expertise in athletics and operations to help guide OptiGenix's mission forward.",
+      "A former Division 1 NCAA high jumper at Cal and two-time podium finisher in the Pac-12 Conference of Champions, Jai brings his athletic expertise and operational excellence to drive OptiGenix's mission forward.",
     image: teamMember2Image,
   },
   {
     name: "Laura Hix Glickman, Ph.D",
     title: "Chief Strategic and Scientific Advisor",
     description:
-      "Dr. Glickman is a five-time biotech founder and top-ranked female Series A entrepreneur. She ensures OptiGenix's approach to personalized supplementation is backed by solid scientific research.",
+      "Dr. Glickman brings extensive expertise in scientific strategy and research methodology as a five-time biotech founder and a top five-ranked female Series A entrepreneur in the U.S. Laura ensures that OptiGenix approaches personalized supplementation with grounded research, fueled by her passion for discovery.",
     image: teamMember3Image,
-  },
-  {
-    name: "Alec Bizieff, Ph.D",
-    title: "Scientific Advisor and Research Specialist",
-    description:
-      "Dr. Bizieff drives OptiGenix's research in metabolic biology, biomarkers, and performance optimization, giving athletes the knowledge and tools to tailor their performance journey.",
-    image: teamMember4Image,
   },
   {
     name: "Cecelia Zielke, Ph.D",
@@ -48,6 +41,13 @@ const teamMembers = [
     description:
       "Kai is a Registered Dietitian specializing in sports nutrition. He ensures each personalized supplement plan is scientifically grounded, helping athletes perform at their peak.",
     image: teamMember6Image,
+  },
+  {
+    name: "Alec Bizieff, Ph.D",
+    title: "Scientific Advisor and Research Specialist",
+    description:
+      "Dr. Bizieff drives OptiGenix’s research in metabolic biology, biomarkers, andperformance optimization, giving athletes the knowledge and tools to tailor theirperformance journey.",
+    image: teamMember4Image,
   },
 ];
 
@@ -87,7 +87,7 @@ const AboutMeetTeam = () => {
                   {/* Content */}
                   <div className="flex flex-col gap-[32px] px-[6px] py-[8px]">
                     {/* Description */}
-                    <p className="description !text-[#010907]">
+                    <p className="description !text-[#010907] h-[180px] md:h-[190px] ">
                       {member.description}
                     </p>
 
@@ -122,9 +122,9 @@ const AboutMeetTeam = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="flex flex-col gap-[32px] px-[6px] py-[8px]">
+                  <div className="flex flex-col gap-[32px] px-[6px] py-[8px] ">
                     {/* Description */}
-                    <p className="description !text-[#010907]">
+                    <p className="description !text-[#010907] h-[180px] md:h-[190px] ">
                       {member.description}
                     </p>
 
