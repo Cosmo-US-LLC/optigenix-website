@@ -27,7 +27,7 @@ function App() {
           <Route path="athletes" element={<Athletes />} />
           <Route path="gene-test" element={<SingleTest />} />
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="terms-of-service" element={<TermsOfService />} />
+          <Route path="terms-and-conditions" element={<TermsOfService />} />
           <Route path="join-wait-list" element={<Waitlist />} />
         </Route>
       </Routes>

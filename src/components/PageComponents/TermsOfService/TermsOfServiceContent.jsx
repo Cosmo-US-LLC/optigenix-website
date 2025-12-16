@@ -40,8 +40,8 @@ const TermsOfServiceContent = () => {
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-[48px]">
           {/* Left Side - Title & Table of Contents */}
           <div className="lg:w-[400px] shrink-0 lg:sticky md:top-29 lg:self-start">
-            <h2 className=" !text-[#010907] md:text-center md:text-left mb-0 md:mb-4 md:max-w-[230px]">
-              Terms of Service
+            <h2 className=" !text-[#010907] md:text-center md:text-left mb-0 md:mb-4 md:max-w-[280px]">
+              Terms and Conditions
             </h2>
 
             {/* Table of Contents */}
@@ -65,7 +65,7 @@ const TermsOfServiceContent = () => {
           </div>
 
           {/* Right Side - Content */}
-          <div className="flex-1 flex max-w-[722px] !w-[100%] flex-col gap-6 lg:gap-[32px]">
+          <div className="flex-1 flex max-w-[772px] !w-[100%] flex-col gap-6 lg:gap-[32px]">
             {/* Introduction */}
             <div
               id="introduction"
