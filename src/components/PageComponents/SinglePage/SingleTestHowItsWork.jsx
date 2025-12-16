@@ -204,21 +204,25 @@ const ReviewTestTubeIcon = ({ className }) => (
 
 const steps = [
   {
+    id: 1,
     title: "Collect Your Sample",
-    desc: "Use a quick saliva or cheek swab kit at home.",
+    desc: "Use an at-home cheek swab to collect your DNA.",
     icon: CustomTestTubeIcon,
   },
   {
+    id: 2,
     title: "Constant Lab Analysis",
     desc: "Our lab analyzes key SNPs and polygenic markers linked to performance, nutrition, and recovery.",
     icon: CustomUserIcon,
   },
   {
+    id: 3,
     title: "Receive Your Report",
     desc: "Get a detailed, easy-to-understand report explaining actionable steps based on your unique genetics.",
     icon: ReportTestTubeIcon,
   },
   {
+    id: 4,
     title: "Personalized 1:1 Nutrition Review",
     desc: "Meet one-on-one with a certified nutrition expert to review your results and receive tailored guidance.",
     icon: ReviewTestTubeIcon,
@@ -239,9 +243,15 @@ const SingleTestHowItsWork = () => {
               before they start.
             </p>
           </div>
-          <button 
+          <button
             className="btn_primary"
-            onClick={() => window.open("https://buy.stripe.com/7sY7sM0arfBlgMW77gf3a02", "_blank", "noopener,noreferrer")}
+            onClick={() =>
+              window.open(
+                "https://buy.stripe.com/7sY7sM0arfBlgMW77gf3a02",
+                "_blank",
+                "noopener,noreferrer"
+              )
+            }
           >
             Order Your Test
           </button>
@@ -252,14 +262,14 @@ const SingleTestHowItsWork = () => {
           {steps.map((step, idx) => (
             <div
               key={idx}
-              className="group cursor-pointer rounded-[16px] border border-[#dedede] bg-[#f7f7f7] opacity-90 p-6 md:p-7 flex flex-col gap-4 shadow-sm transition-all duration-200 hover:border-[#0d8360] hover:bg-[#0d8360] hover:opacity-100 hover:-rotate-2"
+              className="group rounded-[16px] border border-[#dedede] bg-[#f7f7f7] opacity-90 p-6 md:p-7 flex flex-col gap-4 shadow-sm transition-all duration-200 hover:border-[#0d8360] hover:bg-[#0d8360] hover:opacity-100 hover:-rotate-2"
             >
               <div className="relative w-6 h-6">
                 <step.icon className="w-6 h-6 text-black transition-colors duration-200 group-hover:text-white" />
               </div>
               <div className="flex flex-col gap-2">
                 <h5 className="!text-[#000] transition-colors duration-200 group-hover:!text-white">
-                  {step.title}
+                  {step.id}. {step.title}
                 </h5>
                 <p className="!text-[#000] transition-colors duration-200 description group-hover:!text-white">
                   {step.desc}

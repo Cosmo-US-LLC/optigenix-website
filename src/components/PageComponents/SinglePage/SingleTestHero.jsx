@@ -2,26 +2,30 @@ import React from "react";
 import heroImage from "@/assets/images/single_test/single_hero/hero_section_img.webp";
 import heroImagemob from "@/assets/images/single_test/single_hero/mob_hero.png";
 
-import { Button } from "@/components/ui/button";
-
 const SingleTestHero = () => {
   return (
     <section className="relative w-full min-h-[500px] md:min-h-[600px] overflow-hidden ">
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0 pointer-events-none max-md:hidden" aria-hidden="true">
+      <div
+        className="absolute inset-0 pointer-events-none max-md:hidden"
+        aria-hidden="true"
+      >
         <img
           src={heroImage}
           alt=""
           className="object-cover object-center w-full h-full"
-          loading="eager"
+          // loading="eager"
         />
       </div>
-      <div className="absolute inset-0 pointer-events-none md:hidden" aria-hidden="true">
+      <div
+        className="absolute inset-0 pointer-events-none md:hidden"
+        aria-hidden="true"
+      >
         <img
           src={heroImagemob}
           alt=""
           className="object-cover object-center w-full h-full"
-          loading="eager"
+          // loading="eager"
         />
       </div>
 
