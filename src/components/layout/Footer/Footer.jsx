@@ -206,7 +206,7 @@ const Footer = () => {
                       </button>
                     </li> */}
                     <li>
-                      <Link to="/terms-of-service" className="quick-links">
+                      <Link to="/terms-and-conditions" className="quick-links">
                         Terms and Conditions
                       </Link>
                     </li>
