@@ -165,12 +165,12 @@ const Header = () => {
               </Link>
 
               {/* Quiz */}
-              {/* <Link
-                to="/quiz"
+              {/* <a
+                href="/quiz"
                 className="font-['Funnel_Display'] text-[16px] text-black capitalize leading-normal hover:text-[#0d8360] transition-colors"
               >
                 Quiz
-              </Link> */}
+              </a> */}
 
               {/* Blog */}
               {/* <Link
