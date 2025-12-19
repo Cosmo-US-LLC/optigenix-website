@@ -86,7 +86,7 @@ const TermsOfServiceContent = () => {
               </div>
               <div className="bg-[#f7f7f7] rounded-[8px] p-4 lg:p-[16px]">
                 <p className="font-inter font-bold text-[14px] lg:!text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
-                  IMPORTANT: PLEASE NOTE THAT SECTION 4 OF THESE TERMS CONTAIN A
+                  IMPORTANT: PLEASE NOTE THAT SECTION 4 OF THESE TERMS CONTAINS A
                   MANDATORY ARBITRATION PROVISION THAT REQUIRES THE USE OF
                   ARBITRATION ON AN INDIVIDUAL BASIS AND LIMITS THE REMEDIES
                   AVAILABLE TO YOU IN THE EVENT OF CERTAIN DISPUTES.
@@ -454,7 +454,7 @@ const TermsOfServiceContent = () => {
                       RESPONSIBLE FOR KNOWING ABOUT ANY FOOD ALLERGIES YOU MAY
                       HAVE AND VERIFYING THE PRODUCTS BEFORE CONSUMING SUCH
                       PRODUCTS, INCLUDING READING ANY WARNINGS OR INFORMATION
-                      PROVIDED ON PACKAGE RELATED TO ALLERGENS AND INGREDIENTS.
+                      PROVIDED ON THE PACKAGE RELATED TO ALLERGENS AND INGREDIENTS.
                     </p>
                   </div>
                 </div>

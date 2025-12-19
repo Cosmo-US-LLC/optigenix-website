@@ -53,7 +53,7 @@ const teamMembers = [
     name: "Alec Bizieff, Ph.D",
     role: "Scientific Advisor and Research Specialist",
     image: teamImage6,
-    bio: "Dr. Bizieff drives OptiGenix’s research in metabolic biology, biomarkers, andperformance optimization, giving athletes the knowledge and tools to tailor theirperformance journey.",
+    bio: "Dr. Bizieff drives OptiGenix’s research in metabolic biology, biomarkers, and performance optimization, giving athletes the knowledge and tools to tailor theirperformance journey.",
     linkedin: "https://www.linkedin.com/in/alec-bizieff ",
   },
 ];

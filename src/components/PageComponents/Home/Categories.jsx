@@ -10,7 +10,7 @@ const categories = [
     title: "Mental Performance",
     description:
       "Boost focus, clarity, and cognitive function with brain-supporting nootropics.",
-    buttonText: "shop mental health",
+    buttonText: "Shop Mental Health",
     link: "https://tryoptigenix.com/collections/mental-performance",
     image: shopYourFocusC3,
   },

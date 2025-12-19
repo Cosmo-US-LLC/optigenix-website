@@ -245,7 +245,7 @@ const PrivacyPolicyContent = () => {
               </h2>
               <p className="text-[#252525] text-[16px] font-inter">
                 Our website does not currently adjust its data practices based
-                on Do Not Track signals.
+                on "Do Not Track" signals.
               </p>
             </div>
 

@@ -11,7 +11,7 @@ import testimonialBg from "../../../assets/images/testimonial/testimonial_bg.web
 const testimonials = [
   {
     title: "Adrian Weinberg",
-    text: "This is my first time trying OptiGenix. my friend recommended it after seeing her results. The gene-based supplements gave me more energy than I’ve had in years.",
+    text: "This is my first time trying OptiGenix. My friend recommended it after seeing her results. The gene-based supplements gave me more energy than I’ve had in years.",
     author: "Water Polo",
     rating: 5,
   },
@@ -29,7 +29,7 @@ const testimonials = [
   },
   {
     title: "Jenny Wilson",
-    text: "I didn’t realize my vitamin deficiencies were holding me back in recovery. Now, after a few weeks on my tailored supplements, I feel noticeably stronger",
+    text: "I didn’t realize my vitamin deficiencies were holding me back in recovery. Now, after a few weeks on my tailored supplements, I feel noticeably stronger.",
     author: "Fencer",
     rating: 5,
   },
@@ -41,13 +41,13 @@ const testimonials = [
   },
   {
     title: "Wade Warren",
-    text: "I took the quiz on a boy friend’s suggestion, curious if it could help. The plan targeted my inflammation, and now I feel lighter and healthier every day",
+    text: "I took the quiz on my boyfriend’s suggestion, curious if it could help. The plan targeted my inflammation, and now I feel lighter and healthier every day.",
     author: "Fencer",
     rating: 5,
   },
   {
     title: "Brooklyn Simmons",
-    text: "Sleep and recovery were always my weak spots. After trying these supplements, I wake up refreshed and ready to tackle the day. it’s made a huge difference.",
+    text: "Sleep and recovery were always my weak spots. After trying these supplements, I wake up refreshed and ready to tackle the day. It has made a huge difference.",
     author: "Distance runner",
     rating: 5,
   },

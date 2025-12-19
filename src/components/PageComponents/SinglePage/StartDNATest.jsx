@@ -27,7 +27,7 @@ const StartDNATest = () => {
                   $200
                 </div>
                 <p className="text-white text-[14px] md:text-[16px] leading-[22px] font-['Funnel_Display']">
-                  One-time payment No subscription
+                  One-time payment. No subscription
                 </p>
               </div>
 

@@ -11,7 +11,7 @@ const faqs = [
   {
     question: "How does OptiGenix work?",
     answer:
-      "OptiGenix combines advanced Gene and blood testing with personalized supplement formulations. We analyze your unique genetic markers and current biomarker levels to create a customized nutrition plan tailored specifically to your body's needs, goals, and lifestyle.",
+      "OptiGenix combines advanced gene and blood testing with personalized supplement formulations. We analyze your unique genetic markers and current biomarker levels to create a customized nutrition plan tailored specifically to your body's needs, goals, and lifestyle.",
   },
   {
     question: "Is OptiGenix only for athletes?",
@@ -21,7 +21,7 @@ const faqs = [
   {
     question: "Why choose OptiGenix?",
     answer:
-      "Unlike generic supplements, OptiGenix is built on science-backed personalization. Our Gene and blood analysis ensures you get exactly what your body needs - no more, no less. Plus, our supplements are third-party tested, and backed by expert support to help you achieve your health goals.",
+      "Unlike generic supplements, OptiGenix is built on science-backed personalization. Our gene and blood analysis ensures you get exactly what your body needs - no more, no less. Plus, our supplements are third-party tested and backed by expert support to help you achieve your health goals.",
   },
 ];
 

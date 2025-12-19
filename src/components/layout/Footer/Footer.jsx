@@ -289,7 +289,7 @@ const Footer = () => {
             {/* Right Side: Newsletter Signup */}
             <div className="w-full lg:w-[386px] space-y-4 md:space-y-6 lg:space-y-[24px]">
               <h3 className="quick-heading">
-                Subscribe to our newsletter and stay up to date
+                Subscribe to our newsletter and stay up to date.
               </h3>
 
               {/* Newsletter Form */}

@@ -52,7 +52,7 @@ const IncludedTestKit = () => {
         <div className="flex flex-col gap-5 items-center mb-10 text-center md:mb-8">
           <h2 className="text-[#010907] ">What’s Included In Your Test Kit</h2>
           <p className=" description !text-[#010907]">
-            Everything you need to unlock your genetic insights
+            Everything you need to unlock your genetic insights.
           </p>
         </div>
 

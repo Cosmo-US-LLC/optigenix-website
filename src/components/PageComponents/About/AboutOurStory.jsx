@@ -17,7 +17,7 @@ const AboutOurStory = () => {
                   <p>
                     At OptiGenix, we believe your body deserves solutions as
                     unique as you are. We started this journey as athletes
-                    driven, disciplined, and sometimesf rustrated. No matter how
+                    driven, disciplined, and sometimes frustrated. No matter how
                     much effort we put in, something always felt off. The more
                     we trained, the more we realized performance wasn't just
                     about hard work; it was about understanding what the body
@@ -32,7 +32,7 @@ const AboutOurStory = () => {
                     nutrition, and health. OptiGenix was created from that
                     realization, that peak performance should be personal.
                     Today, our In-House Experts analyze your DNA and blood
-                    insights to natural supplements tailored to what your body
+                    insights to create natural supplements tailored to what your body
                     needs, how much it needs, and when it needs it. Every blend
                     is guided by science, tested for quality, and designed to
                     bring out your body's natural strength. We believe in
@@ -47,7 +47,7 @@ const AboutOurStory = () => {
                 <p className="font-['Funnel_Display'] font-normal text-[16px] leading-[20px] text-[#010907]">
                   OptiGenix isn't just about supplements. It's about a smarter,
                   more personal way to perform, one that begins with
-                  understanding yourself
+                  understanding yourself.
                 </p>
               </div>
             </div>
