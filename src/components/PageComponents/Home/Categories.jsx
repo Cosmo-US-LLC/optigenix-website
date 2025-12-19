@@ -10,7 +10,7 @@ const categories = [
     title: "Mental Performance",
     description:
       "Boost focus, clarity, and cognitive function with brain-supporting nootropics.",
-    buttonText: "shop mental health",
+    buttonText: "Shop Mental Health",
     link: "https://tryoptigenix.com/collections/mental-performance",
     image: shopYourFocusC3,
   },
@@ -66,7 +66,7 @@ const Categories = () => {
                     />
                   </div>
                   {/* Category Label */}
-                  <h6 className="absolute top-[4px] md:top-[8px] md:left-[-4px] left-[-1px] md:!text-[16px] !text-[13px] text-[#010907]">
+                  <h6 className="absolute top-2.5 left-2  md:!text-[16px] !text-[13px] !text-[#fff] px-[13px] py-1 border border-[#F8FFFD] font-medium! rounded-2xl ">
                     {category.title}
                   </h6>
                 </div>

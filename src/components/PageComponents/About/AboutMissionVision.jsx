@@ -8,7 +8,7 @@ const sections = [
     title: "The Reason We Started",
     description: [
       "We created OptiGenix with one goal in mind: to help athletes and active individuals perform at their highest level with personalized, science-driven solutions. Understanding your body is not just about performance; it is about living your best life. By taking a data-driven approach, we optimize every aspect of your health, from energy and sleep to recovery and focus.",
-      "We are passionate about helping you understand your body better so you can train smarter, recover faster, and feel your best.",
+      "We are passionate about helping you understand your body better, so you can train smarter, recover faster, and feel your best.",
     ],
     image: whyImage,
     imageClass: "object-cover",
@@ -16,7 +16,7 @@ const sections = [
   {
     title: "Mission Statement",
     description: [
-      "Our mission is to transform the way athletes and active individuals approach supplementation and performance. Using personalized, data-driven insights, we create high-quality, scientifically-backed supplements designed to meet your unique needs and help you reach your peak potential.",
+      "Our mission is to transform the way athletes and active individuals approach supplementation and performance. Using personalized, data-driven insights, we create high-quality, scientifically backed supplements designed to meet your unique needs and help you reach your peak potential.",
     ],
     image: missionImage,
     imageClass: "absolute top-[-33.82%] left-0 w-full h-[190.98%]",
@@ -39,8 +39,7 @@ const AboutMissionVision = () => {
           {/* Main Heading */}
           <div className="max-w-[800px]">
             <h2 className="!text-white">
-              How Physical Performance works and help you to booster your
-              performance
+              How Physical Performance works and Helps You Boost Your Performance
             </h2>
           </div>
 

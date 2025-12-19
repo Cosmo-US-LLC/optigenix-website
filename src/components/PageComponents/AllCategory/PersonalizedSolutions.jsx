@@ -152,9 +152,9 @@ const PersonalizedSolutions = () => {
                             Discover
                           </p>
                         </div>
-                        <p className="font-['Inter'] font-normal text-[16px] leading-[22px] text-[#185348]">
+                        <p className="font-['Inter'] font-normal text-[14px] leading-[22px] text-[#185348]">
                           How your body adapts to strength, endurance, and
-                          recovery
+                          recovery.
                         </p>
                       </div>
 
@@ -192,7 +192,7 @@ const PersonalizedSolutions = () => {
                         </div>
                         <p className="font-['Inter'] font-normal text-[14px] leading-[22px] text-[#185348]">
                           Science-backed recommendations and a nutrition coach
-                          for daily optimization
+                          for daily optimization.
                         </p>
                       </div>
                     </div>
@@ -278,7 +278,7 @@ const PersonalizedSolutions = () => {
                         <h3 className="capitalize font-['Funnel_Display'] font-bold !text-[20px] md:!text-[32px] leading-[36px] md:leading-[40px] !text-[#0d8360]">
                           Performance Blood Test
                         </h3>
-                        <p className="font-['Inter'] font-normal text-[14px] leading-[22px] text-[#031a13]">
+                        <p className="font-['Inter'] font-normal text-[14px] leading-[22px] text-[#185348]">
                           Your DNA provides the blueprint, while your blood
                           delivers real-time insights. By analyzing key
                           biomarkers, we assess how your current routine is

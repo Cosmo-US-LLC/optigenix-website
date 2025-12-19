@@ -17,43 +17,43 @@ import {
 const cards = [
   {
     title: "Get Active",
-    description: "Enhance strength, speed, endurance, and explosiveness",
+    description: "Enhance strength, speed, endurance, and explosiveness.",
     image: frame1,
   },
   {
     title: "Recover Faster",
-    description: "Reduced risk of overtraining or injury",
+    description: "Reduced risk of overtraining or injury.",
     image: frame2,
   },
   {
     title: "Optimization",
-    description: "Identify deficiencies and optimize diet for performance",
+    description: "Identify deficiencies and optimize diet for performance.",
     image: frame3,
   },
   {
     title: "Cognitive Recharge",
-    description: "Optimize cognitive performance, focus, and stress management",
+    description: "Optimize cognitive performance, focus, and stress management.",
     image: frame4,
   },
   {
     title: "Calculated Pathway",
     description:
-      "Make data-driven decisions for supplements and training loads",
+      "Make data-driven decisions for supplements and training loads.",
     image: frame5,
   },
   {
     title: "Resonate",
-    description: "Plan training around circadian rhythms and natural peaks",
+    description: "Plan training around circadian rhythms and natural peaks.",
     image: frame6,
   },
   {
     title: "Achieve Health",
-    description: "Support long-term health, resilience, and longevity",
+    description: "Support long-term health, resilience, and longevity.",
     image: frame7,
   },
   {
     title: "Train Smarter",
-    description: "Optimize workouts according to genetic potential",
+    description: "Optimize workouts according to genetic potential.",
     image: frame8,
   },
 ];

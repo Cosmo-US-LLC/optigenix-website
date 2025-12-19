@@ -34,7 +34,7 @@ const products = [
   {
     name: "Physical Recovery QuickPack™",
     description:
-      "Built for faster recovery, muscle repair, and performance resilience",
+      "Built for faster recovery, muscle repair, and performance resilience.",
     price: "$59.99",
     image: ourMostTrustedFormulasP1,
     icon: quickPackIcon1,
@@ -46,7 +46,7 @@ const products = [
   },
   {
     name: "Sleep QuickPack™",
-    description: "Built for deep sleep, calm recovery, and restorative rest",
+    description: "Built for deep sleep, calm recovery, and restorative rest.",
     price: "$59.99",
     image: ourMostTrustedFormulasP2,
     icon: quickPackIcon2,
@@ -58,7 +58,7 @@ const products = [
   },
   {
     name: "Strength QuickPack™",
-    description: "Built for muscle growth, power, and resilient strength",
+    description: "Built for muscle growth, power, and resilient strength.",
     price: "$59.99",
     image: ourMostTrustedFormulasC3,
     icon: quickPackIcon3,
@@ -71,7 +71,7 @@ const products = [
   {
     name: "Endurance QuickPack™",
     description:
-      "Built for cellular energy, stamina, and sustained performance",
+      "Built for cellular energy, stamina, and sustained performance.",
     price: "$59.99",
     image: ourMostTrustedFormulasC4,
     icon: quickPackIcon4,
@@ -83,7 +83,7 @@ const products = [
   },
   {
     name: "Focus QuickPack™",
-    description: "Built for clarity, focus, and real-world stress",
+    description: "Built for clarity, focus, and real-world stress.",
     price: "$59.99",
     image: ourMostTrustedFormulasC5,
     icon: quickPackIcon5,
@@ -95,7 +95,7 @@ const products = [
   },
   {
     name: "Joint Health QuickPack™",
-    description: "Built for mobility, flexibility, and joint comfort",
+    description: "Built for mobility, flexibility, and joint comfort.",
     price: "$59.99",
     image: ourMostTrustedFormulasC6,
     icon: quickPackIcon6,
@@ -108,7 +108,7 @@ const products = [
   {
     name: "Immune Health QuickPack™",
     description:
-      "Built for immune response, detox support, and antioxidant defense",
+      "Built for immune response, detox support, and antioxidant defense.",
     price: "$59.99",
     image: ourMostTrustedFormulasC7,
     icon: quickPackIcon7,

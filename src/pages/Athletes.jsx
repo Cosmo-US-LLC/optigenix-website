@@ -16,8 +16,8 @@ const athletes = [
   {
     image: athletesImage1,
     name: "Seth Buchwalter",
-    role: "Marathon running",
-    bio: "Seth is a dedicated marathon runner and trail enthusiast who thrives on pushing his limits over long distances and rugged terrains. His training is built around endurance, mental toughness, and a deep connection to the outdoors. He values consistency, proper recovery, and smart nutrition to fuel his performance. OptiGenix helps Seth maintain his endurance and recovery through personalized nutrition, allowing him to stay strong and recover quickly during both his trail runs and marathon races.",
+    role: "Marathon runner",
+    bio: "Seth is a dedicated marathon runner and trail enthusiast who thrives on pushing his limits over long distances and rugged terrain. His training is built around endurance, mental toughness, and a deep connection to the outdoors. He values consistency, proper recovery, and smart nutrition to fuel his performance. OptiGenix helps Seth maintain his endurance and recovery through personalized nutrition, allowing him to stay strong and recover quickly during both his trail runs and marathon races.",
     cardPosition: "right",
   },
   {
@@ -45,7 +45,7 @@ const athletes = [
     image: athletesImage5,
     name: "Seth Johnson",
     role: "Track & Field Athlete",
-    bio: "Seth is an accomplished track and field athlete, ranked No. 3 in Cal’s men’s heptathlon history and No. 10 in the 60m hurdles. A 2025 USTFCCCA Second-Team All-American and 2024 Pac-12 Decathlon Bronze Medalist, Seth’s training is focused on versatility, combining strength, speed, and endurance for multi-event success. His approach to training is built around consistency, smart recovery, and optimized nutrition. OptiGenix supports Seth by ensuring his body has the right nutrients to recover quickly between intense training sessions and help him stay at the top of his game across multiple events.",
+    bio: "Seth is an accomplished track and field athlete, ranked No. 3 in Cal’s men’s heptathlon history and No. 10 in the 60m hurdles. A 2025 USTFCCCA Second-Team All-American and 2024 Pac-12 Decathlon Bronze Medalist, Seth’s training is focused on versatility, combining strength, speed, and endurance for multi-event success. His approach to training is built around consistency, smart recovery, and optimized nutrition. OptiGenix supports Seth by ensuring his body has the right nutrients to recover quickly between intense training sessions and helps him stay at the top of his game across multiple events.",
     cardPosition: "right",
   },
   {
