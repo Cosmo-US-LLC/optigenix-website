@@ -258,13 +258,13 @@ const Footer = () => {
                       />
                     </div>
                     {/* Klarna */}
-                    <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
+                    {/* <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
                       <img
                         src={klarnaIcon}
                         alt="Klarna"
                         className="w-full h-full"
                       />
-                    </div>
+                    </div> */}
                     {/* Apple Pay */}
                     <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
                       <img
@@ -329,13 +329,13 @@ const Footer = () => {
                     />
                   </div>
                   {/* Klarna */}
-                  <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
+                  {/* <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
                     <img
                       src={klarnaIcon}
                       alt="Klarna"
                       className="w-full h-full"
                     />
-                  </div>
+                  </div> */}
                   {/* Apple Pay */}
                   <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
                     <img
