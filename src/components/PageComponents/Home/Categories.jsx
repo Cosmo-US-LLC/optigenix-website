@@ -66,7 +66,7 @@ const Categories = () => {
                     />
                   </div>
                   {/* Category Label */}
-                  <h6 className="absolute top-2 left-2  md:!text-[16px] !text-[13px] !text-[#fff] px-[15px] py-1 border border-[#F8FFFD] font-medium! rounded-2xl ">
+                  <h6 className="absolute top-2.5 left-2  md:!text-[16px] !text-[13px] !text-[#fff] px-[13px] py-1 border border-[#F8FFFD] font-medium! rounded-2xl ">
                     {category.title}
                   </h6>
                 </div>
