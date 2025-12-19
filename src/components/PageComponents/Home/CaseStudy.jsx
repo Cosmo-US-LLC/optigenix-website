@@ -63,7 +63,7 @@ const CaseStudy = () => {
                 {/* Stats Grid - 2x2 */}
                 <div className="flex flex-col gap-4 justify-start h-full">
                   <div className="flex flex-col gap-[14px] lg:gap-[24px] text-left text-white max-w-[574px]   ">
-                    <h2 className="!text-[#010907] md:!text-[42px] !text-[25px] md:!leading-[44px] !leading-[29px] ">
+                    <h2 className="!text-[#FFFFFF] md:!text-[42px] !text-[25px] md:!leading-[44px] !leading-[29px] ">
                       OptiGenix × UC Berkeley Triathlon Team
                     </h2>
                   </div>
