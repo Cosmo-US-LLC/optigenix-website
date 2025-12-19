@@ -154,7 +154,7 @@ const PersonalizedSolutions = () => {
                         </div>
                         <p className="font-['Inter'] font-normal text-[16px] leading-[22px] text-[#185348]">
                           How your body adapts to strength, endurance, and
-                          recovery
+                          recovery.
                         </p>
                       </div>
 
@@ -192,7 +192,7 @@ const PersonalizedSolutions = () => {
                         </div>
                         <p className="font-['Inter'] font-normal text-[14px] leading-[22px] text-[#185348]">
                           Science-backed recommendations and a nutrition coach
-                          for daily optimization
+                          for daily optimization.
                         </p>
                       </div>
                     </div>
