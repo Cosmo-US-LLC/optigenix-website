@@ -97,12 +97,12 @@ const Categories = () => {
 
           {/* Bottom CTA Button */}
           <div className="flex flex-col gap-[10px] items-center justify-center w-full">
-            <Link to="/quiz">
+            <a href="/quiz">
               <button className="btn_primary flex gap-[10px] items-center justify-center">
                 Not sure which path is right for you?{" "}
                 <br className="md:hidden" /> Take our quiz.
               </button>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
