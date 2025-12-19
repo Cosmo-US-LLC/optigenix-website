@@ -103,7 +103,7 @@ const products = [
     iconBorderColor: "rgba(186, 32, 14, 0.10)",
     hoverImage: quickPackHover6,
     hoverText: "Keep Your Joints in Motion",
-    link: "https://tryoptigenix.com/products/joint-health-quickpack.",
+    link: "https://tryoptigenix.com/products/joint-health-quickpack",
   },
   {
     name: "Immune Health QuickPack™",
