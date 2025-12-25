@@ -3,12 +3,15 @@ import { Link } from "react-router-dom";
 import linkedinIcon from "../../../assets/images/footer/Linkedin.svg";
 // import twitterIcon from "../../../assets/images/footer/devicon_twitter.svg";
 import logoIcon from "../../../assets/images/footer/footer_logo.webp";
-import visaIcon from "../../../assets/images/footer/footer_visa.webp";
-import mastercardIcon from "../../../assets/images/footer/footer_mastercard.webp";
-import paypalIcon from "../../../assets/images/footer/footer_paypa.webp";
-import klarnaIcon from "../../../assets/images/footer/footer_klarna.webp";
-import applePayIcon from "../../../assets/images/footer/footer_apple_pay.webp";
-import googlePayIcon from "../../../assets/images/footer/footer_google_pay.webp";
+
+import visaIcon from "../../../assets/images/footer/visa_2x.webp";
+import opayIcon from "../../../assets/images/footer/opay_2x.webp";
+import paypalIcon from "../../../assets/images/footer/paypal_2x.webp";
+import mastercardIcon from "../../../assets/images/footer/mastercard_2x.webp";
+import googlePayIcon from "../../../assets/images/footer/google_pay_2x.webp";
+import applePayIcon from "../../../assets/images/footer/apple_pay_2x.webp";
+import klarnaIcon from "../../../assets/images/footer/klarna_2x.webp";
+
 import NewsLetterForm from "./NewsLetterForm";
 
 const Footer = () => {
@@ -231,18 +234,35 @@ const Footer = () => {
                   </p>
 
                   {/* Payment Icons */}
-                  <div className="flex flex-wrap gap-2 justify-center items-center md:gap-3">
+                  <div className="flex flex-wrap gap-2 justify-center items-center md:gap-[10px]">
                     {/* Visa */}
-                    <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 rounded">
+                    <div className="w-[38px] h-[28px] md:w-[43px] md:h-[30px] bg-white/10 rounded">
                       <img
                         src={visaIcon}
                         alt="Visa"
                         className="w-full h-full"
                       />
                     </div>
+                    {/* OPay */}
+                    <div className="w-[38px] h-[28px] md:w-[43px] md:h-[30px] bg-white/10 rounded">
+                      <img
+                        src={opayIcon}
+                        alt="OPay"
+                        className="w-full h-full"
+                      />
+                    </div>
+
+                    {/* PayPal */}
+                    <div className="w-[38px] h-[28px] md:w-[43px] md:h-[30px] bg-white/10 rounded">
+                      <img
+                        src={paypalIcon}
+                        alt="Paypal"
+                        className="w-full h-full"
+                      />
+                    </div>
 
                     {/* Mastercard */}
-                    <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
+                    <div className="w-[38px] h-[28px] md:w-[43px] md:h-[30px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
                       <img
                         src={mastercardIcon}
                         alt="Mastercard"
@@ -250,23 +270,16 @@ const Footer = () => {
                       />
                     </div>
                     {/* PayPal */}
-                    <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
+                    <div className="w-[38px] h-[28px] md:w-[43px] md:h-[30px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
                       <img
-                        src={paypalIcon}
+                        src={googlePayIcon}
                         alt="Paypal"
                         className="w-full h-full"
                       />
                     </div>
-                    {/* Klarna */}
-                    {/* <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
-                      <img
-                        src={klarnaIcon}
-                        alt="Klarna"
-                        className="w-full h-full"
-                      />
-                    </div> */}
+
                     {/* Apple Pay */}
-                    <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
+                    <div className="w-[38px] h-[28px] md:w-[43px] md:h-[30px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
                       <img
                         src={applePayIcon}
                         alt="Apple Pay"
@@ -274,9 +287,9 @@ const Footer = () => {
                       />
                     </div>
                     {/* Google Pay */}
-                    <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
+                    <div className="w-[38px] h-[28px] md:w-[43px] md:h-[30px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
                       <img
-                        src={googlePayIcon}
+                        src={klarnaIcon}
                         alt="Google Pay"
                         className="w-full h-full"
                       />
@@ -308,12 +321,26 @@ const Footer = () => {
                 {/* Payment Icons */}
                 <div className="flex flex-wrap gap-2 justify-center items-center md:gap-3">
                   {/* Visa */}
-                  <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 rounded">
+                  <div className="w-[34px] h-[26px] md:w-[48px] md:h-[32px] bg-white/10 rounded">
                     <img src={visaIcon} alt="Visa" className="w-full h-full" />
                   </div>
 
+                  {/* OPay */}
+                  <div className="w-[34px] h-[26px] md:w-[48px] md:h-[32px] bg-white/10 rounded">
+                    <img src={opayIcon} alt="OPay" className="w-full h-full" />
+                  </div>
+
+                  {/* PayPal */}
+                  <div className="w-[34px] h-[26px] md:w-[48px] md:h-[32px] bg-white/10 rounded">
+                    <img
+                      src={paypalIcon}
+                      alt="Paypal"
+                      className="w-full h-full"
+                    />
+                  </div>
+
                   {/* Mastercard */}
-                  <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
+                  <div className="w-[34px] h-[26px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
                     <img
                       src={mastercardIcon}
                       alt="Mastercard"
@@ -321,10 +348,10 @@ const Footer = () => {
                     />
                   </div>
                   {/* PayPal */}
-                  <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
+                  <div className="w-[34px] h-[26px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
                     <img
-                      src={paypalIcon}
-                      alt="Paypal"
+                      src={googlePayIcon}
+                      alt="Google Pay"
                       className="w-full h-full"
                     />
                   </div>
@@ -337,7 +364,7 @@ const Footer = () => {
                     />
                   </div> */}
                   {/* Apple Pay */}
-                  <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
+                  <div className="w-[34px] h-[26px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
                     <img
                       src={applePayIcon}
                       alt="Apple Pay"
@@ -345,10 +372,10 @@ const Footer = () => {
                     />
                   </div>
                   {/* Google Pay */}
-                  <div className="w-[38px] h-[28px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
+                  <div className="w-[34px] h-[26px] md:w-[48px] md:h-[32px] bg-white/10 backdrop-blur-sm rounded flex items-center justify-center">
                     <img
-                      src={googlePayIcon}
-                      alt="Google Pay"
+                      src={klarnaIcon}
+                      alt="Klarna"
                       className="w-full h-full"
                     />
                   </div>
