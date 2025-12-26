@@ -1,16 +1,17 @@
 import MetaTags from "@/components/PageComponents/MetaTags/MetaTags";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 
 const QuizSecond = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+  const iframeRef = React.useRef(null);
 
-  // Get the current step from URL
-  const step = searchParams.get("step") || "age";
-
-  // Build iframe URL with query parameters
-  const iframeUrl = `/quiz/index.html?step=${step}`;
+  // Get the current step from URL ONCE on mount - freeze it!
+  const [iframeUrl] = useState(() => {
+    const step = searchParams.get("step") || "age";
+    return `/quiz/index.html?step=${step}`;
+  });
 
   // Listen for messages from iframe (when quiz step changes)
   useEffect(() => {
@@ -41,7 +42,7 @@ const QuizSecond = () => {
         description="Take the personalized supplement quiz to get customized health recommendations and supplement suggestions based on your age and lifestyle."
       />
       <iframe
-        key={step}
+        ref={iframeRef}
         src={iframeUrl}
         style={{ width: "100%", border: "none" }}
         className="md:min-h-[calc(100vh)] min-h-[calc(100vh)]"
