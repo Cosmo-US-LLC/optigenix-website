@@ -22,6 +22,7 @@ const Recovery = () => {
         <QuizCTASection
           title={data.quizTitle}
           description={data.quizDescription}
+          quizImage={data.quizImage}
         />
         <BackedByScience scienceImage={data.scienceImage} />
         <Testimonials />

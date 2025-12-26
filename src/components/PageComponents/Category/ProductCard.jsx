@@ -18,53 +18,64 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="bg-white rounded-2xl p-2 flex flex-col gap-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,0,0,0.1)]">
-      <div className="w-full h-[452px] rounded-lg relative overflow-hidden bg-gradient-to-br from-[#0d8360] to-[#042b24]">
-        {/* Placeholder for product image */}
-        <div className="w-full h-full flex items-center justify-center">
-          <span className="text-[120px] font-bold text-white/30 font-funnel">
-            {product.title.charAt(0)}
-          </span>
-        </div>
+    <div className="bg-white rounded-[16px] p-[8px] flex flex-col gap-[8px] flex-[1_0_0]">
+      {/* Image - 452px height, 8px border radius, object-cover */}
+      <div className="h-[452px] rounded-[8px] relative overflow-hidden w-full">
+        <img
+          src={product.image}
+          alt={product.title}
+          className="w-full h-full object-cover"
+        />
       </div>
 
-      <div className="p-4 flex flex-col gap-3">
-        <h3 className="font-funnel font-semibold text-xl leading-6 text-[#010907] m-0">
+      {/* Content section - 16px padding, 12px gap */}
+      <div className="p-[16px] flex flex-col gap-[12px] w-full">
+        {/* Title - Funnel Display SemiBold, 20px, line-height 24px */}
+        <h3 className="font-funnel font-semibold text-[20px] leading-[24px] text-[#010907] m-0">
           {product.title}
         </h3>
 
-        <div className="flex flex-col gap-[10px]">
-          <p className="font-inter font-normal text-sm leading-5 text-[#010907] m-0">
+        {/* Description & Benefits & Price container */}
+        <div className="flex flex-col gap-[10px] w-full">
+          {/* Description - Inter Regular, 14px, line-height 20px */}
+          <p className="font-inter font-normal text-[14px] leading-[20px] text-[#010907] m-0">
             {product.description}
           </p>
 
-          <div className="flex flex-wrap gap-4 items-center">
+          {/* Benefits (UPS) - flex wrap, 16px gap */}
+          <div className="flex flex-wrap gap-[16px] items-center w-full">
             {product.benefits.map((benefit, index) => (
               <div key={index} className="flex gap-[6px] items-center">
-                <span className="text-[17px] flex items-center justify-center">
+                {/* Icon - 17px size */}
+                <div className="w-[17px] h-[17px] flex items-center justify-center shrink-0">
                   {benefitIcons[benefit.icon] || "•"}
-                </span>
-                <span className="font-inter font-medium text-xs leading-5 text-[#010907] whitespace-nowrap">
+                </div>
+                {/* Text - Inter Medium, 12px, line-height 20px */}
+                <span className="font-inter font-medium text-[12px] leading-[20px] text-[#010907] whitespace-nowrap">
                   {benefit.text}
                 </span>
               </div>
             ))}
           </div>
 
-          <p className="font-funnel font-bold text-xl leading-6 text-[#010907] m-0">
+          {/* Price - Funnel Display Bold, 20px, line-height 24px */}
+          <p className="font-funnel font-bold text-[20px] leading-[24px] text-[#010907] m-0">
             ${product.price.toFixed(2)}
           </p>
         </div>
 
-        <div className="flex gap-4 items-center">
+        {/* Buttons - 16px gap */}
+        <div className="flex gap-[16px] items-center w-full">
+          {/* Add to Cart button - 24px horizontal, 12px vertical padding */}
           <button
-            className="bg-[#0d8360] text-[#f8fffd] font-funnel font-semibold text-base leading-5 py-3 px-6 rounded-full border-none cursor-pointer transition-colors duration-300 hover:bg-[#0a6b50]"
+            className="bg-[#0d8360] text-[#f8fffd] font-funnel font-semibold text-[16px] leading-[20px] px-[24px] py-[12px] rounded-[100px] border-none cursor-pointer transition-colors duration-300 hover:bg-[#0a6b50]"
             onClick={handleAddToCart}
           >
             Add to Cart
           </button>
+          {/* Learn More link - no underline */}
           <button
-            className="bg-transparent text-[#010907] font-funnel font-semibold text-base leading-5 border-none cursor-pointer p-0 underline transition-colors duration-300 hover:text-[#0d8360]"
+            className="bg-transparent text-[#010907] font-funnel font-semibold text-[16px] leading-[20px] border-none cursor-pointer p-0 transition-colors duration-300 hover:text-[#0d8360]"
             onClick={handleLearnMore}
           >
             Learn More

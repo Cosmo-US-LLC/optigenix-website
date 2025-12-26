@@ -4,6 +4,18 @@ import icon_1 from "../assets/images/category/category_hero/icon_1.svg";
 import icon_2 from "../assets/images/category/category_hero/icon_2.svg";
 import icon_3 from "../assets/images/category/category_hero/icon_3.svg";
 import scienceImage from "../assets/images/category/category_hero/category_backedby.webp";
+// TODO: Add your quiz images here
+import quizImageRecovery from "../assets/images/category/recovery_plan/recovery_quiz_cta_img1.webp";
+import quizImagePhysical from "../assets/images/category/recovery_plan/recovery_quiz_cta_img2.webp";
+import quizImageMental from "../assets/images/category/recovery_plan/recovery_quiz_cta_img3.webp";
+
+import productImage1 from "../assets/images/category/optigenix_product/our_most_trusted_c8.webp";
+import productImage2 from "../assets/images/category/optigenix_product/our_most_trusted_c9.webp";
+import productImage3 from "../assets/images/category/optigenix_product/our_most_trusted_c10.webp";
+import productImage4 from "../assets/images/category/optigenix_product/our_most_trusted_c11.webp";
+import productImage5 from "../assets/images/category/optigenix_product/our_most_trusted_c12.webp";
+import productImage6 from "../assets/images/category/optigenix_product/our_most_trusted_c13.webp";
+import productImage7 from "../assets/images/category/optigenix_product/our_most_trusted_c14.webp";
 
 export const categoryData = {
   recovery: {
@@ -47,7 +59,7 @@ export const categoryData = {
     products: [
       {
         id: "joint-health",
-        image: "/images/products/joint-health.jpg",
+        image: productImage6,
         title: "Joint Health",
         description: "Built for mobility, flexibility, and joint comfort",
         benefits: [
@@ -60,7 +72,7 @@ export const categoryData = {
       },
       {
         id: "immune-health",
-        image: "/images/products/immune-health.jpg",
+        image: productImage7,
         title: "Immune Health",
         description:
           "Built for immune response, detox support, and antioxidant defense",
@@ -74,7 +86,7 @@ export const categoryData = {
       },
       {
         id: "physical-recovery",
-        image: "/images/products/physical-recovery.jpg",
+        image: productImage1,
         title: "Physical Recovery",
         description:
           "Built for faster recovery, muscle repair, and performance resilience",
@@ -88,7 +100,7 @@ export const categoryData = {
       },
       {
         id: "sleep",
-        image: "/images/products/sleep.jpg",
+        image: productImage2,
         title: "Sleep",
         description:
           "Built for deep sleep, calm recovery, and restorative rest",
@@ -105,6 +117,7 @@ export const categoryData = {
     quizDescription:
       "Take the quick quiz to discover the supplements your body truly needs to recover, restore energy, and reduce soreness.",
     scienceImage: scienceImage,
+    quizImage: quizImageRecovery, // TODO: Replace with quizImageRecovery
   },
 
   "physical-performance": {
@@ -147,7 +160,7 @@ export const categoryData = {
     products: [
       {
         id: "strength",
-        image: "/images/products/strength.jpg",
+        image: productImage3,
         title: "Strength",
         description: "Built for muscle growth, power, and resilient strength",
         benefits: [
@@ -160,7 +173,7 @@ export const categoryData = {
       },
       {
         id: "endurance",
-        image: "/images/products/endurance.jpg",
+        image: productImage4,
         title: "Endurance",
         description:
           "Built for cellular energy, stamina, and sustained performance",
@@ -177,6 +190,7 @@ export const categoryData = {
     quizDescription:
       "Take the quick quiz to discover the supplements your body truly needs to recover, restore energy, and reduce soreness.",
     scienceImage: scienceImage,
+    quizImage: quizImagePhysical, // TODO: Replace with quizImagePhysical
   },
 
   "mental-performance": {
@@ -219,7 +233,7 @@ export const categoryData = {
     products: [
       {
         id: "focus",
-        image: "/images/products/focus.jpg",
+        image: productImage5,
         title: "Focus",
         description: "Built for clarity, focus, and real-world stress",
         benefits: [
@@ -235,6 +249,7 @@ export const categoryData = {
     quizDescription:
       "Take the quick quiz to discover the supplements your body truly needs to recover, restore energy, and reduce soreness.",
     scienceImage: scienceImage,
+    quizImage: quizImageMental, // TODO: Replace with quizImageMental
   },
 };
 
