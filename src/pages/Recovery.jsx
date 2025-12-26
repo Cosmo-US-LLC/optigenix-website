@@ -3,8 +3,8 @@ import CategoryHero from "../components/PageComponents/Category/CategoryHero";
 import ProductGrid from "../components/PageComponents/Category/ProductGrid";
 import QuizCTASection from "../components/PageComponents/Category/QuizCTASection";
 import BackedByScience from "../components/PageComponents/Category/BackedByScience";
-import Testimonials from "../components/PageComponents/Home/Testimonials";
-import { categoryData } from "../data/categoryData.jsx";
+import Testimonials from "../components/PageComponents/Category/Testimonials";
+import { categoryData, testimonialsData } from "../data/categoryData.jsx";
 import MetaTags from "../components/PageComponents/MetaTags/MetaTags";
 
 const Recovery = () => {
@@ -25,7 +25,7 @@ const Recovery = () => {
           quizImage={data.quizImage}
         />
         <BackedByScience scienceImage={data.scienceImage} />
-        <Testimonials />
+        <Testimonials testimonials={testimonialsData} />
       </div>
     </>
   );
