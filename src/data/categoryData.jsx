@@ -254,6 +254,56 @@ export const categoryData = {
 };
 
 // Benefit icons mapping
+// Testimonials data - shared across all category pages
+export const testimonialsData = [
+  {
+    review:
+      "This is my first time trying OptiGenix. my friend recommended it after seeing her results. The gene-based supplements gave me more energy than I've had in years.\"",
+    name: "Adrian Weinberg",
+    sport: "Water Polo",
+    stars: 5,
+    videoThumbnail: null, // Add video thumbnails later
+    videoUrl: null,
+  },
+  {
+    review:
+      "I always struggled with stress and mood swings. After following my personalized plan, I finally feel calmer and more balanced.",
+    name: "Sanil Sharma",
+    sport: "Fencer",
+    stars: 5,
+    videoThumbnail: null,
+    videoUrl: null,
+  },
+  {
+    review:
+      "Focus at work was impossible for me. The supplements matched to my gene test have completely improved my mental clarity.",
+    name: "Christopher Middleton-Pearson",
+    sport: "Distance runner",
+    stars: 5,
+    videoThumbnail: null,
+    videoUrl: null,
+  },
+  {
+    review:
+      '"I didn\'t realize my vitamin deficiencies were holding me back in recovery. Now, after a few weeks on my tailored supplements"',
+    name: "Jenny Wilson",
+    sport: "Fencer",
+    stars: 5,
+    videoThumbnail: null,
+    videoUrl: null,
+  },
+  {
+    review:
+      "Focus at work was impossible for me. The supplements matched to my gene test have completely improved my mental clarity.",
+    name: "Christopher Middleton-Pearson",
+    sport: "Distance runner",
+    stars: 5,
+    videoThumbnail:
+      "https://www.figma.com/api/mcp/asset/c7f99041-230e-4ea0-8471-fad0c5987cd7", // From Figma
+    videoUrl: null,
+  },
+];
+
 export const benefitIcons = {
   joints: "🦴",
   flexibility: "🤸",
