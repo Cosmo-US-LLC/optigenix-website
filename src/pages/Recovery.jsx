@@ -23,7 +23,7 @@ const Recovery = () => {
           title={data.quizTitle}
           description={data.quizDescription}
         />
-        <BackedByScience />
+        <BackedByScience scienceImage={data.scienceImage} />
         <Testimonials />
       </div>
     </>
