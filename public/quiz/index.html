@@ -193,12 +193,10 @@
         cursor: pointer;
         width: 100%;
         margin-top: 20px;
-      }
-
-      .purchase-btn a,
-      .purchase-btn .Button_link {
-        color: #0d8360 !important;
+        text-align: center;
         text-decoration: none;
+        display: inline-block;
+        transition: transform 0.2s ease;
       }
 
       .purchase-btn:hover {
@@ -630,15 +628,14 @@
               />
             </div>
           </div>
-          <button class="purchase-btn">
-            <a
-              href="https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01"
-              target="_top"
-              class="Button_link"
-            >
-              Purchase Now
-            </a>
-          </button>
+          <a
+            href="https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01"
+            target="_top"
+            class="purchase-btn Button_link"
+            style="text-decoration: none; display: inline-block"
+          >
+            Purchase Now
+          </a>
         </div>
 
         <div id="productsContainer"></div>
