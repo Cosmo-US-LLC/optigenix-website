@@ -4,6 +4,36 @@ import icon_1 from "../assets/images/category/category_hero/icon_1.svg";
 import icon_2 from "../assets/images/category/category_hero/icon_2.svg";
 import icon_3 from "../assets/images/category/category_hero/icon_3.svg";
 import scienceImage from "../assets/images/category/category_hero/category_backedby.webp";
+import {
+  JointsIcon,
+  FlexibilityIcon,
+  InflammationIcon,
+  ComfortIcon,
+  ShieldIcon,
+  LiverIcon,
+  AntioxidantIcon,
+  CellularIcon,
+  MuscleIcon,
+  MitochondrialIcon,
+  AntioxidantActivityIcon,
+  SorenessIcon,
+  DeepSleepIcon,
+  StressIcon,
+  CircadianIcon,
+  OvernightIcon,
+  MuscleStrengthIcon,
+  PowerIcon,
+  BoneIcon,
+  ResilienceIcon,
+  EnergyIcon,
+  StaminaIcon,
+  FatigueIcon,
+  RecoveryBoostIcon,
+  MentalClarityIcon,
+  CognitiveIcon,
+  StressBalanceIcon,
+  SustainedFocusIcon,
+} from "../components/icons/BenefitIcons.jsx";
 // TODO: Add your quiz images here
 import quizImageRecovery from "../assets/images/category/recovery_plan/recovery_quiz_cta_img1.webp";
 import quizImagePhysical from "../assets/images/category/recovery_plan/recovery_quiz_cta_img2.webp";
@@ -29,7 +59,7 @@ export const categoryData = {
             <img
               src={icon_1}
               alt="Science-Backed"
-              className="w-full h-full object-contain"
+              className="object-contain w-full h-full"
             />
           ),
           text: "Science-Backed Formulas",
@@ -39,7 +69,7 @@ export const categoryData = {
             <img
               src={icon_2}
               alt="Premium Natural"
-              className="w-full h-full object-contain"
+              className="object-contain w-full h-full"
             />
           ),
           text: "Premium Natural Ingredients",
@@ -49,7 +79,7 @@ export const categoryData = {
             <img
               src={icon_3}
               alt="Made in USA"
-              className="w-full h-full object-contain"
+              className="object-contain w-full h-full"
             />
           ),
           text: `Made in the\n USA`,
@@ -130,7 +160,7 @@ export const categoryData = {
             <img
               src={icon_1}
               alt="Science-Backed"
-              className="w-full h-full object-contain"
+              className="object-contain w-full h-full"
             />
           ),
           text: "Science-Backed Formulas",
@@ -140,7 +170,7 @@ export const categoryData = {
             <img
               src={icon_2}
               alt="Premium Natural"
-              className="w-full h-full object-contain"
+              className="object-contain w-full h-full"
             />
           ),
           text: "Premium Natural Ingredients",
@@ -150,7 +180,7 @@ export const categoryData = {
             <img
               src={icon_3}
               alt="Made in USA"
-              className="w-full h-full object-contain"
+              className="object-contain w-full h-full"
             />
           ),
           text: "Made in the USA",
@@ -203,7 +233,7 @@ export const categoryData = {
             <img
               src={icon_1}
               alt="Science-Backed"
-              className="w-full h-full object-contain"
+              className="object-contain w-full h-full"
             />
           ),
           text: "Science-Backed Formulas",
@@ -213,7 +243,7 @@ export const categoryData = {
             <img
               src={icon_2}
               alt="Premium Natural"
-              className="w-full h-full object-contain"
+              className="object-contain w-full h-full"
             />
           ),
           text: "Premium Natural Ingredients",
@@ -223,7 +253,7 @@ export const categoryData = {
             <img
               src={icon_3}
               alt="Made in USA"
-              className="w-full h-full object-contain"
+              className="object-contain w-full h-full"
             />
           ),
           text: "Made in the USA",
@@ -304,33 +334,34 @@ export const testimonialsData = [
   },
 ];
 
+// Benefit icons mapping - using SVG components instead of emojis
 export const benefitIcons = {
-  joints: "🦴",
-  flexibility: "🤸",
-  inflammation: "🔥",
-  comfort: "💆",
-  shield: "🛡️",
-  liver: "🫀",
-  antioxidant: "⚡",
-  cellular: "🔬",
-  muscle: "💪",
-  mitochondrial: "⚙️",
-  "antioxidant-activity": "✨",
-  soreness: "🎯",
-  "deep-sleep": "😴",
-  stress: "🧘",
-  circadian: "🌙",
-  overnight: "🌃",
-  "muscle-strength": "💪",
-  power: "⚡",
-  bone: "🦴",
-  resilience: "🏋️",
-  energy: "🔋",
-  stamina: "🏃",
-  fatigue: "😌",
-  "recovery-boost": "🔄",
-  "mental-clarity": "🧠",
-  cognitive: "💡",
-  "stress-balance": "☯️",
-  "sustained-focus": "🎯",
+  joints: <JointsIcon />,
+  flexibility: <FlexibilityIcon />,
+  inflammation: <InflammationIcon />,
+  comfort: <ComfortIcon />,
+  shield: <ShieldIcon />,
+  liver: <LiverIcon />,
+  antioxidant: <AntioxidantIcon />,
+  cellular: <CellularIcon />,
+  muscle: <MuscleIcon />,
+  mitochondrial: <MitochondrialIcon />,
+  "antioxidant-activity": <AntioxidantActivityIcon />,
+  soreness: <SorenessIcon />,
+  "deep-sleep": <DeepSleepIcon />,
+  stress: <StressIcon />,
+  circadian: <CircadianIcon />,
+  overnight: <OvernightIcon />,
+  "muscle-strength": <MuscleStrengthIcon />,
+  power: <PowerIcon />,
+  bone: <BoneIcon />,
+  resilience: <ResilienceIcon />,
+  energy: <EnergyIcon />,
+  stamina: <StaminaIcon />,
+  fatigue: <FatigueIcon />,
+  "recovery-boost": <RecoveryBoostIcon />,
+  "mental-clarity": <MentalClarityIcon />,
+  cognitive: <CognitiveIcon />,
+  "stress-balance": <StressBalanceIcon />,
+  "sustained-focus": <SustainedFocusIcon />,
 };

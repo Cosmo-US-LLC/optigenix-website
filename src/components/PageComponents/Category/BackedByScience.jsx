@@ -15,31 +15,30 @@ const BackedByScience = ({ scienceImage }) => {
       id: "item-1",
       title: "Premium Natural Ingredients",
       content:
-        "We source only the highest-quality, natural ingredients that are bioavailable and effective. Each ingredient is carefully selected for its proven benefits.",
+        "Made with all-natural, high-quality ingredients. Non-GMO and free from artificial colors.",
     },
     {
       id: "item-2",
       title: "Pharmaceutical-Grade Quality",
       content:
-        "Our supplements are manufactured in FDA-registered facilities that adhere to strict pharmaceutical-grade standards, ensuring consistency and quality.",
+        "Ingredients are pure, potent, and designed for optimal performance. GMP-certified for your confidence.",
     },
     {
       id: "item-3",
       title: "Third-Party Tested",
       content:
-        "Every batch is independently tested by ISO-accredited labs to verify purity, potency, and safety. We provide complete transparency in our testing results.",
+        "Every batch is independently verified in ISO-accredited labs for safety, accuracy, and trust.",
     },
     {
       id: "item-4",
       title: "Made in the USA",
       content:
-        "All our supplements are proudly manufactured in the United States, following the highest industry standards and quality control measures.",
+        "Crafted under strict quality standards to ensure consistency and reliability.",
     },
     {
       id: "item-5",
       title: "Money-Back Guarantee",
-      content:
-        "We stand behind our products with a satisfaction guarantee. If you're not completely satisfied, we'll refund your purchase—no questions asked.",
+      content: "We stand by our products—your satisfaction is our promise.",
     },
   ];
 
@@ -47,7 +46,7 @@ const BackedByScience = ({ scienceImage }) => {
     <div className="bg-white py-[40px] md:py-[50px] lg:py-[60px] w-full">
       <div className="max-w-[1280px] px-4 md:px-8 mx-auto flex flex-col lg:flex-row gap-6 md:gap-8 items-start">
         {/* Image Section */}
-        <div className="w-full lg:flex-1 h-[300px] sm:h-[400px] md:h-[500px] lg:h-[655px] rounded-2xl md:rounded-3xl overflow-hidden">
+        <div className="overflow-hidden w-full h-[680px] rounded-2xl md:rounded-3xl">
           <img
             src={scienceImage || backedByScienceBg}
             alt="Science-backed research"
@@ -56,8 +55,8 @@ const BackedByScience = ({ scienceImage }) => {
         </div>
 
         {/* Content Section */}
-        <div className="px-4 py-6 w-full rounded-2xl border border-white border-dashed lg:flex-1 md:rounded-3xl md:px-6 lg:px-8 lg:py-4">
-          <div className="w-full lg:max-w-[577px]">
+        <div className="px-4 w-full max-w-[560px] rounded-2xl  md:rounded-3xl md:px-6">
+          <div className="w-full">
             {/* Header */}
             <div className="flex flex-col gap-4 mb-4 md:gap-5 md:mb-5">
               <div className="flex flex-col gap-3 md:gap-4">
@@ -93,7 +92,7 @@ const BackedByScience = ({ scienceImage }) => {
 
             {/* Accordion */}
             <div className="mt-2">
-              <Accordion type="single" collapsible defaultValue="item-1">
+              <Accordion type="single" collapsible defaultValue="">
                 {accordionItems.map((item, index) => (
                   <AccordionItem
                     key={item.id}
