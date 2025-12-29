@@ -32,27 +32,30 @@ const PlayIcon = () => (
 // Individual testimonial card (written review)
 const TestimonialCard = ({ review, name, sport, stars = 5 }) => {
   return (
-    <div className="bg-white border border-[rgba(3,26,19,0.1)] flex flex-col gap-[24px] px-[24px] py-[32px] rounded-[24px] w-full">
+    <div className="bg-white border border-[rgba(3,26,19,0.1)] flex flex-col gap-[16px] md:gap-[24px] px-[16px] md:px-[24px] py-[24px] md:py-[32px] rounded-[16px] md:rounded-[24px] w-full">
       <div className="flex flex-col gap-[12px] w-full">
         {/* Stars */}
         <div className="flex items-center">
           {[...Array(stars)].map((_, index) => (
-            <div key={index} className="w-[24px] h-[24px]">
+            <div
+              key={index}
+              className="w-[20px] h-[20px] md:w-[24px] md:h-[24px]"
+            >
               <StarIcon />
             </div>
           ))}
         </div>
         {/* Review text */}
-        <p className="font-inter font-normal text-[20px] leading-[28px] text-[#010907] tracking-[-0.1px] m-0">
+        <p className="font-inter font-normal text-[16px] md:text-[20px] leading-[24px] md:leading-[28px] text-[#010907] tracking-[-0.1px] m-0">
           {review}
         </p>
       </div>
       {/* Name and sport */}
-      <div className="flex flex-col gap-[8px] h-[56px] w-full">
-        <p className="font-funnel font-bold text-[20px] leading-[24px] text-[#010907] tracking-[-0.1px] m-0">
+      <div className="flex flex-col gap-[6px] md:gap-[8px] w-full">
+        <p className="font-funnel font-bold text-[18px] md:text-[20px] leading-[22px] md:leading-[24px] text-[#010907] tracking-[-0.1px] m-0">
           {name}
         </p>
-        <p className="font-inter font-normal text-[16px] leading-[24px] text-[#010907] m-0">
+        <p className="font-inter font-normal text-[14px] md:text-[16px] leading-[20px] md:leading-[24px] text-[#010907] m-0">
           {sport}
         </p>
       </div>
@@ -63,19 +66,19 @@ const TestimonialCard = ({ review, name, sport, stars = 5 }) => {
 // Video testimonial placeholder
 const VideoTestimonial = ({ thumbnail }) => {
   return (
-    <div className="relative w-full h-[330px] rounded-[24px] overflow-hidden cursor-pointer group">
+    <div className="relative w-full h-[250px] md:h-[330px] rounded-[16px] md:rounded-[24px] overflow-hidden cursor-pointer group">
       {/* Video thumbnail or placeholder */}
       {thumbnail ? (
         <img
           src={thumbnail}
           alt="Video testimonial"
-          className="w-full h-full object-cover"
+          className="object-cover w-full h-full"
         />
       ) : (
         <div className="w-full h-full bg-[#f8fffd]" />
       )}
       {/* Play button */}
-      <div className="absolute bottom-[16px] right-[16px] bg-white w-[48px] h-[48px] rounded-[32px] flex items-center justify-center p-[20px] transition-transform duration-300 group-hover:scale-110">
+      <div className="absolute bottom-[12px] right-[12px] md:bottom-[16px] md:right-[16px] bg-white w-[40px] h-[40px] md:w-[48px] md:h-[48px] rounded-[32px] flex items-center justify-center p-[16px] md:p-[20px] transition-transform duration-300 group-hover:scale-110">
         <PlayIcon />
       </div>
     </div>
@@ -85,7 +88,7 @@ const VideoTestimonial = ({ thumbnail }) => {
 // Column component (alternates between review top/video bottom or vice versa)
 const TestimonialColumn = ({ testimonial, videoFirst = false }) => {
   return (
-    <div className="flex flex-col gap-[16px] w-[285px] shrink-0">
+    <div className="flex flex-col gap-[12px] md:gap-[16px] w-[250px] md:w-[285px] shrink-0">
       {videoFirst ? (
         <>
           <VideoTestimonial thumbnail={testimonial.videoThumbnail} />
@@ -113,19 +116,22 @@ const TestimonialColumn = ({ testimonial, videoFirst = false }) => {
 
 const Testimonials = ({ testimonials }) => {
   return (
-    <div className="bg-[#f7f7f7] flex flex-col gap-[48px] items-center px-[60px] py-[80px] w-full overflow-hidden">
+    <div className="bg-[#f7f7f7] flex flex-col gap-[32px] md:gap-[48px] items-center px-4 md:px-8 lg:px-[60px] py-[60px] md:py-[80px] w-full overflow-hidden">
       {/* Header */}
-      <div className="flex flex-col gap-[12px] items-center">
+      <div className="flex flex-col gap-[12px] items-center px-4">
         {/* Title */}
-        <h2 className="font-funnel font-semibold text-[48px] leading-[48px] text-[#010907] capitalize text-center m-0">
+        <h2 className="font-funnel font-semibold text-[28px] sm:text-[36px] md:text-[48px] leading-[32px] sm:leading-[40px] md:leading-[48px] text-[#010907] capitalize text-center m-0">
           What Our Users Are Saying
         </h2>
         {/* Rating */}
-        <div className="flex gap-[8px] items-center">
+        <div className="flex flex-col sm:flex-row gap-[6px] sm:gap-[8px] items-center">
           {/* Stars for overall rating */}
           <div className="flex items-center gap-[2px]">
             {[...Array(5)].map((_, index) => (
-              <div key={index} className="w-[18px] h-[18px]">
+              <div
+                key={index}
+                className="w-[16px] h-[16px] md:w-[18px] md:h-[18px]"
+              >
                 <svg
                   width="18"
                   height="18"
@@ -142,7 +148,7 @@ const Testimonials = ({ testimonials }) => {
             ))}
           </div>
           {/* Rating text */}
-          <p className="font-inter font-normal text-[18px] leading-[26px] text-[#02110e] m-0">
+          <p className="font-inter font-normal text-[14px] md:text-[16px] lg:text-[18px] leading-[22px] md:leading-[24px] lg:leading-[26px] text-[#02110e] m-0 text-center">
             <span className="text-[#0d8360]">4.9 out of 5</span>
             <span> based on </span>
             <span>150+ Athletes Reviews</span>
@@ -153,7 +159,7 @@ const Testimonials = ({ testimonials }) => {
       {/* Scrolling carousel container */}
       <div className="relative w-full">
         {/* Scroll wrapper with animation */}
-        <div className="flex gap-[24px] animate-scroll-left">
+        <div className="flex gap-[16px] md:gap-[24px] animate-scroll-left">
           {/* Duplicate testimonials for infinite scroll effect */}
           {[...testimonials, ...testimonials].map((testimonial, index) => (
             <TestimonialColumn
