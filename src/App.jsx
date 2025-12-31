@@ -12,6 +12,7 @@ import Athletes from "./pages/Athletes";
 import SingleTest from "./pages/SingleTest";
 import QuizSecond from "./pages/QuizSecond";
 import Waitlist from "./pages/Waitlist";
+import Checkout from "./pages/Checkout";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="terms-and-conditions" element={<TermsOfService />} />
           <Route path="join-wait-list" element={<Waitlist />} />
+          <Route path="checkout" element={<Checkout />} />
         </Route>
       </Routes>
     </>
