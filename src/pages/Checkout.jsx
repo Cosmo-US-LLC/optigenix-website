@@ -10,6 +10,24 @@ import {
 
 // Initialize state from localStorage
 const getInitialState = () => {
+  // Check for gene test data first
+  const geneTestData = localStorage.getItem("geneTestCheckoutData");
+  if (geneTestData) {
+    try {
+      const data = JSON.parse(geneTestData);
+      // Gene test uses default pricing (can be customized)
+      return {
+        source: "gene-test",
+        geneTestData: data,
+        amount: 89.0,
+        subtotal: 89.0,
+      };
+    } catch (error) {
+      console.error("Error parsing gene test data:", error);
+    }
+  }
+
+  // Check for quiz data
   const storedData = localStorage.getItem("quizCheckoutData");
   if (storedData) {
     try {
@@ -17,18 +35,28 @@ const getInitialState = () => {
       const total = data.total || 74.99;
       const calcSubtotal =
         data.products?.reduce((sum, p) => sum + (p.price || 14.99), 0) || total;
-      return { quizData: data, amount: total, subtotal: calcSubtotal };
+      return {
+        source: "quiz",
+        quizData: data,
+        amount: total,
+        subtotal: calcSubtotal,
+      };
     } catch (error) {
       console.error("Error parsing quiz data:", error);
     }
   }
-  return { quizData: null, amount: 89.0, subtotal: 219.97 };
+
+  // Default fallback
+  return { source: "default", quizData: null, amount: 89.0, subtotal: 219.97 };
 };
 
 const Checkout = () => {
   const navigate = useNavigate();
   const initialState = getInitialState();
-  const [quizData] = useState(initialState.quizData);
+  // Handle both quiz data and gene test data
+  const [quizData] = useState(
+    initialState.quizData || initialState.geneTestData
+  );
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -75,8 +103,9 @@ const Checkout = () => {
   const handleSuccess = (paymentIntent) => {
     console.log("Payment succeeded:", paymentIntent);
 
-    // Clear quiz data from localStorage
+    // Clear checkout data from localStorage (both quiz and gene test)
     localStorage.removeItem("quizCheckoutData");
+    localStorage.removeItem("geneTestCheckoutData");
 
     // Redirect to payment success page
     // Pass payment intent ID as query parameter (optional, for tracking)

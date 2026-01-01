@@ -1,8 +1,29 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/images/single_test/single_hero/hero_section_img1.webp";
 import heroImagemob from "@/assets/images/single_test/single_hero/mob_hero1.webp";
 
 const SingleTestHero = () => {
+  const navigate = useNavigate();
+
+  const handleOrderTest = () => {
+    // Store gene test product data in localStorage for checkout
+    const geneTestData = {
+      source: "gene-test",
+      productName: "DNA Test: Unlock Your Genetic Potential",
+      description:
+        "Easy and effective test to personalize your nutrition, training, and supplements for optimal results.",
+      // You can add Stripe product ID here if you have it
+      // stripeProductId: "prod_XXXXXXXXXXXXX",
+      // stripePriceId: "price_XXXXXXXXXXXXX",
+    };
+
+    localStorage.setItem("geneTestCheckoutData", JSON.stringify(geneTestData));
+
+    // Navigate to checkout page
+    navigate("/checkout");
+  };
+
   return (
     <section className="relative w-full min-h-[500px] md:min-h-[600px] overflow-hidden ">
       {/* Background Image with Overlay */}
@@ -40,16 +61,7 @@ const SingleTestHero = () => {
             training, nutrition, and overall wellness. Backed by science.
             HSA/FSA accepted.
           </p>
-          <button
-            className="btn_primary"
-            onClick={() =>
-              window.open(
-                "https://buy.stripe.com/7sY7sM0arfBlgMW77gf3a02",
-                "_blank",
-                "noopener,noreferrer"
-              )
-            }
-          >
+          <button className="btn_primary" onClick={handleOrderTest}>
             Order Your Test
           </button>
         </div>
