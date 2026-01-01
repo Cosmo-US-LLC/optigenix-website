@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "./components/layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Quiz from "./pages/Quiz";
 import AllCategory from "./pages/AllCategory";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
@@ -12,12 +11,19 @@ import Athletes from "./pages/Athletes";
 import SingleTest from "./pages/SingleTest";
 import QuizSecond from "./pages/QuizSecond";
 import Waitlist from "./pages/Waitlist";
+import Checkout from "./pages/Checkout";
+import PaymentSuccess from "./pages/PaymentSuccess";
 
 function App() {
   return (
     <>
       <ScrollToTop />
       <Routes>
+        {/* Checkout page has its own header, so it's outside Layout */}
+        <Route path="checkout" element={<Checkout />} />
+        <Route path="payment-success" element={<PaymentSuccess />} />
+
+        {/* All other pages use the Layout */}
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about-us" element={<About />} />
