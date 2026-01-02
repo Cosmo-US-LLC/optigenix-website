@@ -11,12 +11,18 @@ import Athletes from "./pages/Athletes";
 import SingleTest from "./pages/SingleTest";
 import QuizSecond from "./pages/QuizSecond";
 import Waitlist from "./pages/Waitlist";
+import Recovery from "./pages/Recovery";
+import PhysicalPerformance from "./pages/PhysicalPerformance";
+import MentalPerformance from "./pages/MentalPerformance";
+import SingleProduct from "./pages/SingleProduct";
+import Cart from "./pages/Cart";
+import { CartProvider } from "./context/CartContext";
 import Checkout from "./pages/Checkout";
 import PaymentSuccess from "./pages/PaymentSuccess";
 
 function App() {
   return (
-    <>
+    <CartProvider>
       <ScrollToTop />
       <Routes>
         {/* Checkout pages have their own header, so they're outside Layout */}
@@ -36,12 +42,20 @@ function App() {
           <Route path="all-category" element={<AllCategory />} />
           <Route path="athletes" element={<Athletes />} />
           <Route path="gene-test" element={<SingleTest />} />
+          <Route path="recovery" element={<Recovery />} />
+          <Route
+            path="physical-performance"
+            element={<PhysicalPerformance />}
+          />
+          <Route path="mental-performance" element={<MentalPerformance />} />
+          <Route path="product/:productId" element={<SingleProduct />} />
+          <Route path="cart" element={<Cart />} />
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="terms-and-conditions" element={<TermsOfService />} />
           <Route path="join-wait-list" element={<Waitlist />} />
         </Route>
       </Routes>
-    </>
+    </CartProvider>
   );
 }
 
