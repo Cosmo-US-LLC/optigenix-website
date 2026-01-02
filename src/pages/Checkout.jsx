@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import {
   StripeProvider,
@@ -8,9 +8,78 @@ import {
   StripeProductDisplay,
 } from "../stripe";
 
-// Initialize state from localStorage
-const getInitialState = () => {
-  // Check for gene test data first
+// Product IDs for different sources
+const QUIZ_PRODUCT_ID = "prod_TiTdNCHZIX4wxg";
+const GENE_TEST_PRODUCT_ID = "prod_TiTbpgcnqcuA5d";
+
+// Initialize state from localStorage and URL
+const getInitialState = (pathname) => {
+  // Determine source from URL first - URL takes priority
+  let sourceFromUrl = null;
+  if (pathname.includes("/gene-test/checkout")) {
+    sourceFromUrl = "gene-test";
+  } else if (pathname.includes("/quiz/checkout")) {
+    sourceFromUrl = "quiz";
+  }
+
+  // If URL indicates a source, use that source regardless of localStorage
+  if (sourceFromUrl === "gene-test") {
+    // Try to get data from localStorage, but always use gene test product ID
+    const geneTestData = localStorage.getItem("geneTestCheckoutData");
+    if (geneTestData) {
+      try {
+        const data = JSON.parse(geneTestData);
+        return {
+          source: "gene-test",
+          geneTestData: data,
+          amount: data.amount || 89.0,
+          subtotal: data.amount || 89.0,
+          productId: GENE_TEST_PRODUCT_ID, // Always use gene test product ID
+        };
+      } catch (error) {
+        console.error("Error parsing gene test data:", error);
+      }
+    }
+    // No localStorage data, but URL says gene-test
+    return {
+      source: "gene-test",
+      geneTestData: null,
+      amount: 89.0,
+      subtotal: 89.0,
+      productId: GENE_TEST_PRODUCT_ID,
+    };
+  } else if (sourceFromUrl === "quiz") {
+    // Try to get data from localStorage, but always use quiz product ID
+    const quizData = localStorage.getItem("quizCheckoutData");
+    if (quizData) {
+      try {
+        const data = JSON.parse(quizData);
+        const total = data.total || 74.99;
+        const calcSubtotal =
+          data.products?.reduce((sum, p) => sum + (p.price || 14.99), 0) ||
+          total;
+        return {
+          source: "quiz",
+          quizData: data,
+          amount: total,
+          subtotal: calcSubtotal,
+          productId: QUIZ_PRODUCT_ID, // Always use quiz product ID
+        };
+      } catch (error) {
+        console.error("Error parsing quiz data:", error);
+      }
+    }
+    // No localStorage data, but URL says quiz
+    return {
+      source: "quiz",
+      quizData: null,
+      amount: 74.99,
+      subtotal: 74.99,
+      productId: QUIZ_PRODUCT_ID,
+    };
+  }
+
+  // Fallback: No URL match, check localStorage (for /checkout route)
   const geneTestData = localStorage.getItem("geneTestCheckoutData");
   if (geneTestData) {
     try {
@@ -20,14 +89,13 @@ const getInitialState = () => {
         geneTestData: data,
         amount: data.amount || 89.0,
         subtotal: data.amount || 89.0,
-        productId: data.stripeProductId || null,
+        productId: data.stripeProductId || GENE_TEST_PRODUCT_ID,
       };
     } catch (error) {
       console.error("Error parsing gene test data:", error);
     }
   }
 
-  // Check for quiz data
   const storedData = localStorage.getItem("quizCheckoutData");
   if (storedData) {
     try {
@@ -40,7 +108,7 @@ const getInitialState = () => {
         quizData: data,
         amount: total,
         subtotal: calcSubtotal,
-        productId: null, // Quiz uses multiple products, not a single Stripe product
+        productId: QUIZ_PRODUCT_ID,
       };
     } catch (error) {
       console.error("Error parsing quiz data:", error);
@@ -48,12 +116,19 @@ const getInitialState = () => {
   }
 
   // Default fallback
-  return { source: "default", quizData: null, amount: 89.0, subtotal: 219.97, productId: null };
+  return {
+    source: "default",
+    quizData: null,
+    amount: 89.0,
+    subtotal: 219.97,
+    productId: null,
+  };
 };
 
 const Checkout = () => {
   const navigate = useNavigate();
-  const initialState = getInitialState();
+  const location = useLocation();
+  const initialState = getInitialState(location.pathname);
   // Handle both quiz data and gene test data
   const [checkoutData] = useState(
     initialState.quizData || initialState.geneTestData
@@ -72,17 +147,23 @@ const Checkout = () => {
   const [useShippingAsBilling, setUseShippingAsBilling] = useState(true);
   const [paymentError, setPaymentError] = useState(null);
 
-  // Dynamically determine product ID based on checkout source
+  // Dynamically determine product ID based on checkout source and URL
+  // Gene test uses prod_TiTbpgcnqcuA5d, Quiz uses prod_TiTdNCHZIX4wxg
   const productId = initialState.productId || null;
 
-  // Use professional Stripe checkout hook - only if we have a product ID
+  console.log("🛒 Checkout URL Path:", location.pathname);
+  console.log("🛒 Checkout Source:", source);
+  console.log("🛒 Product ID for Stripe:", productId);
+  console.log("🛒 Checkout Data:", checkoutData);
+
+  // Use professional Stripe checkout hook - fetches product based on route
   const {
     loading: loadingStripe,
     stripeProduct,
     totals,
     processPayment,
   } = useStripeCheckout({
-    productId: productId, // Dynamic product ID from localStorage
+    productId: productId, // Gene test: prod_TiTbpgcnqcuA5d, Quiz: prod_TiTdNCHZIX4wxg
     onSuccess: (paymentIntent) => {
       console.log("Payment successful:", paymentIntent);
       handleSuccess(paymentIntent);
@@ -109,13 +190,23 @@ const Checkout = () => {
     localStorage.removeItem("quizCheckoutData");
     localStorage.removeItem("geneTestCheckoutData");
 
-    // Redirect to payment success page
-    // Pass payment intent ID as query parameter (optional, for tracking)
+    // Redirect to payment success page based on source
+    // Use simplified query parameter format: ?pi_... instead of ?payment_intent=pi_...
     const paymentIntentId = paymentIntent?.id || "";
+
+    // Determine thank-you URL based on source
+    let thankYouUrl = "/thank-you";
+    if (source === "gene-test") {
+      thankYouUrl = "/gene-test/thank-you";
+    } else if (source === "quiz") {
+      thankYouUrl = "/quiz/thank-you";
+    }
+
     if (paymentIntentId) {
-      navigate(`/payment-success?payment_intent=${paymentIntentId}`);
+      // Use simplified format: ?pi_... instead of ?payment_intent=pi_...
+      navigate(`${thankYouUrl}?${paymentIntentId}`);
     } else {
-      navigate("/payment-success");
+      navigate(thankYouUrl);
     }
   };
 
@@ -125,14 +216,14 @@ const Checkout = () => {
   };
 
   // Determine what products to display
-  const hasProducts = 
-    !!stripeProduct || 
-    checkoutData?.products?.length > 0 || 
+  const hasProducts =
+    !!stripeProduct ||
+    checkoutData?.products?.length > 0 ||
     (source === "gene-test" && checkoutData);
 
   const totalItems = stripeProduct
     ? totals.itemCount || 1
-    : checkoutData?.products?.reduce((sum, p) => sum + (p.quantity || 1), 0) || 
+    : checkoutData?.products?.reduce((sum, p) => sum + (p.quantity || 1), 0) ||
       (source === "gene-test" ? 1 : 0);
 
   // Use Stripe totals if available, otherwise fall back to stored totals
@@ -193,10 +284,10 @@ const Checkout = () => {
 
         <div className="max-w-[560px]">
           <StripeProvider>
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-6">
               {/* Contact Information */}
-              <div className="flex flex-col gap-4">
-                <h2 className="font-funnel font-semibold text-[21px] leading-[25.2px] text-[#010907]">
+              <div className="flex flex-col">
+                <h2 className="font-funnel font-semibold !text-[21px] leading-[25.2px] text-[#010907]">
                   Contact Information
                 </h2>
                 <div className="flex flex-col gap-[14px]">
@@ -206,7 +297,7 @@ const Checkout = () => {
                     value={formData.fullName}
                     onChange={handleInputChange}
                     placeholder="Full Name"
-                    className="border border-[#c7c7c7] rounded-lg px-4 py-[14px] text-inter text-[14px] text-[#010907] placeholder:opacity-50 focus:outline-none focus:border-[#0D8360]"
+                    className="border border-[#c7c7c7] rounded-lg px-4 py-[8px] text-inter text-[14px] text-[#010907] placeholder:opacity-50 focus:outline-none focus:border-[#0D8360]"
                   />
                   <input
                     type="email"
@@ -214,14 +305,14 @@ const Checkout = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="Email Address"
-                    className="border border-[#c7c7c7] rounded-lg px-4 py-[14px] text-inter text-[14px] text-[#010907] placeholder:opacity-50 focus:outline-none focus:border-[#0D8360]"
+                    className="border border-[#c7c7c7] rounded-lg px-4 py-[8px] text-inter text-[14px] text-[#010907] placeholder:opacity-50 focus:outline-none focus:border-[#0D8360]"
                   />
                 </div>
               </div>
 
               {/* Shipping Address */}
-              <div className="flex flex-col gap-4">
-                <h2 className="font-funnel font-semibold text-[21px] leading-[25.2px] text-[#010907]">
+              <div className="flex flex-col">
+                <h2 className="font-funnel font-semibold !text-[21px] leading-[25.2px] text-[#010907]">
                   Shipping Address
                 </h2>
                 <div className="flex flex-col gap-[14px]">
@@ -231,7 +322,7 @@ const Checkout = () => {
                     value={formData.address}
                     onChange={handleInputChange}
                     placeholder="Address"
-                    className="border border-[#c7c7c7] rounded-lg px-4 py-[14px] text-inter text-[14px] text-[#010907] placeholder:opacity-50 focus:outline-none focus:border-[#0D8360]"
+                    className="border border-[#c7c7c7] rounded-lg px-4 py-[8px] text-inter text-[14px] text-[#010907] placeholder:opacity-50 focus:outline-none focus:border-[#0D8360]"
                   />
                   <input
                     type="text"
@@ -239,7 +330,7 @@ const Checkout = () => {
                     value={formData.apartment}
                     onChange={handleInputChange}
                     placeholder="Apartment, suite, etc. (optional)"
-                    className="border border-[#c7c7c7] rounded-lg px-4 py-[14px] text-inter text-[14px] text-[#010907] placeholder:opacity-50 focus:outline-none focus:border-[#0D8360]"
+                    className="border border-[#c7c7c7] rounded-lg px-4 py-[8px] text-inter text-[14px] text-[#010907] placeholder:opacity-50 focus:outline-none focus:border-[#0D8360]"
                   />
                   <div className="flex gap-[14px]">
                     <input
@@ -248,7 +339,7 @@ const Checkout = () => {
                       value={formData.city}
                       onChange={handleInputChange}
                       placeholder="City"
-                      className="flex-1 border border-[#c7c7c7] rounded-lg px-4 py-[14px] text-inter text-[14px] text-[#010907] placeholder:opacity-50 focus:outline-none focus:border-[#0D8360]"
+                      className="flex-1 border border-[#c7c7c7] rounded-lg px-4 py-[8px] text-inter text-[14px] text-[#010907] placeholder:opacity-50 focus:outline-none focus:border-[#0D8360]"
                     />
                     <div className="relative flex-1">
                       <input
@@ -257,7 +348,7 @@ const Checkout = () => {
                         value={formData.state}
                         onChange={handleInputChange}
                         placeholder="State"
-                        className="w-full border border-[#c7c7c7] rounded-lg px-4 py-[14px] pr-10 text-inter text-[14px] text-[#010907] placeholder:opacity-50 focus:outline-none focus:border-[#0D8360]"
+                        className="w-full border border-[#c7c7c7] rounded-lg px-4 py-[8px] pr-10 text-inter text-[14px] text-[#010907] placeholder:opacity-50 focus:outline-none focus:border-[#0D8360]"
                       />
                       <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-3 h-3 text-[#010907] opacity-50 pointer-events-none" />
                     </div>
@@ -267,7 +358,7 @@ const Checkout = () => {
                       value={formData.zipCode}
                       onChange={handleInputChange}
                       placeholder="Zip code"
-                      className="flex-1 border border-[#c7c7c7] rounded-lg px-4 py-[14px] text-inter text-[14px] text-[#010907] placeholder:opacity-50 focus:outline-none focus:border-[#0D8360]"
+                      className="flex-1 border border-[#c7c7c7] rounded-lg px-4 py-[8px] text-inter text-[14px] text-[#010907] placeholder:opacity-50 focus:outline-none focus:border-[#0D8360]"
                     />
                   </div>
                   <div className="relative">
@@ -277,7 +368,7 @@ const Checkout = () => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       placeholder="Phone Number"
-                      className="w-full border border-[#c7c7c7] rounded-lg px-4 py-[14px] pr-10 text-inter text-[14px] text-[#010907] placeholder:opacity-50 focus:outline-none focus:border-[#0D8360]"
+                      className="w-full border border-[#c7c7c7] rounded-lg px-4 py-[8px] pr-10 text-inter text-[14px] text-[#010907] placeholder:opacity-50 focus:outline-none focus:border-[#0D8360]"
                     />
                     <HelpCircle className="absolute right-4 top-1/2 -translate-y-1/2 w-[18px] h-[18px] text-[#010907] opacity-30" />
                   </div>
@@ -319,8 +410,8 @@ const Checkout = () => {
             <div className="max-w-[full]">
               {/* Products List - Dynamic based on source */}
               <div className="mb-6">
-                {source === "gene-test" && productId ? (
-                  // Gene test product from Stripe
+                {productId ? (
+                  // Both gene test and quiz fetch their specific product from Stripe
                   loadingStripe ? (
                     <div className="py-8 text-center">
                       <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#0D8360] mx-auto mb-2"></div>
@@ -341,12 +432,15 @@ const Checkout = () => {
                       />
                     </div>
                   ) : (
-                    // Fallback: Show gene test product info from localStorage
+                    // Fallback: Show product info from localStorage
                     checkoutData && (
                       <div className="space-y-5">
                         <div className="bg-white rounded-lg p-4 border border-[#c7c7c7]">
                           <h3 className="font-funnel font-semibold text-[16px] text-[#010907] mb-2">
-                            {checkoutData.productName || "DNA Test: Unlock Your Genetic Potential"}
+                            {checkoutData.productName ||
+                              (source === "quiz"
+                                ? "Personalized Supplement Pack"
+                                : "DNA Test: Unlock Your Genetic Potential")}
                           </h3>
                           {checkoutData.description && (
                             <p className="text-inter text-[14px] text-[rgba(0,0,0,0.56)] mb-3">
@@ -354,43 +448,25 @@ const Checkout = () => {
                             </p>
                           )}
                           <div className="flex justify-between items-center">
-                            <span className="text-inter text-[14px] text-[#010907]">Price</span>
+                            <span className="text-inter text-[14px] text-[#010907]">
+                              Price
+                            </span>
                             <span className="font-inter font-semibold text-[16px] text-[#010907]">
-                              ${checkoutData.amount?.toFixed(2) || "89.00"}
+                              $
+                              {checkoutData.amount?.toFixed(2) ||
+                                initialState.amount?.toFixed(2) ||
+                                "0.00"}
                             </span>
                           </div>
                         </div>
                       </div>
                     )
                   )
-                ) : source === "quiz" && checkoutData?.products ? (
-                  // Quiz products
-                  <div className="space-y-5">
-                    {checkoutData.products.map((product, index) => (
-                      <div key={index} className="bg-white rounded-lg p-4 border border-[#c7c7c7]">
-                        <h3 className="font-funnel font-semibold text-[16px] text-[#010907] mb-2">
-                          {product.name || "Product"}
-                        </h3>
-                        {product.description && (
-                          <p className="text-inter text-[14px] text-[rgba(0,0,0,0.56)] mb-3">
-                            {product.description}
-                          </p>
-                        )}
-                        <div className="flex justify-between items-center">
-                          <span className="text-inter text-[14px] text-[#010907]">
-                            Qty: {product.quantity || 1}
-                          </span>
-                          <span className="font-inter font-semibold text-[16px] text-[#010907]">
-                            ${((product.price || 0) * (product.quantity || 1)).toFixed(2)}
-                          </span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
                 ) : (
                   <div className="py-8 text-center">
                     <p className="text-inter text-[14px] text-[rgba(0,0,0,0.56)]">
-                      No products found. Please start from the quiz or gene test page.
+                      No products found. Please start from the quiz or gene test
+                      page.
                     </p>
                   </div>
                 )}

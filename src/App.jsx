@@ -19,9 +19,13 @@ function App() {
     <>
       <ScrollToTop />
       <Routes>
-        {/* Checkout page has its own header, so it's outside Layout */}
+        {/* Checkout pages have their own header, so they're outside Layout */}
         <Route path="checkout" element={<Checkout />} />
-        <Route path="payment-success" element={<PaymentSuccess />} />
+        <Route path="gene-test/checkout" element={<Checkout />} />
+        <Route path="quiz/checkout" element={<Checkout />} />
+        <Route path="thank-you" element={<PaymentSuccess />} />
+        <Route path="gene-test/thank-you" element={<PaymentSuccess />} />
+        <Route path="quiz/thank-you" element={<PaymentSuccess />} />
 
         {/* All other pages use the Layout */}
         <Route path="/" element={<Layout />}>

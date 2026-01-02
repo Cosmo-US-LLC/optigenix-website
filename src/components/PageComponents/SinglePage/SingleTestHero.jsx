@@ -4,18 +4,21 @@ import { BACKEND_URL } from "@/stripe/config";
 import heroImage from "@/assets/images/single_test/single_hero/hero_section_img1.webp";
 import heroImagemob from "@/assets/images/single_test/single_hero/mob_hero1.webp";
 
-const GENE_TEST_PRODUCT_ID = "prod_TiTbpgcnqcuA5d";
+// Default product ID for gene test
+const DEFAULT_PRODUCT_ID = "prod_TiTbpgcnqcuA5d";
 
-const SingleTestHero = () => {
+const SingleTestHero = ({ productId = DEFAULT_PRODUCT_ID }) => {
   const navigate = useNavigate();
   const [product, setProduct] = useState(null);
 
-  // Fetch gene test product from backend
+  // Fetch product from backend using the productId prop
   useEffect(() => {
+    if (!productId) return;
+
     const fetchProduct = async () => {
       try {
         const response = await fetch(
-          `${BACKEND_URL}/api/products?productIds=${GENE_TEST_PRODUCT_ID}`
+          `${BACKEND_URL}/api/products?productIds=${productId}`
         );
 
         if (!response.ok) {
@@ -37,7 +40,7 @@ const SingleTestHero = () => {
         console.error("Error fetching gene test product:", err);
         // Fallback to default data if API fails
         setProduct({
-          productId: GENE_TEST_PRODUCT_ID,
+          productId: productId,
           name: "DNA Test: Unlock Your Genetic Potential",
           description:
             "Easy and effective test to personalize your nutrition, training, and supplements for optimal results.",
@@ -46,7 +49,7 @@ const SingleTestHero = () => {
     };
 
     fetchProduct();
-  }, []);
+  }, [productId]);
 
   const handleOrderTest = () => {
     if (!product) {
@@ -59,7 +62,7 @@ const SingleTestHero = () => {
       source: "gene-test",
       productName: product.name || "DNA Test: Unlock Your Genetic Potential",
       description: product.description || "",
-      stripeProductId: product.productId || GENE_TEST_PRODUCT_ID,
+      stripeProductId: product.productId || productId,
       stripePriceId:
         product.prices && product.prices.length > 0
           ? product.prices[0].priceId
@@ -71,10 +74,13 @@ const SingleTestHero = () => {
       images: product.images || [],
     };
 
+    console.log("🧬 Gene Test Product Data:", geneTestData);
+    console.log("🧬 Product ID being stored:", geneTestData.stripeProductId);
+
     localStorage.setItem("geneTestCheckoutData", JSON.stringify(geneTestData));
 
-    // Navigate to checkout page
-    navigate("/checkout");
+    // Navigate to gene test checkout page
+    navigate("/gene-test/checkout");
   };
 
   return (

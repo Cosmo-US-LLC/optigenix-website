@@ -10,10 +10,10 @@ import { HelpCircle, Lock } from "lucide-react";
 
 /**
  * StripeCheckoutForm Component
- * 
+ *
  * Professional, reusable Stripe payment form component
  * Can be used anywhere in the application for payment processing
- * 
+ *
  * @param {Object} props
  * @param {number} props.amount - Payment amount in dollars
  * @param {Function} props.onSuccess - Success callback (receives paymentIntent)
@@ -132,7 +132,7 @@ const StripeCheckoutForm = ({
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-col gap-[5px]">
-        <h2 className="font-funnel font-semibold text-[21px] leading-[25.2px] text-[#010907]">
+        <h2 className="font-funnel font-semibold !text-[21px] !leading-[25.2px] text-[#010907]">
           Payment
         </h2>
         <p className="text-inter text-[14px] text-[#707070] leading-[21px]">
@@ -174,7 +174,7 @@ const StripeCheckoutForm = ({
         {/* Payment Form Fields */}
         <div className="bg-[rgba(247,247,247,0.2)] p-[14px]">
           <form onSubmit={handleSubmit} className="flex flex-col gap-[14px]">
-            <div className="border border-[#c7c7c7] rounded-lg px-4 py-[14px] bg-white">
+            <div className="border border-[#c7c7c7] rounded-lg px-4 py-[8px] bg-white">
               <input
                 type="text"
                 value={cardholderName}
@@ -184,24 +184,24 @@ const StripeCheckoutForm = ({
               />
             </div>
 
-            <div className="border border-[#c7c7c7] rounded-lg px-4 py-[14px] bg-white h-[50px] flex items-center justify-between">
+            <div className="border border-[#c7c7c7] rounded-lg px-4 py-[8px] bg-white h-[44px] flex items-center justify-between">
               <div className="flex-1">
                 <CardNumberElement
                   options={cardElementOptions}
                   className="w-full"
                 />
               </div>
-              <Lock className="w-[18px] h-[18px] text-[#010907] opacity-30 shrink-0 ml-2" />
+              <Lock className="w-[18px] h-[14px] text-[#010907] opacity-30 shrink-0 ml-2" />
             </div>
 
             <div className="flex gap-[14px]">
-              <div className="flex-1 border border-[#c7c7c7] rounded-lg px-4 py-[14px] bg-white h-[50px] flex items-center">
+              <div className="flex-1 border border-[#c7c7c7] rounded-lg px-4 py-[8px] bg-white h-[44px] flex items-center">
                 <CardExpiryElement
                   options={cardElementOptions}
                   className="w-full"
                 />
               </div>
-              <div className="flex-1 border border-[#c7c7c7] rounded-lg px-4 py-[14px] bg-white h-[50px] flex items-center justify-between">
+              <div className="flex-1 border border-[#c7c7c7] rounded-lg px-4 py-[8px] bg-white h-[44px] flex items-center justify-between">
                 <div className="flex-1">
                   <CardCvcElement
                     options={cardElementOptions}
@@ -252,4 +252,3 @@ const StripeCheckoutForm = ({
 };
 
 export default StripeCheckoutForm;
-

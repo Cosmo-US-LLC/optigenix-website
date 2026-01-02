@@ -2047,11 +2047,11 @@ https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01
 
         localStorage.setItem("quizCheckoutData", JSON.stringify(quizData));
 
-        // Redirect to checkout page
+        // Redirect to quiz checkout page
         if (window.top) {
-          window.top.location.href = "/checkout";
+          window.top.location.href = "/quiz/checkout";
         } else {
-          window.location.href = "/checkout";
+          window.location.href = "/quiz/checkout";
         }
       }
 
