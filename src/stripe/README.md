@@ -27,7 +27,7 @@ import { StripeProvider, useStripeCheckout, StripeCheckoutForm, StripeProductDis
 
 function MyCheckoutPage() {
   const { stripeProduct, totals, processPayment } = useStripeCheckout({
-    productId: 'prod_ThiK10GH8xLyCD',
+    productId: 'prod_TiTdNCHZIX4wxg',
     onSuccess: (paymentIntent) => {
       console.log('Payment successful!', paymentIntent);
       // Redirect or show success message

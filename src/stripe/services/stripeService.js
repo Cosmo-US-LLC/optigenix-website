@@ -38,7 +38,7 @@ export const fetchStripePrices = async () => {
 
 /**
  * Fetch a specific Stripe product by product ID
- * @param {string} productId - Stripe product ID (e.g., "prod_ThiK10GH8xLyCD")
+ * @param {string} productId - Stripe product ID (e.g., "prod_TiTdNCHZIX4wxg")
  * @returns {Promise<Object|null>} Product data or null if not found
  */
 export const fetchStripeProductById = async (productId) => {

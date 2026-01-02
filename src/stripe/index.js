@@ -10,7 +10,7 @@
  *
  * function MyComponent() {
  *   const { stripeProduct, totals, processPayment } = useStripeCheckout({
- *     productId: 'prod_ThiK10GH8xLyCD',
+ *     productId: 'prod_TiTdNCHZIX4wxg',
  *     onSuccess: (paymentIntent) => console.log('Success!', paymentIntent),
  *   });
  *

@@ -1,21 +1,74 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { BACKEND_URL } from "@/stripe/config";
 import heroImage from "@/assets/images/single_test/single_hero/hero_section_img1.webp";
 import heroImagemob from "@/assets/images/single_test/single_hero/mob_hero1.webp";
 
+const GENE_TEST_PRODUCT_ID = "prod_TiTbpgcnqcuA5d";
+
 const SingleTestHero = () => {
   const navigate = useNavigate();
+  const [product, setProduct] = useState(null);
+
+  // Fetch gene test product from backend
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const response = await fetch(
+          `${BACKEND_URL}/api/products?productIds=${GENE_TEST_PRODUCT_ID}`
+        );
+
+        if (!response.ok) {
+          throw new Error(`Failed to fetch product: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        console.log("📦 Product API Response:", data);
+
+        if (data.success && data.products && data.products.length > 0) {
+          console.log("✅ Product found:", data.products[0]);
+          setProduct(data.products[0]);
+        } else {
+          console.warn("⚠️ Product not found in response:", data);
+          throw new Error("Product not found");
+        }
+      } catch (err) {
+        console.error("Error fetching gene test product:", err);
+        // Fallback to default data if API fails
+        setProduct({
+          productId: GENE_TEST_PRODUCT_ID,
+          name: "DNA Test: Unlock Your Genetic Potential",
+          description:
+            "Easy and effective test to personalize your nutrition, training, and supplements for optimal results.",
+        });
+      }
+    };
+
+    fetchProduct();
+  }, []);
 
   const handleOrderTest = () => {
+    if (!product) {
+      console.error("Product not loaded yet");
+      return;
+    }
+
     // Store gene test product data in localStorage for checkout
     const geneTestData = {
       source: "gene-test",
-      productName: "DNA Test: Unlock Your Genetic Potential",
-      description:
-        "Easy and effective test to personalize your nutrition, training, and supplements for optimal results.",
-      // You can add Stripe product ID here if you have it
-      // stripeProductId: "prod_XXXXXXXXXXXXX",
-      // stripePriceId: "price_XXXXXXXXXXXXX",
+      productName: product.name || "DNA Test: Unlock Your Genetic Potential",
+      description: product.description || "",
+      stripeProductId: product.productId || GENE_TEST_PRODUCT_ID,
+      stripePriceId:
+        product.prices && product.prices.length > 0
+          ? product.prices[0].priceId
+          : null,
+      amount:
+        product.prices && product.prices.length > 0
+          ? product.prices[0].amount
+          : 89.0,
+      images: product.images || [],
     };
 
     localStorage.setItem("geneTestCheckoutData", JSON.stringify(geneTestData));

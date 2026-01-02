@@ -21,7 +21,7 @@ const StartDNATest = () => {
           {/* Content */}
           <div className="flex relative flex-col gap-4 items-center px-6 py-10 text-center md:gap-5 md:py-14 md:px-12">
             <div className="bg-[#FFFFFF05] backdrop-blur-sm border border-white/30 rounded-[24px] p-6 md:p-10 flex flex-col gap-4 items-center">
-              <h2 className="!text-[#ffffff]">Get Your DNA Test Kit</h2>
+              <h2 className="!text-[#ffffff]">Get Your Gene Test Kit</h2>
               <div className="flex flex-col gap-1 items-center">
                 <div className="text-[#0d8360] text-[48px] md:text-[68px] leading-[56px] md:leading-[72px] font-['Funnel_Display'] font-semibold">
                   $200

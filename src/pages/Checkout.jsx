@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import {
@@ -15,12 +15,12 @@ const getInitialState = () => {
   if (geneTestData) {
     try {
       const data = JSON.parse(geneTestData);
-      // Gene test uses default pricing (can be customized)
       return {
         source: "gene-test",
         geneTestData: data,
-        amount: 89.0,
-        subtotal: 89.0,
+        amount: data.amount || 89.0,
+        subtotal: data.amount || 89.0,
+        productId: data.stripeProductId || null,
       };
     } catch (error) {
       console.error("Error parsing gene test data:", error);
@@ -40,6 +40,7 @@ const getInitialState = () => {
         quizData: data,
         amount: total,
         subtotal: calcSubtotal,
+        productId: null, // Quiz uses multiple products, not a single Stripe product
       };
     } catch (error) {
       console.error("Error parsing quiz data:", error);
@@ -47,16 +48,17 @@ const getInitialState = () => {
   }
 
   // Default fallback
-  return { source: "default", quizData: null, amount: 89.0, subtotal: 219.97 };
+  return { source: "default", quizData: null, amount: 89.0, subtotal: 219.97, productId: null };
 };
 
 const Checkout = () => {
   const navigate = useNavigate();
   const initialState = getInitialState();
   // Handle both quiz data and gene test data
-  const [quizData] = useState(
+  const [checkoutData] = useState(
     initialState.quizData || initialState.geneTestData
   );
+  const [source] = useState(initialState.source);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -70,17 +72,17 @@ const Checkout = () => {
   const [useShippingAsBilling, setUseShippingAsBilling] = useState(true);
   const [paymentError, setPaymentError] = useState(null);
 
-  // Target product ID to display
-  const TARGET_PRODUCT_ID = "prod_ThiK10GH8xLyCD";
+  // Dynamically determine product ID based on checkout source
+  const productId = initialState.productId || null;
 
-  // Use professional Stripe checkout hook
+  // Use professional Stripe checkout hook - only if we have a product ID
   const {
     loading: loadingStripe,
     stripeProduct,
     totals,
     processPayment,
   } = useStripeCheckout({
-    productId: TARGET_PRODUCT_ID,
+    productId: productId, // Dynamic product ID from localStorage
     onSuccess: (paymentIntent) => {
       console.log("Payment successful:", paymentIntent);
       handleSuccess(paymentIntent);
@@ -122,13 +124,18 @@ const Checkout = () => {
     setPaymentError(error.message);
   };
 
-  // Use Stripe product if available, otherwise fall back to quiz products
-  const hasProducts = !!stripeProduct || quizData?.products?.length > 0;
+  // Determine what products to display
+  const hasProducts = 
+    !!stripeProduct || 
+    checkoutData?.products?.length > 0 || 
+    (source === "gene-test" && checkoutData);
+
   const totalItems = stripeProduct
     ? totals.itemCount || 1
-    : quizData?.products?.reduce((sum, p) => sum + (p.quantity || 1), 0) || 0;
+    : checkoutData?.products?.reduce((sum, p) => sum + (p.quantity || 1), 0) || 
+      (source === "gene-test" ? 1 : 0);
 
-  // Use Stripe totals if available, otherwise fall back to quiz totals
+  // Use Stripe totals if available, otherwise fall back to stored totals
   const finalSubtotal =
     totals.subtotal > 0 ? totals.subtotal : initialState.subtotal || 0;
   const finalAmount =
@@ -310,31 +317,80 @@ const Checkout = () => {
         <div className="w-[574px] bg-[#f7f7f7] sticky top-0 h-screen overflow-y-auto">
           <div className="px-[38px] py-8">
             <div className="max-w-[full]">
-              {/* Products List - Show Stripe Product (prod_ThiK10GH8xLyCD) */}
+              {/* Products List - Dynamic based on source */}
               <div className="mb-6">
-                {loadingStripe ? (
-                  <div className="py-8 text-center">
-                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#0D8360] mx-auto mb-2"></div>
-                    <p className="text-inter text-[14px] text-[rgba(0,0,0,0.56)]">
-                      Loading product from Stripe...
-                    </p>
-                  </div>
-                ) : stripeProduct ? (
+                {source === "gene-test" && productId ? (
+                  // Gene test product from Stripe
+                  loadingStripe ? (
+                    <div className="py-8 text-center">
+                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#0D8360] mx-auto mb-2"></div>
+                      <p className="text-inter text-[14px] text-[rgba(0,0,0,0.56)]">
+                        Loading product from Stripe...
+                      </p>
+                    </div>
+                  ) : stripeProduct ? (
+                    <div className="space-y-5">
+                      <StripeProductDisplay
+                        product={stripeProduct}
+                        quantity={1}
+                        showImage={true}
+                        showDescription={true}
+                        showPrice={true}
+                        showProductId={false}
+                        size="md"
+                      />
+                    </div>
+                  ) : (
+                    // Fallback: Show gene test product info from localStorage
+                    checkoutData && (
+                      <div className="space-y-5">
+                        <div className="bg-white rounded-lg p-4 border border-[#c7c7c7]">
+                          <h3 className="font-funnel font-semibold text-[16px] text-[#010907] mb-2">
+                            {checkoutData.productName || "DNA Test: Unlock Your Genetic Potential"}
+                          </h3>
+                          {checkoutData.description && (
+                            <p className="text-inter text-[14px] text-[rgba(0,0,0,0.56)] mb-3">
+                              {checkoutData.description}
+                            </p>
+                          )}
+                          <div className="flex justify-between items-center">
+                            <span className="text-inter text-[14px] text-[#010907]">Price</span>
+                            <span className="font-inter font-semibold text-[16px] text-[#010907]">
+                              ${checkoutData.amount?.toFixed(2) || "89.00"}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  )
+                ) : source === "quiz" && checkoutData?.products ? (
+                  // Quiz products
                   <div className="space-y-5">
-                    <StripeProductDisplay
-                      product={stripeProduct}
-                      quantity={1}
-                      showImage={true}
-                      showDescription={true}
-                      showPrice={true}
-                      showProductId={true}
-                      size="md"
-                    />
+                    {checkoutData.products.map((product, index) => (
+                      <div key={index} className="bg-white rounded-lg p-4 border border-[#c7c7c7]">
+                        <h3 className="font-funnel font-semibold text-[16px] text-[#010907] mb-2">
+                          {product.name || "Product"}
+                        </h3>
+                        {product.description && (
+                          <p className="text-inter text-[14px] text-[rgba(0,0,0,0.56)] mb-3">
+                            {product.description}
+                          </p>
+                        )}
+                        <div className="flex justify-between items-center">
+                          <span className="text-inter text-[14px] text-[#010907]">
+                            Qty: {product.quantity || 1}
+                          </span>
+                          <span className="font-inter font-semibold text-[16px] text-[#010907]">
+                            ${((product.price || 0) * (product.quantity || 1)).toFixed(2)}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 ) : (
                   <div className="py-8 text-center">
                     <p className="text-inter text-[14px] text-[rgba(0,0,0,0.56)]">
-                      Product not found. Please check Stripe configuration.
+                      No products found. Please start from the quiz or gene test page.
                     </p>
                   </div>
                 )}

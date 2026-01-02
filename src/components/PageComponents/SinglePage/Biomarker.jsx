@@ -180,7 +180,7 @@ const Biomarker = () => {
       description: "Promote long-term cellular resilience and healthy aging.",
       icon: iconImage9,
       categories: [
-        "DNA repair efficiency",
+        "Gene repair efficiency",
         "Cellular Stress Resistance",
         "Longevity Potential",
       ],
@@ -195,7 +195,7 @@ const Biomarker = () => {
         {/* Header */}
         <div className="flex flex-col gap-5 items-center mb-10 text-center md:mb-12">
           <h2 className="text-[#042b24] tracking-[-0.72px]">
-            Discover What Your DNA Reveals
+            Discover What Your Gene Reveals
           </h2>
           <p className="description max-w-[750px]">
             {" "}
@@ -230,7 +230,7 @@ const Biomarker = () => {
                   {/* Left: Content */}
                   <div className="flex flex-col gap-12 w-full lg:w-[580px]">
                     {/* Heading with Icon */}
-                    <div className="flex flex-col gap-4 ">
+                    <div className="flex flex-col gap-4">
                       <div className="flex gap-3 items-start">
                         <img
                           src={biomarker.icon}
@@ -251,17 +251,16 @@ const Biomarker = () => {
 
                     {/* Category Tags */}
                     <div className="min-h-[100px]">
-
-                    <div className="flex flex-wrap gap-3 ">
-                      {biomarker.categories.map((category, idx) => (
-                        <span
-                          key={idx}
-                          className="backdrop-blur-[15px]  border border-[#d7d7d7] md:border-[#dedede] px-4 py-2 rounded-full font-['Inter'] font-light text-[12px] md:text-[14px] text-[#010907]"
-                        >
-                          {category}
-                        </span>
-                      ))}
-                    </div>
+                      <div className="flex flex-wrap gap-3">
+                        {biomarker.categories.map((category, idx) => (
+                          <span
+                            key={idx}
+                            className="backdrop-blur-[15px]  border border-[#d7d7d7] md:border-[#dedede] px-4 py-2 rounded-full font-['Inter'] font-light text-[12px] md:text-[14px] text-[#010907]"
+                          >
+                            {category}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
