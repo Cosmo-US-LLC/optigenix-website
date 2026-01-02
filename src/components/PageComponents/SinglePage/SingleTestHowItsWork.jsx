@@ -206,7 +206,7 @@ const steps = [
   {
     id: 1,
     title: "Collect Your Sample",
-    desc: "Use an at-home cheek swab to collect your DNA.",
+    desc: "Use an at-home cheek swab to collect your gene.",
     icon: CustomTestTubeIcon,
   },
   {
