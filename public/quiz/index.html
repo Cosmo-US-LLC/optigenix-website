@@ -97,6 +97,18 @@
         transform: translateX(5px);
       }
 
+      /* Selected option - GREEN background */
+      .option-btn-selected {
+        background: #f0fdfa !important;
+        border-color: #0d8360 !important;
+        font-weight: 600;
+        color: #042b24;
+      }
+
+      .option-btn-selected:hover {
+        background: #adedda !important;
+      }
+
       .back-btn {
         background: #0d8360;
         color: white;
@@ -172,7 +184,7 @@
 
       .purchase-btn {
         background: white;
-        color: #0d8360;
+        color: #0d8360 !important;
         border: none;
         padding: 16px 40px;
         border-radius: 12px;
@@ -181,6 +193,10 @@
         cursor: pointer;
         width: 100%;
         margin-top: 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        transition: transform 0.2s ease;
       }
 
       .purchase-btn:hover {
@@ -563,12 +579,11 @@
             font-weight: 600;
             cursor: pointer;
             width: auto;
-            text-transform: capitalize;
           "
           onmouseover="this.style.background='#0a6b4f'"
           onmouseout="this.style.background='#0D8360'"
         >
-          Unlock my pack →
+          Show My Results →
         </button>
       </div>
 
@@ -616,8 +631,10 @@
           <a
             href="https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01"
             target="_top"
+            class="purchase-btn Button_link"
+            style="text-decoration: none; display: inline-block"
           >
-            <button class="purchase-btn">Purchase Now</button>
+            Purchase Now
           </a>
         </div>
 
@@ -1058,6 +1075,84 @@
       let finalTopProducts = [];
       let lastQuestionIndex = 0;
 
+      // Check if user is navigating back (from sessionStorage)
+      let isNavigatingBack =
+        sessionStorage.getItem("quiz_navigating_back") === "true";
+
+      // Step to question index mapping
+      const STEP_MAP = {
+        age: 0,
+        gender: 1,
+        goal: 2,
+        activity: 3,
+        workout: 4,
+        sleepstress: 5,
+        jointpain: 6,
+        energy: 7,
+        email: 8,
+        results: QUESTIONS.length,
+      };
+
+      const INDEX_TO_STEP = {
+        0: "age",
+        1: "gender",
+        2: "goal",
+        3: "activity",
+        4: "workout",
+        5: "sleepstress",
+        6: "jointpain",
+        7: "energy",
+        8: "email",
+      };
+
+      // Read query parameter and set initial question
+      function getStepFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        const step = params.get("step");
+        if (step && STEP_MAP[step] !== undefined) {
+          return STEP_MAP[step];
+        }
+        return 0;
+      }
+
+      // Load saved answers from localStorage
+      function loadSavedAnswers() {
+        const saved = localStorage.getItem("optigenix_quiz_answers");
+        if (saved) {
+          try {
+            answers = JSON.parse(saved);
+          } catch (e) {
+            answers = {};
+          }
+        }
+      }
+
+      // Save answers to localStorage
+      function saveAnswers() {
+        localStorage.setItem("optigenix_quiz_answers", JSON.stringify(answers));
+      }
+
+      // Update parent window URL (if in iframe)
+      function notifyParentStep(step) {
+        if (window.parent !== window) {
+          window.parent.postMessage(
+            {
+              type: "quiz_step_change",
+              step: step,
+            },
+            window.location.origin
+          );
+        }
+      }
+
+      // Initialize from URL parameter
+      loadSavedAnswers(); // Load saved answers to preserve them
+      currentQuestion = getStepFromURL();
+
+      // Check if we should show results
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlStep = urlParams.get("step");
+
       // Initialize Quiz
       function renderQuestion() {
         const question = QUESTIONS[currentQuestion];
@@ -1065,19 +1160,35 @@
         const progress = ((currentQuestion + 1) / QUESTIONS.length) * 100;
         document.getElementById("progressBar").style.width = progress + "%";
 
+        // Get previously saved answer ONLY if navigating back
+        const savedAnswer = isNavigatingBack ? answers[question.field] : null;
+
+        // After rendering, clear the back navigation flag for next interaction
+        if (isNavigatingBack) {
+          setTimeout(() => {
+            sessionStorage.removeItem("quiz_navigating_back");
+          }, 100);
+        }
+
         let html = `
                 <div class="question-text">${question.question}</div>
                 <div class="options">
                     ${question.options
-                      .map(
-                        (option) => `
-                        <button class="option-btn" onclick="selectAnswer('${
+                      .map((option) => {
+                        // Check if this option was previously selected
+                        const isSelected = savedAnswer === option;
+                        const selectedClass = isSelected
+                          ? "option-btn-selected"
+                          : "";
+
+                        return `
+                        <button class="option-btn ${selectedClass}" onclick="selectAnswer('${
                           question.field
                         }', '${option.replace(/'/g, "\\'")}')">
                             ${option}
                         </button>
-                    `
-                      )
+                    `;
+                      })
                       .join("")}
                 </div>
             `;
@@ -1090,19 +1201,34 @@
 
       function selectAnswer(field, value) {
         answers[field] = value;
+        saveAnswers(); // Save to localStorage
         lastQuestionIndex = currentQuestion; // Save last question index
+
+        // Moving forward - clear back navigation flag
+        isNavigatingBack = false;
+        sessionStorage.removeItem("quiz_navigating_back");
+
         currentQuestion++;
 
         if (currentQuestion < QUESTIONS.length) {
+          const nextStep = INDEX_TO_STEP[currentQuestion];
+          notifyParentStep(nextStep); // Update parent URL
           renderQuestion();
         } else {
+          notifyParentStep("results"); // Go to results
           showResults();
         }
       }
 
       document.getElementById("backBtn").onclick = function () {
         if (currentQuestion > 0) {
+          // Mark that we're going back (persist across page reloads)
+          isNavigatingBack = true;
+          sessionStorage.setItem("quiz_navigating_back", "true");
+
           currentQuestion--;
+          const prevStep = INDEX_TO_STEP[currentQuestion];
+          notifyParentStep(prevStep); // Update parent URL
           renderQuestion();
         }
       };
@@ -1530,7 +1656,20 @@
         document.getElementById("emailGateSection").style.display = "none";
         document.getElementById("quizSection").style.display = "block";
 
-        currentQuestion = lastQuestionIndex;
+        // Set back navigation flag
+        isNavigatingBack = true;
+        sessionStorage.setItem("quiz_navigating_back", "true");
+
+        // Go back to the LAST question (before email gate)
+        // Email gate shows after all questions, so last question is QUESTIONS.length - 1
+        currentQuestion = QUESTIONS.length - 1; // This is question 7 (index 7)
+
+        // Update URL with correct step
+        const stepName = INDEX_TO_STEP[currentQuestion];
+        if (stepName) {
+          notifyParentStep(stepName);
+        }
+
         renderQuestion();
         window.scrollTo(0, 0);
       }
@@ -1605,10 +1744,14 @@ https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01
 - OptiGenix Team
 `;
 
-        // API requests default to same origin (works locally via `vercel dev` and in production)
+        // Option 1: Use your API (requires SMTP setup)
         const endpoint = "/api/send-mail";
 
+        // Option 2: Use FormSubmit (no setup needed)
+        // const endpoint = "https://formsubmit.co/optigenix.help@gmail.com";
+
         try {
+          console.log("Sending email to:", email);
           const response = await fetch(endpoint, {
             method: "POST",
             headers: {
@@ -1624,10 +1767,18 @@ https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01
           });
 
           if (!response.ok) {
-            console.error("Email API error:", await response.text());
+            const errorText = await response.text();
+            console.error("❌ Email API error:", errorText);
+            alert(
+              "⚠️ Email sending failed. Please check the console for details."
+            );
+          } else {
+            const result = await response.json();
+            console.log("✅ Email sent successfully:", result);
           }
         } catch (err) {
-          console.error("Email API failed:", err);
+          console.error("❌ Email API failed:", err);
+          alert("⚠️ Email service unavailable: " + err.message);
         }
 
         // Hide email input → Show results
@@ -1726,7 +1877,13 @@ https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01
       }
 
       // Start the quiz
-      renderQuestion();
+      if (urlStep === "results" && currentQuestion >= QUESTIONS.length) {
+        // Show results if URL says so and all questions answered
+        showResults();
+      } else {
+        // Otherwise render the current question
+        renderQuestion();
+      }
     </script>
   </body>
 </html>
