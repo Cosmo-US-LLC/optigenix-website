@@ -2,6 +2,23 @@ import MetaTags from "@/components/PageComponents/MetaTags/MetaTags";
 import React, { useEffect, useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 
+// Normalize backend base URL (same logic as other components)
+const getApiBase = () => {
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
+
+  if (backendUrl) {
+    return backendUrl.endsWith("/") ? backendUrl : `${backendUrl}/`;
+  }
+
+  if (baseUrl) {
+    return baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`;
+  }
+
+  // Default to production backend
+  return "https://optigenix-website-backend.vercel.app/";
+};
+
 const QuizSecond = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
@@ -12,6 +29,26 @@ const QuizSecond = () => {
     const step = searchParams.get("step") || "age";
     return `/quiz/index.html?step=${step}`;
   });
+
+  // Inject API base URL into iframe when it loads
+  useEffect(() => {
+    const iframe = iframeRef.current;
+    if (!iframe) return;
+
+    const handleLoad = () => {
+      try {
+        const apiBase = getApiBase();
+        // Inject API base URL into iframe's window object
+        iframe.contentWindow.API_BASE_URL = apiBase;
+        console.log("Injected API_BASE_URL into quiz iframe:", apiBase);
+      } catch (error) {
+        console.error("Error injecting API URL into iframe:", error);
+      }
+    };
+
+    iframe.addEventListener("load", handleLoad);
+    return () => iframe.removeEventListener("load", handleLoad);
+  }, []);
 
   // Listen for messages from iframe (when quiz step changes)
   useEffect(() => {

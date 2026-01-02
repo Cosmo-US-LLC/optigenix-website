@@ -9,7 +9,7 @@ import icon6 from "@/assets/images/single_test/kit/icon6.svg";
 const items = [
   {
     title: "Collection Swab or Tube",
-    desc: "Easy-to-use cheek swab or saliva tube to safely collect your DNA sample.",
+    desc: "Easy-to-use cheek swab or saliva tube to safely collect your gene sample.",
     icon: icon1,
     accent: false,
   },

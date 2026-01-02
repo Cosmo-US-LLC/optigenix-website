@@ -2,7 +2,7 @@ import React from "react";
 import backedByScienceImage from "@/assets/images/single_test/backed_image/backed_by_img2.webp";
 
 const checklist = [
-  "Your DNA is secure, encrypted, anonymized, and never shared or sold.",
+  "Your Gene is secure, encrypted, anonymized, and never shared or sold.",
   "HIPAA-compliant, ensuring top-tier privacy and security.",
   "Full control of your information, download or remove your data at any time.",
   "CLIA-certified & CAP-accredited lab testing, processed in a U.S laboratory meeting the highest standards.",

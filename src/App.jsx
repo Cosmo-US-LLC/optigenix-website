@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "./components/layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Quiz from "./pages/Quiz";
 import AllCategory from "./pages/AllCategory";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
@@ -18,12 +17,23 @@ import MentalPerformance from "./pages/MentalPerformance";
 import SingleProduct from "./pages/SingleProduct";
 import Cart from "./pages/Cart";
 import { CartProvider } from "./context/CartContext";
+import Checkout from "./pages/Checkout";
+import PaymentSuccess from "./pages/PaymentSuccess";
 
 function App() {
   return (
     <CartProvider>
       <ScrollToTop />
       <Routes>
+        {/* Checkout pages have their own header, so they're outside Layout */}
+        <Route path="checkout" element={<Checkout />} />
+        <Route path="gene-test/checkout" element={<Checkout />} />
+        <Route path="quiz/checkout" element={<Checkout />} />
+        <Route path="thank-you" element={<PaymentSuccess />} />
+        <Route path="gene-test/thank-you" element={<PaymentSuccess />} />
+        <Route path="quiz/thank-you" element={<PaymentSuccess />} />
+
+        {/* All other pages use the Layout */}
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about-us" element={<About />} />

@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { BACKEND_URL } from "@/stripe/config";
+
+const GENE_TEST_PRODUCT_ID = "prod_TZyHo3lxkvrykA";
 
 const CustomTestTubeIcon = ({ className }) => (
   <svg
@@ -206,7 +210,7 @@ const steps = [
   {
     id: 1,
     title: "Collect Your Sample",
-    desc: "Use an at-home cheek swab to collect your DNA.",
+    desc: "Use an at-home cheek swab to collect your gene.",
     icon: CustomTestTubeIcon,
   },
   {
@@ -230,6 +234,76 @@ const steps = [
 ];
 
 const SingleTestHowItsWork = () => {
+  const navigate = useNavigate();
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch gene test product from backend
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const response = await fetch(
+          `${BACKEND_URL}/api/products?productIds=${GENE_TEST_PRODUCT_ID}`
+        );
+
+        if (!response.ok) {
+          throw new Error(`Failed to fetch product: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (data.success && data.products && data.products.length > 0) {
+          setProduct(data.products[0]);
+        } else {
+          throw new Error("Product not found");
+        }
+      } catch (err) {
+        console.error("Error fetching gene test product:", err);
+        // Fallback to default data if API fails
+        setProduct({
+          productId: GENE_TEST_PRODUCT_ID,
+          name: "DNA Test: Unlock Your Genetic Potential",
+          description: "",
+          amount: 200.0,
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProduct();
+  }, []);
+
+  const handleOrderTest = () => {
+    if (!product) {
+      console.error("Product not loaded yet");
+      return;
+    }
+
+    // Store gene test product data in localStorage for checkout
+    const geneTestData = {
+      source: "gene-test",
+      productName: product.name || "DNA Test: Unlock Your Genetic Potential",
+      description: product.description || "",
+      stripeProductId: product.productId || GENE_TEST_PRODUCT_ID,
+      stripePriceId:
+        product.prices && product.prices.length > 0
+          ? product.prices[0].priceId
+          : null,
+      amount:
+        product.prices && product.prices.length > 0
+          ? product.prices[0].amount
+          : 200.0,
+      images: product.images || [],
+    };
+
+    console.log("🧬 Gene Test Product Data:", geneTestData);
+    localStorage.setItem("geneTestCheckoutData", JSON.stringify(geneTestData));
+
+    // Navigate to gene test checkout page
+    navigate("/gene-test/checkout");
+  };
+
   return (
     <section className="py-12 bg-white md:py-20">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col lg:flex-row items-start gap-4 md:gap-8">
@@ -244,14 +318,9 @@ const SingleTestHowItsWork = () => {
             </p>
           </div>
           <button
-            className="btn_primary"
-            onClick={() =>
-              window.open(
-                "https://buy.stripe.com/7sY7sM0arfBlgMW77gf3a02",
-                "_blank",
-                "noopener,noreferrer"
-              )
-            }
+            className="btn_primary disabled:opacity-50 disabled:cursor-not-allowed"
+            onClick={handleOrderTest}
+            disabled={loading || !product}
           >
             Order Your Test
           </button>
