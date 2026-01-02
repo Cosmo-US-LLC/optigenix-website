@@ -1,432 +1,440 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OptiGenix - Personalized Supplement Quiz</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe
+      body {
+        /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe
              UI', Roboto, 'Helvetica Neue', Arial, sans-serif; */
-            font-family: "Funnel Display", sans-serif !important;
-            /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
-            /* min-height: 100vh; */
-            padding: 20px;
-        }
+        font-family: "Funnel Display", sans-serif !important;
+        /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+        /* min-height: 100vh; */
+        padding: 20px;
+      }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
 
-        .header {
-            text-align: center;
-            color: black;
-            margin-bottom: 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+      .header {
+        text-align: center;
+        color: black;
+        margin-bottom: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+
+      .header p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin-top: 10px;
+      }
+
+      .quiz-card,
+      .results-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      .question-text {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #1f2937;
+        margin-bottom: 20px;
+      }
+
+      .progress {
+        background: #e5e7eb;
+        height: 8px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        overflow: hidden;
+      }
+
+      .progress-bar {
+        background: #0d8360;
+        height: 100%;
+        transition: width 0.3s ease;
+      }
+
+      .options {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .option-btn {
+        background: #f9fafb;
+        border: 2px solid #e5e7eb;
+        padding: 16px 20px;
+        border-radius: 12px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.2s;
+        text-align: left;
+      }
+
+      .option-btn:hover {
+        background: #f0fdfa;
+        border-color: #0d8360;
+        transform: translateX(5px);
+      }
+
+      .back-btn {
+        background: #0d8360;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 20px;
+        font-weight: bold;
+      }
+
+      .back-btn:hover {
+        background: #0a6b4f;
+      }
+
+      /* Results Styles */
+      .results-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .results-header h2 {
+        color: #0d8360;
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      .pack-total-section {
+        background: #0d8360;
+        /* background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%); */
+        color: white;
+        padding: 30px;
+        border-radius: 16px;
+        /* text-align: center; */
+        margin-bottom: 30px;
+      }
+
+      .pack-total-section h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+
+      .pack-total-section .price {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+
+      .features {
+        margin: 20px 0;
+        text-align: left;
+      }
+
+      .feature {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 10px 0;
+        font-size: 0.95rem;
+      }
+
+      .checkmark {
+        background: white;
+        color: #0d8360;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+
+      .purchase-btn {
+        background: white;
+        color: #0d8360;
+        border: none;
+        padding: 16px 40px;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .purchase-btn:hover {
+        transform: scale(1.02);
+      }
+
+      .product-card {
+        background: #f9fafb;
+        border: 2px solid #e5e7eb;
+        border-radius: 12px;
+        margin-bottom: 16px;
+        overflow: hidden;
+        transition: all 0.2s;
+      }
+
+      .product-card:hover {
+        border-color: #0d8360;
+      }
+
+      .product-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 20px;
+        cursor: pointer;
+      }
+
+      .product-icon {
+        width: 60px;
+        height: 60px;
+        background: #fff;
+        border: 1px solid #0d8360;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 1.5rem;
+        flex-shrink: 0;
+      }
+
+      .product-info {
+        flex: 1;
+      }
+
+      .product-name {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #1f2937;
+        margin-bottom: 4px;
+      }
+
+      .product-supports {
+        color: #6b7280;
+        font-size: 0.9rem;
+      }
+
+      .expand-icon {
+        color: #9ca3af;
+        transition: transform 0.3s;
+      }
+
+      .expand-icon.rotated {
+        transform: rotate(180deg);
+      }
+
+      .product-details {
+        padding: 0 20px 20px 20px;
+        display: none;
+      }
+
+      .product-details.show {
+        display: block;
+      }
+
+      .dosage-badge {
+        display: inline-block;
+        background: #d1fae5;
+        color: #065f46;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-bottom: 16px;
+      }
+
+      .detail-section {
+        margin-bottom: 16px;
+      }
+
+      .detail-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+        color: #1f2937;
+        margin-bottom: 8px;
+      }
+
+      .detail-bullet {
+        width: 8px;
+        height: 8px;
+        background: #0d8360;
+        border-radius: 50%;
+      }
+
+      .detail-text {
+        color: #4b5563;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        padding-left: 16px;
+      }
+
+      .boost-notes {
+        background: #fef3c7;
+        border-left: 4px solid #f59e0b;
+        padding: 12px;
+        margin-top: 16px;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        color: #92400e;
+      }
+
+      .restart-btn {
+        background: #0d8360;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 30px;
+        width: 100%;
+        font-weight: bold;
+      }
+
+      .restart-btn:hover {
+        background: #0a6b4f;
+      }
+
+      @media (max-width: 768px) {
         .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-top: 10px;
+          font-size: 2rem;
         }
 
         .quiz-card,
         .results-card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+          padding: 24px;
         }
 
         .question-text {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 20px;
-        }
-
-        .progress {
-            background: #e5e7eb;
-            height: 8px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            background: #0D8360;
-            height: 100%;
-            transition: width 0.3s ease;
-        }
-
-        .options {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .option-btn {
-            background: #f9fafb;
-            border: 2px solid #e5e7eb;
-            padding: 16px 20px;
-            border-radius: 12px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-align: left;
-        }
-
-        .option-btn:hover {
-            background: #f0fdfa;
-            border-color: #0D8360;
-            transform: translateX(5px);
-        }
-
-        .back-btn {
-            background: #0D8360;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 1rem;
-            cursor: pointer;
-            margin-top: 20px;
-            font-weight: bold;
-        }
-
-        .back-btn:hover {
-            background: #0a6b4f;
-        }
-
-        /* Results Styles */
-        .results-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .results-header h2 {
-            color: #0D8360;
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        .pack-total-section {
-            background: #0D8360;
-            /* background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%); */
-            color: white;
-            padding: 30px;
-            border-radius: 16px;
-            /* text-align: center; */
-            margin-bottom: 30px;
-        }
-
-        .pack-total-section h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .pack-total-section .price {
-            font-size: 3rem;
-            font-weight: bold;
-        }
-
-        .features {
-            margin: 20px 0;
-            text-align: left;
-        }
-
-        .feature {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 10px 0;
-            font-size: 0.95rem;
-        }
-
-        .checkmark {
-            background: white;
-            color: #0D8360;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        .purchase-btn {
-            background: white;
-            color: #0D8360;
-            border: none;
-            padding: 16px 40px;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        .purchase-btn:hover {
-            transform: scale(1.02);
-        }
-
-        .product-card {
-            background: #f9fafb;
-            border: 2px solid #e5e7eb;
-            border-radius: 12px;
-            margin-bottom: 16px;
-            overflow: hidden;
-            transition: all 0.2s;
-        }
-
-        .product-card:hover {
-            border-color: #0D8360;
-        }
-
-        .product-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 20px;
-            cursor: pointer;
-        }
-
-        .product-icon {
-            width: 60px;
-            height: 60px;
-            background: #fff;
-            border: 1px solid #0D8360;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .product-info {
-            flex: 1;
-        }
-
-        .product-name {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 4px;
-        }
-
-        .product-supports {
-            color: #6b7280;
-            font-size: 0.9rem;
-        }
-
-        .expand-icon {
-            color: #9ca3af;
-            transition: transform 0.3s;
-        }
-
-        .expand-icon.rotated {
-            transform: rotate(180deg);
-        }
-
-        .product-details {
-            padding: 0 20px 20px 20px;
-            display: none;
-        }
-
-        .product-details.show {
-            display: block;
-        }
-
-        .dosage-badge {
-            display: inline-block;
-            background: #d1fae5;
-            color: #065f46;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 16px;
-        }
-
-        .detail-section {
-            margin-bottom: 16px;
-        }
-
-        .detail-title {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 8px;
-        }
-
-        .detail-bullet {
-            width: 8px;
-            height: 8px;
-            background: #0D8360;
-            border-radius: 50%;
-        }
-
-        .detail-text {
-            color: #4b5563;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            padding-left: 16px;
-        }
-
-        .boost-notes {
-            background: #fef3c7;
-            border-left: 4px solid #f59e0b;
-            padding: 12px;
-            margin-top: 16px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            color: #92400e;
-        }
-
-        .restart-btn {
-            background: #0D8360;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 1rem;
-            cursor: pointer;
-            margin-top: 30px;
-            width: 100%;
-            font-weight: bold;
-        }
-
-        .restart-btn:hover {
-            background: #0a6b4f;
-        }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
-            }
-
-            .quiz-card,
-            .results-card {
-                padding: 24px;
-            }
-
-            .question-text {
-                font-size: 1.2rem;
-            }
-
-            .your_pack_total_flexbox {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        .product-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-
-        .product-icon-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+          font-size: 1.2rem;
         }
 
         .your_pack_total_flexbox {
-            display: flex;
+          flex-direction: column;
+          align-items: center;
         }
+      }
 
-        .logo-link {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            /* same as gap-3 */
-            height: 42px;
-            text-decoration: none;
-            color: black;
-        }
+      .product-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+      }
 
-        .logo-icon {
-            width: 37.33px;
-            height: 42px;
-            position: relative;
-        }
+      .product-icon-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
 
-        .logo-text {
-            font-weight: bold;
-            font-size: 30px;
-            line-height: 1;
-            font-family: "Funnel", sans-serif;
-            /* replace with accurate font */
-            color: black;
-        }
+      .your_pack_total_flexbox {
+        display: flex;
+      }
+
+      .logo-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        /* same as gap-3 */
+        height: 42px;
+        text-decoration: none;
+        color: black;
+      }
+
+      .logo-icon {
+        width: 37.33px;
+        height: 42px;
+        position: relative;
+      }
+
+      .logo-text {
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 1;
+        font-family: "Funnel", sans-serif;
+        /* replace with accurate font */
+        color: black;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <div class="header">
-            <!-- <h1>🧬 OptiGenix</h1> -->
-            <a href="/" target="_top" class="logo-link">
-                <div class="logo-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="38" height="42" viewBox="0 0 38 42" fill="none">
-                        <g clip-path="url(#clip0_669_105)">
-                            <path
-                                d="M22.5332 10.3786L27.368 7.96167C37.8245 14.7422 37.374 15.4438 34.0107 19.248C34.616 16.9108 26.6113 12.3613 22.5332 10.3786Z"
-                                fill="black" />
-                            <path
-                                d="M14.9225 31.4422L10.0876 33.8592C-0.128263 27.4724 0.0816251 26.377 3.44498 22.5729C2.83958 24.91 10.8444 29.4596 14.9225 31.4422Z"
-                                fill="black" />
-                            <path
-                                d="M27.9626 0L30.2596 5.64319C20.3869 10.2842 0.677061 20.74 0.639387 25.5147C0.639423 25.5256 0.639438 25.5365 0.639438 25.5473C0.639321 25.5365 0.639301 25.5256 0.639387 25.5147C0.617414 18.3698 -6.59298 17.2751 27.9626 0Z"
-                                fill="black" />
-                            <path
-                                d="M9.34191 41.9958L7.04492 36.3526C16.9176 31.7117 36.6274 21.2558 36.6651 16.4811C36.6651 16.4702 36.6651 16.4594 36.6651 16.4485C36.6652 16.4593 36.6652 16.4702 36.6651 16.4811C36.6871 23.626 43.8975 24.7208 9.34191 41.9958Z"
-                                fill="black" />
-                        </g>
-                        <defs>
-                            <clipPath id="clip0_669_105">
-                                <rect width="37.3333" height="42" fill="white" />
-                            </clipPath>
-                        </defs>
-                    </svg>
-                </div>
+      <div class="header">
+        <!-- <h1>🧬 OptiGenix</h1> -->
+        <a href="/" target="_top" class="logo-link">
+          <div class="logo-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="38"
+              height="42"
+              viewBox="0 0 38 42"
+              fill="none"
+            >
+              <g clip-path="url(#clip0_669_105)">
+                <path
+                  d="M22.5332 10.3786L27.368 7.96167C37.8245 14.7422 37.374 15.4438 34.0107 19.248C34.616 16.9108 26.6113 12.3613 22.5332 10.3786Z"
+                  fill="black"
+                />
+                <path
+                  d="M14.9225 31.4422L10.0876 33.8592C-0.128263 27.4724 0.0816251 26.377 3.44498 22.5729C2.83958 24.91 10.8444 29.4596 14.9225 31.4422Z"
+                  fill="black"
+                />
+                <path
+                  d="M27.9626 0L30.2596 5.64319C20.3869 10.2842 0.677061 20.74 0.639387 25.5147C0.639423 25.5256 0.639438 25.5365 0.639438 25.5473C0.639321 25.5365 0.639301 25.5256 0.639387 25.5147C0.617414 18.3698 -6.59298 17.2751 27.9626 0Z"
+                  fill="black"
+                />
+                <path
+                  d="M9.34191 41.9958L7.04492 36.3526C16.9176 31.7117 36.6274 21.2558 36.6651 16.4811C36.6651 16.4702 36.6651 16.4594 36.6651 16.4485C36.6652 16.4593 36.6652 16.4702 36.6651 16.4811C36.6871 23.626 43.8975 24.7208 9.34191 41.9958Z"
+                  fill="black"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_669_105">
+                  <rect width="37.3333" height="42" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
 
-                <span class="logo-text">OptiGenix</span>
-            </a>
+          <span class="logo-text">OptiGenix</span>
+        </a>
 
+        <p>Your Personalized Supplement Quiz</p>
+      </div>
 
-            <p>Your Personalized Supplement Quiz</p>
-        </div>
-
-        <!-- Quiz Section -->
-        <!-- <a href="/" style="font-weight: 500; padding-bottom: 4px;">< Back</p> -->
-        <!-- <a href="/" target="_top" style="
+      <!-- Quiz Section -->
+      <!-- <a href="/" style="font-weight: 500; padding-bottom: 4px;">< Back</p> -->
+      <!-- <a href="/" target="_top" style="
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -443,814 +451,1113 @@
             <span>Back</span>
         </a> -->
 
-        <div id="quizSection" class="quiz-card">
-            <div class="progress">
-                <div class="progress-bar" id="progressBar" style="width: 0%"></div>
-            </div>
-            <div id="questionContainer"></div>
-            <button id="backBtn" class="back-btn" style="display: none;">← Back</button>
+      <div id="quizSection" class="quiz-card">
+        <div class="progress">
+          <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+        </div>
+        <div id="questionContainer"></div>
+        <button id="backBtn" class="back-btn" style="display: none">
+          ← Back
+        </button>
+      </div>
+
+      <!-- Email Gate Section -->
+      <!-- Email Gate Section -->
+      <!-- Email Gate Section -->
+      <!-- Email Gate Section -->
+      <div
+        id="emailGateSection"
+        class="results-card"
+        style="display: none; padding: 32px"
+      >
+        <!-- Clean Back Button -->
+        <button
+          onclick="goBackToLastQuestion()"
+          style="
+            background: none;
+            border: none;
+            color: #0d8360;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+          "
+          onmouseover="this.style.color='#0a6b4f'"
+          onmouseout="this.style.color='#0D8360'"
+        >
+          <span style="font-size: 1.1rem">←</span> Back
+        </button>
+
+        <h2
+          style="
+            color: #0d8360;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+          "
+        >
+          Almost Done
+        </h2>
+
+        <p style="font-size: 1rem; color: #4b5563; margin-bottom: 24px">
+          Enter your email to unlock your personalized supplement pack.
+        </p>
+
+        <!-- Email Input -->
+        <label
+          for="userEmail"
+          style="
+            font-size: 0.95rem;
+            color: #374151;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 6px;
+          "
+        >
+          Email Address
+        </label>
+
+        <input
+          id="userEmail"
+          type="email"
+          placeholder="you@example.com"
+          style="
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.2s;
+          "
+          onfocus="this.style.borderColor='#0D8360'"
+          onblur="this.style.borderColor='#e5e7eb'"
+        />
+
+        <div
+          id="emailError"
+          style="
+            color: #dc2626;
+            font-size: 0.85rem;
+            margin-top: 8px;
+            display: none;
+          "
+        >
+          Please enter a valid email address.
         </div>
 
-        <!-- Email Gate Section -->
-        <!-- Email Gate Section -->
-        <!-- Email Gate Section -->
-        <!-- Email Gate Section -->
-        <div id="emailGateSection" class="results-card" style="display:none; padding:32px;">
+        <!-- Show Results Button -->
+        <button
+          onclick="submitEmailAndShowResults()"
+          style="
+            margin-top: 28px;
+            background: #0d8360;
+            color: white;
+            padding: 14px 24px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: auto;
+            text-transform: capitalize;
+          "
+          onmouseover="this.style.background='#0a6b4f'"
+          onmouseout="this.style.background='#0D8360'"
+        >
+          Unlock my pack →
+        </button>
+      </div>
 
-            <!-- Clean Back Button -->
-            <button onclick="goBackToLastQuestion()" style="
-            background:none;
-            border:none;
-            color:#0D8360;
-            font-size:0.95rem;
-            font-weight:600;
-            cursor:pointer;
-            padding:0;
-            margin-bottom:20px;
-            display:flex;
-            align-items:center;
-            gap:6px;
-        " onmouseover="this.style.color='#0a6b4f'" onmouseout="this.style.color='#0D8360'">
-                <span style="font-size:1.1rem;">←</span> Back
-            </button>
-
-            <h2 style="color:#0D8360; font-size:1.8rem; font-weight:700; margin-bottom:8px;">
-                Almost Done
-            </h2>
-
-            <p style="font-size:1rem; color:#4b5563; margin-bottom:24px;">
-                Enter your email to unlock your personalized supplement pack.
-            </p>
-
-            <!-- Email Input -->
-            <label for="userEmail"
-                style="font-size:0.95rem; color:#374151; font-weight:600; display:block; margin-bottom:6px;">
-                Email Address
-            </label>
-
-            <input id="userEmail" type="email" placeholder="you@example.com" style="
-            width:100%;
-            padding:14px 16px;
-            border:2px solid #e5e7eb;
-            border-radius:12px;
-            font-size:1rem;
-            transition:all 0.2s;
-        " onfocus="this.style.borderColor='#0D8360'" onblur="this.style.borderColor='#e5e7eb'" />
-
-            <div id="emailError" style="color:#dc2626; font-size:0.85rem; margin-top:8px; display:none;">
-                Please enter a valid email address.
-            </div>
-
-            <!-- Show Results Button -->
-            <button onclick="submitEmailAndShowResults()" style="
-            margin-top:28px;
-            background:#0D8360;
-            color:white;
-            padding:14px 24px;
-            border:none;
-            border-radius:10px;
-            font-size:1rem;
-            font-weight:600;
-            cursor:pointer;
-            width:auto;
-            " onmouseover="this.style.background='#0a6b4f'" onmouseout="this.style.background='#0D8360'">
-                Show My Results →
-            </button>
-
+      <!-- Results Section -->
+      <div id="resultsSection" class="results-card" style="display: none">
+        <div class="results-header">
+          <h2>Your Personalized Pack</h2>
+          <p>
+            Based on your quiz results, we curated the perfect daily supplement
+            pack for you.
+          </p>
         </div>
 
-
-
-        <!-- Results Section -->
-        <div id="resultsSection" class="results-card" style="display: none;">
-            <div class="results-header">
-                <h2>Your Personalized Pack</h2>
-                <p>Based on your quiz results, we curated the perfect daily supplement pack for you.</p>
-            </div>
-
-            <div class="pack-total-section">
-                <div class="your_pack_total_flexbox" style="gap: 20px;">
-                    <div class="" style="flex:1">
-                        <h3>Your Pack Total</h3>
-                        <div class="price" id="packTotal">$74.99</div>
-                        <div class="features">
-                            <div class="feature">
-                                <span class="checkmark">✓</span>
-                                <span>30-day supply of each supplement</span>
-                            </div>
-                            <div class="feature">
-                                <span class="checkmark">✓</span>
-                                <span>Delivered in 4-6 business days</span>
-                            </div>
-                            <div class="feature">
-                                <span class="checkmark">✓</span>
-                                <span>Personalized to your results</span>
-                            </div>
-                            <div class="feature">
-                                <span class="checkmark">✓</span>
-                                <span>Free swaps within first 30 days</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="image">
-                        <img src="../images/quiz/quizOptiginix.webp" style="width: 100%;">
-                    </div>
+        <div class="pack-total-section">
+          <div class="your_pack_total_flexbox" style="gap: 20px">
+            <div class="" style="flex: 1">
+              <h3>Your Pack Total</h3>
+              <div class="price" id="packTotal">$74.99</div>
+              <div class="features">
+                <div class="feature">
+                  <span class="checkmark">✓</span>
+                  <span>30-day supply of each supplement</span>
                 </div>
-                <a href="https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01" target="_top">
-
-                    <button class="purchase-btn">
-                        Purchase Now
-                    </button>
-                </a>
+                <div class="feature">
+                  <span class="checkmark">✓</span>
+                  <span>Delivered in 4-6 business days</span>
+                </div>
+                <div class="feature">
+                  <span class="checkmark">✓</span>
+                  <span>Personalized to your results</span>
+                </div>
+                <div class="feature">
+                  <span class="checkmark">✓</span>
+                  <span>Free swaps within first 30 days</span>
+                </div>
+              </div>
             </div>
-
-            <div id="productsContainer"></div>
-
-            <button class="restart-btn" onclick="restartQuiz()">Take Quiz Again</button>
+            <div class="image">
+              <img
+                src="../images/quiz/quizOptiginix.webp"
+                style="width: 100%"
+              />
+            </div>
+          </div>
+          <a
+            href="https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01"
+            target="_top"
+          >
+            <button class="purchase-btn">Purchase Now</button>
+          </a>
         </div>
+
+        <div id="productsContainer"></div>
+
+        <button class="restart-btn" onclick="restartQuiz()">
+          Take Quiz Again
+        </button>
+      </div>
     </div>
 
     <script>
-        // Product Database (21 OLD products)
-        const PRODUCTS = [
-            {
-                id: "SUP001",
-                name: "Turmeric",
-                imageUrl: "../images/Webp_pills_images/Turmeric.webp",
-                dosage: "700mg",
-                supports: "Joint health & inflammation management",
-                whyRecommended: "Your quiz indicated joint discomfort and inflammation. This supplement helps optimize joint mobility and reduces post-workout inflammation.",
-                scientificEvidence: "Studies show 1000mg daily reduces joint pain by 58% in 8 weeks (J Med Food, 2016).",
-                bestTiming: "Take with lunch or dinner for optimal absorption. Pair with black pepper or healthy fats.",
-                effect: { recovery: 3, performance: 1, mind: 1, immune: 2, joint: 5, stressSleep: 0, energy: 1 }
-            },
+      // Product Database (21 OLD products)
+      const PRODUCTS = [
+        {
+          id: "SUP001",
+          name: "Turmeric",
+          imageUrl: "../images/Webp_pills_images/Turmeric.webp",
+          dosage: "700mg",
+          supports: "Joint health & inflammation management",
+          whyRecommended:
+            "Your quiz indicated joint discomfort and inflammation. This supplement helps optimize joint mobility and reduces post-workout inflammation.",
+          scientificEvidence:
+            "Studies show 1000mg daily reduces joint pain by 58% in 8 weeks (J Med Food, 2016).",
+          bestTiming:
+            "Take with lunch or dinner for optimal absorption. Pair with black pepper or healthy fats.",
+          effect: {
+            recovery: 3,
+            performance: 1,
+            mind: 1,
+            immune: 2,
+            joint: 5,
+            stressSleep: 0,
+            energy: 1,
+          },
+        },
 
-            {
-                id: "SUP002",
-                name: "Rhodiola",
-                imageUrl: "../images/Webp_pills_images/Rhodiola.webp",
-                dosage: "500mg",
-                supports: "Mental clarity & stress adaptation",
-                whyRecommended: "Your quiz showed high stress levels and mental fatigue. This adaptogen helps manage stress while improving mental performance.",
-                scientificEvidence: "Research demonstrates 400mg daily improves mental performance by 20% under stress (Phytomedicine, 2012).",
-                bestTiming: "Take in the morning or early afternoon. Avoid evening use.",
-                effect: { recovery: 1, performance: 3, mind: 4, immune: 1, joint: 0, stressSleep: 1, energy: 3 }
-            },
+        {
+          id: "SUP002",
+          name: "Rhodiola",
+          imageUrl: "../images/Webp_pills_images/Rhodiola.webp",
+          dosage: "500mg",
+          supports: "Mental clarity & stress adaptation",
+          whyRecommended:
+            "Your quiz showed high stress levels and mental fatigue. This adaptogen helps manage stress while improving mental performance.",
+          scientificEvidence:
+            "Research demonstrates 400mg daily improves mental performance by 20% under stress (Phytomedicine, 2012).",
+          bestTiming:
+            "Take in the morning or early afternoon. Avoid evening use.",
+          effect: {
+            recovery: 1,
+            performance: 3,
+            mind: 4,
+            immune: 1,
+            joint: 0,
+            stressSleep: 1,
+            energy: 3,
+          },
+        },
 
-            {
-                id: "SUP006",
-                name: "Ashwagandha",
-                imageUrl: "../images/Webp_pills_images/Ashwagandha.webp",
-                dosage: "600mg",
-                supports: "Stress management & sleep quality",
-                whyRecommended: "Your quiz revealed high stress and poor sleep quality. This adaptogen helps lower cortisol levels while improving sleep depth.",
-                scientificEvidence: "Research shows 600mg daily reduces cortisol by 27% and improves sleep quality by 72% (Indian J Psych Med, 2012).",
-                bestTiming: "Take in the evening 1-2 hours before bed for sleep benefits.",
-                effect: { recovery: 2, performance: 2, mind: 3, immune: 1, joint: 0, stressSleep: 5, energy: 2 }
-            },
+        {
+          id: "SUP006",
+          name: "Ashwagandha",
+          imageUrl: "../images/Webp_pills_images/Ashwagandha.webp",
+          dosage: "600mg",
+          supports: "Stress management & sleep quality",
+          whyRecommended:
+            "Your quiz revealed high stress and poor sleep quality. This adaptogen helps lower cortisol levels while improving sleep depth.",
+          scientificEvidence:
+            "Research shows 600mg daily reduces cortisol by 27% and improves sleep quality by 72% (Indian J Psych Med, 2012).",
+          bestTiming:
+            "Take in the evening 1-2 hours before bed for sleep benefits.",
+          effect: {
+            recovery: 2,
+            performance: 2,
+            mind: 3,
+            immune: 1,
+            joint: 0,
+            stressSleep: 5,
+            energy: 2,
+          },
+        },
 
-            {
-                id: "SUP007",
-                name: "Magnesium",
-                imageUrl: "../images/Webp_pills_images/Magnesium.webp",
-                dosage: "400mg",
-                supports: "Recovery & sleep support",
-                whyRecommended: "Your quiz indicated muscle soreness and sleep issues. Magnesium supports muscle relaxation and promotes deep sleep.",
-                scientificEvidence: "Studies show 400mg daily improves sleep quality by 36% and reduces muscle soreness (J Res Med Sci, 2012).",
-                bestTiming: "Take 1-2 hours before bed for optimal sleep benefits.",
-                effect: { recovery: 3, performance: 2, mind: 2, immune: 1, joint: 1, stressSleep: 5, energy: 2 }
-            },
+        {
+          id: "SUP007",
+          name: "Magnesium",
+          imageUrl: "../images/Webp_pills_images/Magnesium.webp",
+          dosage: "400mg",
+          supports: "Recovery & sleep support",
+          whyRecommended:
+            "Your quiz indicated muscle soreness and sleep issues. Magnesium supports muscle relaxation and promotes deep sleep.",
+          scientificEvidence:
+            "Studies show 400mg daily improves sleep quality by 36% and reduces muscle soreness (J Res Med Sci, 2012).",
+          bestTiming: "Take 1-2 hours before bed for optimal sleep benefits.",
+          effect: {
+            recovery: 3,
+            performance: 2,
+            mind: 2,
+            immune: 1,
+            joint: 1,
+            stressSleep: 5,
+            energy: 2,
+          },
+        },
 
-            {
-                id: "SUP008",
-                name: "Vitamin D",
-                imageUrl: "../images/Webp_pills_images/Vitamin_D.webp",
-                dosage: "5000 IU",
-                supports: "Immune health & bone strength",
-                whyRecommended: "Your quiz indicated immune vulnerability. This foundation supplement supports immune function, bone health, and mood.",
-                scientificEvidence: "Research shows 4000 IU daily increases immune cell function by 53% and reduces infection risk by 42% (BMJ, 2017).",
-                bestTiming: "Take in the morning with breakfast. Fat-soluble vitamin - must take with meal containing fats.",
-                effect: { recovery: 1, performance: 1, mind: 2, immune: 4, joint: 2, stressSleep: 1, energy: 2 },
-                isFoundation: true
-            },
+        {
+          id: "SUP008",
+          name: "Vitamin D",
+          imageUrl: "../images/Webp_pills_images/Vitamin_D.webp",
+          dosage: "5000 IU",
+          supports: "Immune health & bone strength",
+          whyRecommended:
+            "Your quiz indicated immune vulnerability. This foundation supplement supports immune function, bone health, and mood.",
+          scientificEvidence:
+            "Research shows 4000 IU daily increases immune cell function by 53% and reduces infection risk by 42% (BMJ, 2017).",
+          bestTiming:
+            "Take in the morning with breakfast. Fat-soluble vitamin - must take with meal containing fats.",
+          effect: {
+            recovery: 1,
+            performance: 1,
+            mind: 2,
+            immune: 4,
+            joint: 2,
+            stressSleep: 1,
+            energy: 2,
+          },
+          isFoundation: true,
+        },
 
-            {
-                id: "SUP011",
-                name: "Glucosamine",
-                imageUrl: "../images/Webp_pills_images/Vegan_Glucosamine.webp",
-                dosage: "1500mg",
-                supports: "Joint cartilage & mobility",
-                whyRecommended: "Your quiz revealed joint pain and stiffness. Glucosamine supports cartilage repair and reduces joint discomfort.",
-                scientificEvidence: "Studies show 1500mg daily reduces joint pain by 28% and improves function by 25% over 6 months (Arch Intern Med, 2002).",
-                bestTiming: "Take with breakfast or lunch. Can split into two 750mg doses.",
-                effect: { recovery: 1, performance: 0, mind: 0, immune: 0, joint: 5, stressSleep: 0, energy: 0 }
-            },
+        {
+          id: "SUP011",
+          name: "Glucosamine",
+          imageUrl: "../images/Webp_pills_images/Vegan_Glucosamine.webp",
+          dosage: "1500mg",
+          supports: "Joint cartilage & mobility",
+          whyRecommended:
+            "Your quiz revealed joint pain and stiffness. Glucosamine supports cartilage repair and reduces joint discomfort.",
+          scientificEvidence:
+            "Studies show 1500mg daily reduces joint pain by 28% and improves function by 25% over 6 months (Arch Intern Med, 2002).",
+          bestTiming:
+            "Take with breakfast or lunch. Can split into two 750mg doses.",
+          effect: {
+            recovery: 1,
+            performance: 0,
+            mind: 0,
+            immune: 0,
+            joint: 5,
+            stressSleep: 0,
+            energy: 0,
+          },
+        },
 
-            {
-                id: "SUP004",
-                name: "Green Tea Extract",
-                imageUrl: "../images/Webp_pills_images/Green_Tea_Extract.webp",
-                dosage: "400mg",
-                supports: "Energy & immune function",
-                whyRecommended: "Your quiz showed need for mental clarity and metabolic support. This extract provides sustained energy without jitters.",
-                scientificEvidence: "Research shows 400mg daily increases fat oxidation by 17% and improves cognitive performance by 25% (Am J Clin Nutr, 2008).",
-                bestTiming: "Take in the morning or early afternoon. Avoid within 6 hours of bedtime.",
-                effect: { recovery: 1, performance: 3, mind: 4, immune: 2, joint: 0, stressSleep: 1, energy: 4 }
-            },
+        {
+          id: "SUP004",
+          name: "Green Tea Extract",
+          imageUrl: "../images/Webp_pills_images/Green_Tea_Extract.webp",
+          dosage: "400mg",
+          supports: "Energy & immune function",
+          whyRecommended:
+            "Your quiz showed need for mental clarity and metabolic support. This extract provides sustained energy without jitters.",
+          scientificEvidence:
+            "Research shows 400mg daily increases fat oxidation by 17% and improves cognitive performance by 25% (Am J Clin Nutr, 2008).",
+          bestTiming:
+            "Take in the morning or early afternoon. Avoid within 6 hours of bedtime.",
+          effect: {
+            recovery: 1,
+            performance: 3,
+            mind: 4,
+            immune: 2,
+            joint: 0,
+            stressSleep: 1,
+            energy: 4,
+          },
+        },
 
-            {
-                id: "SUP009",
-                name: "Vitamin B12",
-                imageUrl: "../images/Webp_pills_images/Vitamin_B12.webp",
-                dosage: "1000mcg",
-                supports: "Energy production & nervous system",
-                whyRecommended: "Your quiz showed low energy. B12 is essential for energy metabolism, especially critical for vegans and older athletes.",
-                scientificEvidence: "Studies demonstrate 1000mcg daily improves energy levels by 40% in deficient individuals (Nutrients, 2016).",
-                bestTiming: "Take in the morning with breakfast for energy support.",
-                effect: { recovery: 1, performance: 2, mind: 3, immune: 1, joint: 0, stressSleep: 0, energy: 5 }
-            },
+        {
+          id: "SUP009",
+          name: "Vitamin B12",
+          imageUrl: "../images/Webp_pills_images/Vitamin_B12.webp",
+          dosage: "1000mcg",
+          supports: "Energy production & nervous system",
+          whyRecommended:
+            "Your quiz showed low energy. B12 is essential for energy metabolism, especially critical for vegans and older athletes.",
+          scientificEvidence:
+            "Studies demonstrate 1000mcg daily improves energy levels by 40% in deficient individuals (Nutrients, 2016).",
+          bestTiming: "Take in the morning with breakfast for energy support.",
+          effect: {
+            recovery: 1,
+            performance: 2,
+            mind: 3,
+            immune: 1,
+            joint: 0,
+            stressSleep: 0,
+            energy: 5,
+          },
+        },
 
-            {
-                id: "SUP016",
-                name: "CoQ10",
-                imageUrl: "../images/Webp_pills_images/CoQ10.webp",
-                dosage: "200mg",
-                supports: "Cellular energy & heart health",
-                whyRecommended: "Your quiz indicated you're 45+ with energy concerns. CoQ10 supports mitochondrial energy production.",
-                scientificEvidence: "Research shows 100-200mg daily improves exercise capacity by 11% and supports heart function (Nutrients, 2018).",
-                bestTiming: "Take with lunch or dinner. Highly fat-soluble - must take with meal containing fats.",
-                effect: { recovery: 2, performance: 3, mind: 2, immune: 1, joint: 0, stressSleep: 0, energy: 4 }
-            },
+        {
+          id: "SUP016",
+          name: "CoQ10",
+          imageUrl: "../images/Webp_pills_images/CoQ10.webp",
+          dosage: "200mg",
+          supports: "Cellular energy & heart health",
+          whyRecommended:
+            "Your quiz indicated you're 45+ with energy concerns. CoQ10 supports mitochondrial energy production.",
+          scientificEvidence:
+            "Research shows 100-200mg daily improves exercise capacity by 11% and supports heart function (Nutrients, 2018).",
+          bestTiming:
+            "Take with lunch or dinner. Highly fat-soluble - must take with meal containing fats.",
+          effect: {
+            recovery: 2,
+            performance: 3,
+            mind: 2,
+            immune: 1,
+            joint: 0,
+            stressSleep: 0,
+            energy: 4,
+          },
+        },
 
-            {
-                id: "SUP019",
-                name: "Omega-3",
-                imageUrl: "../images/Webp_pills_images/Omega-3.webp",
-                dosage: "2000mg",
-                supports: "Inflammation control & brain health",
-                whyRecommended: "Your quiz indicated inflammation and low fish intake. Omega-3s provide anti-inflammatory benefits for joints, heart, and brain.",
-                scientificEvidence: "Studies show 2000mg daily reduces inflammation markers by 25% and joint pain by 30% (Prostaglandins, 2009).",
-                bestTiming: "Take with lunch or dinner. Fat-based supplement - must take with food.",
-                effect: { recovery: 2, performance: 2, mind: 2, immune: 3, joint: 3, stressSleep: 1, energy: 1 },
-                isFoundation: true
-            },
+        {
+          id: "SUP019",
+          name: "Omega-3",
+          imageUrl: "../images/Webp_pills_images/Omega-3.webp",
+          dosage: "2000mg",
+          supports: "Inflammation control & brain health",
+          whyRecommended:
+            "Your quiz indicated inflammation and low fish intake. Omega-3s provide anti-inflammatory benefits for joints, heart, and brain.",
+          scientificEvidence:
+            "Studies show 2000mg daily reduces inflammation markers by 25% and joint pain by 30% (Prostaglandins, 2009).",
+          bestTiming:
+            "Take with lunch or dinner. Fat-based supplement - must take with food.",
+          effect: {
+            recovery: 2,
+            performance: 2,
+            mind: 2,
+            immune: 3,
+            joint: 3,
+            stressSleep: 1,
+            energy: 1,
+          },
+          isFoundation: true,
+        },
 
-            {
-                id: "SUP021",
-                name: "Iron",
-                imageUrl: "../images/Webp_pills_images/Zinc.webp", // ⚠️ No Iron image provided → using placeholder (Zinc.webp)
-                dosage: "45mg",
-                supports: "Energy & oxygen transport",
-                whyRecommended: "Your quiz indicated low energy and you're female/endurance athlete. Iron supports oxygen transport and energy production.",
-                scientificEvidence: "Studies show iron supplementation improves VO2max by 5-7% and reduces fatigue by 48% (Br J Sports Med, 2014).",
-                bestTiming: "Take on empty stomach in the morning. Take with vitamin C to enhance absorption.",
-                effect: { recovery: 1, performance: 3, mind: 2, immune: 3, joint: 0, stressSleep: 0, energy: 4 }
-            },
+        {
+          id: "SUP021",
+          name: "Iron",
+          imageUrl: "../images/Webp_pills_images/Zinc.webp", // ⚠️ No Iron image provided → using placeholder (Zinc.webp)
+          dosage: "45mg",
+          supports: "Energy & oxygen transport",
+          whyRecommended:
+            "Your quiz indicated low energy and you're female/endurance athlete. Iron supports oxygen transport and energy production.",
+          scientificEvidence:
+            "Studies show iron supplementation improves VO2max by 5-7% and reduces fatigue by 48% (Br J Sports Med, 2014).",
+          bestTiming:
+            "Take on empty stomach in the morning. Take with vitamin C to enhance absorption.",
+          effect: {
+            recovery: 1,
+            performance: 3,
+            mind: 2,
+            immune: 3,
+            joint: 0,
+            stressSleep: 0,
+            energy: 4,
+          },
+        },
 
-            {
-                id: "SUP005",
-                name: "Elderberry",
-                imageUrl: "../images/Webp_pills_images/Elderberry.webp",
-                dosage: "500mg",
-                supports: "Immune system function",
-                whyRecommended: "Your quiz indicated frequent illness or immune vulnerability. This provides powerful immune system support.",
-                scientificEvidence: "Studies demonstrate 300-600mg daily reduces cold/flu duration by 4 days and severity by 50% (J Int Med Res, 2004).",
-                bestTiming: "Take in the morning for immune support. During illness, split dose morning and evening.",
-                effect: { recovery: 0, performance: 0, mind: 0, immune: 5, joint: 0, stressSleep: 0, energy: 1 }
-            },
+        {
+          id: "SUP005",
+          name: "Elderberry",
+          imageUrl: "../images/Webp_pills_images/Elderberry.webp",
+          dosage: "500mg",
+          supports: "Immune system function",
+          whyRecommended:
+            "Your quiz indicated frequent illness or immune vulnerability. This provides powerful immune system support.",
+          scientificEvidence:
+            "Studies demonstrate 300-600mg daily reduces cold/flu duration by 4 days and severity by 50% (J Int Med Res, 2004).",
+          bestTiming:
+            "Take in the morning for immune support. During illness, split dose morning and evening.",
+          effect: {
+            recovery: 0,
+            performance: 0,
+            mind: 0,
+            immune: 5,
+            joint: 0,
+            stressSleep: 0,
+            energy: 1,
+          },
+        },
 
-            {
-                id: "SUP010",
-                name: "Vitamin C",
-                imageUrl: "../images/Webp_pills_images/Vitamin_C.webp",
-                dosage: "1000mg",
-                supports: "Immune function & recovery",
-                whyRecommended: "Your quiz indicated immune support needs and heavy training load. This antioxidant supports immune function.",
-                scientificEvidence: "Research shows 1000mg daily reduces oxidative stress by 45% and infections by 52% in athletes (Nutrients, 2017).",
-                bestTiming: "Split dose: 500mg morning and 500mg evening for sustained levels.",
-                effect: { recovery: 2, performance: 2, mind: 1, immune: 5, joint: 1, stressSleep: 0, energy: 2 }
-            },
+        {
+          id: "SUP010",
+          name: "Vitamin C",
+          imageUrl: "../images/Webp_pills_images/Vitamin_C.webp",
+          dosage: "1000mg",
+          supports: "Immune function & recovery",
+          whyRecommended:
+            "Your quiz indicated immune support needs and heavy training load. This antioxidant supports immune function.",
+          scientificEvidence:
+            "Research shows 1000mg daily reduces oxidative stress by 45% and infections by 52% in athletes (Nutrients, 2017).",
+          bestTiming:
+            "Split dose: 500mg morning and 500mg evening for sustained levels.",
+          effect: {
+            recovery: 2,
+            performance: 2,
+            mind: 1,
+            immune: 5,
+            joint: 1,
+            stressSleep: 0,
+            energy: 2,
+          },
+        },
 
-            {
-                id: "SUP002",
-                name: "Cordyceps",
-                imageUrl: "../images/Webp_pills_images/Cordyceps.webp",
-                dosage: "500mg",
-                supports: "Energy & athletic performance",
-                whyRecommended: "Your quiz showed need for enhanced performance and energy. Cordyceps supports endurance and stamina.",
-                scientificEvidence: "Studies show 500mg daily improves oxygen utilization and exercise performance by 7% (J Alt Comp Med, 2010).",
-                bestTiming: "Take in the morning or 30 minutes before exercise.",
-                effect: { recovery: 2, performance: 4, mind: 2, immune: 2, joint: 0, stressSleep: 0, energy: 4 }
-            },
+        {
+          id: "SUP002",
+          name: "Cordyceps",
+          imageUrl: "../images/Webp_pills_images/Cordyceps.webp",
+          dosage: "500mg",
+          supports: "Energy & athletic performance",
+          whyRecommended:
+            "Your quiz showed need for enhanced performance and energy. Cordyceps supports endurance and stamina.",
+          scientificEvidence:
+            "Studies show 500mg daily improves oxygen utilization and exercise performance by 7% (J Alt Comp Med, 2010).",
+          bestTiming: "Take in the morning or 30 minutes before exercise.",
+          effect: {
+            recovery: 2,
+            performance: 4,
+            mind: 2,
+            immune: 2,
+            joint: 0,
+            stressSleep: 0,
+            energy: 4,
+          },
+        },
 
-            {
-                id: "SUP017",
-                name: "NAC",
-                imageUrl: "../images/Webp_pills_images/NAC.webp",
-                dosage: "1200mg",
-                supports: "Antioxidant defense & recovery",
-                whyRecommended: "Your quiz indicated heavy training load and oxidative stress. NAC supports glutathione production and respiratory health.",
-                scientificEvidence: "Studies demonstrate 1200mg daily reduces muscle damage by 18% and increases glutathione levels by 30% (J Int Soc Sports Nutr, 2010).",
-                bestTiming: "Take on empty stomach in the morning or post-workout.",
-                effect: { recovery: 3, performance: 2, mind: 3, immune: 3, joint: 0, stressSleep: 1, energy: 3 }
-            }
-        ];
+        {
+          id: "SUP017",
+          name: "NAC",
+          imageUrl: "../images/Webp_pills_images/NAC.webp",
+          dosage: "1200mg",
+          supports: "Antioxidant defense & recovery",
+          whyRecommended:
+            "Your quiz indicated heavy training load and oxidative stress. NAC supports glutathione production and respiratory health.",
+          scientificEvidence:
+            "Studies demonstrate 1200mg daily reduces muscle damage by 18% and increases glutathione levels by 30% (J Int Soc Sports Nutr, 2010).",
+          bestTiming: "Take on empty stomach in the morning or post-workout.",
+          effect: {
+            recovery: 3,
+            performance: 2,
+            mind: 3,
+            immune: 3,
+            joint: 0,
+            stressSleep: 1,
+            energy: 3,
+          },
+        },
+      ];
 
+      // Quiz Questions
+      const QUESTIONS = [
+        {
+          id: 1,
+          field: "ageRange",
+          question: "What is your age range?",
+          options: ["18-24", "25-34", "35-44", "45-54", "55+"],
+        },
+        {
+          id: 2,
+          field: "gender",
+          question: "What is your gender?",
+          options: ["Male", "Female", "Prefer not to say"],
+        },
+        {
+          id: 3,
+          field: "goal",
+          question: "What is your primary goal right now?",
+          options: [
+            "Recover faster and reduce soreness",
+            "Increase strength or endurance",
+            "Improve focus, mood, or mental clarity",
+            "Strengthen immunity and overall vitality",
+          ],
+        },
+        {
+          id: 4,
+          field: "activity",
+          question: "How active are you on a typical week?",
+          options: ["Light", "Moderate", "Intense"],
+        },
+        {
+          id: 5,
+          field: "postWorkout",
+          question: "How do you typically feel after workouts or long days?",
+          options: [
+            "I feel refreshed and ready to go again",
+            "Slightly sore or fatigued, but manageable",
+            "Very sore, stiff, or drained",
+            "More mentally drained than physically tired",
+          ],
+        },
+        {
+          id: 6,
+          field: "sleepStress",
+          question: "How would you describe your sleep and stress levels?",
+          options: [
+            "I sleep well and manage stress well",
+            "Sleep is okay and stress comes and goes",
+            "I struggle with sleep and frequent stress",
+            "I have poor sleep and high stress most of the time",
+          ],
+        },
+        {
+          id: 7,
+          field: "joints",
+          question: "How often do you experience joint pain or stiffness?",
+          options: [
+            "Rarely or never",
+            "Occasionally, but it's not too bothersome",
+            "It happens often, especially after activity",
+            "It's a persistent issue that affects my daily life",
+          ],
+        },
+        {
+          id: 8,
+          field: "lowEnergy",
+          question: 'How often do you feel low energy or "run down"?',
+          options: [
+            "Rarely - I feel energized most of the time",
+            "Occasionally, but I bounce back quickly",
+            "Often, I feel drained or fatigued",
+            "I feel low energy and fatigued all the time",
+          ],
+        },
+      ];
 
-        // Quiz Questions
-        const QUESTIONS = [
-            {
-                id: 1,
-                field: 'ageRange',
-                question: 'What is your age range?',
-                options: ['18-24', '25-34', '35-44', '45-54', '55+']
-            },
-            {
-                id: 2,
-                field: 'gender',
-                question: 'What is your gender?',
-                options: ['Male', 'Female', 'Prefer not to say']
-            },
-            {
-                id: 3,
-                field: 'goal',
-                question: 'What is your primary goal right now?',
-                options: [
-                    'Recover faster and reduce soreness',
-                    'Increase strength or endurance',
-                    'Improve focus, mood, or mental clarity',
-                    'Strengthen immunity and overall vitality'
-                ]
-            },
-            {
-                id: 4,
-                field: 'activity',
-                question: 'How active are you on a typical week?',
-                options: ['Light', 'Moderate', 'Intense']
-            },
-            {
-                id: 5,
-                field: 'postWorkout',
-                question: 'How do you typically feel after workouts or long days?',
-                options: [
-                    'I feel refreshed and ready to go again',
-                    'Slightly sore or fatigued, but manageable',
-                    'Very sore, stiff, or drained',
-                    'More mentally drained than physically tired'
-                ]
-            },
-            {
-                id: 6,
-                field: 'sleepStress',
-                question: 'How would you describe your sleep and stress levels?',
-                options: [
-                    'I sleep well and manage stress well',
-                    'Sleep is okay and stress comes and goes',
-                    'I struggle with sleep and frequent stress',
-                    'I have poor sleep and high stress most of the time'
-                ]
-            },
-            {
-                id: 7,
-                field: 'joints',
-                question: 'How often do you experience joint pain or stiffness?',
-                options: [
-                    'Rarely or never',
-                    'Occasionally, but it\'s not too bothersome',
-                    'It happens often, especially after activity',
-                    'It\'s a persistent issue that affects my daily life'
-                ]
-            },
-            {
-                id: 8,
-                field: 'lowEnergy',
-                question: 'How often do you feel low energy or "run down"?',
-                options: [
-                    'Rarely - I feel energized most of the time',
-                    'Occasionally, but I bounce back quickly',
-                    'Often, I feel drained or fatigued',
-                    'I feel low energy and fatigued all the time'
-                ]
-            }
-        ];
+      let currentQuestion = 0;
+      let answers = {};
+      let finalTopProducts = [];
+      let lastQuestionIndex = 0;
 
-        let currentQuestion = 0;
-        let answers = {};
-        let finalTopProducts = [];
-        let lastQuestionIndex = 0;
+      // Initialize Quiz
+      function renderQuestion() {
+        const question = QUESTIONS[currentQuestion];
+        const container = document.getElementById("questionContainer");
+        const progress = ((currentQuestion + 1) / QUESTIONS.length) * 100;
+        document.getElementById("progressBar").style.width = progress + "%";
 
-
-
-        // Initialize Quiz
-        function renderQuestion() {
-            const question = QUESTIONS[currentQuestion];
-            const container = document.getElementById('questionContainer');
-            const progress = ((currentQuestion + 1) / QUESTIONS.length) * 100;
-            document.getElementById('progressBar').style.width = progress + '%';
-
-            let html = `
+        let html = `
                 <div class="question-text">${question.question}</div>
                 <div class="options">
-                    ${question.options.map(option => `
-                        <button class="option-btn" onclick="selectAnswer('${question.field}', '${option.replace(/'/g, "\\'")}')">
+                    ${question.options
+                      .map(
+                        (option) => `
+                        <button class="option-btn" onclick="selectAnswer('${
+                          question.field
+                        }', '${option.replace(/'/g, "\\'")}')">
                             ${option}
                         </button>
-                    `).join('')}
+                    `
+                      )
+                      .join("")}
                 </div>
             `;
 
-            container.innerHTML = html;
+        container.innerHTML = html;
 
-            document.getElementById('backBtn').style.display = currentQuestion > 0 ? 'block' : 'none';
+        document.getElementById("backBtn").style.display =
+          currentQuestion > 0 ? "block" : "none";
+      }
+
+      function selectAnswer(field, value) {
+        answers[field] = value;
+        lastQuestionIndex = currentQuestion; // Save last question index
+        currentQuestion++;
+
+        if (currentQuestion < QUESTIONS.length) {
+          renderQuestion();
+        } else {
+          showResults();
         }
+      }
 
-        function selectAnswer(field, value) {
-            answers[field] = value;
-            lastQuestionIndex = currentQuestion; // Save last question index
-            currentQuestion++;
-
-            if (currentQuestion < QUESTIONS.length) {
-                renderQuestion();
-            } else {
-                showResults();
-            }
+      document.getElementById("backBtn").onclick = function () {
+        if (currentQuestion > 0) {
+          currentQuestion--;
+          renderQuestion();
         }
+      };
 
-        document.getElementById('backBtn').onclick = function () {
-            if (currentQuestion > 0) {
-                currentQuestion--;
-                renderQuestion();
-            }
+      // Recommendation Engine
+      function calculateNeeds() {
+        const needs = {
+          recovery: 0,
+          performance: 0,
+          mind: 0,
+          immune: 0,
+          joint: 0,
+          stressSleep: 0,
+          energy: 0,
         };
 
-        // Recommendation Engine
-        function calculateNeeds() {
-            const needs = {
-                recovery: 0,
-                performance: 0,
-                mind: 0,
-                immune: 0,
-                joint: 0,
-                stressSleep: 0,
-                energy: 0
-            };
+        // Age
+        const ageMap = {
+          "18-24": {},
+          "25-34": { recovery: 0.5, energy: 0.5 },
+          "35-44": { recovery: 1, joint: 0.5, energy: 1 },
+          "45-54": { recovery: 1.5, joint: 1.5, energy: 1.5, immune: 1 },
+          "55+": { recovery: 1.5, joint: 1.5, energy: 1.5, immune: 1 },
+        };
+        Object.assign(needs, ageMap[answers.ageRange] || {});
 
-            // Age
-            const ageMap = {
-                '18-24': {},
-                '25-34': { recovery: 0.5, energy: 0.5 },
-                '35-44': { recovery: 1, joint: 0.5, energy: 1 },
-                '45-54': { recovery: 1.5, joint: 1.5, energy: 1.5, immune: 1 },
-                '55+': { recovery: 1.5, joint: 1.5, energy: 1.5, immune: 1 }
-            };
-            Object.assign(needs, ageMap[answers.ageRange] || {});
+        // Gender
+        if (answers.gender === "Female") {
+          needs.energy += 0.5;
+          needs.immune += 0.5;
+        }
 
-            // Gender
-            if (answers.gender === 'Female') {
-                needs.energy += 0.5;
-                needs.immune += 0.5;
+        // Goal
+        const goalMap = {
+          "Recover faster and reduce soreness": { recovery: 3, joint: 2 },
+          "Increase strength or endurance": {
+            performance: 3,
+            recovery: 1.5,
+            energy: 1,
+          },
+          "Improve focus, mood, or mental clarity": {
+            mind: 3,
+            stressSleep: 2,
+            energy: 1,
+          },
+          "Strengthen immunity and overall vitality": {
+            immune: 3,
+            energy: 1.5,
+          },
+        };
+        const goalBonus = goalMap[answers.goal] || {};
+        Object.keys(goalBonus).forEach(
+          (key) => (needs[key] = (needs[key] || 0) + goalBonus[key])
+        );
+
+        // Activity
+        const activityMap = {
+          Light: { immune: 0.5 },
+          Moderate: { performance: 1, recovery: 1 },
+          Intense: { performance: 2, recovery: 2, energy: 1 },
+        };
+        const activityBonus = activityMap[answers.activity] || {};
+        Object.keys(activityBonus).forEach(
+          (key) => (needs[key] = (needs[key] || 0) + activityBonus[key])
+        );
+
+        // Post-Workout
+        const postWorkoutMap = {
+          "I feel refreshed and ready to go again": { performance: 0.5 },
+          "Slightly sore or fatigued, but manageable": {
+            recovery: 1,
+            performance: 0.5,
+          },
+          "Very sore, stiff, or drained": {
+            recovery: 3,
+            joint: 1.5,
+            energy: 1.5,
+          },
+          "More mentally drained than physically tired": {
+            mind: 2,
+            stressSleep: 2,
+            energy: 1,
+          },
+        };
+        const postWorkoutBonus = postWorkoutMap[answers.postWorkout] || {};
+        Object.keys(postWorkoutBonus).forEach(
+          (key) => (needs[key] = (needs[key] || 0) + postWorkoutBonus[key])
+        );
+
+        // Sleep & Stress
+        const sleepStressMap = {
+          "I sleep well and manage stress well": {},
+          "Sleep is okay and stress comes and goes": { stressSleep: 1 },
+          "I struggle with sleep and frequent stress": {
+            stressSleep: 3,
+            mind: 1,
+            recovery: 1,
+          },
+          "I have poor sleep and high stress most of the time": {
+            stressSleep: 4,
+            mind: 2,
+            energy: 1.5,
+          },
+        };
+        const sleepStressBonus = sleepStressMap[answers.sleepStress] || {};
+        Object.keys(sleepStressBonus).forEach(
+          (key) => (needs[key] = (needs[key] || 0) + sleepStressBonus[key])
+        );
+
+        // Joints
+        const jointsMap = {
+          "Rarely or never": {},
+          "Occasionally, but it's not too bothersome": {
+            joint: 1,
+            recovery: 0.5,
+          },
+          "It happens often, especially after activity": {
+            joint: 3,
+            recovery: 1,
+          },
+          "It's a persistent issue that affects my daily life": {
+            joint: 4,
+            recovery: 1.5,
+          },
+        };
+        const jointsBonus = jointsMap[answers.joints] || {};
+        Object.keys(jointsBonus).forEach(
+          (key) => (needs[key] = (needs[key] || 0) + jointsBonus[key])
+        );
+
+        // Low Energy
+        const energyMap = {
+          "Rarely - I feel energized most of the time": {},
+          "Occasionally, but I bounce back quickly": { energy: 1 },
+          "Often, I feel drained or fatigued": {
+            energy: 3,
+            immune: 1,
+            mind: 1,
+          },
+          "I feel low energy and fatigued all the time": {
+            energy: 4,
+            immune: 1.5,
+            mind: 1.5,
+          },
+        };
+        const energyBonus = energyMap[answers.lowEnergy] || {};
+        Object.keys(energyBonus).forEach(
+          (key) => (needs[key] = (needs[key] || 0) + energyBonus[key])
+        );
+
+        return needs;
+      }
+
+      function scoreProducts(needs) {
+        return PRODUCTS.map((product) => {
+          let baseScore = 0;
+          Object.keys(needs).forEach((need) => {
+            baseScore += needs[need] * (product.effect[need] || 0);
+          });
+
+          return {
+            product,
+            baseScore,
+            adjustedScore: baseScore,
+            boostNotes: [],
+          };
+        });
+      }
+
+      function applyBoosts(scores, needs) {
+        const isMasters = ["45-54", "55+"].includes(answers.ageRange);
+
+        scores.forEach((score) => {
+          const id = score.product.id;
+
+          // Masters boosts
+          if (isMasters) {
+            if (id === "SUP016") {
+              score.adjustedScore *= 1.2;
+              score.boostNotes.push(
+                "Age-related support: CoQ10 boosted (+20%)"
+              );
             }
-
-            // Goal
-            const goalMap = {
-                'Recover faster and reduce soreness': { recovery: 3, joint: 2 },
-                'Increase strength or endurance': { performance: 3, recovery: 1.5, energy: 1 },
-                'Improve focus, mood, or mental clarity': { mind: 3, stressSleep: 2, energy: 1 },
-                'Strengthen immunity and overall vitality': { immune: 3, energy: 1.5 }
-            };
-            const goalBonus = goalMap[answers.goal] || {};
-            Object.keys(goalBonus).forEach(key => needs[key] = (needs[key] || 0) + goalBonus[key]);
-
-            // Activity
-            const activityMap = {
-                'Light': { immune: 0.5 },
-                'Moderate': { performance: 1, recovery: 1 },
-                'Intense': { performance: 2, recovery: 2, energy: 1 }
-            };
-            const activityBonus = activityMap[answers.activity] || {};
-            Object.keys(activityBonus).forEach(key => needs[key] = (needs[key] || 0) + activityBonus[key]);
-
-            // Post-Workout
-            const postWorkoutMap = {
-                'I feel refreshed and ready to go again': { performance: 0.5 },
-                'Slightly sore or fatigued, but manageable': { recovery: 1, performance: 0.5 },
-                'Very sore, stiff, or drained': { recovery: 3, joint: 1.5, energy: 1.5 },
-                'More mentally drained than physically tired': { mind: 2, stressSleep: 2, energy: 1 }
-            };
-            const postWorkoutBonus = postWorkoutMap[answers.postWorkout] || {};
-            Object.keys(postWorkoutBonus).forEach(key => needs[key] = (needs[key] || 0) + postWorkoutBonus[key]);
-
-            // Sleep & Stress
-            const sleepStressMap = {
-                'I sleep well and manage stress well': {},
-                'Sleep is okay and stress comes and goes': { stressSleep: 1 },
-                'I struggle with sleep and frequent stress': { stressSleep: 3, mind: 1, recovery: 1 },
-                'I have poor sleep and high stress most of the time': { stressSleep: 4, mind: 2, energy: 1.5 }
-            };
-            const sleepStressBonus = sleepStressMap[answers.sleepStress] || {};
-            Object.keys(sleepStressBonus).forEach(key => needs[key] = (needs[key] || 0) + sleepStressBonus[key]);
-
-            // Joints
-            const jointsMap = {
-                'Rarely or never': {},
-                'Occasionally, but it\'s not too bothersome': { joint: 1, recovery: 0.5 },
-                'It happens often, especially after activity': { joint: 3, recovery: 1 },
-                'It\'s a persistent issue that affects my daily life': { joint: 4, recovery: 1.5 }
-            };
-            const jointsBonus = jointsMap[answers.joints] || {};
-            Object.keys(jointsBonus).forEach(key => needs[key] = (needs[key] || 0) + jointsBonus[key]);
-
-            // Low Energy
-            const energyMap = {
-                'Rarely - I feel energized most of the time': {},
-                'Occasionally, but I bounce back quickly': { energy: 1 },
-                'Often, I feel drained or fatigued': { energy: 3, immune: 1, mind: 1 },
-                'I feel low energy and fatigued all the time': { energy: 4, immune: 1.5, mind: 1.5 }
-            };
-            const energyBonus = energyMap[answers.lowEnergy] || {};
-            Object.keys(energyBonus).forEach(key => needs[key] = (needs[key] || 0) + energyBonus[key]);
-
-            return needs;
-        }
-
-        function scoreProducts(needs) {
-            return PRODUCTS.map(product => {
-                let baseScore = 0;
-                Object.keys(needs).forEach(need => {
-                    baseScore += needs[need] * (product.effect[need] || 0);
-                });
-
-                return {
-                    product,
-                    baseScore,
-                    adjustedScore: baseScore,
-                    boostNotes: []
-                };
-            });
-        }
-
-        function applyBoosts(scores, needs) {
-            const isMasters = ['45-54', '55+'].includes(answers.ageRange);
-
-            scores.forEach(score => {
-                const id = score.product.id;
-
-                // Masters boosts
-                if (isMasters) {
-                    if (id === 'SUP016') {
-                        score.adjustedScore *= 1.2;
-                        score.boostNotes.push('Age-related support: CoQ10 boosted (+20%)');
-                    }
-                    if (id === 'SUP011') {
-                        score.adjustedScore *= 1.2;
-                        score.boostNotes.push('Age-related joint support: Glucosamine boosted (+20%)');
-                    }
-                    if (id === 'SUP008') {
-                        score.adjustedScore *= 1.1;
-                        score.boostNotes.push('Age-related vitality: Vitamin D boosted (+10%)');
-                    }
-                }
-
-                // High stress/sleep
-                if (needs.stressSleep >= 3) {
-                    if (id === 'SUP006') {
-                        score.adjustedScore *= 1.2;
-                        score.boostNotes.push('High stress & poor sleep: Ashwagandha boosted (+20%)');
-                    }
-                    if (id === 'SUP007') {
-                        score.adjustedScore *= 1.15;
-                        score.boostNotes.push('High stress & poor sleep: Magnesium boosted (+15%)');
-                    }
-                }
-
-                // Joint pain
-                if (needs.joint >= 3) {
-                    if (id === 'SUP001') {
-                        score.adjustedScore *= 1.2;
-                        score.boostNotes.push('Significant joint pain: Turmeric boosted (+20%)');
-                    }
-                    if (id === 'SUP011') {
-                        score.adjustedScore *= 1.2;
-                        score.boostNotes.push('Significant joint pain: Glucosamine boosted (+20%)');
-                    }
-                    if (id === 'SUP019') {
-                        score.adjustedScore *= 1.1;
-                        score.boostNotes.push('Significant joint pain: Omega-3 boosted (+10%)');
-                    }
-                }
-
-                // Low energy
-                if (needs.energy >= 3) {
-                    if (['SUP009', 'SUP016', 'SUP002', 'SUP004'].includes(id)) {
-                        score.adjustedScore *= 1.15;
-                        score.boostNotes.push('Frequent low energy: energy-support supplement boosted (+15%)');
-                    }
-                }
-
-                // Female + low energy
-                if (answers.gender === 'Female' && needs.energy >= 2) {
-                    if (id === 'SUP021') {
-                        score.adjustedScore *= 1.2;
-                        score.boostNotes.push('Female & low energy: Iron prioritized (+20%)');
-                    }
-                    if (id === 'SUP009') {
-                        score.adjustedScore *= 1.1;
-                        score.boostNotes.push('Female & low energy: B12 prioritized (+10%)');
-                    }
-                }
-            });
-
-            return scores;
-        }
-
-        // function selectTopProducts(scores) {
-        //     scores.sort((a, b) => b.adjustedScore - a.adjustedScore);
-
-        //     const validScores = scores.filter(s => s.adjustedScore > 0);
-        //     if (validScores.length === 0) return [];
-
-        //     const maxScore = validScores[0].adjustedScore;
-        //     const threshold = maxScore * 0.25;
-        //     let candidates = validScores.filter(s => s.adjustedScore >= threshold);
-
-        //     // Ensure foundation
-        //     const hasFoundation = candidates.some(s => s.product.isFoundation);
-        //     if (!hasFoundation) {
-        //         const foundation = validScores.find(s => s.product.isFoundation);
-        //         if (foundation) {
-        //             candidates.push(foundation);
-        //             candidates.sort((a, b) => b.adjustedScore - a.adjustedScore);
-        //         }
-        //     }
-
-        //     // Minimum 4
-        //     while (candidates.length < 4 && candidates.length < validScores.length) {
-        //         const next = validScores.find(s => !candidates.includes(s));
-        //         if (next) candidates.push(next);
-        //     }
-
-        //     // 4 or 5
-        //     const top4 = candidates.slice(0, 4);
-        //     const fifth = candidates[4];
-        //     if (fifth && (fifth.adjustedScore / maxScore) >= 0.6) {
-        //         return candidates.slice(0, 5);
-        //     }
-
-        //     return top4;
-        // }
-
-        function selectTopProducts(scores) {
-            // Sort by score
-            scores.sort((a, b) => b.adjustedScore - a.adjustedScore);
-
-            // Only positive scores
-            const validScores = scores.filter(s => s.adjustedScore > 0);
-            if (validScores.length === 0) return [];
-
-            const maxScore = validScores[0].adjustedScore;
-            const threshold = maxScore * 0.25;
-
-            // Initial candidates
-            let candidates = validScores.filter(s => s.adjustedScore >= threshold);
-
-            // Ensure a foundation exists
-            const hasFoundation = candidates.some(s => s.product.isFoundation);
-            if (!hasFoundation) {
-                const foundation = validScores.find(s => s.product.isFoundation);
-                if (foundation) {
-                    candidates.push(foundation);
-                    candidates.sort((a, b) => b.adjustedScore - a.adjustedScore);
-                }
+            if (id === "SUP011") {
+              score.adjustedScore *= 1.2;
+              score.boostNotes.push(
+                "Age-related joint support: Glucosamine boosted (+20%)"
+              );
             }
-
-            // ⭐ ALWAYS produce 5 products
-            // Fill candidates until exactly 5
-            for (let s of validScores) {
-                if (candidates.length >= 5) break;
-                if (!candidates.includes(s)) {
-                    candidates.push(s);
-                }
+            if (id === "SUP008") {
+              score.adjustedScore *= 1.1;
+              score.boostNotes.push(
+                "Age-related vitality: Vitamin D boosted (+10%)"
+              );
             }
+          }
 
-            // Safety: in case fewer than 5 valid scores exist
-            return candidates.slice(0, 5);
-        }
-
-
-        // function showResults() {
-        //     document.getElementById('quizSection').style.display = 'none';
-        //     document.getElementById('resultsSection').style.display = 'block';
-
-        //     const needs = calculateNeeds();
-        //     let scores = scoreProducts(needs);
-        //     scores = applyBoosts(scores, needs);
-        //     const topProducts = selectTopProducts(scores);
-
-        //     // Calculate price
-        //     // const pricePerProduct = 14.99;
-        //     // const total = (topProducts.length * pricePerProduct).toFixed(2);
-        //     // document.getElementById('packTotal').textContent = '$' + total;
-
-        //     // Render products
-        //     const container = document.getElementById('productsContainer');
-        //     container.innerHTML = topProducts.map((item, index) => `
-        //         <div class="product-card">
-        //             <div class="product-header" onclick="toggleProduct('product${index}')">
-        //                 <div class="product-icon">   <img 
-        //                     src="${item.product.imageUrl}" 
-        //                     alt="${item.product.name}" 
-        //                     class="product-icon-img"
-        //                 /></div>
-
-        //                 <div class="product-info">
-        //                     <div class="product-name">${item.product.name}</div>
-        //                     <div class="product-supports">${item.product.supports}</div>
-        //                 </div>
-        //                 <span class="expand-icon" id="icon${index}">▼</span>
-        //             </div>
-        //             <div class="product-details" id="product${index}">
-        //                 <span class="dosage-badge">${item.product.dosage}</span>
-
-        //                 <div class="detail-section">
-        //                     <div class="detail-title">
-        //                         <span class="detail-bullet"></span>
-        //                         Why Recommended
-        //                     </div>
-        //                     <div class="detail-text">${item.product.whyRecommended}</div>
-        //                 </div>
-
-        //                 <div class="detail-section">
-        //                     <div class="detail-title">
-        //                         <span class="detail-bullet"></span>
-        //                         Scientific Evidence
-        //                     </div>
-        //                     <div class="detail-text">${item.product.scientificEvidence}</div>
-        //                 </div>
-
-        //                 <div class="detail-section">
-        //                     <div class="detail-title">
-        //                         <span class="detail-bullet"></span>
-        //                         Best Timing
-        //                     </div>
-        //                     <div class="detail-text">${item.product.bestTiming}</div>
-        //                 </div>
-
-        //                 ${item.boostNotes.length > 0 ? `
-        //                     <div class="boost-notes">
-        //                         <strong>Personalized for you:</strong> ${item.boostNotes.join(' • ')}
-        //                     </div>
-        //                 ` : ''}
-        //             </div>
-        //         </div>
-        //     `).join('');
-
-        //     window.scrollTo(0, 0);
-        // }
-
-        function showResults() {
-            document.getElementById('quizSection').style.display = 'none';
-
-            const needs = calculateNeeds();
-            let scores = scoreProducts(needs);
-            scores = applyBoosts(scores, needs);
-            finalTopProducts = selectTopProducts(scores);
-
-            // Show email gate instead of actual results
-            document.getElementById('emailGateSection').style.display = 'block';
-            window.scrollTo(0, 0);
-        }
-
-        function goBackToLastQuestion() {
-            document.getElementById('emailGateSection').style.display = 'none';
-            document.getElementById('quizSection').style.display = 'block';
-
-            currentQuestion = lastQuestionIndex;
-            renderQuestion();
-            window.scrollTo(0, 0);
-        }
-
-
-        async function submitEmailAndShowResults() {
-            const emailInput = document.getElementById('userEmail');
-            const email = emailInput.value.trim();
-            const emailError = document.getElementById('emailError');
-
-            // Basic email validation
-            const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-            if (!valid) {
-                emailError.style.display = "block";
-                return;
+          // High stress/sleep
+          if (needs.stressSleep >= 3) {
+            if (id === "SUP006") {
+              score.adjustedScore *= 1.2;
+              score.boostNotes.push(
+                "High stress & poor sleep: Ashwagandha boosted (+20%)"
+              );
             }
+            if (id === "SUP007") {
+              score.adjustedScore *= 1.15;
+              score.boostNotes.push(
+                "High stress & poor sleep: Magnesium boosted (+15%)"
+              );
+            }
+          }
 
-            emailError.style.display = "none";
+          // Joint pain
+          if (needs.joint >= 3) {
+            if (id === "SUP001") {
+              score.adjustedScore *= 1.2;
+              score.boostNotes.push(
+                "Significant joint pain: Turmeric boosted (+20%)"
+              );
+            }
+            if (id === "SUP011") {
+              score.adjustedScore *= 1.2;
+              score.boostNotes.push(
+                "Significant joint pain: Glucosamine boosted (+20%)"
+              );
+            }
+            if (id === "SUP019") {
+              score.adjustedScore *= 1.1;
+              score.boostNotes.push(
+                "Significant joint pain: Omega-3 boosted (+10%)"
+              );
+            }
+          }
 
-            // Prepare user message
-            const supplementList = finalTopProducts.map(p => {
-                return `• ${p.product.name} — ${p.product.supports}`;
-            }).join("\n");
+          // Low energy
+          if (needs.energy >= 3) {
+            if (["SUP009", "SUP016", "SUP002", "SUP004"].includes(id)) {
+              score.adjustedScore *= 1.15;
+              score.boostNotes.push(
+                "Frequent low energy: energy-support supplement boosted (+15%)"
+              );
+            }
+          }
 
-            // Full email body
-            const messageHTML = `
+          // Female + low energy
+          if (answers.gender === "Female" && needs.energy >= 2) {
+            if (id === "SUP021") {
+              score.adjustedScore *= 1.2;
+              score.boostNotes.push(
+                "Female & low energy: Iron prioritized (+20%)"
+              );
+            }
+            if (id === "SUP009") {
+              score.adjustedScore *= 1.1;
+              score.boostNotes.push(
+                "Female & low energy: B12 prioritized (+10%)"
+              );
+            }
+          }
+        });
+
+        return scores;
+      }
+
+      // function selectTopProducts(scores) {
+      //     scores.sort((a, b) => b.adjustedScore - a.adjustedScore);
+
+      //     const validScores = scores.filter(s => s.adjustedScore > 0);
+      //     if (validScores.length === 0) return [];
+
+      //     const maxScore = validScores[0].adjustedScore;
+      //     const threshold = maxScore * 0.25;
+      //     let candidates = validScores.filter(s => s.adjustedScore >= threshold);
+
+      //     // Ensure foundation
+      //     const hasFoundation = candidates.some(s => s.product.isFoundation);
+      //     if (!hasFoundation) {
+      //         const foundation = validScores.find(s => s.product.isFoundation);
+      //         if (foundation) {
+      //             candidates.push(foundation);
+      //             candidates.sort((a, b) => b.adjustedScore - a.adjustedScore);
+      //         }
+      //     }
+
+      //     // Minimum 4
+      //     while (candidates.length < 4 && candidates.length < validScores.length) {
+      //         const next = validScores.find(s => !candidates.includes(s));
+      //         if (next) candidates.push(next);
+      //     }
+
+      //     // 4 or 5
+      //     const top4 = candidates.slice(0, 4);
+      //     const fifth = candidates[4];
+      //     if (fifth && (fifth.adjustedScore / maxScore) >= 0.6) {
+      //         return candidates.slice(0, 5);
+      //     }
+
+      //     return top4;
+      // }
+
+      function selectTopProducts(scores) {
+        // Sort by score
+        scores.sort((a, b) => b.adjustedScore - a.adjustedScore);
+
+        // Only positive scores
+        const validScores = scores.filter((s) => s.adjustedScore > 0);
+        if (validScores.length === 0) return [];
+
+        const maxScore = validScores[0].adjustedScore;
+        const threshold = maxScore * 0.25;
+
+        // Initial candidates
+        let candidates = validScores.filter(
+          (s) => s.adjustedScore >= threshold
+        );
+
+        // Ensure a foundation exists
+        const hasFoundation = candidates.some((s) => s.product.isFoundation);
+        if (!hasFoundation) {
+          const foundation = validScores.find((s) => s.product.isFoundation);
+          if (foundation) {
+            candidates.push(foundation);
+            candidates.sort((a, b) => b.adjustedScore - a.adjustedScore);
+          }
+        }
+
+        // ⭐ ALWAYS produce 5 products
+        // Fill candidates until exactly 5
+        for (let s of validScores) {
+          if (candidates.length >= 5) break;
+          if (!candidates.includes(s)) {
+            candidates.push(s);
+          }
+        }
+
+        // Safety: in case fewer than 5 valid scores exist
+        return candidates.slice(0, 5);
+      }
+
+      // function showResults() {
+      //     document.getElementById('quizSection').style.display = 'none';
+      //     document.getElementById('resultsSection').style.display = 'block';
+
+      //     const needs = calculateNeeds();
+      //     let scores = scoreProducts(needs);
+      //     scores = applyBoosts(scores, needs);
+      //     const topProducts = selectTopProducts(scores);
+
+      //     // Calculate price
+      //     // const pricePerProduct = 14.99;
+      //     // const total = (topProducts.length * pricePerProduct).toFixed(2);
+      //     // document.getElementById('packTotal').textContent = '$' + total;
+
+      //     // Render products
+      //     const container = document.getElementById('productsContainer');
+      //     container.innerHTML = topProducts.map((item, index) => `
+      //         <div class="product-card">
+      //             <div class="product-header" onclick="toggleProduct('product${index}')">
+      //                 <div class="product-icon">   <img
+      //                     src="${item.product.imageUrl}"
+      //                     alt="${item.product.name}"
+      //                     class="product-icon-img"
+      //                 /></div>
+
+      //                 <div class="product-info">
+      //                     <div class="product-name">${item.product.name}</div>
+      //                     <div class="product-supports">${item.product.supports}</div>
+      //                 </div>
+      //                 <span class="expand-icon" id="icon${index}">▼</span>
+      //             </div>
+      //             <div class="product-details" id="product${index}">
+      //                 <span class="dosage-badge">${item.product.dosage}</span>
+
+      //                 <div class="detail-section">
+      //                     <div class="detail-title">
+      //                         <span class="detail-bullet"></span>
+      //                         Why Recommended
+      //                     </div>
+      //                     <div class="detail-text">${item.product.whyRecommended}</div>
+      //                 </div>
+
+      //                 <div class="detail-section">
+      //                     <div class="detail-title">
+      //                         <span class="detail-bullet"></span>
+      //                         Scientific Evidence
+      //                     </div>
+      //                     <div class="detail-text">${item.product.scientificEvidence}</div>
+      //                 </div>
+
+      //                 <div class="detail-section">
+      //                     <div class="detail-title">
+      //                         <span class="detail-bullet"></span>
+      //                         Best Timing
+      //                     </div>
+      //                     <div class="detail-text">${item.product.bestTiming}</div>
+      //                 </div>
+
+      //                 ${item.boostNotes.length > 0 ? `
+      //                     <div class="boost-notes">
+      //                         <strong>Personalized for you:</strong> ${item.boostNotes.join(' • ')}
+      //                     </div>
+      //                 ` : ''}
+      //             </div>
+      //         </div>
+      //     `).join('');
+
+      //     window.scrollTo(0, 0);
+      // }
+
+      function showResults() {
+        document.getElementById("quizSection").style.display = "none";
+
+        const needs = calculateNeeds();
+        let scores = scoreProducts(needs);
+        scores = applyBoosts(scores, needs);
+        finalTopProducts = selectTopProducts(scores);
+
+        // Show email gate instead of actual results
+        document.getElementById("emailGateSection").style.display = "block";
+        window.scrollTo(0, 0);
+      }
+
+      function goBackToLastQuestion() {
+        document.getElementById("emailGateSection").style.display = "none";
+        document.getElementById("quizSection").style.display = "block";
+
+        currentQuestion = lastQuestionIndex;
+        renderQuestion();
+        window.scrollTo(0, 0);
+      }
+
+      async function submitEmailAndShowResults() {
+        const emailInput = document.getElementById("userEmail");
+        const email = emailInput.value.trim();
+        const emailError = document.getElementById("emailError");
+
+        // Basic email validation
+        const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        if (!valid) {
+          emailError.style.display = "block";
+          return;
+        }
+
+        emailError.style.display = "none";
+
+        // Prepare user message
+        const supplementList = finalTopProducts
+          .map((p) => {
+            return `• ${p.product.name} — ${p.product.supports}`;
+          })
+          .join("\n");
+
+        // Full email body
+        const messageHTML = `
 <p>Hi,</p>
 
 <p>Thank you for completing the OptiGenix quiz! You’ve taken the first step toward a supplement plan designed specifically for your body and goals.</p>
@@ -1258,7 +1565,12 @@
 <p>Based on your responses, we’ve selected the supplements that best support your performance and overall wellness:</p>
 
 <ul>
-  ${finalTopProducts.map(p => `<li><strong>${p.product.name}</strong> — ${p.product.supports}</li>`).join("")}
+  ${finalTopProducts
+    .map(
+      (p) =>
+        `<li><strong>${p.product.name}</strong> — ${p.product.supports}</li>`
+    )
+    .join("")}
 </ul>
 
 <p>You can order your personalized supplements directly through the link below and start optimizing your health today:</p>
@@ -1276,15 +1588,16 @@
 <p>Best regards,<br>The OptiGenix Team</p>
 `;
 
-
-            const messageText = `
+        const messageText = `
 Hi,
 
 Thank you for completing the OptiGenix quiz!
 
 Your supplements:
 
-${finalTopProducts.map(p => `• ${p.product.name} — ${p.product.supports}`).join("\n")}
+${finalTopProducts
+  .map((p) => `• ${p.product.name} — ${p.product.supports}`)
+  .join("\n")}
 
 Order your personalized pack:
 https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01
@@ -1292,49 +1605,50 @@ https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01
 - OptiGenix Team
 `;
 
-            // API requests default to same origin (works locally via `vercel dev` and in production)
-            const endpoint = "/api/send-mail";
+        // API requests default to same origin (works locally via `vercel dev` and in production)
+        const endpoint = "/api/send-mail";
 
-            try {
-                const response = await fetch(endpoint, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        email: email,
-                        subject: 'Your Personalized Supplement Plan from OptiGenix',
-                        messageHTML,
-                        messageText
-                    }),
-                    signal: AbortSignal.timeout(10000)
-                });
+        try {
+          const response = await fetch(endpoint, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: email,
+              subject: "Your Personalized Supplement Plan from OptiGenix",
+              messageHTML,
+              messageText,
+            }),
+            signal: AbortSignal.timeout(10000),
+          });
 
-                if (!response.ok) {
-                    console.error("Email API error:", await response.text());
-                }
-
-            } catch (err) {
-                console.error("Email API failed:", err);
-            }
-
-            // Hide email input → Show results
-            document.getElementById('emailGateSection').style.display = "none";
-            document.getElementById('resultsSection').style.display = "block";
-
-            renderFinalProducts();
+          if (!response.ok) {
+            console.error("Email API error:", await response.text());
+          }
+        } catch (err) {
+          console.error("Email API failed:", err);
         }
 
+        // Hide email input → Show results
+        document.getElementById("emailGateSection").style.display = "none";
+        document.getElementById("resultsSection").style.display = "block";
 
+        renderFinalProducts();
+      }
 
-        function renderFinalProducts() {
-            const container = document.getElementById('productsContainer');
+      function renderFinalProducts() {
+        const container = document.getElementById("productsContainer");
 
-            container.innerHTML = finalTopProducts.map((item, index) => `
+        container.innerHTML = finalTopProducts
+          .map(
+            (item, index) => `
         <div class="product-card">
             <div class="product-header" onclick="toggleProduct('product${index}')">
                 <div class="product-icon">
-                    <img src="${item.product.imageUrl}" class="product-icon-img" />
+                    <img src="${
+                      item.product.imageUrl
+                    }" class="product-icon-img" />
                 </div>
 
                 <div class="product-info">
@@ -1350,12 +1664,16 @@ https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01
 
                 <div class="detail-section">
                     <div class="detail-title"><span class="detail-bullet"></span>Why Recommended</div>
-                    <div class="detail-text">${item.product.whyRecommended}</div>
+                    <div class="detail-text">${
+                      item.product.whyRecommended
+                    }</div>
                 </div>
 
                 <div class="detail-section">
                     <div class="detail-title"><span class="detail-bullet"></span>Scientific Evidence</div>
-                    <div class="detail-text">${item.product.scientificEvidence}</div>
+                    <div class="detail-text">${
+                      item.product.scientificEvidence
+                    }</div>
                 </div>
 
                 <div class="detail-section">
@@ -1363,46 +1681,52 @@ https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01
                     <div class="detail-text">${item.product.bestTiming}</div>
                 </div>
 
-                ${item.boostNotes.length > 0 ? `
+                ${
+                  item.boostNotes.length > 0
+                    ? `
                     <div class="boost-notes">
-                        <strong>Personalized for you:</strong> ${item.boostNotes.join(' • ')}
+                        <strong>Personalized for you:</strong> ${item.boostNotes.join(
+                          " • "
+                        )}
                     </div>
-                ` : ""}
+                `
+                    : ""
+                }
             </div>
         </div>
-    `).join('');
+    `
+          )
+          .join("");
 
-            window.scrollTo(0, 0);
+        window.scrollTo(0, 0);
+      }
+
+      function toggleProduct(productId) {
+        const details = document.getElementById(productId);
+        const icon = document.getElementById(
+          productId.replace("product", "icon")
+        );
+
+        if (details.classList.contains("show")) {
+          details.classList.remove("show");
+          icon.classList.remove("rotated");
+        } else {
+          details.classList.add("show");
+          icon.classList.add("rotated");
         }
+      }
 
-
-
-
-        function toggleProduct(productId) {
-            const details = document.getElementById(productId);
-            const icon = document.getElementById(productId.replace('product', 'icon'));
-
-            if (details.classList.contains('show')) {
-                details.classList.remove('show');
-                icon.classList.remove('rotated');
-            } else {
-                details.classList.add('show');
-                icon.classList.add('rotated');
-            }
-        }
-
-        function restartQuiz() {
-            currentQuestion = 0;
-            answers = {};
-            document.getElementById('resultsSection').style.display = 'none';
-            document.getElementById('quizSection').style.display = 'block';
-            renderQuestion();
-            window.scrollTo(0, 0);
-        }
-
-        // Start the quiz
+      function restartQuiz() {
+        currentQuestion = 0;
+        answers = {};
+        document.getElementById("resultsSection").style.display = "none";
+        document.getElementById("quizSection").style.display = "block";
         renderQuestion();
-    </script>
-</body>
+        window.scrollTo(0, 0);
+      }
 
+      // Start the quiz
+      renderQuestion();
+    </script>
+  </body>
 </html>
