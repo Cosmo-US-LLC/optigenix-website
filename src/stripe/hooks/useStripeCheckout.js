@@ -54,6 +54,18 @@ export const useStripeCheckout = ({
           },
         ]);
         setTotals(calculatedTotals);
+        
+        // Console log pricing for quiz product
+        if (id === "prod_SY2K6QwnWgLby1") {
+          console.log("💰 Pricing on QUIZ_PRODUCT:", {
+            productId: product.productId,
+            productName: product.productName,
+            amount: product.amount,
+            currency: product.currency || "USD",
+            prices: product.prices || [],
+            totals: calculatedTotals,
+          });
+        }
       } else {
         throw new Error(`Product ${id} not found`);
       }

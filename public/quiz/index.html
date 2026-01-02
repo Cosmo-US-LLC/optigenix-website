@@ -2074,7 +2074,8 @@ https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01
             } catch (e) {
               // Cross-origin, can't access parent
             }
-            return "/";
+            // Default to production backend
+            return "https://optigenix-website-backend.vercel.app/";
           };
 
           const apiBase = getApiBase();

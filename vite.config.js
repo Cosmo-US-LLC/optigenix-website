@@ -32,7 +32,7 @@ export default defineConfig(({ mode }) => {
         env.VITE_STRIPE_PUBLISHABLE_KEY || "pk_test_your_key_here"
       ),
       "import.meta.env.VITE_BACKEND_URL": JSON.stringify(
-        env.VITE_BACKEND_URL || "http://localhost:5000"
+        env.VITE_BACKEND_URL || "https://optigenix-website-backend.vercel.app"
       ),
     },
   };

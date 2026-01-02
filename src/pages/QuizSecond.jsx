@@ -15,7 +15,8 @@ const getApiBase = () => {
     return baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`;
   }
 
-  return "/";
+  // Default to production backend
+  return "https://optigenix-website-backend.vercel.app/";
 };
 
 const QuizSecond = () => {

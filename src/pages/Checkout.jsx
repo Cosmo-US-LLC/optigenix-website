@@ -9,8 +9,8 @@ import {
 } from "../stripe";
 
 // Product IDs for different sources
-const QUIZ_PRODUCT_ID = "prod_TiTdNCHZIX4wxg";
-const GENE_TEST_PRODUCT_ID = "prod_TiTbpgcnqcuA5d";
+const QUIZ_PRODUCT_ID = "prod_SY2K6QwnWgLby1";
+const GENE_TEST_PRODUCT_ID = "prod_TZyHo3lxkvrykA";
 
 // Initialize state from localStorage and URL
 const getInitialState = (pathname) => {
@@ -148,7 +148,7 @@ const Checkout = () => {
   const [paymentError, setPaymentError] = useState(null);
 
   // Dynamically determine product ID based on checkout source and URL
-  // Gene test uses prod_TiTbpgcnqcuA5d, Quiz uses prod_TiTdNCHZIX4wxg
+  // Gene test uses prod_TZyHo3lxkvrykA, Quiz uses prod_SY2K6QwnWgLby1
   const productId = initialState.productId || null;
 
   console.log("🛒 Checkout URL Path:", location.pathname);
@@ -163,7 +163,7 @@ const Checkout = () => {
     totals,
     processPayment,
   } = useStripeCheckout({
-    productId: productId, // Gene test: prod_TiTbpgcnqcuA5d, Quiz: prod_TiTdNCHZIX4wxg
+    productId: productId, // Gene test: prod_TZyHo3lxkvrykA, Quiz: prod_SY2K6QwnWgLby1
     onSuccess: (paymentIntent) => {
       console.log("Payment successful:", paymentIntent);
       handleSuccess(paymentIntent);

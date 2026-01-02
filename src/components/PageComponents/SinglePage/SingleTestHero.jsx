@@ -5,7 +5,7 @@ import heroImage from "@/assets/images/single_test/single_hero/hero_section_img1
 import heroImagemob from "@/assets/images/single_test/single_hero/mob_hero1.webp";
 
 // Default product ID for gene test
-const DEFAULT_PRODUCT_ID = "prod_TiTbpgcnqcuA5d";
+const DEFAULT_PRODUCT_ID = "prod_TZyHo3lxkvrykA";
 
 const SingleTestHero = ({ productId = DEFAULT_PRODUCT_ID }) => {
   const navigate = useNavigate();

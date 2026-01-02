@@ -9,8 +9,37 @@ import process from "process";
 
 dotenv.config();
 
-// Stripe Setup
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+// Stripe Setup with validation
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+
+if (!stripeSecretKey) {
+  console.error(
+    "❌ ERROR: STRIPE_SECRET_KEY is not set in environment variables!"
+  );
+  console.error("   Please set STRIPE_SECRET_KEY in your .env file");
+  process.exit(1);
+}
+
+// Validate key format
+if (
+  !stripeSecretKey.startsWith("sk_test_") &&
+  !stripeSecretKey.startsWith("sk_live_")
+) {
+  console.warn("⚠️ WARNING: Stripe secret key format may be incorrect!");
+  console.warn(
+    "   Expected: sk_test_... (test mode) or sk_live_... (live mode)"
+  );
+}
+
+const isLiveMode = stripeSecretKey.startsWith("sk_live_");
+if (isLiveMode) {
+  console.warn("🔴 LIVE MODE: Using production Stripe keys!");
+  console.warn("   Real payments will be processed.");
+} else {
+  console.log("🟢 TEST MODE: Using test Stripe keys");
+}
+
+const stripe = new Stripe(stripeSecretKey);
 
 // Email Setup
 const client = new SMTPClient({
@@ -23,16 +52,34 @@ const client = new SMTPClient({
 // Express Setup
 const app = express();
 
+// CORS Configuration
+// Update these origins for production deployment
+const allowedOrigins = [
+  "http://localhost:5173", // Local development
+  "http://localhost:3000", // Alternative local port
+  "http://138.197.29.179:4173", // Staging server
+  // Add your production domains here:
+  // "https://yourdomain.com",
+  // "https://www.yourdomain.com",
+];
+
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "http://138.197.29.179:4173",
-      "http://localhost:3000",
-      "https://yourdomain.com",
-    ],
+    origin: (origin, callback) => {
+      // Allow requests with no origin (like mobile apps or curl requests)
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        // In production, you might want to log this
+        console.warn(`CORS blocked origin: ${origin}`);
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: "GET,POST,PUT",
     allowedHeaders: "Content-Type",
+    credentials: true,
   })
 );
 

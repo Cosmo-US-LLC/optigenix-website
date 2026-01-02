@@ -18,8 +18,8 @@ const API_BASE = (() => {
     return baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`;
   }
 
-  // Default to current origin (works if backend serves frontend)
-  return "/";
+  // Default to production backend
+  return "https://optigenix-website-backend.vercel.app/";
 })();
 
 const NewsLetterForm = () => {
