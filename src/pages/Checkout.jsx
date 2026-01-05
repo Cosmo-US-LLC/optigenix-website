@@ -11,12 +11,12 @@ import {
 } from "../stripe";
 
 // Product IDs for different sources for live
-// const QUIZ_PRODUCT_ID = "prod_SY2K6QwnWgLby1";
-// const GENE_TEST_PRODUCT_ID = "prod_TZyHo3lxkvrykA";
+const QUIZ_PRODUCT_ID = "prod_SY2K6QwnWgLby1";
+const GENE_TEST_PRODUCT_ID = "prod_TZyHo3lxkvrykA";
 
 // Product IDs for different sources for test
-const QUIZ_PRODUCT_ID = "prod_TiTdNCHZIX4wxg";
-const GENE_TEST_PRODUCT_ID = "prod_TiTbpgcnqcuA5d";
+// const QUIZ_PRODUCT_ID = "prod_TiTdNCHZIX4wxg";
+// const GENE_TEST_PRODUCT_ID = "prod_TiTbpgcnqcuA5d";
 
 // Initialize state from localStorage and URL
 const getInitialState = (pathname) => {
