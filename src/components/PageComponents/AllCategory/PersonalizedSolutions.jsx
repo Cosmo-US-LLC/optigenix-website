@@ -20,7 +20,7 @@ const PersonalizedSolutions = () => {
   const [isBloodModalOpen, setIsBloodModalOpen] = useState(false);
 
   const handleDiscoverMore = () => navigate("/gene-test");
-  const handleJoinWaitlist = () => navigate("/join-wait-list");
+  const handleJoinWaitlist = () => navigate("/join-wait-list?test=Blood Test");
   return (
     <section
       id="personalized-solutions"

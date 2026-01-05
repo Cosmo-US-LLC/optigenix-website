@@ -225,7 +225,7 @@ const PersonalizedTests = () => {
               {/* CTA Button */}
               <button
                 className="w-fit btn_black"
-                onClick={() => navigate("/join-wait-list")}
+                onClick={() => navigate("/join-wait-list?test=Blood Test")}
               >
                 Join Waitlist
               </button>

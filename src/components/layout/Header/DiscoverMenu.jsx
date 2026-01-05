@@ -23,7 +23,7 @@ const DiscoverMenu = ({ isOpen, onClose }) => {
   };
 
   const handleWaitlistClick = () => {
-    navigate("/join-wait-list");
+    navigate("/join-wait-list?test=Blood Test");
     onClose();
   };
 
