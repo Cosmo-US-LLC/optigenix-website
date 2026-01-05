@@ -59,8 +59,8 @@ const FeatureCard = ({
 const WhatsNext = () => {
   const navigate = useNavigate();
 
-  const handleJoinWaitlist = () => {
-    navigate("/join-wait-list");
+  const handleJoinWaitlist = (testType) => {
+    navigate(`/join-wait-list?test=${testType}`);
   };
 
   const features = [
@@ -70,6 +70,7 @@ const WhatsNext = () => {
       title: "OptiGenix Blueprint",
       description: "A complete bio-data performance roadmap.",
       buttonLabel: "Join the Waitlist",
+      testType: "Blueprint",
     },
     {
       image: optiGenixElite,
@@ -77,6 +78,7 @@ const WhatsNext = () => {
       title: "OptiGenix Elite",
       description: "A private precision program for athletes.",
       buttonLabel: "Join the Waitlist",
+      testType: "Elite",
     },
   ];
 
@@ -99,7 +101,7 @@ const WhatsNext = () => {
                 title={feature.title}
                 description={feature.description}
                 buttonLabel={feature.buttonLabel}
-                onButtonClick={handleJoinWaitlist}
+                onButtonClick={() => handleJoinWaitlist(feature.testType)}
               />
             ))}
           </div>

@@ -119,6 +119,23 @@
   font-optical-sizing: auto;
   font-style: normal;
 }
+
+/* Stripe Elements Styling */
+.StripeElement {
+  width: 100%;
+}
+
+.StripeElement--focus {
+  outline: none;
+}
+
+.StripeElement--invalid {
+  color: #dc2626;
+}
+
+.StripeElement--empty {
+  color: rgba(1, 9, 7, 0.5);
+}
 @layer base {
   :root {
     --background: 0 0% 100%;

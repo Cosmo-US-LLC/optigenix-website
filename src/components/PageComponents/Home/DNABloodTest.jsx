@@ -13,7 +13,7 @@ const DNABloodTest = () => {
             Looking for a More Personalized Supplement Approach?
           </h2>
           <p className="font-['Inter'] font-normal text-[14px] md:text-[18px] leading-[22px] md:leading-[26px] text-[#010907]">
-            Discover exactly what your body needs with our DNA and Performance
+            Discover exactly what your body needs with our Gene and Performance
             Blood analysis. These comprehensive tests are designed to create
             your fully personalized supplement plan.
           </p>
@@ -46,7 +46,7 @@ const DNABloodTest = () => {
                 {/* Title and Description */}
                 <div className="space-y-[18px] text-white">
                   <h3 className="font-['Funnel_Display'] font-medium text-[20px] md:text-[24px] leading-[22px] md:leading-[20px]">
-                    DNA Test: Unlock Your Genetic Potential
+                    Gene Test: Unlock Your Genetic Potential
                   </h3>
                   <p className="font-inter font-normal text-[16px] leading-[20px]">
                     Easy and effective test to personalize your nutrition,

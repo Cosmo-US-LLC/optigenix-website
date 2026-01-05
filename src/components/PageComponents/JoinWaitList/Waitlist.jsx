@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { Check, X } from "lucide-react";
 import {
   AlertDialog,
@@ -28,8 +28,8 @@ const API_BASE = (() => {
     return baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`;
   }
 
-  // Default to current origin (works if backend serves frontend)
-  return "/";
+  // Default to production backend
+  return "https://optigenix-website-backend.vercel.app/";
 })();
 
 const CheckBox = ({ isChecked, onClick, className = "" }) => {
@@ -53,9 +53,40 @@ const CheckBox = ({ isChecked, onClick, className = "" }) => {
   );
 };
 
-const Waitlist = () => {
+const Waitlist = ({ defaultSelected = null }) => {
   const navigate = useNavigate();
-  const [selectedTests, setSelectedTests] = useState(["test1"]); // Start with test1 selected
+  const [searchParams] = useSearchParams();
+
+  // Map prop/URL values to test IDs
+  const getTestIdFromValue = (value) => {
+    const normalizedValue = value?.toLowerCase().trim();
+    if (normalizedValue === "blueprint") return "test1";
+    if (normalizedValue === "elite") return "test2";
+    if (normalizedValue === "blood test" || normalizedValue === "bloodtest")
+      return "test3";
+    return null;
+  };
+
+  // Get initial selection from prop or URL param
+  const getInitialSelection = () => {
+    // Check URL param first
+    const urlParam = searchParams.get("test") || searchParams.get("type");
+    if (urlParam) {
+      const testId = getTestIdFromValue(urlParam);
+      if (testId) return [testId];
+    }
+
+    // Check prop
+    if (defaultSelected) {
+      const testId = getTestIdFromValue(defaultSelected);
+      if (testId) return [testId];
+    }
+
+    // Default to test1
+    return ["test1"];
+  };
+
+  const [selectedTests, setSelectedTests] = useState(getInitialSelection);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -73,23 +104,42 @@ const Waitlist = () => {
   const tests = [
     {
       id: "test1",
-      title: "OptiGenix Blueprint",
-      description: "A bio-data performance roadmap.",
+      title: "OptiGenix Athlete Blueprint",
+      description:
+        "Discover data-driven insights with performance tests and dietitian review.",
       image: image1,
+      value: "blueprint", // For prop matching
     },
     {
       id: "test2",
       title: "OptiGenix Elite",
-      description: "Precision program for athletes.",
+      description:
+        "Join the precision-focused program for serious athletes, from private tests to personalized supplement packs.",
       image: image2,
+      value: "elite", // For prop matching
     },
     {
       id: "test3",
       title: "Performance Blood Test",
-      description: "Get a blood test to understand your needs.",
+      description:
+        "Measure 100+ biomarkers to uncover hidden imbalances and optimize recovery.",
       image: image3,
+      value: "blood test", // For prop matching
     },
   ];
+
+  // Update selection when prop or URL param changes
+  useEffect(() => {
+    const urlParam = searchParams.get("test") || searchParams.get("type");
+    const valueToUse = urlParam || defaultSelected;
+
+    if (valueToUse) {
+      const testId = getTestIdFromValue(valueToUse);
+      if (testId) {
+        setSelectedTests([testId]);
+      }
+    }
+  }, [searchParams, defaultSelected]);
 
   const handleTestToggle = (testId) => {
     setSelectedTests((prev) => {

@@ -583,7 +583,7 @@
           onmouseover="this.style.background='#0a6b4f'"
           onmouseout="this.style.background='#0D8360'"
         >
-          Show My Results →
+          Unlock My Personalized Pack →
         </button>
       </div>
 
@@ -601,7 +601,7 @@
           <div class="your_pack_total_flexbox" style="gap: 20px">
             <div class="" style="flex: 1">
               <h3>Your Pack Total</h3>
-              <div class="price" id="packTotal">$74.99</div>
+              <div class="price" id="packTotal">Calculating...</div>
               <div class="features">
                 <div class="feature">
                   <span class="checkmark">✓</span>
@@ -628,14 +628,9 @@
               />
             </div>
           </div>
-          <a
-            href="https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01"
-            target="_top"
-            class="purchase-btn Button_link"
-            style="text-decoration: none; display: inline-block"
-          >
+          <button class="purchase-btn" onclick="goToCheckout()">
             Purchase Now
-          </a>
+          </button>
         </div>
 
         <div id="productsContainer"></div>
@@ -1074,6 +1069,7 @@
       let answers = {};
       let finalTopProducts = [];
       let lastQuestionIndex = 0;
+      let stripeProducts = []; // Store fetched Stripe products
 
       // Check if user is navigating back (from sessionStorage)
       let isNavigatingBack =
@@ -1744,14 +1740,37 @@ https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01
 - OptiGenix Team
 `;
 
-        // Option 1: Use your API (requires SMTP setup)
-        const endpoint = "/api/send-mail";
+        // Determine API base URL
+        // Priority: window.API_BASE_URL (injected) > VITE_BACKEND_URL > current origin
+        const getApiBase = () => {
+          // Check if API base URL is injected from parent window
+          if (window.API_BASE_URL) {
+            return window.API_BASE_URL.endsWith("/")
+              ? window.API_BASE_URL
+              : `${window.API_BASE_URL}/`;
+          }
 
-        // Option 2: Use FormSubmit (no setup needed)
-        // const endpoint = "https://formsubmit.co/optigenix.help@gmail.com";
+          // Try to get from parent window's environment (if available)
+          try {
+            if (window.parent && window.parent.API_BASE_URL) {
+              return window.parent.API_BASE_URL.endsWith("/")
+                ? window.parent.API_BASE_URL
+                : `${window.parent.API_BASE_URL}/`;
+            }
+          } catch (e) {
+            // Cross-origin, can't access parent
+          }
+
+          // Default to current origin (works if backend serves frontend)
+          return "/";
+        };
+
+        const apiBase = getApiBase();
+        const endpoint = `${apiBase}api/send-mail`;
+
+        console.log("Sending quiz email to:", endpoint);
 
         try {
-          console.log("Sending email to:", email);
           const response = await fetch(endpoint, {
             method: "POST",
             headers: {
@@ -1766,19 +1785,19 @@ https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01
             signal: AbortSignal.timeout(10000),
           });
 
+          console.log("Quiz email response status:", response.status);
+
           if (!response.ok) {
             const errorText = await response.text();
-            console.error("❌ Email API error:", errorText);
-            alert(
-              "⚠️ Email sending failed. Please check the console for details."
-            );
+            console.error("Email API error:", errorText);
+            // Still show results even if email fails
           } else {
-            const result = await response.json();
-            console.log("✅ Email sent successfully:", result);
+            const data = await response.json();
+            console.log("Quiz email sent successfully:", data);
           }
         } catch (err) {
-          console.error("❌ Email API failed:", err);
-          alert("⚠️ Email service unavailable: " + err.message);
+          console.error("Email API failed:", err);
+          // Still show results even if email fails
         }
 
         // Hide email input → Show results
@@ -1791,20 +1810,83 @@ https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01
       function renderFinalProducts() {
         const container = document.getElementById("productsContainer");
 
-        container.innerHTML = finalTopProducts
-          .map(
-            (item, index) => `
+        // Try to match quiz products with Stripe products
+        // Match by product name (case-insensitive) or metadata
+        const enrichedProducts = finalTopProducts.map((item) => {
+          // Try to find matching Stripe product
+          const stripeProduct = stripeProducts.find((sp) => {
+            const productName = item.product.name.toLowerCase();
+            const stripeName = sp.productName.toLowerCase();
+
+            // Exact match or contains match
+            return (
+              stripeName === productName ||
+              stripeName.includes(productName) ||
+              productName.includes(stripeName)
+            );
+          });
+
+          // If found, enrich with Stripe data
+          if (stripeProduct) {
+            return {
+              ...item,
+              stripeProduct: stripeProduct,
+              price: stripeProduct.amount,
+              priceId: stripeProduct.priceId,
+              productId: stripeProduct.productId,
+              imageUrl:
+                stripeProduct.images && stripeProduct.images.length > 0
+                  ? stripeProduct.images[0]
+                  : item.product.imageUrl, // Use Stripe image or fallback
+            };
+          }
+
+          // Fallback to default price if no Stripe match
+          return {
+            ...item,
+            price: 14.99,
+            priceId: null,
+            productId: null,
+          };
+        });
+
+        // Calculate dynamic pack total using actual Stripe prices
+        let packTotal = 0;
+        enrichedProducts.forEach((item) => {
+          packTotal += item.price || 14.99;
+        });
+
+        // Update pack total display
+        document.getElementById("packTotal").textContent =
+          "$" + packTotal.toFixed(2);
+
+        container.innerHTML = enrichedProducts
+          .map((item, index) => {
+            // Use Stripe image if available, otherwise fallback to local image
+            const productImage = item.imageUrl || item.product.imageUrl;
+            const productName = item.product.name;
+            const productSupports = item.product.supports;
+
+            return `
         <div class="product-card">
             <div class="product-header" onclick="toggleProduct('product${index}')">
                 <div class="product-icon">
-                    <img src="${
-                      item.product.imageUrl
-                    }" class="product-icon-img" />
+                    <img src="${productImage}" class="product-icon-img" 
+                         onerror="this.src='${item.product.imageUrl}'" />
                 </div>
 
                 <div class="product-info">
-                    <div class="product-name">${item.product.name}</div>
-                    <div class="product-supports">${item.product.supports}</div>
+                    <div class="product-name">${productName}</div>
+                    <div class="product-supports">${productSupports}</div>
+                    ${
+                      item.stripeProduct
+                        ? `<div style="font-size: 12px; color: #0d8360; margin-top: 4px;">
+                      $${item.price.toFixed(
+                        2
+                      )} ${item.stripeProduct.currency.toUpperCase()}
+                    </div>`
+                        : ""
+                    }
                 </div>
 
                 <span class="expand-icon" id="icon${index}">▼</span>
@@ -1812,6 +1894,17 @@ https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01
 
             <div class="product-details" id="product${index}">
                 <span class="dosage-badge">${item.product.dosage}</span>
+
+                ${
+                  item.stripeProduct && item.stripeProduct.description
+                    ? `
+                <div class="detail-section">
+                    <div class="detail-title"><span class="detail-bullet"></span>Description</div>
+                    <div class="detail-text">${item.stripeProduct.description}</div>
+                </div>
+                `
+                    : ""
+                }
 
                 <div class="detail-section">
                     <div class="detail-title"><span class="detail-bullet"></span>Why Recommended</div>
@@ -1833,7 +1926,7 @@ https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01
                 </div>
 
                 ${
-                  item.boostNotes.length > 0
+                  item.boostNotes && item.boostNotes.length > 0
                     ? `
                     <div class="boost-notes">
                         <strong>Personalized for you:</strong> ${item.boostNotes.join(
@@ -1845,8 +1938,8 @@ https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01
                 }
             </div>
         </div>
-    `
-          )
+    `;
+          })
           .join("");
 
         window.scrollTo(0, 0);
@@ -1876,14 +1969,147 @@ https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01
         window.scrollTo(0, 0);
       }
 
-      // Start the quiz
-      if (urlStep === "results" && currentQuestion >= QUESTIONS.length) {
-        // Show results if URL says so and all questions answered
-        showResults();
-      } else {
-        // Otherwise render the current question
-        renderQuestion();
+      function goToCheckout() {
+        // Enrich products with Stripe data (same logic as renderFinalProducts)
+        const enrichedProducts = finalTopProducts.map((item) => {
+          const stripeProduct = stripeProducts.find((sp) => {
+            const productName = item.product.name.toLowerCase();
+            const stripeName = sp.productName.toLowerCase();
+            return (
+              stripeName === productName ||
+              stripeName.includes(productName) ||
+              productName.includes(stripeName)
+            );
+          });
+
+          if (stripeProduct) {
+            return {
+              ...item,
+              stripeProduct: stripeProduct,
+              price: stripeProduct.amount,
+              priceId: stripeProduct.priceId,
+              productId: stripeProduct.productId,
+              imageUrl:
+                stripeProduct.images && stripeProduct.images.length > 0
+                  ? stripeProduct.images[0]
+                  : item.product.imageUrl,
+            };
+          }
+
+          return {
+            ...item,
+            price: 14.99,
+            priceId: null,
+            productId: null,
+          };
+        });
+
+        // Calculate dynamic pack total using actual Stripe prices
+        let packTotal = 0;
+        enrichedProducts.forEach((item) => {
+          packTotal += item.price || 14.99;
+        });
+
+        // Store quiz data in localStorage with full product details including Stripe data
+        const quizData = {
+          products: enrichedProducts.map((item) => ({
+            id: item.product.id,
+            name: item.product.name,
+            imageUrl: item.imageUrl || item.product.imageUrl,
+            dosage: item.product.dosage,
+            supports: item.product.supports,
+            whyRecommended: item.product.whyRecommended,
+            scientificEvidence: item.product.scientificEvidence,
+            bestTiming: item.product.bestTiming,
+            boostNotes: item.boostNotes || [],
+            price: item.price || 14.99,
+            quantity: 1,
+            // Stripe data
+            stripePriceId: item.priceId,
+            stripeProductId: item.productId,
+            stripeProduct: item.stripeProduct
+              ? {
+                  productName: item.stripeProduct.productName,
+                  description: item.stripeProduct.description,
+                  currency: item.stripeProduct.currency,
+                }
+              : null,
+          })),
+          total: packTotal,
+          subtotal: packTotal,
+          productCount: enrichedProducts.length,
+          timestamp: Date.now(),
+          // Array of all Stripe price IDs for checkout
+          stripePriceIds: enrichedProducts
+            .map((item) => item.priceId)
+            .filter(Boolean),
+        };
+
+        localStorage.setItem("quizCheckoutData", JSON.stringify(quizData));
+
+        // Redirect to quiz checkout page
+        if (window.top) {
+          window.top.location.href = "/quiz/checkout";
+        } else {
+          window.location.href = "/quiz/checkout";
+        }
       }
+
+      // Fetch Stripe products on page load
+      async function fetchStripeProducts() {
+        try {
+          // Determine API base URL (same logic as email sending)
+          const getApiBase = () => {
+            if (window.API_BASE_URL) {
+              return window.API_BASE_URL.endsWith("/")
+                ? window.API_BASE_URL
+                : `${window.API_BASE_URL}/`;
+            }
+            try {
+              if (window.parent && window.parent.API_BASE_URL) {
+                return window.parent.API_BASE_URL.endsWith("/")
+                  ? window.parent.API_BASE_URL
+                  : `${window.parent.API_BASE_URL}/`;
+              }
+            } catch (e) {
+              // Cross-origin, can't access parent
+            }
+            // Default to production backend
+            return "https://optigenix-website-backend.vercel.app/";
+          };
+
+          const apiBase = getApiBase();
+          const endpoint = `${apiBase}api/prices`;
+
+          console.log("Fetching Stripe products from:", endpoint);
+
+          const response = await fetch(endpoint);
+          if (!response.ok) {
+            throw new Error(`Failed to fetch products: ${response.status}`);
+          }
+
+          const data = await response.json();
+          if (data.success && data.prices) {
+            stripeProducts = data.prices;
+            console.log(`✅ Fetched ${stripeProducts.length} Stripe products`);
+
+            // Map Stripe products to quiz product format
+            // You can use these products to enhance the quiz results
+            // For example, match quiz products with Stripe products by name or metadata
+          } else {
+            console.warn("⚠️ No Stripe products found or API returned error");
+          }
+        } catch (error) {
+          console.error("❌ Error fetching Stripe products:", error);
+          // Continue with quiz even if Stripe fetch fails
+        }
+      }
+
+      // Fetch Stripe products when page loads
+      fetchStripeProducts();
+
+      // Start the quiz
+      renderQuestion();
     </script>
   </body>
 </html>

@@ -17,7 +17,7 @@ function SingleTest() {
         title="Order Genetic Testing Kit for Personalized Health Insights"
         description="Unlock personalized health insights with a genetic testing kit. Discover your nutrition, vitamin absorption, and more for better fitness and wellness."
       />
-      <SingleTestHero />
+      <SingleTestHero productId="prod_TZyHo3lxkvrykA" />
       {/* <GeneTest /> */}
       <Biomarker />
       <StartDNATest />
