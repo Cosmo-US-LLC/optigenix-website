@@ -35,6 +35,8 @@ export { useStripeCheckout } from "./hooks/useStripeCheckout";
 // Components
 export { default as StripeCheckoutForm } from "./components/StripeCheckoutForm";
 export { default as StripeProductDisplay } from "./components/StripeProductDisplay";
+export { default as ContactInformationSection } from "./components/ContactInformationSection";
+export { default as ShippingAddressSection } from "./components/ShippingAddressSection";
 
 // Config
 export { STRIPE_PUBLISHABLE_KEY, BACKEND_URL } from "./config";
