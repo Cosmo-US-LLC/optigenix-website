@@ -104,22 +104,25 @@ const Waitlist = ({ defaultSelected = null }) => {
   const tests = [
     {
       id: "test1",
-      title: "OptiGenix Blueprint",
-      description: "A bio-data performance roadmap.",
+      title: "OptiGenix Athlete Blueprint",
+      description:
+        "Discover data-driven insights with performance tests and dietitian review.",
       image: image1,
       value: "blueprint", // For prop matching
     },
     {
       id: "test2",
       title: "OptiGenix Elite",
-      description: "Precision program for athletes.",
+      description:
+        "Join the precision-focused program for serious athletes, from private tests to personalized supplement packs.",
       image: image2,
       value: "elite", // For prop matching
     },
     {
       id: "test3",
       title: "Performance Blood Test",
-      description: "Get a blood test to understand your needs.",
+      description:
+        "Measure 100+ biomarkers to uncover hidden imbalances and optimize recovery.",
       image: image3,
       value: "blood test", // For prop matching
     },
