@@ -19,6 +19,7 @@ import Cart from "./pages/Cart";
 import { CartProvider } from "./context/CartContext";
 import Checkout from "./pages/Checkout";
 import PaymentSuccess from "./pages/PaymentSuccess";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -54,6 +55,8 @@ function App() {
           <Route path="terms-and-conditions" element={<TermsOfService />} />
           <Route path="join-wait-list" element={<Waitlist />} />
         </Route>
+        {/* 404 Page - Standalone page matching Figma design (no header/footer) */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </CartProvider>
   );

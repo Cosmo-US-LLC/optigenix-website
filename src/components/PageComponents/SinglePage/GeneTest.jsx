@@ -27,7 +27,7 @@ const GeneTest = () => {
               <span className="font-bold">
                 30+ genes and 50+ SNPs across 9 functional categories.
               </span>{" "}
-              Your DNA helps you and your doctor identify the medications that
+              Your Gene helps you and your doctor identify the medications that
               work best for you.
             </p>
           </div>

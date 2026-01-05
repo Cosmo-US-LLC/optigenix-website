@@ -22,7 +22,7 @@ const AboutOurStory = () => {
                     we trained, the more we realized performance wasn't just
                     about hard work; it was about understanding what the body
                     truly needs. So, we began listening not to trends, but to
-                    data. Through DNA and blood analysis, we learned how
+                    data. Through Gene and blood analysis, we learned how
                     different our bodies really are, and how the smallest
                     imbalance can change everything from energy to recovery.
                   </p>
@@ -31,11 +31,11 @@ const AboutOurStory = () => {
                     That discovery reshaped how we approached training,
                     nutrition, and health. OptiGenix was created from that
                     realization, that peak performance should be personal.
-                    Today, our In-House Experts analyze your DNA and blood
-                    insights to create natural supplements tailored to what your body
-                    needs, how much it needs, and when it needs it. Every blend
-                    is guided by science, tested for quality, and designed to
-                    bring out your body's natural strength. We believe in
+                    Today, our In-House Experts analyze your Gene and blood
+                    insights to create natural supplements tailored to what your
+                    body needs, how much it needs, and when it needs it. Every
+                    blend is guided by science, tested for quality, and designed
+                    to bring out your body's natural strength. We believe in
                     progress you can feel, more focus, faster recovery, deeper
                     sleep, and a stronger connection to your own body.
                   </p>

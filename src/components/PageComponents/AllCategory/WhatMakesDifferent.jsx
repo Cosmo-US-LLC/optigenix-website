@@ -59,7 +59,7 @@ const features = [
       </svg>
     ),
     title: "Science-Backed & Personalized",
-    description: "Recommendations based on your DNA and validated research.",
+    description: "Recommendations based on your Gene and validated research.",
   },
   {
     icon: (

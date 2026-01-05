@@ -22,9 +22,9 @@ const PersonalizedTests = () => {
             Unlock Precision Personalization
           </h2>
           <p className="description text-[#010907] !text-[18px] mb-[15px] px-4">
-            Use DNA and blood insights to build a supplement plan engineered for
-            your biology. <br className="max-md:hidden" /> No guesswork, just
-            results.
+            Use Gene and blood insights to build a supplement plan engineered
+            for your biology. <br className="max-md:hidden" /> No guesswork,
+            just results.
           </p>
           {/* <p className="font-['Funnel_Display'] font-bold text-[20px] md:text-[24px] leading-[28px] md:leading-[32px] text-[#0d8360]">
             Choose how to get started.
@@ -87,7 +87,7 @@ const PersonalizedTests = () => {
               <div className="flex absolute inset-0 justify-center items-center">
                 <img
                   src={dnaTest}
-                  alt="DNA Helix"
+                  alt="Gene Helix"
                   className="object-cover w-full h-full md:object-contain"
                 />
               </div>

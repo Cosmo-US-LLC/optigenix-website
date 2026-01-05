@@ -35,7 +35,7 @@ const StartDNATest = () => {
         // Fallback to default data if API fails
         setProduct({
           productId: GENE_TEST_PRODUCT_ID,
-          name: "DNA Test: Unlock Your Genetic Potential",
+          name: "Gene Test: Unlock Your Genetic Potential",
           description: "",
           amount: 200.0,
         });
@@ -56,7 +56,7 @@ const StartDNATest = () => {
     // Store gene test product data in localStorage for checkout
     const geneTestData = {
       source: "gene-test",
-      productName: product.name || "DNA Test: Unlock Your Genetic Potential",
+      productName: product.name || "Gene Test: Unlock Your Genetic Potential",
       description: product.description || "",
       stripeProductId: product.productId || GENE_TEST_PRODUCT_ID,
       stripePriceId:
@@ -84,7 +84,7 @@ const StartDNATest = () => {
           <div className="absolute inset-0">
             <img
               src={bgImage}
-              alt="DNA background"
+              alt="Gene background"
               className="h-[100%]"
               // className="absolute w-[120%] h-[160%] left-[-10%] top-[-30%] max-w-none object-cover"
               loading="lazy"

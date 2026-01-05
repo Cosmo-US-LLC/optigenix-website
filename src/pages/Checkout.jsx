@@ -498,7 +498,7 @@ const Checkout = () => {
                             {checkoutData.productName ||
                               (source === "quiz"
                                 ? "Personalized Supplement Pack"
-                                : "DNA Test: Unlock Your Genetic Potential")}
+                                : "Gene Test: Unlock Your Genetic Potential")}
                           </h3>
                           {checkoutData.description && (
                             <p className="text-inter text-[14px] text-[rgba(0,0,0,0.56)] mb-3">

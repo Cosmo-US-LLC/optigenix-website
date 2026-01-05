@@ -41,7 +41,7 @@ const SingleTestHero = ({ productId = DEFAULT_PRODUCT_ID }) => {
         // Fallback to default data if API fails
         setProduct({
           productId: productId,
-          name: "DNA Test: Unlock Your Genetic Potential",
+          name: "Gene Test: Unlock Your Genetic Potential",
           description:
             "Easy and effective test to personalize your nutrition, training, and supplements for optimal results.",
         });
@@ -60,7 +60,7 @@ const SingleTestHero = ({ productId = DEFAULT_PRODUCT_ID }) => {
     // Store gene test product data in localStorage for checkout
     const geneTestData = {
       source: "gene-test",
-      productName: product.name || "DNA Test: Unlock Your Genetic Potential",
+      productName: product.name || "Gene Test: Unlock Your Genetic Potential",
       description: product.description || "",
       stripeProductId: product.productId || productId,
       stripePriceId:

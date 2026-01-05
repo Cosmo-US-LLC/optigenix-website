@@ -37,9 +37,17 @@ const Header = () => {
   const location = useLocation();
   const isQuizPage = location.pathname === "/quiz";
   const discoverItems = [
-    { title: "Your Body's User Manual", image: Image1, href: "/gene-test" },
     {
-      title: "Unlock Vital Health Markers",
+      title: (
+        <p>
+          At-Home Gene <br /> Test
+        </p>
+      ),
+      image: Image1,
+      href: "/gene-test",
+    },
+    {
+      title: "Performance Blood Test",
       image: Image2,
       href: "/join-wait-list",
     },

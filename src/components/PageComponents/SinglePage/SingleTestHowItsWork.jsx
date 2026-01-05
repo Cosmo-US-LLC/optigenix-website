@@ -262,7 +262,7 @@ const SingleTestHowItsWork = () => {
         // Fallback to default data if API fails
         setProduct({
           productId: GENE_TEST_PRODUCT_ID,
-          name: "DNA Test: Unlock Your Genetic Potential",
+          name: "Gene Test: Unlock Your Genetic Potential",
           description: "",
           amount: 200.0,
         });
@@ -283,7 +283,7 @@ const SingleTestHowItsWork = () => {
     // Store gene test product data in localStorage for checkout
     const geneTestData = {
       source: "gene-test",
-      productName: product.name || "DNA Test: Unlock Your Genetic Potential",
+      productName: product.name || "Gene Test: Unlock Your Genetic Potential",
       description: product.description || "",
       stripeProductId: product.productId || GENE_TEST_PRODUCT_ID,
       stripePriceId:

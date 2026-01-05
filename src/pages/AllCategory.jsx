@@ -11,8 +11,8 @@ const AllCategory = () => {
   return (
     <>
       <MetaTags
-        title="Explore Custom Health Solutions with DNA Insights"
-        description="Discover custom health solutions that combine DNA testing and expert supplements to enhance mental, physical, and recovery performance."
+        title="Explore Custom Health Solutions with Gene Insights"
+        description="Discover custom health solutions that combine Gene testing and expert supplements to enhance mental, physical, and recovery performance."
       />
       <div className="min-h-screen">
         <CategoryHero />

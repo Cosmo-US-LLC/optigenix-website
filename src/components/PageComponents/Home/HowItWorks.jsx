@@ -7,7 +7,7 @@ const steps = [
     icon: TestTube,
     title: "Test with Confidence",
     description:
-      "Order your at-home DNA or blood test kit. Simple, safe, and science-backed, everything you need is sent straight to you.",
+      "Order your at-home Gene or blood test kit. Simple, safe, and science-backed, everything you need is sent straight to you.",
     bgColor: "#2b7a6c",
   },
   {
@@ -44,7 +44,7 @@ const HowItWorks = () => {
               </p>
             </div>
             <button className="bg-[#0d8360] hover:bg-[#0c704d] active:bg-[#0a5c40] transition-all duration-200 !text-[#fff] btn-primary px-6 py-[14px] rounded-full w-fit">
-              Decode My DNA
+              Decode My Gene
             </button>
           </div>
 
@@ -116,7 +116,7 @@ const HowItWorks = () => {
                       </p>
                     </div>
                     <button className="bg-[#0d8360] hover:bg-[#0c704d] active:bg-[#0a5c40] transition-all duration-200 text-white btn-primary px-6 py-3.5 rounded-full w-fit">
-                      Decode My DNA
+                      Decode My Gene
                     </button>
                   </div>
                 )}
