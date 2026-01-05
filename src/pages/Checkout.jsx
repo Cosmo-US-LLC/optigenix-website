@@ -189,13 +189,13 @@ const Checkout = () => {
     let error = "";
 
     switch (name) {
-      case "fullName":
-        if (!value.trim()) {
-          error = "Full name is required";
-        } else if (value.trim().length < 2) {
-          error = "Full name must be at least 2 characters";
-        }
-        break;
+      // case "fullName":
+      //   if (!value.trim()) {
+      //     error = "Full name is required";
+      //   } else if (value.trim().length < 2) {
+      //     error = "Full name must be at least 2 characters";
+      //   }
+      //   break;
       case "email":
         if (!value.trim()) {
           error = "Email is required";
@@ -251,9 +251,9 @@ const Checkout = () => {
     const touched = {};
 
     // Validate contact information
-    touched.fullName = true;
+    // touched.fullName = true;
     touched.email = true;
-    errors.fullName = validateField("fullName", formData.fullName);
+    // errors.fullName = validateField("fullName", formData.fullName);
     errors.email = validateField("email", formData.email);
 
     // Validate shipping address (from Stripe AddressElement)
