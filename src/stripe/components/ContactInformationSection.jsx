@@ -23,7 +23,7 @@ const ContactInformationSection = ({
       </h2>
       <div className="flex flex-col gap-[14px]">
         {/* Name field - styled to match Stripe AddressElement */}
-        <div className="flex flex-col gap-1">
+        {/* <div className="flex flex-col gap-1">
           <div
             className={`border rounded-lg px-4 py-[8px] bg-white h-[44px] flex items-center ${
               errors.fullName ? "border-red-500" : "border-[#c7c7c7]"
@@ -45,7 +45,7 @@ const ContactInformationSection = ({
               {errors.fullName}
             </p>
           )}
-        </div>
+        </div> */}
 
         {/* Email field - styled to match Stripe AddressElement */}
         <div className="flex flex-col gap-1">
