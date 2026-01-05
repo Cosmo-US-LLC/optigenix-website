@@ -1,9 +1,10 @@
 import { Link, useSearchParams } from "react-router-dom";
 import MetaTags from "../components/PageComponents/MetaTags/MetaTags";
+import imgBackground from "../assets/images/thank_you/thank-you_image.webp";
 
 // Background image from Figma
-const imgBackground =
-  "https://www.figma.com/api/mcp/asset/d128ea5e-27d6-404f-b24f-c908bb25de26";
+// const imgBackground =
+//   "https://www.figma.com/api/mcp/asset/d128ea5e-27d6-404f-b24f-c908bb25de26";
 
 /**
  * Payment Success Page

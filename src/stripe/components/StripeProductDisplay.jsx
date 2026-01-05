@@ -1,9 +1,9 @@
 /**
  * StripeProductDisplay Component
- * 
+ *
  * Reusable component for displaying Stripe product information
  * Can be used in checkout, cart, product pages, etc.
- * 
+ *
  * @param {Object} props
  * @param {Object} props.product - Stripe product object
  * @param {number} props.quantity - Product quantity (default: 1)
@@ -22,9 +22,11 @@ const StripeProductDisplay = ({
   showProductId = false,
   size = "md",
 }) => {
+  console.log(product);
+
   if (!product) {
     return (
-      <div className="text-center py-4">
+      <div className="py-4 text-center">
         <p className="text-inter text-[14px] text-[rgba(0,0,0,0.56)]">
           No product information available
         </p>
@@ -66,7 +68,9 @@ const StripeProductDisplay = ({
     <div className="flex justify-between items-center">
       <div className={`flex flex-1 items-center ${classes.container}`}>
         {showImage && (
-          <div className={`relative ${classes.image} rounded-xl bg-[#eeece4] shadow-sm shrink-0`}>
+          <div
+            className={`relative ${classes.image} w-[80px] h-[80px] rounded-xl bg-[#eeece4] shadow-sm shrink-0`}
+          >
             {product.images && product.images.length > 0 ? (
               <img
                 src={product.images[0]}
@@ -87,28 +91,38 @@ const StripeProductDisplay = ({
               <span className="text-2xl">📦</span>
             </div>
             {quantity > 1 && (
-              <div className={`absolute -top-1 -right-1 bg-[#010907] border-2 border-white rounded-lg ${classes.badge} flex items-center justify-center`}>
-                <span className="text-white font-semibold">{quantity}</span>
+              <div
+                className={`absolute -top-1 -right-1 bg-[#010907] border-2 border-white rounded-lg ${classes.badge} flex items-center justify-center`}
+              >
+                <span className="font-semibold text-white">{quantity}</span>
               </div>
             )}
           </div>
         )}
         <div className="flex-1 min-w-0">
-          <div className={`font-funnel font-medium ${classes.title} text-[#010907] leading-[21px] mb-1`}>
+          <div
+            className={`font-funnel font-medium ${classes.title} text-[#010907] leading-[21px] mb-1`}
+          >
             {product.productName}
           </div>
           {showDescription && (
-            <div className={`text-inter ${classes.description} text-[rgba(0,0,0,0.56)] leading-[18px] line-clamp-2`}>
+            <div
+              className={`text-inter ${classes.description} text-[rgba(0,0,0,0.56)] leading-[18px] line-clamp-2`}
+            >
               {product.description || "Product from Stripe"}
             </div>
           )}
           {product.recurring && (
-            <div className={`text-inter text-[11px] text-[rgba(0,0,0,0.4)] mt-1`}>
+            <div
+              className={`text-inter text-[11px] text-[rgba(0,0,0,0.4)] mt-1`}
+            >
               {product.recurring.interval} subscription
             </div>
           )}
           {showProductId && (
-            <div className={`text-inter text-[10px] text-[rgba(0,0,0,0.3)] mt-1`}>
+            <div
+              className={`text-inter text-[10px] text-[rgba(0,0,0,0.3)] mt-1`}
+            >
               Product ID: {product.productId}
             </div>
           )}
@@ -116,7 +130,9 @@ const StripeProductDisplay = ({
       </div>
       {showPrice && (
         <div className="flex flex-col items-end ml-4 text-right">
-          <div className={`font-inter font-bold ${classes.price} text-[#010907] uppercase`}>
+          <div
+            className={`font-inter font-bold ${classes.price} text-[#010907] uppercase`}
+          >
             ${product.amount.toFixed(2)}
           </div>
           {product.currency && product.currency !== "USD" && (
@@ -131,4 +147,3 @@ const StripeProductDisplay = ({
 };
 
 export default StripeProductDisplay;
-

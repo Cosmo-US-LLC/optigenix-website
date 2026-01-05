@@ -25,7 +25,7 @@ const OurStory = () => {
               </p>
 
               <p>
-                Turning to DNA and blood insights showed us how different every
+                Turning to Gene and blood insights showed us how different every
                 body truly is, and how even small imbalances can impact energy,
                 recovery, sleep, and focus. That changed everything for us.
                 OptiGenix was built on one belief: peak performance should be
@@ -33,7 +33,7 @@ const OurStory = () => {
               </p>
 
               <p>
-                Today, our In-House Experts use your DNA and blood data to
+                Today, our In-House Experts use your Gene and blood data to
                 create natural, high-quality supplement packs, tailored to your
                 body, your needs, and your timing. Every blend is
                 science-backed, quality-tested, and designed to support your

@@ -47,7 +47,7 @@ const qualityFeatures = [
   {
     title: "Lab-Tested Insights",
     description:
-      "Your DNA and biomarkers are analyzed in CLIA-certified & CAP-accredited U.S. labs. Data is secure, encrypted, and HIPAA compliant.",
+      "Your Gene and biomarkers are analyzed in CLIA-certified & CAP-accredited U.S. labs. Data is secure, encrypted, and HIPAA compliant.",
     icon: icon6,
   },
 ];

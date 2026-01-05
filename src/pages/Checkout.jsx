@@ -1,16 +1,22 @@
 import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { ChevronDown, HelpCircle } from "lucide-react";
+import { HelpCircle } from "lucide-react";
 import {
   StripeProvider,
   useStripeCheckout,
   StripeCheckoutForm,
   StripeProductDisplay,
+  ContactInformationSection,
+  ShippingAddressSection,
 } from "../stripe";
 
-// Product IDs for different sources
+// Product IDs for different sources for live
 const QUIZ_PRODUCT_ID = "prod_SY2K6QwnWgLby1";
 const GENE_TEST_PRODUCT_ID = "prod_TZyHo3lxkvrykA";
+
+// Product IDs for different sources for test
+// const QUIZ_PRODUCT_ID = "prod_TiTdNCHZIX4wxg";
+// const GENE_TEST_PRODUCT_ID = "prod_TiTbpgcnqcuA5d";
 
 // Initialize state from localStorage and URL
 const getInitialState = (pathname) => {
@@ -146,6 +152,8 @@ const Checkout = () => {
   });
   const [useShippingAsBilling, setUseShippingAsBilling] = useState(true);
   const [paymentError, setPaymentError] = useState(null);
+  const [validationErrors, setValidationErrors] = useState({});
+  const [touchedFields, setTouchedFields] = useState({});
 
   // Dynamically determine product ID based on checkout source and URL
   // Gene test uses prod_TZyHo3lxkvrykA, Quiz uses prod_SY2K6QwnWgLby1
@@ -176,11 +184,134 @@ const Checkout = () => {
 
   // Payment error is handled by onError callback in useStripeCheckout
 
+  // Validation functions
+  const validateField = (name, value) => {
+    let error = "";
+
+    switch (name) {
+      case "fullName":
+        if (!value.trim()) {
+          error = "Full name is required";
+        } else if (value.trim().length < 2) {
+          error = "Full name must be at least 2 characters";
+        }
+        break;
+      case "email":
+        if (!value.trim()) {
+          error = "Email is required";
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+          error = "Please enter a valid email address";
+        }
+        break;
+      default:
+        break;
+    }
+
+    return error;
+  };
+
   const handleInputChange = (e) => {
+    const { name, value } = e.target;
+
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
+
+    // Validate on change if field has been touched
+    if (touchedFields[name]) {
+      const error = validateField(name, value);
+      setValidationErrors((prev) => ({
+        ...prev,
+        [name]: error,
+      }));
+    }
+  };
+
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+
+    // Mark field as touched
+    setTouchedFields((prev) => ({
+      ...prev,
+      [name]: true,
+    }));
+
+    // Validate field
+    const error = validateField(name, value);
+    setValidationErrors((prev) => ({
+      ...prev,
+      [name]: error,
+    }));
+  };
+
+  // Validate all fields before submission
+  const validateAllFields = () => {
+    const errors = {};
+    const touched = {};
+
+    // Validate contact information
+    touched.fullName = true;
+    touched.email = true;
+    errors.fullName = validateField("fullName", formData.fullName);
+    errors.email = validateField("email", formData.email);
+
+    // Validate shipping address (from Stripe AddressElement)
+    if (!formData.address || !formData.address.trim()) {
+      touched.address = true;
+      errors.address = "Address is required";
+    }
+    if (!formData.city || !formData.city.trim()) {
+      touched.city = true;
+      errors.city = "City is required";
+    }
+    if (!formData.state || !formData.state.trim()) {
+      touched.state = true;
+      errors.state = "State is required";
+    }
+    if (!formData.zipCode || !formData.zipCode.trim()) {
+      touched.zipCode = true;
+      errors.zipCode = "Zip code is required";
+    } else if (!/^\d{5}(-\d{4})?$/.test(formData.zipCode)) {
+      touched.zipCode = true;
+      errors.zipCode = "Please enter a valid zip code";
+    }
+
+    setTouchedFields(touched);
+    setValidationErrors(errors);
+
+    return Object.keys(errors).every((key) => !errors[key]);
+  };
+
+  // Handle address change from Stripe AddressElement
+  const handleAddressChange = (event) => {
+    if (event.complete && event.value) {
+      const addressData = event.value.address || {};
+      const phoneData = event.value.phone || "";
+
+      const newFormData = {
+        ...formData,
+        address: addressData.line1 || "",
+        apartment: addressData.line2 || "",
+        city: addressData.city || "",
+        state: addressData.state || "",
+        zipCode: addressData.postal_code || "",
+        phone: phoneData || formData.phone,
+      };
+
+      setFormData(newFormData);
+
+      // Clear address validation errors when address is complete
+      if (event.complete) {
+        setValidationErrors((prev) => ({
+          ...prev,
+          address: "",
+          city: "",
+          state: "",
+          zipCode: "",
+        }));
+      }
+    }
   };
 
   const handleSuccess = (paymentIntent) => {
@@ -236,13 +367,16 @@ const Checkout = () => {
     <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="border-b border-[rgba(0,0,0,0.08)]">
-        <div className="bg-white px-[60px] py-3">
-          <Link to="/" className="flex items-center gap-3 h-[42px]">
-            <div className="w-[37.33px] h-[42px]">
+        <div className="bg-white px-4 sm:px-6 md:px-[60px] py-3">
+          <Link
+            to="/"
+            className="flex items-center gap-2 sm:gap-3 h-[36px] sm:h-[42px]"
+          >
+            <div className="w-[32px] h-[36px] sm:w-[37.33px] sm:h-[42px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="38"
-                height="42"
+                width="100%"
+                height="100%"
                 viewBox="0 0 38 42"
                 fill="none"
               >
@@ -271,7 +405,7 @@ const Checkout = () => {
                 </defs>
               </svg>
             </div>
-            <span className="font-gibson font-semibold text-[30px] leading-none text-black">
+            <span className="font-gibson font-semibold text-[24px] sm:text-[30px] leading-none text-black">
               OptiGenix
             </span>
           </Link>
@@ -279,101 +413,24 @@ const Checkout = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex max-w-[1280px] mx-auto px-4 md:px-8 py-8 gap-20">
+      <div className="flex flex-col lg:flex-row max-w-[1280px] mx-auto px-4 md:px-8 py-4 sm:py-6 md:py-8 gap-6 lg:gap-20">
         {/* Left Column - Forms */}
-
-        <div className="max-w-[560px]">
+        <div className="w-full lg:max-w-[560px] order-1 lg:order-1">
           <StripeProvider>
             <div className="flex flex-col gap-6">
-              {/* Contact Information */}
-              <div className="flex flex-col">
-                <h2 className="font-funnel font-semibold !text-[21px] leading-[25.2px] text-[#010907]">
-                  Contact Information
-                </h2>
-                <div className="flex flex-col gap-[14px]">
-                  <input
-                    type="text"
-                    name="fullName"
-                    value={formData.fullName}
-                    onChange={handleInputChange}
-                    placeholder="Full Name"
-                    className="border border-[#c7c7c7] rounded-lg px-4 py-[8px] text-inter text-[14px] text-[#010907] placeholder:opacity-50 focus:outline-none focus:border-[#0D8360]"
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="Email Address"
-                    className="border border-[#c7c7c7] rounded-lg px-4 py-[8px] text-inter text-[14px] text-[#010907] placeholder:opacity-50 focus:outline-none focus:border-[#0D8360]"
-                  />
-                </div>
-              </div>
+              {/* Contact Information - Using Stripe-styled inputs */}
+              <ContactInformationSection
+                formData={formData}
+                onInputChange={handleInputChange}
+                onBlur={handleBlur}
+                errors={validationErrors}
+              />
 
-              {/* Shipping Address */}
-              <div className="flex flex-col">
-                <h2 className="font-funnel font-semibold !text-[21px] leading-[25.2px] text-[#010907]">
-                  Shipping Address
-                </h2>
-                <div className="flex flex-col gap-[14px]">
-                  <input
-                    type="text"
-                    name="address"
-                    value={formData.address}
-                    onChange={handleInputChange}
-                    placeholder="Address"
-                    className="border border-[#c7c7c7] rounded-lg px-4 py-[8px] text-inter text-[14px] text-[#010907] placeholder:opacity-50 focus:outline-none focus:border-[#0D8360]"
-                  />
-                  <input
-                    type="text"
-                    name="apartment"
-                    value={formData.apartment}
-                    onChange={handleInputChange}
-                    placeholder="Apartment, suite, etc. (optional)"
-                    className="border border-[#c7c7c7] rounded-lg px-4 py-[8px] text-inter text-[14px] text-[#010907] placeholder:opacity-50 focus:outline-none focus:border-[#0D8360]"
-                  />
-                  <div className="flex gap-[14px]">
-                    <input
-                      type="text"
-                      name="city"
-                      value={formData.city}
-                      onChange={handleInputChange}
-                      placeholder="City"
-                      className="flex-1 border border-[#c7c7c7] rounded-lg px-4 py-[8px] text-inter text-[14px] text-[#010907] placeholder:opacity-50 focus:outline-none focus:border-[#0D8360]"
-                    />
-                    <div className="relative flex-1">
-                      <input
-                        type="text"
-                        name="state"
-                        value={formData.state}
-                        onChange={handleInputChange}
-                        placeholder="State"
-                        className="w-full border border-[#c7c7c7] rounded-lg px-4 py-[8px] pr-10 text-inter text-[14px] text-[#010907] placeholder:opacity-50 focus:outline-none focus:border-[#0D8360]"
-                      />
-                      <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-3 h-3 text-[#010907] opacity-50 pointer-events-none" />
-                    </div>
-                    <input
-                      type="text"
-                      name="zipCode"
-                      value={formData.zipCode}
-                      onChange={handleInputChange}
-                      placeholder="Zip code"
-                      className="flex-1 border border-[#c7c7c7] rounded-lg px-4 py-[8px] text-inter text-[14px] text-[#010907] placeholder:opacity-50 focus:outline-none focus:border-[#0D8360]"
-                    />
-                  </div>
-                  <div className="relative">
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      placeholder="Phone Number"
-                      className="w-full border border-[#c7c7c7] rounded-lg px-4 py-[8px] pr-10 text-inter text-[14px] text-[#010907] placeholder:opacity-50 focus:outline-none focus:border-[#0D8360]"
-                    />
-                    <HelpCircle className="absolute right-4 top-1/2 -translate-y-1/2 w-[18px] h-[18px] text-[#010907] opacity-30" />
-                  </div>
-                </div>
-              </div>
+              {/* Shipping Address - Using Stripe AddressElement */}
+              <ShippingAddressSection
+                onAddressChange={handleAddressChange}
+                errors={validationErrors}
+              />
 
               {/* Payment Section */}
               <StripeCheckoutForm
@@ -384,10 +441,11 @@ const Checkout = () => {
                 useShippingAsBilling={useShippingAsBilling}
                 setUseShippingAsBilling={setUseShippingAsBilling}
                 onCreatePaymentIntent={processPayment}
+                onValidate={validateAllFields}
               />
 
               {/* Terms and Place Order Button */}
-              <div className="flex flex-col gap-5">
+              {/* <div className="flex flex-col gap-5">
                 <p className="text-inter text-[14px] text-[#010907] leading-[21px]">
                   By placing this order, you agree to the{" "}
                   <Link to="/terms-and-conditions" className="underline">
@@ -399,14 +457,14 @@ const Checkout = () => {
                   </Link>
                   .
                 </p>
-              </div>
+              </div> */}
             </div>
           </StripeProvider>
         </div>
 
         {/* Right Column - Order Summary */}
-        <div className="w-[574px] bg-[#f7f7f7] sticky top-0 h-screen overflow-y-auto">
-          <div className="px-[38px] py-8">
+        <div className="w-full lg:w-[574px] bg-[#f7f7f7] lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto order-2 lg:order-2">
+          <div className="px-4 sm:px-6 md:px-[38px] py-6 md:py-8">
             <div className="max-w-[full]">
               {/* Products List - Dynamic based on source */}
               <div className="mb-6">
@@ -440,7 +498,7 @@ const Checkout = () => {
                             {checkoutData.productName ||
                               (source === "quiz"
                                 ? "Personalized Supplement Pack"
-                                : "DNA Test: Unlock Your Genetic Potential")}
+                                : "Gene Test: Unlock Your Genetic Potential")}
                           </h3>
                           {checkoutData.description && (
                             <p className="text-inter text-[14px] text-[rgba(0,0,0,0.56)] mb-3">
@@ -512,7 +570,7 @@ const Checkout = () => {
         </div>
       </div>
       {paymentError && (
-        <div className="fixed right-4 bottom-4 z-50 p-4 max-w-md text-sm text-red-700 bg-red-50 rounded-lg border border-red-200">
+        <div className="fixed right-2 sm:right-4 bottom-4 z-50 p-3 sm:p-4 max-w-[calc(100%-1rem)] sm:max-w-md text-sm text-red-700 bg-red-50 rounded-lg border border-red-200">
           {paymentError}
         </div>
       )}

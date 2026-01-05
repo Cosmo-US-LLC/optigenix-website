@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { Check, X } from "lucide-react";
 import {
   AlertDialog,
@@ -53,9 +53,40 @@ const CheckBox = ({ isChecked, onClick, className = "" }) => {
   );
 };
 
-const Waitlist = () => {
+const Waitlist = ({ defaultSelected = null }) => {
   const navigate = useNavigate();
-  const [selectedTests, setSelectedTests] = useState(["test1"]); // Start with test1 selected
+  const [searchParams] = useSearchParams();
+
+  // Map prop/URL values to test IDs
+  const getTestIdFromValue = (value) => {
+    const normalizedValue = value?.toLowerCase().trim();
+    if (normalizedValue === "blueprint") return "test1";
+    if (normalizedValue === "elite") return "test2";
+    if (normalizedValue === "blood test" || normalizedValue === "bloodtest")
+      return "test3";
+    return null;
+  };
+
+  // Get initial selection from prop or URL param
+  const getInitialSelection = () => {
+    // Check URL param first
+    const urlParam = searchParams.get("test") || searchParams.get("type");
+    if (urlParam) {
+      const testId = getTestIdFromValue(urlParam);
+      if (testId) return [testId];
+    }
+
+    // Check prop
+    if (defaultSelected) {
+      const testId = getTestIdFromValue(defaultSelected);
+      if (testId) return [testId];
+    }
+
+    // Default to test1
+    return ["test1"];
+  };
+
+  const [selectedTests, setSelectedTests] = useState(getInitialSelection);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -76,20 +107,36 @@ const Waitlist = () => {
       title: "OptiGenix Blueprint",
       description: "A bio-data performance roadmap.",
       image: image1,
+      value: "blueprint", // For prop matching
     },
     {
       id: "test2",
       title: "OptiGenix Elite",
       description: "Precision program for athletes.",
       image: image2,
+      value: "elite", // For prop matching
     },
     {
       id: "test3",
       title: "Performance Blood Test",
       description: "Get a blood test to understand your needs.",
       image: image3,
+      value: "blood test", // For prop matching
     },
   ];
+
+  // Update selection when prop or URL param changes
+  useEffect(() => {
+    const urlParam = searchParams.get("test") || searchParams.get("type");
+    const valueToUse = urlParam || defaultSelected;
+
+    if (valueToUse) {
+      const testId = getTestIdFromValue(valueToUse);
+      if (testId) {
+        setSelectedTests([testId]);
+      }
+    }
+  }, [searchParams, defaultSelected]);
 
   const handleTestToggle = (testId) => {
     setSelectedTests((prev) => {
