@@ -338,6 +338,45 @@
         background: #0a6b4f;
       }
 
+      /* Loader dots for Unlock button */
+      .unlock-loader {
+        display: inline-flex;
+        align-items: center;
+        gap: 2px;
+      }
+
+      .unlock-dot {
+        width: 4px;
+        height: 4px;
+        border-radius: 999px;
+        background: white;
+        opacity: 0.2;
+        animation: unlockDots 0.8s infinite;
+      }
+
+      .unlock-dot:nth-child(2) {
+        animation-delay: 0.15s;
+      }
+
+      .unlock-dot:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+
+      @keyframes unlockDots {
+        0% {
+          opacity: 0.2;
+          transform: translateY(0);
+        }
+        50% {
+          opacity: 1;
+          transform: translateY(-2px);
+        }
+        100% {
+          opacity: 0.2;
+          transform: translateY(0);
+        }
+      }
+
       @media (max-width: 768px) {
         .header h1 {
           font-size: 2rem;
@@ -567,23 +606,36 @@
 
         <!-- Show Results Button -->
         <button
+          id="unlockResultsBtn"
           onclick="submitEmailAndShowResults()"
           style="
             margin-top: 28px;
             background: #0d8360;
             color: white;
-            padding: 14px 24px;
+            padding: 14px 12px;
             border: none;
             border-radius: 10px;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             width: auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
           "
           onmouseover="this.style.background='#0a6b4f'"
           onmouseout="this.style.background='#0D8360'"
         >
-          Unlock My Personalized Pack →
+          <span id="unlockBtnLabel">Unlock My Personalized Pack →</span>
+          <span
+            id="unlockBtnLoader"
+            class="unlock-loader"
+            style="display: none"
+          >
+            <span class="unlock-dot"></span>
+            <span class="unlock-dot"></span>
+            <span class="unlock-dot"></span>
+          </span>
         </button>
       </div>
 
@@ -1675,6 +1727,9 @@
         const emailInput = document.getElementById("userEmail");
         const email = emailInput.value.trim();
         const emailError = document.getElementById("emailError");
+        const unlockBtn = document.getElementById("unlockResultsBtn");
+        const unlockBtnLabel = document.getElementById("unlockBtnLabel");
+        const unlockBtnLoader = document.getElementById("unlockBtnLoader");
 
         // Basic email validation
         const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -1684,6 +1739,20 @@
         }
 
         emailError.style.display = "none";
+
+        // Start loading state on button
+        if (unlockBtn && unlockBtnLabel && unlockBtnLoader) {
+          unlockBtn.disabled = true;
+          unlockBtn.style.opacity = "0.8";
+          unlockBtn.style.cursor = "default";
+          unlockBtnLabel.textContent = "Preparing your pack";
+          unlockBtnLoader.style.display = "inline-flex";
+        }
+
+        // Ensure we show loader for at least 3 seconds
+        const minDelayPromise = new Promise((resolve) =>
+          setTimeout(resolve, 3000)
+        );
 
         // Get the current origin to construct the checkout URL
         const currentOrigin = window.location.origin;
@@ -1875,11 +1944,23 @@ ${checkoutUrl}
           // Still show results even if email fails
         }
 
+        // Wait for minimum loader delay to finish
+        await minDelayPromise;
+
         // Hide email input → Show results
         document.getElementById("emailGateSection").style.display = "none";
         document.getElementById("resultsSection").style.display = "block";
 
         renderFinalProducts();
+
+        // Reset button state (not strictly needed since section is hidden, but safe)
+        if (unlockBtn && unlockBtnLabel && unlockBtnLoader) {
+          unlockBtn.disabled = false;
+          unlockBtn.style.opacity = "1";
+          unlockBtn.style.cursor = "pointer";
+          unlockBtnLabel.textContent = "Unlock My Personalized Pack →";
+          unlockBtnLoader.style.display = "none";
+        }
       }
 
       function renderFinalProducts() {
