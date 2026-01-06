@@ -79,7 +79,7 @@ const Categories = () => {
                   </p>
 
                   {/* Button */}
-                  <a href={category.link} target="_blank">
+                  <a href={category.link} target="_self">
                     <button className="border-[1.5px] border-[#010907] border-solid rounded-[100px] px-[24px] py-[14px] flex gap-[10px] items-center justify-center hover:bg-[#010907] font-semibold cursor-pointer hover:text-white transition-all duration-200 group">
                       <span className="text-[#010907] !font-['Funnel_Display'] capitalize group-hover:text-white btn-primary">
                         {category.buttonText}

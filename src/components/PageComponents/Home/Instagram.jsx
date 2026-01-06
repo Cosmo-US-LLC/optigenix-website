@@ -200,7 +200,7 @@ const Instagram = () => {
             {instagramPosts.map((post, index) => (
               <CarouselItem
                 key={index}
-                className="pl-2 md:pl-3 lg:pl-4 basis-[290px] lg:basis-[300px]"
+                className="pl-2 md:pl-3 lg:pl-4 basis-[290px] lg:basis-[308px]"
               >
                 <div className="w-full h-[460px] md:h-[533px] rounded-[16px] overflow-hidden relative group cursor-pointer">
                   {/* Video Element */}
