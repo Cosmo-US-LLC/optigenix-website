@@ -215,7 +215,7 @@ const Products = () => {
                     if (isMobile) {
                       setActiveCard((prev) => (prev === index ? null : index));
                     } else {
-                      window.open(product.link, "_blank");
+                      window.open(product.link, "_self");
                     }
                   }}
                 >
@@ -275,7 +275,7 @@ const Products = () => {
 
                   {/* Product Info */}
                   <div>
-                    <a href={product.link} target="_blank">
+                    <a href={product.link} target="_self">
                       <div className="space-y-[8px]">
                         <h6 className="flex items-center gap-2 text-[#010907] h-[40px] md:h-[26px]">
                           {product.name}

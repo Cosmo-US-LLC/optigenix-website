@@ -155,7 +155,7 @@ const Testimonials = () => {
       </div>
 
       {/* Content */}
-      <div className="flex relative z-10 flex-col h-full md:max-w-[1300px] w-full mx-auto px-4 md:px-8">
+      <div className="flex relative z-10 flex-col h-full md:max-w-[1280px] w-full mx-auto px-4 md:px-8">
         {/* Header Section */}
         <div className="flex flex-col gap-4 justify-between items-start pt-[42px] lg:pt-12 text-white lg:flex-col lg:gap-8">
           <h2 className="flex-1 max-w-[700px] !text-[#fff] !text-[30px] md:!text-[48px] !leading-[30px] md:!leading-[56px]  text-center md:text-left   capitalize">
@@ -187,7 +187,7 @@ const Testimonials = () => {
                 {testimonials.map((testimonial, index) => (
                   <CarouselItem
                     key={index}
-                    className="pl-3 md:pl-3 lg:pl-4 basis-[78%] sm:basis-[320px] lg:basis-[368px]"
+                    className="pl-3 md:pl-3 lg:pl-4 basis-[80%] sm:basis-[320px] lg:basis-[422px]"
                   >
                     <div className="h-[286px] md:h-[310px]">
                       <TestimonialCard
