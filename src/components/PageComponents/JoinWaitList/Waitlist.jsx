@@ -228,43 +228,69 @@ The OptiGenix Team
 
       console.log("Response status:", response.status);
 
-      // Check if response is ok
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        console.error("API Error:", errorData);
-        setEmailError(
-          errorData.message ||
-            `Failed to submit. Server error: ${response.status}. Please check if the backend server is running.`
-        );
-        setLoading(false);
-        return;
-      }
+      const data = await response.json().catch(() => {
+        // If JSON parsing fails, return error object
+        return { status: "error", message: "Invalid response from server" };
+      });
 
-      const data = await response.json();
       console.log("API Response:", data);
+      console.log("Response OK:", response.ok);
+      console.log("Response Status Code:", response.status);
+      console.log("Data Status:", data?.status);
 
       // Check if email was sent successfully
-      if (data.status === "success") {
+      // Success if: response is OK (200-299) AND (status is "success" OR no status field exists, or status is not "error")
+      const isSuccess =
+        response.ok &&
+        (data?.status === "success" ||
+          (data?.status !== "error" && !data?.status));
+
+      if (isSuccess) {
+        console.log("✅ SUCCESS - Email sent successfully!");
+        // Clear any previous errors first
+        setEmailError("");
+        // Clear loading state before showing dialog
+        setLoading(false);
         // Show success dialog
         setShowSuccessDialog(true);
+        console.log(
+          "✅ Success dialog state updated - showSuccessDialog: true"
+        );
 
         // Reset form on success
         setSelectedTests(["test1"]);
         setFormData({ fullName: "", email: "" });
-        setEmailError("");
       } else {
-        throw new Error(data.message || "Failed to send email");
+        console.log("❌ ERROR - Failed to send email");
+        console.log(
+          "Error details - response.ok:",
+          response.ok,
+          "data.status:",
+          data?.status
+        );
+        // Handle error response (either HTTP error or status: "error")
+        const errorMessage =
+          data?.message ||
+          (response.ok
+            ? "Failed to send email"
+            : `Server error: ${response.status}. Please check if the backend server is running.`);
+
+        setLoading(false);
+        setEmailError(errorMessage);
+        setShowSuccessDialog(false);
+        console.log("❌ Error state updated - emailError:", errorMessage);
       }
     } catch (error) {
       console.error("Waitlist submission error:", error);
       console.error("API Base URL:", API_BASE);
+      // Network errors or other exceptions
+      setLoading(false);
       setEmailError(
         error.message ||
           "Failed to submit. Please check your connection and try again."
       );
+      setShowSuccessDialog(false);
     }
-
-    setLoading(false);
   };
 
   const selectedCount = selectedTests.length;
