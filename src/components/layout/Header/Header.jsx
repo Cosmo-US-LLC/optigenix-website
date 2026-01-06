@@ -288,7 +288,7 @@ const Header = () => {
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="w-[330px] sm:w-[400px] bg-white h-[100vh] flex flex-col"
+              className="w-[330px] sm:w-[400px]  bg-[#fff] pb-[60px] h-[100vh] flex flex-col"
             >
               <SheetHeader>
                 <Link to="/" className="flex items-center gap-3 h-[42px]">
@@ -421,7 +421,7 @@ const Header = () => {
                             <div key={idx}>
                               <a
                                 href={item?.links}
-                                target="_blank"
+                                target="_self"
                                 className="bg-[#f6f6f6] flex mt-2 flex-row items-center overflow-hidden rounded-[12px] w-full"
                               >
                                 <div className="h-[100px] w-1/2 overflow-hidden  bg-[#dce3e4]">
