@@ -203,13 +203,9 @@ const Header = () => {
               {/* Shopping Cart Icon */}
               <button
                 onClick={() => {
-                  window.open(
-                    "https://tryoptigenix.com/cart",
-                    "_blank",
-                    "noopener,noreferrer"
-                  );
+                  window.location.href = "https://tryoptigenix.com/cart";
                 }}
-                className="bg-[#ededed] hover:bg-[#e0e0e0] w-[48px] h-[48px] rounded-[24px] flex items-center justify-center transition-colors"
+                className="bg-[#ededed] hover:bg-[#e0e0e0] hover:cursor-pointer w-[48px] h-[48px] rounded-[24px] flex items-center justify-center transition-colors"
               >
                 <ShoppingBag className="w-[24px] h-[24px] text-black" />
               </button>
@@ -217,13 +213,10 @@ const Header = () => {
               {/* User Icon */}
               <button
                 onClick={() => {
-                  window.open(
-                    "https://shopify.com/authentication/63409160303/login?client_id=579732a1-531b-4c2b-9afe-f37ffa9e68b1&locale=en&redirect_uri=%2Fauthentication%2F63409160303%2Foauth%2Fauthorize%3Fclient_id%3D579732a1-531b-4c2b-9afe-f37ffa9e68b1%26locale%3Den%26nonce%3D4d764ffb-8bfc-4c55-9207-b76c477fd293%26redirect_uri%3Dhttps%253A%252F%252Fshopify.com%252F63409160303%252Faccount%252Fcallback%253Fsource%253Dcore%26region_country%3DUS%26response_type%3Dcode%26scope%3Dopenid%2Bemail%2Bcustomer-account-api%253Afull%26state%3DhWN73dGcDa2WsjnpUn5D7Oh0&region_country=US",
-                    "_blank",
-                    "noopener,noreferrer"
-                  );
+                  window.location.href =
+                    "https://shopify.com/authentication/63409160303/login?client_id=579732a1-531b-4c2b-9afe-f37ffa9e68b1&locale=en&redirect_uri=%2Fauthentication%2F63409160303%2Foauth%2Fauthorize%3Fclient_id%3D579732a1-531b-4c2b-9afe-f37ffa9e68b1%26locale%3Den%26nonce%3D4d764ffb-8bfc-4c55-9207-b76c477fd293%26redirect_uri%3Dhttps%253A%252F%252Fshopify.com%252F63409160303%252Faccount%252Fcallback%253Fsource%253Dcore%26region_country%3DUS%26response_type%3Dcode%26scope%3Dopenid%2Bemail%2Bcustomer-account-api%253Afull%26state%3DhWN73dGcDa2WsjnpUn5D7Oh0&region_country=US";
                 }}
-                className="bg-[#ededed] hover:bg-[#e0e0e0] w-[48px] h-[48px] rounded-[24px] flex items-center justify-center transition-colors"
+                className="bg-[#ededed] hover:bg-[#e0e0e0] hover:cursor-pointer w-[48px] h-[48px] rounded-[24px] flex items-center justify-center transition-colors"
               >
                 <User className="w-[24px] h-[24px] text-black" />
               </button>
