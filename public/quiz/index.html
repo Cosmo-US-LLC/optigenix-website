@@ -601,8 +601,8 @@
           <div class="your_pack_total_flexbox" style="gap: 20px">
             <div class="" style="flex: 1">
               <h3>Your Pack Total</h3>
-              <!-- <div class="price" id="packTotal">Calculating...</div> -->
-              <div class="price" id="">74.99</div>
+              <div class="price" id="packTotal">Calculating...</div>
+              <!-- <div class="price" id="">74.99</div> -->
               <div class="features">
                 <div class="feature">
                   <span class="checkmark">✓</span>
@@ -1851,11 +1851,8 @@ https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01
           };
         });
 
-        // Calculate dynamic pack total using actual Stripe prices
-        let packTotal = 0;
-        enrichedProducts.forEach((item) => {
-          packTotal += item.price || 14.99;
-        });
+        // Use fixed pack price of $74.99
+        const packTotal = 74.99;
 
         // Update pack total display
         document.getElementById("packTotal").textContent =
@@ -2005,11 +2002,8 @@ https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01
           };
         });
 
-        // Calculate dynamic pack total using actual Stripe prices
-        let packTotal = 0;
-        enrichedProducts.forEach((item) => {
-          packTotal += item.price || 14.99;
-        });
+        // Use fixed pack price of $74.99
+        const packTotal = 74.99;
 
         // Store quiz data in localStorage with full product details including Stripe data
         const quizData = {
