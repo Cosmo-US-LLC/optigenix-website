@@ -97,7 +97,7 @@ const DiscoverMenu = ({ isOpen, onClose }) => {
                 <div>
                   <a
                     href="https://tryoptigenix.com/collections/mental-performance"
-                    target="_blank"
+                    target="_self"
                   >
                     <div className="bg-[#f6f6f6] flex flex-col gap-[4px] md:gap-[6px] items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]">
                       <div className="h-[60px] md:h-[85px] rounded-tl-[12px] rounded-tr-[12px] w-full relative overflow-hidden">
@@ -118,7 +118,7 @@ const DiscoverMenu = ({ isOpen, onClose }) => {
                 <div>
                   <a
                     href="https://tryoptigenix.com/collections/physical-performance"
-                    target="_blank"
+                    target="_self"
                   >
                     <div className="bg-[#f6f6f6] flex flex-col gap-[4px] md:gap-[6px] items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]">
                       <div className="h-[60px] md:h-[85px] rounded-tl-[12px] rounded-tr-[12px] w-full relative overflow-hidden">
@@ -139,7 +139,7 @@ const DiscoverMenu = ({ isOpen, onClose }) => {
                 <div>
                   <a
                     href="https://tryoptigenix.com/collections/recovery"
-                    target="_blank"
+                    target="_self"
                   >
                     <div className="bg-[#f6f6f6] flex flex-col gap-[8px] md:gap-[12px] items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]">
                       <div className="h-[60px] md:h-[85px] rounded-tl-[12px] rounded-tr-[12px] w-full relative overflow-hidden">
