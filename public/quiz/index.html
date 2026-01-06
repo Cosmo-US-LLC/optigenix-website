@@ -1685,6 +1685,80 @@
 
         emailError.style.display = "none";
 
+        // Get the current origin to construct the checkout URL
+        const currentOrigin = window.location.origin;
+        const checkoutUrl = `${currentOrigin}/quiz/checkout`;
+
+        // Store checkout data in localStorage before sending email
+        // This ensures the checkout page has the data when user clicks the link in email
+        const enrichedProducts = finalTopProducts.map((item) => {
+          const stripeProduct = stripeProducts.find((sp) => {
+            const productName = item.product.name.toLowerCase();
+            const stripeName = sp.productName.toLowerCase();
+            return (
+              stripeName === productName ||
+              stripeName.includes(productName) ||
+              productName.includes(stripeName)
+            );
+          });
+
+          if (stripeProduct) {
+            return {
+              ...item,
+              stripeProduct: stripeProduct,
+              price: stripeProduct.amount,
+              priceId: stripeProduct.priceId,
+              productId: stripeProduct.productId,
+              imageUrl:
+                stripeProduct.images && stripeProduct.images.length > 0
+                  ? stripeProduct.images[0]
+                  : item.product.imageUrl,
+            };
+          }
+
+          return {
+            ...item,
+            price: 14.99,
+            priceId: null,
+            productId: null,
+          };
+        });
+
+        const packTotal = 74.99;
+        const quizData = {
+          products: enrichedProducts.map((item) => ({
+            id: item.product.id,
+            name: item.product.name,
+            imageUrl: item.imageUrl || item.product.imageUrl,
+            dosage: item.product.dosage,
+            supports: item.product.supports,
+            whyRecommended: item.product.whyRecommended,
+            scientificEvidence: item.product.scientificEvidence,
+            bestTiming: item.product.bestTiming,
+            boostNotes: item.boostNotes || [],
+            price: item.price || 14.99,
+            quantity: 1,
+            stripePriceId: item.priceId,
+            stripeProductId: item.productId,
+            stripeProduct: item.stripeProduct
+              ? {
+                  productName: item.stripeProduct.productName,
+                  description: item.stripeProduct.description,
+                  currency: item.stripeProduct.currency,
+                }
+              : null,
+          })),
+          total: packTotal,
+          subtotal: packTotal,
+          productCount: enrichedProducts.length,
+          timestamp: Date.now(),
+          stripePriceIds: enrichedProducts
+            .map((item) => item.priceId)
+            .filter(Boolean),
+        };
+
+        localStorage.setItem("quizCheckoutData", JSON.stringify(quizData));
+
         // Prepare user message
         const supplementList = finalTopProducts
           .map((p) => {
@@ -1696,9 +1770,9 @@
         const messageHTML = `
 <p>Hi,</p>
 
-<p>Thank you for completing the OptiGenix quiz! You’ve taken the first step toward a supplement plan designed specifically for your body and goals.</p>
+<p>Thank you for completing the OptiGenix quiz! You've taken the first step toward a supplement plan designed specifically for your body and goals.</p>
 
-<p>Based on your responses, we’ve selected the supplements that best support your performance and overall wellness:</p>
+<p>Based on your responses, we've selected the supplements that best support your performance and overall wellness:</p>
 
 <ul>
   ${finalTopProducts
@@ -1712,7 +1786,7 @@
 <p>You can order your personalized supplements directly through the link below and start optimizing your health today:</p>
 
 <p>
-  👉 <a href="https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01" target="_blank">
+  👉 <a href="${checkoutUrl}" target="_blank">
       <strong>Order Your Personalized Pack</strong>
     </a>
 </p>
@@ -1736,7 +1810,7 @@ ${finalTopProducts
   .join("\n")}
 
 Order your personalized pack:
-https://buy.stripe.com/eVqcN6cXd3SDaoy0ISf3a01
+${checkoutUrl}
 
 - OptiGenix Team
 `;
