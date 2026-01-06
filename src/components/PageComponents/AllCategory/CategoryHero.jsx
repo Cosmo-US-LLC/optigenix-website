@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import shopByFocusImage from "../../../assets/images/all_category/category_hero/category_hero_img1.webp";
-import personalizedSolutionsImage2 from "../../../assets/images/all_category/category_hero/category_hero_img3.webp";
+import personalizedSolutionsImage2 from "../../../assets/images/all_category/category_hero/category_hero_img4.webp";
 
 // Temporary image URLs from Figma - you'll need to replace these with your actual images
 // const shopByFocusImage =
