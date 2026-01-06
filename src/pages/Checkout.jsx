@@ -415,7 +415,7 @@ const Checkout = () => {
       {/* Main Content */}
       <div className="flex flex-col lg:flex-row max-w-[1280px] mx-auto px-4 md:px-8 py-4 sm:py-6 md:py-8 gap-6 lg:gap-20">
         {/* Left Column - Forms */}
-        <div className="w-full lg:max-w-[560px] order-1 lg:order-1">
+        <div className="w-full lg:max-w-[560px] order-2 lg:order-1">
           <StripeProvider>
             <div className="flex flex-col gap-6">
               {/* Contact Information - Using Stripe-styled inputs */}
@@ -463,7 +463,7 @@ const Checkout = () => {
         </div>
 
         {/* Right Column - Order Summary */}
-        <div className="w-full lg:w-[574px] bg-[#f7f7f7] lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto order-2 lg:order-2">
+        <div className="w-full lg:w-[574px] bg-[#f7f7f7] lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto order-1 lg:order-2">
           <div className="px-4 sm:px-6 md:px-[38px] py-6 md:py-8">
             <div className="max-w-[full]">
               {/* Products List - Dynamic based on source */}
