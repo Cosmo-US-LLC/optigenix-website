@@ -58,6 +58,7 @@
         font-weight: 600;
         color: #1f2937;
         margin-bottom: 20px;
+        transition: opacity 0.3s ease-in-out;
       }
 
       .progress {
@@ -1194,6 +1195,55 @@
         }
       }
 
+      // Track current step to avoid unnecessary re-renders
+      let currentStepName = null;
+      window.addEventListener("message", function (event) {
+        // Only accept messages from same origin
+        if (event.origin !== window.location.origin) return;
+
+        if (event.data.type === "change_step") {
+          const newStep = event.data.step;
+
+          // Skip if step hasn't actually changed
+          if (currentStepName === newStep) return;
+          currentStepName = newStep;
+
+          // Update URL without reload
+          const url = new URL(window.location);
+          url.searchParams.set("step", newStep);
+          window.history.replaceState({}, "", url);
+
+          // Handle the step change
+          if (newStep === "results") {
+            if (shouldShowResults() && finalTopProducts.length > 0) {
+              document.getElementById("quizSection").style.display = "none";
+              document.getElementById("emailGateSection").style.display =
+                "none";
+              document.getElementById("resultsSection").style.display = "block";
+              renderFinalProducts();
+            } else if (areAllQuestionsAnswered()) {
+              showResults();
+            }
+          } else if (newStep === "email") {
+            if (areAllQuestionsAnswered()) {
+              showResults();
+            }
+          } else if (STEP_MAP[newStep] !== undefined) {
+            // Normal question step
+            const newQuestionIndex = STEP_MAP[newStep];
+            // Only render if question index actually changed
+            if (
+              newQuestionIndex !== currentQuestion &&
+              newQuestionIndex >= 0 &&
+              newQuestionIndex < QUESTIONS.length
+            ) {
+              currentQuestion = newQuestionIndex;
+              renderQuestion();
+            }
+          }
+        }
+      });
+
       // Check if all questions are answered
       function areAllQuestionsAnswered() {
         return QUESTIONS.every((q) => answers[q.field] !== undefined);
@@ -1243,6 +1293,9 @@
       // Check if we should show results or email gate
       const urlParams = new URLSearchParams(window.location.search);
       const urlStep = urlParams.get("step");
+
+      // Initialize current step name
+      currentStepName = urlStep || "age";
 
       // Handle special steps: email and results
       if (urlStep === "results") {
