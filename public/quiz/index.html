@@ -58,6 +58,7 @@
         font-weight: 600;
         color: #1f2937;
         margin-bottom: 20px;
+        transition: opacity 0.3s ease-in-out;
       }
 
       .progress {
@@ -1194,13 +1195,152 @@
         }
       }
 
+      // Track current step to avoid unnecessary re-renders
+      let currentStepName = null;
+      window.addEventListener("message", function (event) {
+        // Only accept messages from same origin
+        if (event.origin !== window.location.origin) return;
+
+        if (event.data.type === "change_step") {
+          const newStep = event.data.step;
+
+          // Skip if step hasn't actually changed
+          if (currentStepName === newStep) return;
+          currentStepName = newStep;
+
+          // Update URL without reload
+          const url = new URL(window.location);
+          url.searchParams.set("step", newStep);
+          window.history.replaceState({}, "", url);
+
+          // Handle the step change
+          if (newStep === "results") {
+            if (shouldShowResults() && finalTopProducts.length > 0) {
+              document.getElementById("quizSection").style.display = "none";
+              document.getElementById("emailGateSection").style.display =
+                "none";
+              document.getElementById("resultsSection").style.display = "block";
+              renderFinalProducts();
+            } else if (areAllQuestionsAnswered()) {
+              showResults();
+            }
+          } else if (newStep === "email") {
+            if (areAllQuestionsAnswered()) {
+              showResults();
+            }
+          } else if (STEP_MAP[newStep] !== undefined) {
+            // Normal question step
+            const newQuestionIndex = STEP_MAP[newStep];
+            // Only render if question index actually changed
+            if (
+              newQuestionIndex !== currentQuestion &&
+              newQuestionIndex >= 0 &&
+              newQuestionIndex < QUESTIONS.length
+            ) {
+              currentQuestion = newQuestionIndex;
+              renderQuestion();
+            }
+          }
+        }
+      });
+
+      // Check if all questions are answered
+      function areAllQuestionsAnswered() {
+        return QUESTIONS.every((q) => answers[q.field] !== undefined);
+      }
+
+      // Find first unanswered question index
+      function findFirstUnansweredQuestion() {
+        for (let i = 0; i < QUESTIONS.length; i++) {
+          if (answers[QUESTIONS[i].field] === undefined) {
+            return i;
+          }
+        }
+        return QUESTIONS.length; // All answered
+      }
+
+      // Check if email was submitted (results should be shown)
+      function shouldShowResults() {
+        return localStorage.getItem("quizEmailSubmitted") === "true";
+      }
+
+      // Load final products from localStorage if available
+      function loadFinalProducts() {
+        const saved = localStorage.getItem("quizFinalProducts");
+        if (saved) {
+          try {
+            finalTopProducts = JSON.parse(saved);
+          } catch (e) {
+            finalTopProducts = [];
+          }
+        }
+      }
+
+      // Save final products to localStorage
+      function saveFinalProducts() {
+        if (finalTopProducts.length > 0) {
+          localStorage.setItem(
+            "quizFinalProducts",
+            JSON.stringify(finalTopProducts)
+          );
+        }
+      }
+
       // Initialize from URL parameter
       loadSavedAnswers(); // Load saved answers to preserve them
-      currentQuestion = getStepFromURL();
+      loadFinalProducts(); // Load final products if available
 
-      // Check if we should show results
+      // Check if we should show results or email gate
       const urlParams = new URLSearchParams(window.location.search);
       const urlStep = urlParams.get("step");
+
+      // Initialize current step name
+      currentStepName = urlStep || "age";
+
+      // Handle special steps: email and results
+      if (urlStep === "results") {
+        // Show results if email was submitted
+        if (shouldShowResults() && finalTopProducts.length > 0) {
+          document.getElementById("quizSection").style.display = "none";
+          document.getElementById("emailGateSection").style.display = "none";
+          document.getElementById("resultsSection").style.display = "block";
+          renderFinalProducts();
+        } else if (areAllQuestionsAnswered()) {
+          // If quiz is complete but results not shown yet, calculate and show email gate
+          showResults(); // This calculates products and shows email gate
+        } else {
+          // Quiz not complete, go to first unanswered question
+          currentQuestion = findFirstUnansweredQuestion();
+          if (currentQuestion >= 0 && currentQuestion < QUESTIONS.length) {
+            const stepName = INDEX_TO_STEP[currentQuestion];
+            if (stepName) {
+              notifyParentStep(stepName);
+            }
+            renderQuestion();
+          }
+        }
+      } else if (urlStep === "email") {
+        // Show email gate if quiz is complete
+        if (areAllQuestionsAnswered()) {
+          showResults(); // This calculates products and shows email gate
+        } else {
+          // Quiz not complete, go to first unanswered question
+          currentQuestion = findFirstUnansweredQuestion();
+          if (currentQuestion >= 0 && currentQuestion < QUESTIONS.length) {
+            const stepName = INDEX_TO_STEP[currentQuestion];
+            if (stepName) {
+              notifyParentStep(stepName);
+            }
+            renderQuestion();
+          }
+        }
+      } else {
+        // Normal question step
+        currentQuestion = getStepFromURL();
+        if (currentQuestion >= 0 && currentQuestion < QUESTIONS.length) {
+          renderQuestion();
+        }
+      }
 
       // Initialize Quiz
       function renderQuestion() {
@@ -1264,8 +1404,9 @@
           notifyParentStep(nextStep); // Update parent URL
           renderQuestion();
         } else {
-          notifyParentStep("results"); // Go to results
-          showResults();
+          // All questions answered - show email gate
+          notifyParentStep("email"); // Go to email step
+          showResults(); // This shows email gate
         }
       }
 
@@ -1696,6 +1837,9 @@
         scores = applyBoosts(scores, needs);
         finalTopProducts = selectTopProducts(scores);
 
+        // Save final products to localStorage
+        saveFinalProducts();
+
         // Show email gate instead of actual results
         document.getElementById("emailGateSection").style.display = "block";
         window.scrollTo(0, 0);
@@ -1947,9 +2091,15 @@ ${checkoutUrl}
         // Wait for minimum loader delay to finish
         await minDelayPromise;
 
+        // Mark email as submitted
+        localStorage.setItem("quizEmailSubmitted", "true");
+
         // Hide email input → Show results
         document.getElementById("emailGateSection").style.display = "none";
         document.getElementById("resultsSection").style.display = "block";
+
+        // Update URL to results step
+        notifyParentStep("results");
 
         renderFinalProducts();
 
@@ -2258,8 +2408,8 @@ ${checkoutUrl}
       // Fetch Stripe products when page loads
       fetchStripeProducts();
 
-      // Start the quiz
-      renderQuestion();
+      // Note: renderQuestion() is called in the initialization logic above
+      // based on the URL step parameter
     </script>
   </body>
 </html>

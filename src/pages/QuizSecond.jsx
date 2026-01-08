@@ -1,5 +1,5 @@
 import MetaTags from "@/components/PageComponents/MetaTags/MetaTags";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 
 // Normalize backend base URL (same logic as other components)
@@ -24,11 +24,79 @@ const QuizSecond = () => {
   const navigate = useNavigate();
   const iframeRef = React.useRef(null);
 
-  // Get the current step from URL ONCE on mount - freeze it!
-  const [iframeUrl] = useState(() => {
-    const step = searchParams.get("step") || "age";
-    return `/quiz/index.html?step=${step}`;
-  });
+  // Ensure step parameter is in URL on initial load
+  useEffect(() => {
+    const step = searchParams.get("step");
+    if (!step) {
+      // If no step parameter, redirect to age step
+      navigate("/quiz?step=age", { replace: true });
+    }
+  }, [searchParams, navigate]);
+
+  // Get the current step from URL - update when step changes
+  const currentStep = searchParams.get("step") || "age";
+  const iframeInitializedRef = React.useRef(false);
+  const lastStepRef = React.useRef(null);
+
+  // Initialize iframe and send initial step
+  useEffect(() => {
+    const iframe = iframeRef.current;
+    if (!iframe) return;
+
+    const handleLoad = () => {
+      if (iframeInitializedRef.current) return;
+      iframeInitializedRef.current = true;
+
+      // Get current step at load time
+      const initialStep = searchParams.get("step") || "age";
+
+      // Send initial step after iframe loads
+      setTimeout(() => {
+        try {
+          if (iframe.contentWindow) {
+            iframe.contentWindow.postMessage(
+              {
+                type: "change_step",
+                step: initialStep,
+              },
+              window.location.origin
+            );
+            lastStepRef.current = initialStep;
+          }
+        } catch {
+          // Iframe not ready, ignore
+        }
+      }, 100);
+    };
+
+    iframe.addEventListener("load", handleLoad);
+    return () => iframe.removeEventListener("load", handleLoad);
+  }, [searchParams]);
+
+  // Send step change message to iframe (no reload) - only when step actually changes
+  useEffect(() => {
+    const iframe = iframeRef.current;
+    if (!iframe || !iframeInitializedRef.current) return;
+
+    // Don't send if step hasn't changed
+    if (lastStepRef.current === currentStep) return;
+    lastStepRef.current = currentStep;
+
+    // Send message immediately
+    try {
+      if (iframe.contentWindow) {
+        iframe.contentWindow.postMessage(
+          {
+            type: "change_step",
+            step: currentStep,
+          },
+          window.location.origin
+        );
+      }
+    } catch {
+      // Iframe not ready, ignore
+    }
+  }, [currentStep]);
 
   // Inject API base URL into iframe when it loads
   useEffect(() => {
@@ -80,7 +148,7 @@ const QuizSecond = () => {
       />
       <iframe
         ref={iframeRef}
-        src={iframeUrl}
+        src="/quiz/index.html"
         style={{ width: "100%", border: "none" }}
         className="md:min-h-[calc(100vh)] min-h-[calc(100vh)]"
         title="OptiGenix Quiz"
