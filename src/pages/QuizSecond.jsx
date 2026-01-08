@@ -1,5 +1,5 @@
 import MetaTags from "@/components/PageComponents/MetaTags/MetaTags";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 
 // Normalize backend base URL (same logic as other components)
@@ -24,11 +24,18 @@ const QuizSecond = () => {
   const navigate = useNavigate();
   const iframeRef = React.useRef(null);
 
-  // Get the current step from URL ONCE on mount - freeze it!
-  const [iframeUrl] = useState(() => {
-    const step = searchParams.get("step") || "age";
-    return `/quiz/index.html?step=${step}`;
-  });
+  // Ensure step parameter is in URL on initial load
+  useEffect(() => {
+    const step = searchParams.get("step");
+    if (!step) {
+      // If no step parameter, redirect to age step
+      navigate("/quiz?step=age", { replace: true });
+    }
+  }, [searchParams, navigate]);
+
+  // Get the current step from URL - update when step changes
+  const currentStep = searchParams.get("step") || "age";
+  const iframeUrl = `/quiz/index.html?step=${currentStep}`;
 
   // Inject API base URL into iframe when it loads
   useEffect(() => {
@@ -80,6 +87,7 @@ const QuizSecond = () => {
       />
       <iframe
         ref={iframeRef}
+        key={currentStep}
         src={iframeUrl}
         style={{ width: "100%", border: "none" }}
         className="md:min-h-[calc(100vh)] min-h-[calc(100vh)]"
