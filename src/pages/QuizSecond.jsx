@@ -31,7 +31,7 @@ const QuizSecond = () => {
       // If no step parameter, redirect to age step
       navigate("/quiz?step=age", { replace: true });
     }
-  }, [searchParams, navigate]);
+  }, []);
 
   // Get the current step from URL - update when step changes
   const currentStep = searchParams.get("step") || "age";
