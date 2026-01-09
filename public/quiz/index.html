@@ -1206,16 +1206,41 @@
         localStorage.setItem("optigenix_quiz_answers", JSON.stringify(answers));
       }
 
-      // Update parent window URL (if in iframe)
+      // Update parent window URL (if in iframe) or current window URL (if standalone)
       function notifyParentStep(step) {
+        // Update the iframe's own URL (for when quiz is opened directly)
+        const url = new URL(window.location);
+        url.searchParams.set("step", step);
+        window.history.pushState({}, "", url);
+
+        // Notify parent if in iframe (for React Router navigation)
         if (window.parent !== window) {
-          window.parent.postMessage(
-            {
-              type: "quiz_step_change",
-              step: step,
-            },
-            window.location.origin
-          );
+          try {
+            // Get the current origin (handles http/https and protocol changes)
+            const currentOrigin = window.location.origin;
+
+            // Send message with explicit origin
+            window.parent.postMessage(
+              {
+                type: "quiz_step_change",
+                step: step,
+              },
+              currentOrigin
+            );
+
+            // Log for debugging on Netlify
+            console.log(
+              "Quiz: Sent step change message:",
+              step,
+              "to origin:",
+              currentOrigin
+            );
+          } catch (error) {
+            console.warn("Could not notify parent window:", error);
+          }
+        } else {
+          // If not in iframe (opened directly), URL is already updated above
+          console.log("Quiz: Updated URL directly (not in iframe):", step);
         }
       }
 
