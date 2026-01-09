@@ -116,7 +116,7 @@ const CategoryHero = () => {
 
                 <button
                   className="btn_secondary max-w-[160px] w-full"
-                  onClick={() => navigate("/quiz")}
+                  onClick={() => navigate("/quiz?step=age")}
                 >
                   Take the Quiz
                 </button>

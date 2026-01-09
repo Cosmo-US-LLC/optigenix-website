@@ -689,6 +689,30 @@
 
         <div id="productsContainer"></div>
 
+        <!-- Back Button to Email Gate -->
+        <button
+          onclick="goBackToEmailGate()"
+          style="
+            background: none;
+            border: none;
+            color: #0d8360;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 12px 0;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            justify-content: center;
+          "
+          onmouseover="this.style.color='#0a6b4f'"
+          onmouseout="this.style.color='#0D8360'"
+        >
+          <span style="font-size: 1.1rem">←</span> Back to Email
+        </button>
+
         <button class="restart-btn" onclick="restartQuiz()">
           Take Quiz Again
         </button>
@@ -1202,7 +1226,12 @@
         const currentOrigin = window.location.origin;
         if (event.origin !== currentOrigin) {
           // Log for debugging
-          console.warn("Quiz: Message origin mismatch:", event.origin, "vs", currentOrigin);
+          console.warn(
+            "Quiz: Message origin mismatch:",
+            event.origin,
+            "vs",
+            currentOrigin
+          );
           return;
         }
 
@@ -1220,21 +1249,43 @@
 
           // Handle the step change
           if (newStep === "results") {
+            // Hide email gate section if visible
+            document.getElementById("emailGateSection").style.display = "none";
+            // Hide quiz section
+            document.getElementById("quizSection").style.display = "none";
+
             if (shouldShowResults() && finalTopProducts.length > 0) {
-              document.getElementById("quizSection").style.display = "none";
-              document.getElementById("emailGateSection").style.display =
-                "none";
               document.getElementById("resultsSection").style.display = "block";
               renderFinalProducts();
             } else if (areAllQuestionsAnswered()) {
-              showResults();
+              // If email not submitted yet, show email gate instead
+              showResults(); // This shows email gate
             }
           } else if (newStep === "email") {
+            // Hide results section if visible (when going back from results)
+            document.getElementById("resultsSection").style.display = "none";
+            // Hide quiz section
+            document.getElementById("quizSection").style.display = "none";
+            // Show email gate if quiz is complete
             if (areAllQuestionsAnswered()) {
-              showResults();
+              // Calculate products if not already calculated
+              if (finalTopProducts.length === 0) {
+                const needs = calculateNeeds();
+                let scores = scoreProducts(needs);
+                scores = applyBoosts(scores, needs);
+                finalTopProducts = selectTopProducts(scores);
+                saveFinalProducts();
+              }
+              // Show email gate
+              document.getElementById("emailGateSection").style.display =
+                "block";
             }
           } else if (STEP_MAP[newStep] !== undefined) {
-            // Normal question step
+            // Normal question step - hide email and results sections, show quiz
+            document.getElementById("emailGateSection").style.display = "none";
+            document.getElementById("resultsSection").style.display = "none";
+            document.getElementById("quizSection").style.display = "block";
+
             const newQuestionIndex = STEP_MAP[newStep];
             // Only render if question index actually changed
             if (
@@ -1835,7 +1886,10 @@
       // }
 
       function showResults() {
+        // Hide quiz section
         document.getElementById("quizSection").style.display = "none";
+        // Hide results section (in case it was visible)
+        document.getElementById("resultsSection").style.display = "none";
 
         const needs = calculateNeeds();
         let scores = scoreProducts(needs);
@@ -1851,7 +1905,11 @@
       }
 
       function goBackToLastQuestion() {
+        // Hide email gate section
         document.getElementById("emailGateSection").style.display = "none";
+        // Hide results section if visible (in case we're going back from results)
+        document.getElementById("resultsSection").style.display = "none";
+        // Show quiz section
         document.getElementById("quizSection").style.display = "block";
 
         // Set back navigation flag
@@ -1869,6 +1927,20 @@
         }
 
         renderQuestion();
+        window.scrollTo(0, 0);
+      }
+
+      // Function to go back from results to email gate
+      function goBackToEmailGate() {
+        // Hide results section
+        document.getElementById("resultsSection").style.display = "none";
+        // Hide quiz section
+        document.getElementById("quizSection").style.display = "none";
+        // Show email gate section
+        document.getElementById("emailGateSection").style.display = "block";
+
+        // Update URL to email step
+        notifyParentStep("email");
         window.scrollTo(0, 0);
       }
 
@@ -2271,8 +2343,18 @@ ${checkoutUrl}
       function restartQuiz() {
         currentQuestion = 0;
         answers = {};
+        // Hide all sections
         document.getElementById("resultsSection").style.display = "none";
+        document.getElementById("emailGateSection").style.display = "none";
+        // Show quiz section
         document.getElementById("quizSection").style.display = "block";
+        // Clear saved data
+        localStorage.removeItem("optigenix_quiz_answers");
+        localStorage.removeItem("quizEmailSubmitted");
+        localStorage.removeItem("quizFinalProducts");
+        finalTopProducts = [];
+        // Update URL to age step
+        notifyParentStep("age");
         renderQuestion();
         window.scrollTo(0, 0);
       }
