@@ -31,7 +31,7 @@ const QuizSecond = () => {
       // If no step parameter, redirect to age step
       navigate("/quiz?step=age", { replace: true });
     }
-  }, []);
+  }, [navigate, searchParams]);
 
   // Get the current step from URL - update when step changes
   const currentStep = searchParams.get("step") || "age";
@@ -121,28 +121,58 @@ const QuizSecond = () => {
   // Listen for messages from iframe (when quiz step changes)
   useEffect(() => {
     const handleMessage = (event) => {
+      // Log all messages for debugging on Netlify
+      console.log(
+        "QuizSecond: Received message:",
+        event.data,
+        "from origin:",
+        event.origin
+      );
+
       // Accept messages from same origin (works on Netlify, Vercel, and localhost)
       const currentOrigin = window.location.origin;
-      if (event.origin !== currentOrigin) {
-        // Log for debugging on Netlify
+      const eventOrigin = event.origin;
+
+      // Check if origin matches (handle protocol differences on Netlify)
+      const isSameOrigin =
+        eventOrigin === currentOrigin ||
+        eventOrigin === `http://${currentOrigin.replace(/^https?:\/\//, "")}` ||
+        eventOrigin === `https://${currentOrigin.replace(/^https?:\/\//, "")}`;
+
+      if (!isSameOrigin) {
         console.warn(
-          "Message origin mismatch:",
-          event.origin,
+          "QuizSecond: Message origin mismatch:",
+          eventOrigin,
           "vs",
           currentOrigin
         );
-        return;
+        // On Netlify, sometimes origin might differ slightly, but still process if hostname matches
+        const currentHostname = window.location.hostname;
+        const eventHostname = eventOrigin
+          .replace(/^https?:\/\//, "")
+          .split("/")[0]
+          .split(":")[0];
+        if (
+          eventHostname !== currentHostname &&
+          !eventHostname.includes(currentHostname)
+        ) {
+          return;
+        }
+        // Continue processing if hostname matches (might be http vs https issue)
       }
 
       // Handle step change from iframe
-      if (event.data.type === "quiz_step_change") {
+      if (event.data && event.data.type === "quiz_step_change") {
         const newStep = event.data.step;
-        // Use navigate with replace: false to update URL properly on Netlify
+        console.log("QuizSecond: Processing step change to:", newStep);
+
+        // Update URL using React Router navigate
         navigate(`/quiz?step=${newStep}`, { replace: false });
       }
 
       // Handle quiz complete
-      if (event.data.type === "quiz_complete") {
+      if (event.data && event.data.type === "quiz_complete") {
+        console.log("QuizSecond: Processing quiz complete");
         navigate(`/quiz?step=results`, { replace: false });
       }
     };
