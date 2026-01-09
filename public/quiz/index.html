@@ -642,6 +642,27 @@
 
       <!-- Results Section -->
       <div id="resultsSection" class="results-card" style="display: none">
+        <!-- Back Button to Email Gate - Top -->
+        <button
+          onclick="goBackToEmailGate()"
+          style="
+            background: none;
+            border: none;
+            color: #0d8360;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+          "
+          onmouseover="this.style.color='#0a6b4f'"
+          onmouseout="this.style.color='#0D8360'"
+        >
+          <span style="font-size: 1.1rem">←</span> Back to Email
+        </button>
         <div class="results-header">
           <h2>Your Personalized Pack</h2>
           <p>
@@ -690,7 +711,7 @@
         <div id="productsContainer"></div>
 
         <!-- Back Button to Email Gate -->
-        <button
+        <!-- <button
           onclick="goBackToEmailGate()"
           style="
             background: none;
@@ -711,7 +732,7 @@
           onmouseout="this.style.color='#0D8360'"
         >
           <span style="font-size: 1.1rem">←</span> Back to Email
-        </button>
+        </button> -->
 
         <button class="restart-btn" onclick="restartQuiz()">
           Take Quiz Again
@@ -1206,16 +1227,41 @@
         localStorage.setItem("optigenix_quiz_answers", JSON.stringify(answers));
       }
 
-      // Update parent window URL (if in iframe)
+      // Update parent window URL (if in iframe) or current window URL (if standalone)
       function notifyParentStep(step) {
+        // Update the iframe's own URL (for when quiz is opened directly)
+        const url = new URL(window.location);
+        url.searchParams.set("step", step);
+        window.history.pushState({}, "", url);
+
+        // Notify parent if in iframe (for React Router navigation)
         if (window.parent !== window) {
-          window.parent.postMessage(
-            {
-              type: "quiz_step_change",
-              step: step,
-            },
-            window.location.origin
-          );
+          try {
+            // Get the current origin (handles http/https and protocol changes)
+            const currentOrigin = window.location.origin;
+
+            // Send message with explicit origin
+            window.parent.postMessage(
+              {
+                type: "quiz_step_change",
+                step: step,
+              },
+              currentOrigin
+            );
+
+            // Log for debugging on Netlify
+            console.log(
+              "Quiz: Sent step change message:",
+              step,
+              "to origin:",
+              currentOrigin
+            );
+          } catch (error) {
+            console.warn("Could not notify parent window:", error);
+          }
+        } else {
+          // If not in iframe (opened directly), URL is already updated above
+          console.log("Quiz: Updated URL directly (not in iframe):", step);
         }
       }
 
