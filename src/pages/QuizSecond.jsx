@@ -121,12 +121,23 @@ const QuizSecond = () => {
   // Listen for messages from iframe (when quiz step changes)
   useEffect(() => {
     const handleMessage = (event) => {
-      // Only accept messages from same origin
-      if (event.origin !== window.location.origin) return;
+      // Accept messages from same origin (works on Netlify, Vercel, and localhost)
+      const currentOrigin = window.location.origin;
+      if (event.origin !== currentOrigin) {
+        // Log for debugging on Netlify
+        console.warn(
+          "Message origin mismatch:",
+          event.origin,
+          "vs",
+          currentOrigin
+        );
+        return;
+      }
 
       // Handle step change from iframe
       if (event.data.type === "quiz_step_change") {
         const newStep = event.data.step;
+        // Use navigate with replace: false to update URL properly on Netlify
         navigate(`/quiz?step=${newStep}`, { replace: false });
       }
 
