@@ -5,7 +5,6 @@ import USPBanner from "../components/PageComponents/Home/USPBanner";
 import Categories from "../components/PageComponents/Home/Categories";
 import Products from "../components/PageComponents/Home/Products";
 import OurStory from "../components/PageComponents/Home/OurStory";
-// import DNABloodTest from "../components/PageComponents/Home/DNABloodTest";
 import PersonalizedTests from "../components/PageComponents/Home/PersonalizedTests";
 import TrustedPartners from "../components/PageComponents/Home/TrustedPartners";
 import HowItWorks from "../components/PageComponents/Home/HowItWorks";
@@ -19,6 +18,7 @@ import Instagram from "../components/PageComponents/Home/Instagram";
 import WhatsNext from "../components/PageComponents/Home/WhatsNext";
 import backgroundVideo from "../assets/images/hero/Hero V3-compressed.mp4";
 import backgroundImage from "../assets/images/hero/hero_background.webp";
+import MetaTags from "../components/PageComponents/MetaTags/MetaTags";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -28,30 +28,36 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen">
-      <Hero
-        backgroundVideo={backgroundVideo}
-        backgroundImage={backgroundImage}
-        ctaText="Discover Your Personalized Plan"
-        onCtaClick={handleHeroClick}
+    <>
+      <MetaTags
+        title="Tailored Nutrition & Performance Solutions for Active Lifestyles"
+        description="Explore tailored nutrition and performance solutions designed to optimize health, fitness, and athletic potential for active individuals and athletes."
       />
-      <USPBanner />
-      <Categories />
-      <Products />
-      {/* <OurStory /> */}
-      {/* <DNABloodTest /> */}
-      <PersonalizedTests />
-      {/* <TrustedPartners /> */}
-      {/* <HowItWorks /> */}
-      <CaseStudy />
-      <Quality />
-      <Team />
-      <Comparison />
-      <Testimonials />
-      <WhatsNext />
-      <FAQs />
-      <Instagram />
-    </div>
+      <div className="min-h-screen">
+        <Hero
+          backgroundVideo={backgroundVideo}
+          backgroundImage={backgroundImage}
+          ctaText="Discover Your Personalized Plan"
+          onCtaClick={handleHeroClick}
+        />
+        <USPBanner />
+        <Categories />
+        <Products />
+        {/* <OurStory /> */}
+        {/* <DNABloodTest /> */}
+        <PersonalizedTests />
+        {/* <TrustedPartners /> */}
+        {/* <HowItWorks /> */}
+        <CaseStudy />
+        <Quality />
+        <Team />
+        <Comparison />
+        <Testimonials />
+        <WhatsNext />
+        <FAQs />
+        <Instagram />
+      </div>
+    </>
   );
 };
 

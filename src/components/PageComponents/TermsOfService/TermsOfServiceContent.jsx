@@ -40,8 +40,8 @@ const TermsOfServiceContent = () => {
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-[48px]">
           {/* Left Side - Title & Table of Contents */}
           <div className="lg:w-[400px] shrink-0 lg:sticky md:top-29 lg:self-start">
-            <h2 className=" !text-[#010907] md:text-center md:text-left mb-0 md:mb-4 md:max-w-[230px]">
-              Terms of Service
+            <h2 className=" !text-[#010907] md:text-center md:text-left mb-0 md:mb-4 md:max-w-[280px]">
+              Terms and Conditions
             </h2>
 
             {/* Table of Contents */}
@@ -65,7 +65,7 @@ const TermsOfServiceContent = () => {
           </div>
 
           {/* Right Side - Content */}
-          <div className="flex-1 flex max-w-[722px] !w-[100%] flex-col gap-6 lg:gap-[32px]">
+          <div className="flex-1 flex max-w-[772px] !w-[100%] flex-col gap-6 lg:gap-[32px]">
             {/* Introduction */}
             <div
               id="introduction"
@@ -86,7 +86,7 @@ const TermsOfServiceContent = () => {
               </div>
               <div className="bg-[#f7f7f7] rounded-[8px] p-4 lg:p-[16px]">
                 <p className="font-inter font-bold text-[14px] lg:!text-[16px] leading-[22px] lg:leading-[24px] text-[#010907] tracking-[0.32px]">
-                  IMPORTANT: PLEASE NOTE THAT SECTION 4 OF THESE TERMS CONTAIN A
+                  IMPORTANT: PLEASE NOTE THAT SECTION 4 OF THESE TERMS CONTAINS A
                   MANDATORY ARBITRATION PROVISION THAT REQUIRES THE USE OF
                   ARBITRATION ON AN INDIVIDUAL BASIS AND LIMITS THE REMEDIES
                   AVAILABLE TO YOU IN THE EVENT OF CERTAIN DISPUTES.
@@ -454,7 +454,7 @@ const TermsOfServiceContent = () => {
                       RESPONSIBLE FOR KNOWING ABOUT ANY FOOD ALLERGIES YOU MAY
                       HAVE AND VERIFYING THE PRODUCTS BEFORE CONSUMING SUCH
                       PRODUCTS, INCLUDING READING ANY WARNINGS OR INFORMATION
-                      PROVIDED ON PACKAGE RELATED TO ALLERGENS AND INGREDIENTS.
+                      PROVIDED ON THE PACKAGE RELATED TO ALLERGENS AND INGREDIENTS.
                     </p>
                   </div>
                 </div>

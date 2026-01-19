@@ -20,7 +20,7 @@ const PersonalizedSolutions = () => {
   const [isBloodModalOpen, setIsBloodModalOpen] = useState(false);
 
   const handleDiscoverMore = () => navigate("/gene-test");
-  const handleJoinWaitlist = () => navigate("/join-wait-list");
+  const handleJoinWaitlist = () => navigate("/join-wait-list?test=Blood Test");
   return (
     <section
       id="personalized-solutions"
@@ -48,7 +48,7 @@ const PersonalizedSolutions = () => {
                 <div className="absolute inset-0 overflow-hidden rounded-[24px]">
                   <img
                     src={dnaHelixImage}
-                    alt="DNA Helix"
+                    alt="Gene Helix"
                     className="object-cover w-full h-full"
                   />
                 </div>
@@ -80,7 +80,7 @@ const PersonalizedSolutions = () => {
                   <div className="bg-white rounded-[8px] min-h-[490px] md:min-h-[369px] max-h-[450px] md:max-h-[369px] p-[12px] md:p-[12px] w-full flex flex-col gap-[10px]">
                     <div className="flex flex-col gap-[10px]">
                       <h3 className="capitalize font-['Funnel_Display'] font-bold !text-[20px] md:!text-[32px] leading-[26px] md:leading-[40px] !text-[#0d8360]">
-                        At-Home DNA Test
+                        At-Home Gene Test
                       </h3>
                       <p className="font-['Inter'] font-normal text-[14px] leading-[22px] text-[#185348]">
                         A simple cheek swab reveals what makes you tick. We
@@ -152,9 +152,9 @@ const PersonalizedSolutions = () => {
                             Discover
                           </p>
                         </div>
-                        <p className="font-['Inter'] font-normal text-[16px] leading-[22px] text-[#185348]">
+                        <p className="font-['Inter'] font-normal text-[14px] leading-[22px] text-[#185348]">
                           How your body adapts to strength, endurance, and
-                          recovery
+                          recovery.
                         </p>
                       </div>
 
@@ -192,7 +192,7 @@ const PersonalizedSolutions = () => {
                         </div>
                         <p className="font-['Inter'] font-normal text-[14px] leading-[22px] text-[#185348]">
                           Science-backed recommendations and a nutrition coach
-                          for daily optimization
+                          for daily optimization.
                         </p>
                       </div>
                     </div>
@@ -211,7 +211,7 @@ const PersonalizedSolutions = () => {
                 ) : (
                   <div>
                     <h3 className="font-['Funnel_Display'] pb-2 md:pb-4 !text-white font-bold text-[20px] md:text-[26px] leading-[26px] md:leading-[40px]">
-                      At-Home DNA Test
+                      At-Home Gene Test
                     </h3>
                     <div className="flex flex-col md:flex-row gap-[16px] items-end justify-between">
                       <div className="flex flex-col gap-[16px] w-full md:max-w-[360px] text-[#f8fffd] ">
@@ -278,8 +278,8 @@ const PersonalizedSolutions = () => {
                         <h3 className="capitalize font-['Funnel_Display'] font-bold !text-[20px] md:!text-[32px] leading-[36px] md:leading-[40px] !text-[#0d8360]">
                           Performance Blood Test
                         </h3>
-                        <p className="font-['Inter'] font-normal text-[14px] leading-[22px] text-[#031a13]">
-                          Your DNA provides the blueprint, while your blood
+                        <p className="font-['Inter'] font-normal text-[14px] leading-[22px] text-[#185348]">
+                          Your Gene provides the blueprint, while your blood
                           delivers real-time insights. By analyzing key
                           biomarkers, we assess how your current routine is
                           affecting your health and offer evidence-based,

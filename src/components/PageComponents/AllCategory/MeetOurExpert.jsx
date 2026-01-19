@@ -39,7 +39,7 @@ const MeetOurExpert = () => {
                   Advisor at OptiGenix, combines her expertise as a five-time
                   biotech founder and top-five ranked female Series A
                   entrepreneur to ensure every recommendation is science-backed
-                  and tailored to your DNA, helping you optimize performance,
+                  and tailored to your Gene, helping you optimize performance,
                   recovery, and overall health.
                 </p>
               </div>

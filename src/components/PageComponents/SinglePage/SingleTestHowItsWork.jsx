@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { BACKEND_URL } from "@/stripe/config";
+
+const GENE_TEST_PRODUCT_ID = "prod_TZyHo3lxkvrykA";
 
 const CustomTestTubeIcon = ({ className }) => (
   <svg
@@ -204,21 +208,25 @@ const ReviewTestTubeIcon = ({ className }) => (
 
 const steps = [
   {
+    id: 1,
     title: "Collect Your Sample",
-    desc: "Use a quick saliva or cheek swab kit at home.",
+    desc: "Use an at-home cheek swab to collect your gene.",
     icon: CustomTestTubeIcon,
   },
   {
+    id: 2,
     title: "Constant Lab Analysis",
     desc: "Our lab analyzes key SNPs and polygenic markers linked to performance, nutrition, and recovery.",
     icon: CustomUserIcon,
   },
   {
+    id: 3,
     title: "Receive Your Report",
     desc: "Get a detailed, easy-to-understand report explaining actionable steps based on your unique genetics.",
     icon: ReportTestTubeIcon,
   },
   {
+    id: 4,
     title: "Personalized 1:1 Nutrition Review",
     desc: "Meet one-on-one with a certified nutrition expert to review your results and receive tailored guidance.",
     icon: ReviewTestTubeIcon,
@@ -226,6 +234,76 @@ const steps = [
 ];
 
 const SingleTestHowItsWork = () => {
+  const navigate = useNavigate();
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch gene test product from backend
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const response = await fetch(
+          `${BACKEND_URL}/api/products?productIds=${GENE_TEST_PRODUCT_ID}`
+        );
+
+        if (!response.ok) {
+          throw new Error(`Failed to fetch product: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (data.success && data.products && data.products.length > 0) {
+          setProduct(data.products[0]);
+        } else {
+          throw new Error("Product not found");
+        }
+      } catch (err) {
+        console.error("Error fetching gene test product:", err);
+        // Fallback to default data if API fails
+        setProduct({
+          productId: GENE_TEST_PRODUCT_ID,
+          name: "Gene Test: Unlock Your Genetic Potential",
+          description: "",
+          amount: 200.0,
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProduct();
+  }, []);
+
+  const handleOrderTest = () => {
+    if (!product) {
+      console.error("Product not loaded yet");
+      return;
+    }
+
+    // Store gene test product data in localStorage for checkout
+    const geneTestData = {
+      source: "gene-test",
+      productName: product.name || "Gene Test: Unlock Your Genetic Potential",
+      description: product.description || "",
+      stripeProductId: product.productId || GENE_TEST_PRODUCT_ID,
+      stripePriceId:
+        product.prices && product.prices.length > 0
+          ? product.prices[0].priceId
+          : null,
+      amount:
+        product.prices && product.prices.length > 0
+          ? product.prices[0].amount
+          : 200.0,
+      images: product.images || [],
+    };
+
+    console.log("🧬 Gene Test Product Data:", geneTestData);
+    localStorage.setItem("geneTestCheckoutData", JSON.stringify(geneTestData));
+
+    // Navigate to gene test checkout page
+    navigate("/gene-test/checkout");
+  };
+
   return (
     <section className="py-12 bg-white md:py-20">
       <div className="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col lg:flex-row items-start gap-4 md:gap-8">
@@ -239,9 +317,10 @@ const SingleTestHowItsWork = () => {
               before they start.
             </p>
           </div>
-          <button 
-            className="btn_primary"
-            onClick={() => window.open("https://buy.stripe.com/7sY7sM0arfBlgMW77gf3a02", "_blank", "noopener,noreferrer")}
+          <button
+            className="btn_primary disabled:opacity-50 disabled:cursor-not-allowed"
+            onClick={handleOrderTest}
+            disabled={loading || !product}
           >
             Order Your Test
           </button>
@@ -252,14 +331,14 @@ const SingleTestHowItsWork = () => {
           {steps.map((step, idx) => (
             <div
               key={idx}
-              className="group cursor-pointer rounded-[16px] border border-[#dedede] bg-[#f7f7f7] opacity-90 p-6 md:p-7 flex flex-col gap-4 shadow-sm transition-all duration-200 hover:border-[#0d8360] hover:bg-[#0d8360] hover:opacity-100 hover:-rotate-2"
+              className="group rounded-[16px] border border-[#dedede] bg-[#f7f7f7] opacity-90 p-6 md:p-7 flex flex-col gap-4 shadow-sm transition-all duration-200 hover:border-[#0d8360] hover:bg-[#0d8360] hover:opacity-100 hover:-rotate-2"
             >
               <div className="relative w-6 h-6">
                 <step.icon className="w-6 h-6 text-black transition-colors duration-200 group-hover:text-white" />
               </div>
               <div className="flex flex-col gap-2">
                 <h5 className="!text-[#000] transition-colors duration-200 group-hover:!text-white">
-                  {step.title}
+                  {step.id}. {step.title}
                 </h5>
                 <p className="!text-[#000] transition-colors duration-200 description group-hover:!text-white">
                   {step.desc}

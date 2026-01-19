@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Image1 from "@/assets/images/header/menu_img1.webp";
 import Image2 from "@/assets/images/header/menu_img2.webp";
 import Image3 from "@/assets/images/header/menu_img3.webp";
+// import Image4 from "@/assets/images/header/menu_img4.webp";
 import Image4 from "@/assets/images/header/menu_img4.webp";
 import Image5 from "@/assets/images/header/menu_img5.webp";
 import Image6 from "@/assets/images/header/menu_img9.webp";
@@ -22,7 +23,12 @@ const DiscoverMenu = ({ isOpen, onClose }) => {
   };
 
   const handleWaitlistClick = () => {
-    navigate("/join-wait-list");
+    navigate("/join-wait-list?test=Blood Test");
+    onClose();
+  };
+
+  const handleCard1Click = () => {
+    navigate("/gene-test");
     onClose();
   };
 
@@ -45,12 +51,15 @@ const DiscoverMenu = ({ isOpen, onClose }) => {
 
               <div className="flex flex-wrap gap-[8px] md:gap-[12px] items-center justify-center md:justify-start">
                 {/* Card 1: Your Body's User Manual */}
-                <div className="bg-[#f6f6f6] flex flex-col items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]">
+                <div
+                  onClick={handleCard1Click}
+                  className="bg-[#f6f6f6] hover:bg-[#e6e6e640] cursor-pointer flex flex-col items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]"
+                >
                   <div className="flex relative justify-center items-center">
                     <div className="rotate-180">
                       <div className="h-[85px] w-[152px] relative">
                         <div className="absolute inset-0">
-                          <div className="absolute bg-[#dce3e4] inset-0" />
+                          <div className="absolute bg-[#dce3e4] hover:bg-[#e6e6e640] inset-0" />
                           <div className="overflow-hidden absolute inset-0">
                             <img alt="" src={Image1} />
                           </div>
@@ -60,13 +69,16 @@ const DiscoverMenu = ({ isOpen, onClose }) => {
                   </div>
                   <div className="flex gap-[6px] md:gap-[10px] h-[40px] md:h-[43px] items-center justify-center w-full px-1 md:px-2">
                     <p className="capitalize font-['Funnel_Display'] font-medium text-[#010907] text-[11px] md:text-[12px] lg:[16px] text-center leading-[14px] md:leading-[16px] whitespace-pre-wrap">
-                      Your Body's User Manual
+                      At-Home Gene <br /> Test
                     </p>
                   </div>
                 </div>
 
                 {/* Card 2: Unlock Vital Health Markers */}
-                <div className="bg-[#f6f6f6] flex flex-col items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]">
+                <div
+                  onClick={handleWaitlistClick}
+                  className="bg-[#f6f6f6] hover:bg-[#e6e6e640] cursor-pointer flex flex-col items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]"
+                >
                   <div className="bg-[#dce3e4] h-[60px] md:h-[85px] overflow-hidden rounded-tl-[12px] rounded-tr-[12px] w-full relative">
                     <img
                       src={Image2}
@@ -76,51 +88,72 @@ const DiscoverMenu = ({ isOpen, onClose }) => {
                   </div>
                   <div className="flex gap-[6px] md:gap-[10px] h-[40px] md:h-[43px] items-center justify-center px-2 md:px-[20px]">
                     <p className="capitalize font-['Funnel_Display'] font-medium text-[#010907] text-[11px] md:text-[12px] lg:[16px] text-center leading-[14px] md:leading-[16px] whitespace-pre-wrap">
-                      Unlock vital health markers
+                      Performance Blood Test
                     </p>
                   </div>
                 </div>
 
-                {/* Card 3: Physical Performance */}
-                <div className="bg-[#f6f6f6] flex flex-col gap-[4px] md:gap-[6px] items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]">
-                  <div className="h-[60px] md:h-[85px] rounded-tl-[12px] rounded-tr-[12px] w-full relative overflow-hidden">
-                    <img
-                      alt="Physical Performance"
-                      className="object-cover w-full h-full"
-                      src={Image3}
-                    />
-                  </div>
-                  <div className="font-['Funnel_Display'] font-medium text-[#010907] text-[11px] md:text-[12px] lg:[16px] text-center leading-[14px] md:leading-[16px] w-full px-1 whitespace-pre-wrap">
-                    Physical Performance
-                  </div>
+                {/* Card 3: Mental Performance */}
+                <div>
+                  <a
+                    href="https://tryoptigenix.com/collections/mental-performance"
+                    target="_self"
+                  >
+                    <div className="bg-[#f6f6f6] flex flex-col gap-[4px] md:gap-[6px] items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]">
+                      <div className="h-[60px] md:h-[85px] rounded-tl-[12px] rounded-tr-[12px] w-full relative overflow-hidden">
+                        <img
+                          alt="Mental Performance"
+                          src={Image4}
+                          className="object-cover w-full h-full"
+                        />
+                      </div>
+                      <div className="font-['Funnel_Display'] font-medium text-[#010907] text-[11px] md:text-[12px] lg:[16px] text-center leading-[14px] md:leading-[16px] w-full px-1 whitespace-pre-wrap">
+                        Mental <br></br> Performance
+                      </div>
+                    </div>
+                  </a>
                 </div>
 
-                {/* Card 4: Mental Performance */}
-                <div className="bg-[#f6f6f6] flex flex-col gap-[4px] md:gap-[6px] items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]">
-                  <div className="h-[60px] md:h-[85px] rounded-tl-[12px] rounded-tr-[12px] w-full relative overflow-hidden">
-                    <img
-                      alt="Mental Performance"
-                      src={Image4}
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-                  <div className="font-['Funnel_Display'] font-medium text-[#010907] text-[11px] md:text-[12px] lg:[16px] text-center leading-[14px] md:leading-[16px] w-full px-1 whitespace-pre-wrap">
-                    Mental <br></br> Performance
-                  </div>
+                {/* Card 4: Physical Performance */}
+                <div>
+                  <a
+                    href="https://tryoptigenix.com/collections/physical-performance"
+                    target="_self"
+                  >
+                    <div className="bg-[#f6f6f6] flex flex-col gap-[4px] md:gap-[6px] items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]">
+                      <div className="h-[60px] md:h-[85px] rounded-tl-[12px] rounded-tr-[12px] w-full relative overflow-hidden">
+                        <img
+                          alt="Physical Performance"
+                          className="object-cover w-full h-full"
+                          src={Image3}
+                        />
+                      </div>
+                      <div className="font-['Funnel_Display'] font-medium text-[#010907] text-[11px] md:text-[12px] lg:[16px] text-center leading-[14px] md:leading-[16px] w-full px-1 whitespace-pre-wrap">
+                        Physical Performance
+                      </div>
+                    </div>
+                  </a>
                 </div>
 
                 {/* Card 5: Recovery */}
-                <div className="bg-[#f6f6f6] flex flex-col gap-[8px] md:gap-[12px] items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]">
-                  <div className="h-[60px] md:h-[85px] rounded-tl-[12px] rounded-tr-[12px] w-full relative overflow-hidden">
-                    <img
-                      alt="Recovery"
-                      src={Image5}
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-                  <p className="font-['Funnel_Display'] font-medium text-[#010907] text-[11px] md:text-[12px] text-center leading-[14px] md:leading-[16px] w-full px-1 whitespace-pre-wrap">
-                    Recovery
-                  </p>
+                <div>
+                  <a
+                    href="https://tryoptigenix.com/collections/recovery"
+                    target="_self"
+                  >
+                    <div className="bg-[#f6f6f6] flex flex-col gap-[8px] md:gap-[12px] items-center overflow-hidden rounded-[12px] md:rounded-[16px] w-[100px] h-[100px] md:w-[128px] md:h-[128px]">
+                      <div className="h-[60px] md:h-[85px] rounded-tl-[12px] rounded-tr-[12px] w-full relative overflow-hidden">
+                        <img
+                          alt="Recovery"
+                          src={Image5}
+                          className="object-cover w-full h-full"
+                        />
+                      </div>
+                      <p className="font-['Funnel_Display'] font-medium text-[#010907] text-[11px] md:text-[12px] text-center leading-[14px] md:leading-[16px] w-full px-1 whitespace-pre-wrap">
+                        Recovery
+                      </p>
+                    </div>
+                  </a>
                 </div>
               </div>
 
@@ -128,7 +161,7 @@ const DiscoverMenu = ({ isOpen, onClose }) => {
               <div className="flex justify-center w-[60%]">
                 <button
                   onClick={handleWaitlistClick}
-                  className="font-['Inter'] curser-pointer text-[#3fa290] text-[13px] md:text-[14px] font-semibold hover:underline"
+                  className="font-['Inter'] cursor-pointer text-[#3fa290] text-[13px] md:text-[14px] font-semibold hover:underline"
                 >
                   Join Waitlist!
                 </button>
@@ -201,9 +234,9 @@ const DiscoverMenu = ({ isOpen, onClose }) => {
                     </p>
                     <button
                       onClick={handleQuizClick}
-                      className="bg-[#f8fffd] flex curser-pointer gap-[6px] md:gap-[8px] items-center justify-center px-[12px] py-[8px] rounded-[100px] hover:bg-white transition-colors group"
+                      className="bg-[#f8fffd] flex cursor-pointer gap-[6px] md:gap-[8px] items-center justify-center px-[12px] py-[8px] rounded-[100px] hover:bg-white transition-colors group"
                     >
-                      <span className="font-['Inter'] curser-pointer font-bold leading-[16px] md:leading-[19px] text-[#2b7a6c] text-[11px] md:text-[12px]">
+                      <span className="font-['Inter'] font-bold leading-[16px] md:leading-[19px] text-[#2b7a6c] text-[11px] md:text-[12px]">
                         Take our Quiz
                       </span>
                       <ArrowRight className="w-[14px] h-[14px] md:w-[16px] md:h-[16px] text-[#2b7a6c] group-hover:translate-x-1 transition-transform" />

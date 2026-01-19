@@ -35,7 +35,7 @@ const Quality = () => {
       text: "Third-party tested in ISO-accredited facilities",
     },
     {
-      text: "Data-driven personalization backed by dual-testing (DNA + blood)",
+      text: "Data-driven personalization backed by dual-testing (Gene + blood)",
     },
     {
       text: "Non-GMO and pharmaceutical-grade ingredients",
@@ -719,8 +719,10 @@ const Quality = () => {
             />
           </div>
           {/* Mobile Image */}
-          <div className="block md:hidden order-2 lg:order-1 flex-1 w-full md:min-h-[380px]
-          min-h-[300px] lg:h-[538px] rounded-[24px] overflow-hidden relative">
+          <div
+            className="block md:hidden order-2 lg:order-1 flex-1 w-full md:min-h-[380px]
+          min-h-[300px] lg:h-[538px] rounded-[24px] overflow-hidden relative"
+          >
             <img
               src={backedByScienceBgMob}
               alt="Athlete in action"

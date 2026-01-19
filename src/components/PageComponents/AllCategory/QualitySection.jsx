@@ -23,7 +23,7 @@ const qualityFeatures = [
   {
     title: "Science-Reviewed Supplements",
     description:
-      "Every supplement is PhD-reviewed, clinically tested, and formulated for real results. ",
+      "Every supplement is Ph.D-reviewed, clinically tested, and formulated for real results. ",
     icon: icon2,
   },
   {
@@ -35,7 +35,7 @@ const qualityFeatures = [
   {
     title: "Premium Natural Ingredients",
     description:
-      "Made with premium natural ingredients, Non-GMO, GMP-certified, and Free from artificial colors and fillers.",
+      "Made with premium natural ingredients, Non-GMO, GMP-certified, and free from artificial colors and fillers.",
     icon: icon4,
   },
   {
@@ -47,7 +47,7 @@ const qualityFeatures = [
   {
     title: "Lab-Tested Insights",
     description:
-      "Your DNA and biomarkers are analyzed in CLIA-certified & CAP-accredited U.S. labs. Data is secure, encrypted, and HIPAA compliant.",
+      "Your Gene and biomarkers are analyzed in CLIA-certified & CAP-accredited U.S. labs. Data is secure, encrypted, and HIPAA compliant.",
     icon: icon6,
   },
 ];

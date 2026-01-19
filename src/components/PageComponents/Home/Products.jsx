@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { MoveLeft, MoveRight, Plus } from "lucide-react";
+import { MoveLeft, MoveRight, Plus, ExternalLink } from "lucide-react";
 import ourMostTrustedFormulasP1 from "../../../assets/images/our_most_trusted/our_most_trusted_c8.webp";
 import ourMostTrustedFormulasP2 from "../../../assets/images/our_most_trusted/our_most_trusted_c9.webp";
 import ourMostTrustedFormulasC3 from "../../../assets/images/our_most_trusted/our_most_trusted_c10.webp";
@@ -16,6 +16,14 @@ import quickPackIcon5 from "../../../assets/images/our_most_trusted/quick_pack_5
 import quickPackIcon6 from "../../../assets/images/our_most_trusted/quick_pack_6.svg";
 import quickPackIcon7 from "../../../assets/images/our_most_trusted/quick_pack_7.svg";
 
+import quickPackHover1 from "../../../assets/images/our_most_trusted/quick_packs_hover_8.webp";
+import quickPackHover2 from "../../../assets/images/our_most_trusted/quick_packs_hover_9.webp";
+import quickPackHover3 from "../../../assets/images/our_most_trusted/quick_packs_hover_10.webp";
+import quickPackHover4 from "../../../assets/images/our_most_trusted/quick_packs_hover_11.webp";
+import quickPackHover5 from "../../../assets/images/our_most_trusted/quick_packs_hover_12.webp";
+import quickPackHover6 from "../../../assets/images/our_most_trusted/quick_packs_hover_13.webp";
+import quickPackHover7 from "../../../assets/images/our_most_trusted/quick_packs_hover_14.webp";
+
 import {
   Carousel,
   CarouselContent,
@@ -26,68 +34,89 @@ const products = [
   {
     name: "Physical Recovery QuickPack™",
     description:
-      "Built for faster recovery, muscle repair, and performance resilience",
+      "Built for faster recovery, muscle repair, and performance resilience.",
     price: "$59.99",
     image: ourMostTrustedFormulasP1,
     icon: quickPackIcon1,
     iconBgColor: "rgba(246, 241, 233, 0.50)",
     iconBorderColor: "rgba(173, 138, 48, 0.30)",
+    hoverImage: quickPackHover1,
+    hoverText: "Repair,\nRecharge,\nRecover",
+    link: "https://tryoptigenix.com/products/physical-recovery-quickpack",
   },
   {
     name: "Sleep QuickPack™",
-    description: "Built for deep sleep, calm recovery, and restorative rest",
+    description: "Built for deep sleep, calm recovery, and restorative rest.",
     price: "$59.99",
     image: ourMostTrustedFormulasP2,
     icon: quickPackIcon2,
     iconBgColor: "rgba(159, 79, 139, 0.10)",
     iconBorderColor: "rgba(95, 21, 74, 0.20)",
+    hoverImage: quickPackHover2,
+    hoverText: "Rest Deeply,\n Recover Fully",
+    link: "https://tryoptigenix.com/products/sleep-quickpack",
   },
   {
     name: "Strength QuickPack™",
-    description: "Built for muscle growth, power, and resilient strength",
+    description: "Built for muscle growth, power, and resilient strength.",
     price: "$59.99",
     image: ourMostTrustedFormulasC3,
     icon: quickPackIcon3,
     iconBgColor: "rgba(42, 114, 139, 0.20)",
     iconBorderColor: "rgba(90, 181, 199, 0.10)",
+    hoverImage: quickPackHover3,
+    hoverText: "Build Strength & Recover Stronger",
+    link: "https://tryoptigenix.com/products/strength-quickpack",
   },
   {
     name: "Endurance QuickPack™",
     description:
-      "Built for cellular energy, stamina, and sustained performance",
+      "Built for cellular energy, stamina, and sustained performance.",
     price: "$59.99",
     image: ourMostTrustedFormulasC4,
     icon: quickPackIcon4,
     iconBgColor: "rgba(32, 112, 29, 0.20)",
     iconBorderColor: "rgba(41, 147, 41, 0.10)",
+    hoverImage: quickPackHover4,
+    hoverText: "Push Your Limits & Go the Distance",
+    link: "https://tryoptigenix.com/products/endurance-quickpack",
   },
   {
     name: "Focus QuickPack™",
-    description: "Built for clarity, focus, and real-world stress",
+    description: "Built for clarity, focus, and real-world stress.",
     price: "$59.99",
     image: ourMostTrustedFormulasC5,
     icon: quickPackIcon5,
     iconBgColor: "rgba(51, 107, 141, 0.20)",
     iconBorderColor: "rgba(30, 123, 180, 0.10)",
+    hoverImage: quickPackHover5,
+    hoverText: "Sharpen Your Focus & Boost Mental Stamina",
+    link: "https://tryoptigenix.com/products/focus-quickpack",
   },
   {
     name: "Joint Health QuickPack™",
-    description: "Built for mobility, flexibility, and joint comfort",
+    description: "Built for mobility, flexibility, and joint comfort.",
     price: "$59.99",
     image: ourMostTrustedFormulasC6,
     icon: quickPackIcon6,
     iconBgColor: "rgba(205, 68, 61, 0.20)",
     iconBorderColor: "rgba(186, 32, 14, 0.10)",
+    hoverImage: quickPackHover6,
+    hoverText: "Keep Your Joints in Motion",
+    link: "https://tryoptigenix.com/products/joint-health-quickpack",
   },
   {
     name: "Immune Health QuickPack™",
     description:
-      "Built for immune response, detox support, and antioxidant defense",
+      "Built for immune response, detox support, and antioxidant defense.",
     price: "$59.99",
     image: ourMostTrustedFormulasC7,
     icon: quickPackIcon7,
     iconBgColor: "rgba(176, 87, 35, 0.20)",
     iconBorderColor: "rgba(233, 96, 0, 0.10)",
+    hoverImage: quickPackHover7,
+    hoverText: "Strengthen Your Defenses",
+    link: "https://tryoptigenix.com/products/immunne-health",
   },
 ];
 
@@ -95,6 +124,19 @@ const Products = () => {
   const [api, setApi] = useState();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
+  const [activeCard, setActiveCard] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint is 768px
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     if (!api) {
@@ -166,14 +208,52 @@ const Products = () => {
                 key={index}
                 className="pl-3 md:pl-4 basis-[300px] md:basis-[360px]"
               >
-                <div className="cursor-pointer group">
+                <div
+                  className="cursor-pointer group"
+                  onClick={() => {
+                    // Only allow click-to-toggle on mobile
+                    if (isMobile) {
+                      setActiveCard((prev) => (prev === index ? null : index));
+                    } else {
+                      window.open(product.link, "_self");
+                    }
+                  }}
+                >
                   {/* Product Image */}
                   <div className="relative h-[234px] md:h-[360px] mb-[14px] md:mb-4 rounded-[8px] md:rounded-lg overflow-hidden bg-white">
+                    {/* Default image */}
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                      className={`object-cover w-full h-full transition-opacity duration-300 ${
+                        isMobile && activeCard === index
+                          ? "opacity-0"
+                          : "opacity-100 md:group-hover:opacity-0"
+                      }`}
                     />
+                    {/* Hover image - simple fade in */}
+                    <img
+                      src={product.hoverImage}
+                      alt={`${product.name} details`}
+                      className={`object-cover absolute z-10 inset-0 w-full h-full transition-opacity duration-300 ${
+                        isMobile && activeCard === index
+                          ? "opacity-100"
+                          : "opacity-0 md:group-hover:opacity-100"
+                      }`}
+                      loading="lazy"
+                    />
+                    {/* Hover overlay with text (top) */}
+                    <div
+                      className={`flex absolute inset-0 z-20 items-start p-4 to-transparent transition-opacity md:p-5 duration-300 bg-linear-to-b ${
+                        isMobile && activeCard === index
+                          ? "opacity-100"
+                          : "opacity-0 md:group-hover:opacity-100"
+                      }`}
+                    >
+                      <p className="text-white text-[14px] font-[500] md:text-[30px] leading-[20px] md:leading-[27px] font-['Funnel_Display'] max-w-[260px] drop-shadow-[0_4px_12px_rgba(0,0,0,0.45)] whitespace-pre-line">
+                        {product.hoverText || product.description}
+                      </p>
+                    </div>
                     {/* Icon in top-left corner */}
                     <div
                       className="absolute top-[10px] left-[10px] backdrop-blur-[22.5px] border border-solid flex items-center justify-center p-2 rounded-full"
@@ -194,18 +274,26 @@ const Products = () => {
                   </div>
 
                   {/* Product Info */}
-                  <div className="space-y-[8px]">
-                    <h6 className=" text-[#010907] h-[40px] md:h-[26px]">
-                      {product.name}
-                    </h6>
-                    <div className="">
-                      <p className="description !text-[14px] max-w-[280px] md:h-[80px] h-[90px] text-[#010907]">
-                        {product.description}
-                      </p>
-                      {/* <h6 className=" text-[#010907] !font-[700]">
-                        {product.price}
-                      </h6> */}
-                    </div>
+                  <div>
+                    <a href={product.link} target="_self">
+                      <div className="space-y-[8px]">
+                        <h6 className="flex items-center gap-2 text-[#010907] h-[40px] md:h-[26px]">
+                          {product.name}
+                          <ExternalLink
+                            className="w-4 h-4 md:w-3.5 md:h-3.5 shrink-0 text-[#010907]"
+                            strokeWidth={1.5}
+                          />
+                        </h6>
+                        <div className="">
+                          <p className="description !text-[14px] max-w-[280px] md:h-[80px] h-[90px] text-[#010907]">
+                            {product.description}
+                          </p>
+                          {/* <h6 className=" text-[#010907] !font-[700]">
+                            {product.price}
+                          </h6> */}
+                        </div>
+                      </div>
+                    </a>
                   </div>
                 </div>
               </CarouselItem>
@@ -213,7 +301,7 @@ const Products = () => {
           </CarouselContent>
 
           {/* Mobile Navigation Controls */}
-          <div className="flex md:hidden items-center justify-center gap-[20px] mt-[32px]">
+          <div className="flex md:hidden items-center justify-center gap-[20px] ">
             {/* Previous Button */}
             <button
               onClick={() => api?.scrollPrev()}

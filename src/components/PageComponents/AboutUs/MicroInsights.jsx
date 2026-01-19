@@ -72,11 +72,11 @@ const MicroInsights = () => {
           <h2 className="font-['Funnel_Display'] font-bold text-[32px] lg:text-[44px] leading-[40px] lg:leading-[56px] text-[#010907] capitalize">
             Micro Insights. Major Results.
           </h2>
-          <Link to="/quiz">
+          <a href="/quiz">
             <button className="bg-[#0d8360] hover:bg-[#0c704d] text-white font-['Funnel_Display'] font-semibold text-[14px] lg:text-[16px] leading-[24px] px-[20px] lg:px-[24px] py-[12px] lg:py-[14px] rounded-full transition-all duration-200 whitespace-nowrap">
               Unsure which one fits you? Take the quiz.
             </button>
-          </Link>
+          </a>
         </div>
 
         {/* Carousel */}

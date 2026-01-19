@@ -1,244 +1,190 @@
-# Optigenix Website
+# OptiGenix Website
 
-A modern, responsive website built with React 19, Vite 7, and TailwindCSS v4, featuring a clean architecture and cutting-edge tooling.
+A modern, responsive e-commerce website for OptiGenix - a platform offering tailored nutrition and performance solutions for active individuals and athletes. Built with React and Vite, featuring a comprehensive product catalog.
 
-## 🚀 Tech Stack
+## 🚀 Features
 
-- **React 19.1.1** - Latest React with React Compiler support
-- **Vite 7.1.7** - Next-generation frontend tooling
-- **TailwindCSS 4.1.17** - Utility-first CSS framework (latest version)
-- **React Router DOM 7.9.5** - Client-side routing
-- **Shadcn/ui** - Re-usable component system built on Radix UI
-- **Lucide React** - Beautiful icon library
-- **Embla Carousel** - Lightweight carousel library
+- **Product Catalog**: Browse supplements, gene tests, and performance solutions
+- **Personalized Quiz**: Interactive quiz to discover personalized nutrition plans
+- **Shopping Cart**: Full cart functionality with product management
+- **Gene Test Information**: Detailed pages for DNA testing services
+- **Waitlist System**: Join waitlists for upcoming products (Blueprint, Elite)
+- **Responsive Design**: Mobile-first design with Tailwind CSS
+- **SEO Optimized**: Meta tags and structured content for better search visibility
+- **Performance Tracking**: Pages for Physical Performance, Mental Performance, and Recovery
 
-## 📦 Project Structure
+## 🛠️ Tech Stack
+
+### Frontend
+
+- **React 19.2.0** - UI library
+- **Vite 7.2.2** - Build tool and dev server
+- **React Router DOM 7.9.6** - Client-side routing
+- **Tailwind CSS 4.1.17** - Utility-first CSS framework
+- **Radix UI** - Accessible component primitives
+
+### Key Libraries
+
+- `react-helmet-async` - SEO meta tag management
+- `embla-carousel-react` - Carousel/slider components
+- `react-fast-marquee` - Scrolling text animations
+- `emailjs` - Email service integration
+
+## 📁 Project Structure
 
 ```
 optigenix-website/
+├── api/
+│   └── send-mail.js          # Netlify serverless function for emails
+├── public/                    # Static assets
 ├── src/
+│   ├── assets/               # Images, fonts, and media files
 │   ├── components/
-│   │   ├── layout/              # Layout components
-│   │   │   ├── Header/
-│   │   │   │   └── Header.jsx
-│   │   │   ├── Footer/
-│   │   │   │   └── Footer.jsx
-│   │   │   └── index.jsx        # Main layout with Outlet
-│   │   ├── PageComponents/      # Page-specific components
-│   │   │   ├── Home/
-│   │   │   ├── AboutUs/
-│   │   │   └── Services/
-│   │   └── ui/                  # Shadcn UI components
-│   │       └── button.jsx
-│   ├── pages/                   # Route pages
-│   │   ├── Home.jsx
-│   │   ├── About.jsx
-│   │   ├── Services.jsx
-│   │   └── Contact.jsx
-│   ├── hooks/                   # Custom React hooks
-│   │   └── useScrolled.js
-│   ├── lib/                     # Utility functions
-│   │   └── utils.js
-│   ├── assets/                  # Static assets
-│   │   └── images/
-│   ├── services/                # API services
-│   ├── utils/                   # Additional utilities
-│   ├── main.jsx                # Application entry point
-│   ├── App.jsx                 # Main app with routing
-│   ├── App.css                 # App-specific styles
-│   └── index.css               # Global styles + Tailwind
-├── public/                      # Public static files
-├── Configuration Files
-│   ├── vite.config.js          # Vite configuration
-│   ├── tailwind.config.js      # Tailwind configuration
-│   ├── components.json         # Shadcn/ui configuration
-│   ├── jsconfig.json           # JavaScript configuration
-│   └── eslint.config.js        # ESLint configuration
-└── package.json
+│   │   ├── layout/           # Header, Footer components
+│   │   ├── PageComponents/   # Page-specific components
+│   │   └── ui/               # Reusable UI components (buttons, carousels, etc.)
+│   ├── context/              # React Context (CartContext)
+│   ├── hooks/                # Custom React hooks
+│   ├── pages/                # Route pages
+│   ├── stripe/               # Payment integration (config, services, components)
+│   ├── App.jsx               # Main app component with routes
+│   └── main.jsx              # Application entry point
+├── netlify.toml              # Netlify deployment configuration
+├── vercel.json               # Vercel deployment configuration
+├── vite.config.js            # Vite configuration
+└── package.json              # Dependencies and scripts
 ```
 
-## 🛠️ Installation & Setup
+## 🚦 Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ and npm installed
+- Node.js (v18 or higher recommended)
+- npm or yarn package manager
 
-### Getting Started
+### Installation
 
-1. **Navigate to the project directory:**
+1. **Clone the repository**
+
    ```bash
-   cd C:\cosmo\optigenix-website
+   git clone <repository-url>
+   cd optigenix-website
    ```
 
-2. **Install dependencies** (already done):
+2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
-3. **Start the development server:**
+3. **Start development server**
+
    ```bash
    npm run dev
    ```
 
-4. **Build for production:**
-   ```bash
-   npm run build
-   ```
-
-5. **Preview production build:**
-   ```bash
-   npm run preview
-   ```
+   The application will be available at `http://localhost:5173`
 
 ## 📝 Available Scripts
 
-| Script | Description |
-|--------|-------------|
-| `npm run dev` | Start development server with HMR |
-| `npm run build` | Build for production |
-| `npm run preview` | Preview production build locally |
-| `npm run lint` | Run ESLint to check code quality |
+- `npm run dev` - Start development server with hot reload
+- `npm run build` - Build production bundle
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint to check code quality
 
-## 🎨 Key Features
+API endpoints used:
 
-### ✅ React Compiler
-This project uses the **experimental React Compiler** (`babel-plugin-react-compiler`) for automatic optimization.
+- `/api/prices` - Fetch product prices
+- `/api/products` - Fetch product details
+- `/api/create-checkout-session` - Create checkout session
+- `/api/send-mail` - Send email notifications
 
-### ✅ TailwindCSS v4
-- Latest TailwindCSS with Vite plugin integration
-- CSS variables for theming
-- Dark mode support with `.dark` class
-- Custom color system with HSL values
-- Animation utilities via `tailwindcss-animate`
+## 🎨 Pages & Routes
 
-### ✅ Shadcn/ui Integration
-- Component system based on Radix UI primitives
-- Accessible, customizable components
-- "New York" style variant
-- Lucide icons for consistent iconography
+- `/` - Homepage with hero, products, testimonials
+- `/about-us` - About OptiGenix
+- `/all-category` - All product categories
+- `/gene-test` - Gene testing information
+- `/quiz` - Personalized nutrition quiz
+- `/athletes` - Athletes page
+- `/recovery` - Recovery products
+- `/physical-performance` - Physical performance products
+- `/mental-performance` - Mental performance products
+- `/product/:productId` - Individual product page
+- `/cart` - Shopping cart
+- `/checkout` - Checkout page
+- `/thank-you` - Payment success page
+- `/join-wait-list` - Waitlist signup
+- `/privacy-policy` - Privacy policy
+- `/terms-and-conditions` - Terms of service
 
-### ✅ Path Aliases
-Configured path aliases for cleaner imports:
-```javascript
-import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
-import useScrolled from '@/hooks/useScrolled'
+## 🚢 Deployment
+
+### Netlify
+
+The project includes `netlify.toml` for Netlify deployment:
+
+```toml
+[build]
+  command = "npm run build"
+  publish = "dist"
 ```
 
-### ✅ Routing
-- React Router v7 with nested routes
-- Layout wrapper with Header/Footer
-- Clean URL structure
+### Vercel
 
-## 🎯 Dependencies Overview
+The project includes `vercel.json` for Vercel deployment with proper routing and security headers.
 
-### Core Dependencies
-```json
-{
-  "react": "^19.1.1",
-  "react-dom": "^19.1.1",
-  "react-router-dom": "^7.9.5"
-}
-```
+### Build Output
 
-### Styling & UI
-```json
-{
-  "tailwindcss": "^4.1.17",
-  "@tailwindcss/vite": "^4.1.17",
-  "tailwindcss-animate": "^1.0.7",
-  "@radix-ui/react-accordion": "^1.2.12",
-  "@radix-ui/react-dialog": "^1.1.15",
-  "@radix-ui/react-slot": "^1.2.4",
-  "lucide-react": "^0.553.0",
-  "embla-carousel-react": "^8.6.0"
-}
-```
+The production build creates a `dist/` directory with optimized static files ready for deployment.
 
-### Utilities
-```json
-{
-  "class-variance-authority": "^0.7.1",
-  "clsx": "^2.1.1",
-  "tailwind-merge": "^3.4.0"
-}
-```
+## 🔐 Security
 
-### Dev Dependencies
-```json
-{
-  "vite": "^7.1.7",
-  "@vitejs/plugin-react": "^5.0.4",
-  "babel-plugin-react-compiler": "^19.1.0-rc.3",
-  "eslint": "^9.36.0",
-  "@types/node": "^24.10.0",
-  "shadcn": "^3.5.0"
-}
-```
+- Payment keys are environment variables (never commit to git)
+- CORS is handled by the backend API
+- Security headers configured in `vercel.json`
+- X-Frame-Options and Content-Security-Policy headers set
 
-## 🧩 Adding Shadcn/ui Components
+## 🎯 Key Features Implementation
 
-To add more Shadcn components:
+### Shopping Cart
 
-```bash
-npx shadcn@latest add [component-name]
-```
+- Context-based cart state management
+- Add/remove products
+- Quantity management
+- Persistent cart (can be enhanced with localStorage)
 
-Example:
-```bash
-npx shadcn@latest add card
-npx shadcn@latest add dialog
-npx shadcn@latest add accordion
-```
+### Responsive Design
 
-## 🎨 Customization
+- Mobile-first approach
+- Breakpoints: sm, md, lg, xl
+- Touch-friendly interactions
+- Optimized images (WebP format)
 
-### Theme Colors
-Edit CSS variables in `src/index.css` to customize the color scheme:
-```css
-:root {
-  --primary: 0 0% 9%;
-  --secondary: 0 0% 96.1%;
-  /* ... other colors */
-}
-```
+## 📦 Dependencies
 
-### Tailwind Configuration
-Modify `tailwind.config.js` to extend the theme:
-```javascript
-theme: {
-  extend: {
-    colors: {
-      // Add custom colors
-    },
-    fontFamily: {
-      // Add custom fonts
-    }
-  }
-}
-```
+See `package.json` for the complete list of dependencies. Key dependencies include:
 
-## 📚 Useful Resources
-
-- [React Documentation](https://react.dev)
-- [Vite Documentation](https://vite.dev)
-- [TailwindCSS v4 Docs](https://tailwindcss.com)
-- [Shadcn/ui Components](https://ui.shadcn.com)
-- [React Router](https://reactrouter.com)
-- [Radix UI](https://www.radix-ui.com)
-- [Lucide Icons](https://lucide.dev)
+- React ecosystem (React, React DOM, React Router)
+- UI component libraries (Radix UI)
+- Styling (Tailwind CSS)
+- Build tools (Vite, ESLint)
 
 ## 🤝 Contributing
 
 1. Create a feature branch
 2. Make your changes
-3. Run `npm run lint` to check for errors
+3. Test thoroughly
 4. Submit a pull request
 
 ## 📄 License
 
 This project is private and proprietary.
 
+## 📞 Support
+
+For issues or questions, please contact the development team.
+
 ---
 
-**Built with ❤️ by the Optigenix Team**
+**Note**: This is a frontend-only project. The backend API is hosted separately

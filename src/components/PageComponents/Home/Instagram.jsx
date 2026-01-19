@@ -4,7 +4,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import { Instagram as InstagramIcon, VolumeX } from "lucide-react";
+import { Instagram as InstagramIcon, MoveLeft, MoveRight } from "lucide-react";
 import instagramPost1 from "../../../assets/images/as_seen_on/as_seen_as_c1.webp";
 import instagramPost2 from "../../../assets/images/as_seen_on/as_seen_as_c2.webp";
 import instagramPost3 from "../../../assets/images/as_seen_on/as_seen_as_c3.webp";
@@ -13,9 +13,9 @@ import instagramPost5 from "../../../assets/images/as_seen_on/as_seen_as_c5.webp
 import instagramPost6 from "../../../assets/images/as_seen_on/as_seen_as_c6.webp";
 
 import profileImage1 from "../../../assets/images/as_seen_on/as_seen_as_profile_1.webp";
-import profileImage2 from "../../../assets/images/as_seen_on/as_seen_as_profile_2.webp";
+import profileImage2 from "../../../assets/images/as_seen_on/jaiangelowilliams.jpg";
 import profileImage3 from "../../../assets/images/as_seen_on/as_seen_as_profile_3.webp";
-import profileImage4 from "../../../assets/images/as_seen_on/as_seen_as_profile_4.webp";
+import profileImage4 from "../../../assets/images/as_seen_on/optigenix.jpg";
 
 import video1 from "../../../assets/images/as_seen_on/video_1.mp4";
 import video2 from "../../../assets/images/as_seen_on/video_2.mp4";
@@ -44,7 +44,7 @@ const instagramPosts = [
   },
   {
     type: "video",
-    username: "eatuncracked",
+    username: "jaiangelowilliams",
     image: instagramPost2,
     profileImage: profileImage2,
     video: video2,
@@ -84,7 +84,7 @@ const instagramPosts = [
   },
   {
     type: "video",
-    username: "companyjarvis",
+    username: "optigenix",
     image: instagramPost6,
     profileImage: profileImage4,
     video: video6,
@@ -164,10 +164,28 @@ const Instagram = () => {
   return (
     <section className="bg-white">
       <div className="max-w-[1280px] mx-auto md:px-8 md:py-16 px-4 py-12">
-        {/* Header */}
-        <h2 className="text-center md:text-left text-[#010907] mb-8 md:mb-10 lg:mb-[48px]">
-          As Seen On #Optigenix
-        </h2>
+        {/* Header + Controls */}
+        <div className="flex items-center justify-between gap-4 mb-8 md:mb-10 lg:mb-[48px]">
+          <h2 className="text-center md:text-left text-[#010907] flex-1">
+            As Seen On #Optigenix
+          </h2>
+          <div className="hidden gap-3 items-center md:flex">
+            <button
+              onClick={() => api?.scrollPrev()}
+              className="w-11 h-11 rounded-full border border-[#010907] flex items-center justify-center hover:bg-[#010907] hover:text-white transition-colors"
+              aria-label="Previous"
+            >
+              <MoveLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => api?.scrollNext()}
+              className="w-11 h-11 rounded-full border border-[#010907] flex items-center justify-center hover:bg-[#010907] hover:text-white transition-colors"
+              aria-label="Next"
+            >
+              <MoveRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
 
         {/* Instagram Carousel */}
         <Carousel
@@ -182,7 +200,7 @@ const Instagram = () => {
             {instagramPosts.map((post, index) => (
               <CarouselItem
                 key={index}
-                className="pl-2 md:pl-3 lg:pl-4 basis-[290px] lg:basis-[300px]"
+                className="pl-2 md:pl-3 lg:pl-4 basis-[290px] lg:basis-[308px]"
               >
                 <div className="w-full h-[460px] md:h-[533px] rounded-[16px] overflow-hidden relative group cursor-pointer">
                   {/* Video Element */}

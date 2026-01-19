@@ -74,10 +74,67 @@
   font-display: swap;
 }
 
+/* Safari-friendly styles for newsletter email input */
+.newsletter-input {
+  background-color: #042b24;
+  -webkit-appearance: none;
+}
+
+.newsletter-input::placeholder,
+.newsletter-input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.8);
+  opacity: 1;
+}
+
+/* Gibson Font Face Declarations */
+@font-face {
+  font-family: "Gibson";
+  src: url("./assets/font/Gibson/Fontspring-DEMO-gibson-regular.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gibson";
+  src: url("./assets/font/Gibson/Fontspring-DEMO-gibson-semibold.otf")
+    format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gibson";
+  src: url("./assets/font/Gibson/Fontspring-DEMO-gibson-bold.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 .dm-sans {
   font-family: "DM Sans", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+}
+
+/* Stripe Elements Styling */
+.StripeElement {
+  width: 100%;
+}
+
+.StripeElement--focus {
+  outline: none;
+}
+
+.StripeElement--invalid {
+  color: #dc2626;
+}
+
+.StripeElement--empty {
+  color: rgba(1, 9, 7, 0.5);
 }
 @layer base {
   :root {

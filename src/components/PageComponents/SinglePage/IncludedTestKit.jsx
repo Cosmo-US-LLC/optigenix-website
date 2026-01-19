@@ -9,7 +9,7 @@ import icon6 from "@/assets/images/single_test/kit/icon6.svg";
 const items = [
   {
     title: "Collection Swab or Tube",
-    desc: "Easy-to-use cheek swab or saliva tube to safely collect your DNA sample.",
+    desc: "Easy-to-use cheek swab or saliva tube to safely collect your gene sample.",
     icon: icon1,
     accent: false,
   },
@@ -52,7 +52,7 @@ const IncludedTestKit = () => {
         <div className="flex flex-col gap-5 items-center mb-10 text-center md:mb-8">
           <h2 className="text-[#010907] ">What’s Included In Your Test Kit</h2>
           <p className=" description !text-[#010907]">
-            Everything you need to unlock your genetic insights
+            Everything you need to unlock your genetic insights.
           </p>
         </div>
 
@@ -60,7 +60,7 @@ const IncludedTestKit = () => {
           {items.map((item, idx) => (
             <div
               key={idx}
-              className={`bg-white border transition-colors duration-200 cursor-pointer ${
+              className={`bg-white border transition-colors duration-200 ${
                 item.accent ? "border-2 " : "border-[#dedede] border-2"
               } hover:border-[#0d8360] rounded-[16px] p-6 md:p-8 flex flex-col items-center text-center gap-5 shadow-sm`}
             >

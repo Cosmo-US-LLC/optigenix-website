@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import shopByFocusImage from "../../../assets/images/all_category/category_hero/category_hero_img1.webp";
-import personalizedSolutionsImage2 from "../../../assets/images/all_category/category_hero/category_hero_img3.webp";
+import personalizedSolutionsImage2 from "../../../assets/images/all_category/category_hero/category_hero_img4.webp";
 
 // Temporary image URLs from Figma - you'll need to replace these with your actual images
 // const shopByFocusImage =
@@ -10,18 +10,26 @@ import personalizedSolutionsImage2 from "../../../assets/images/all_category/cat
 const CategoryHero = () => {
   const navigate = useNavigate();
 
-  const handleExploreGoals = () => {
-    const target = document.getElementById("shop-your-focus");
+  // Helper function to scroll to element with offset above
+  const scrollToElementWithOffset = (elementId, offset = 80) => {
+    const target = document.getElementById(elementId);
     if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     }
   };
 
+  const handleExploreGoals = () => {
+    scrollToElementWithOffset("shop-your-focus", 80);
+  };
+
   const handleSeePersonalized = () => {
-    const target = document.getElementById("personalized-solutions");
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    scrollToElementWithOffset("personalized-solutions", 70);
   };
   return (
     <section className="bg-[#042b24] py-[60px] ">
@@ -82,7 +90,7 @@ const CategoryHero = () => {
                 {/* Content */}
                 <div className="relative z-10 flex flex-col gap-[16px] ">
                   <p className="description !text-[#F8FFFD] max-w-[240px]">
-                    Get recommendations backed by your DNA and blood test.
+                    Get recommendations backed by your Gene and blood tests.
                   </p>
 
                   <button
@@ -108,7 +116,7 @@ const CategoryHero = () => {
 
                 <button
                   className="btn_secondary max-w-[160px] w-full"
-                  onClick={() => navigate("/quiz")}
+                  onClick={() => navigate("/quiz?step=age")}
                 >
                   Take the Quiz
                 </button>

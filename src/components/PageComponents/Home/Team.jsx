@@ -36,25 +36,25 @@ const teamMembers = [
     linkedin: "https://www.linkedin.com/in/laurahix",
   },
   {
-    name: "Alec Bizieff, Ph.D.",
-    role: "Scientific Advisor and Research Specialist",
+    name: "Cecelia Zielke, Ph.D",
+    role: "Candidate, Scientific Advisor",
     image: teamImage4,
-    bio: "Dr. Bizieff brings his expertise in metabolic biology to advance OptiGenix's research initiatives while also leading the development of comprehensive educational content on biomarkers, supplements, and performance optimization. Through his contributions, he plays a pivotal role in fulfilling OptiGenix's mission to empower athletes with knowledge and tools needed to personalize their athletic journey and performance.",
-    linkedin: "https://www.linkedin.com/in/alec-bizieff",
-  },
-  {
-    name: "Cecelia Zielke, Ph.D. Candidate",
-    role: "Scientific Advisor",
-    image: teamImage5,
-    bio: "As a Ph.D. Candidate and D1 athlete, Cecelia brings cutting-edge research perspectives to OptiGenix, contributing to our understanding of personalized supplementation and athletic performance optimization. In addition, she plays a key role in reviewing pilot studies to evaluate and enhance the effectiveness of our personalized supplementation process.",
+    bio: "As a Ph.D. candidate and D1 athlete, Cecelia brings fresh research perspectives to OptiGenix, helping improve the effectiveness of our personalized supplementation process.",
     linkedin: "https://www.linkedin.com/in/cecelia-zielke-11a4a0202/",
   },
   {
     name: "Kai Samiere, BS MS",
-    role: "Registered Dietician - Sports Nutrition",
-    image: teamImage6,
-    bio: "Kai Samiere brings a strong foundation in sports nutrition and evidence-based dietetics as a Registered Dietitian with hands-on experience guiding athletes and active individuals. At OptiGenix, he supports the goal that every personalized supplement plan is both scientifically grounded and tailored to real-world performance needs. His passion for precision and measurable outcomes supports our mission to help athletes train smarter, recover faster, and perform at their peak.",
+    role: "Registered Dietitian, Sports Nutrition",
+    image: teamImage5,
+    bio: "Kai is a Registered Dietitian specializing in sports nutrition. He ensures each personalized supplement plan is scientifically grounded, helping athletes perform at their peak.",
     linkedin: "https://www.linkedin.com/in/kai-samiere-808/",
+  },
+  {
+    name: "Alec Bizieff, Ph.D",
+    role: "Scientific Advisor and Research Specialist",
+    image: teamImage6,
+    bio: "Dr. Bizieff drives OptiGenix’s research in metabolic biology, biomarkers, and performance optimization, giving athletes the knowledge and tools to tailor theirperformance journey.",
+    linkedin: "https://www.linkedin.com/in/alec-bizieff ",
   },
 ];
 
@@ -91,7 +91,7 @@ const Team = () => {
 
   return (
     <section
-      className="py-12 px-4 bg-[#f7f7f7] lg:py-[80px] lg:px-[60px]"
+      className="py-8 px-4 bg-[#f7f7f7] lg:py-[80px] lg:px-[60px]"
       id="meet-the-team"
     >
       <div className="max-w-[1280px] lg:px-8 mx-auto">
@@ -145,11 +145,11 @@ const Team = () => {
             {teamMembers.map((member, index) => (
               <CarouselItem
                 key={index}
-                className="pl-3 lg:pl-4 basis-[364px]  lg:basis-auto"
+                className="pl-3 lg:pl-4 basis-[354px]  lg:basis-auto"
               >
-                <div className="bg-white border min-h-[760px] md:min-h-[495px] border-[rgba(1,9,7,0.1)] rounded-[16px] flex flex-col lg:flex-row gap-2 lg:gap-[32px] items-start lg:items-center p-2 lg:pl-[16px] lg:pr-[32px] lg:py-[16px] w-full lg:w-[800px]">
+                <div className="bg-white border min-h-[660px] md:min-h-[300px] border-[rgba(1,9,7,0.1)] rounded-[16px] flex flex-col lg:flex-row gap-2 lg:gap-[32px] items-start lg:items-center p-2 lg:pl-[16px] lg:pr-[32px] lg:py-[16px] w-full lg:w-[800px]">
                   {/* Image */}
-                  <div className="w-full h-[325px] lg:w-[300px] md:h-[400px] rounded-[8px] overflow-hidden shrink-0">
+                  <div className="w-full h-[300px] lg:w-[300px] md:h-[300px] rounded-[8px] overflow-hidden shrink-0">
                     <img
                       src={member.image}
                       alt={member.name}
@@ -158,9 +158,9 @@ const Team = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1 flex flex-col gap-5 lg:gap-[32px] px-2 py-4 lg:py-[16px]">
+                  <div className="flex-1 flex flex-col gap-2 lg:gap-[32px] px-2 py-4 lg:py-[16px]">
                     {/* Name and Role */}
-                    <div className="flex flex-col gap-1 min-h-[60px] ">
+                    <div className="flex flex-col gap-1 min-h-[90px] md:min-h-[60px]">
                       <h3 className="font-['Funnel_Display'] font-bold text-[20px] leading-[28px] lg:text-[24px] lg:leading-[32px] text-[#042b24] capitalize">
                         {member.name}
                       </h3>
@@ -170,7 +170,7 @@ const Team = () => {
                     </div>
 
                     {/* Bio */}
-                    <p className="description text-[#010907] h-[280px] md:h-[220px] ">
+                    <p className="description text-[#010907] h-[180px] md:h-[150px] ">
                       {member.bio}
                     </p>
 
@@ -212,7 +212,7 @@ const Team = () => {
         </Carousel>
 
         {/* Mobile Navigation Controls */}
-        <div className="flex gap-5 justify-center items-center mt-8 lg:hidden">
+        <div className="flex gap-5 justify-center items-center mt-3 lg:hidden">
           {/* Previous Button */}
           <button
             onClick={scrollPrev}
